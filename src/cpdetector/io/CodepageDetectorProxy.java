@@ -87,7 +87,12 @@ public final class CodepageDetectorProxy extends AbstractCodepageDetector {
        ret = ((ICodepageDetector) detectorIt.next()).detectCodepage(url);
        if (ret != null) {
          if(ret != UnknownCharset.getInstance()){
-           break;
+           if(ret instanceof UnsupportedCharset){
+             // TODO: Debug logging: found illegal charset tag or encoding declaration.
+           }
+           else{
+             break;
+           }
          }
        }
      }
@@ -129,7 +134,12 @@ public final class CodepageDetectorProxy extends AbstractCodepageDetector {
       in.reset();
       if (ret != null) {
         if(ret != UnknownCharset.getInstance()){
-          break;
+          if(ret instanceof UnsupportedCharset){
+            // TODO: Debug logging: found illegal charset tag or encoding declaration.
+          }
+          else{
+            break;
+          }
         }
       }
     }

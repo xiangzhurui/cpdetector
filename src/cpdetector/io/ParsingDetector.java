@@ -147,6 +147,14 @@ public class ParsingDetector extends AbstractCodepageDetector {
          if (this.verbose) {
             System.out.println("  Decoding Exception: " + deepdown.getMessage() + " (unsupported java charset).");
          }
+         if(charset==null){
+           if(csName!=null){
+             charset=UnsupportedCharset.forName(csName);
+           }
+           else{
+             charset = UnknownCharset.getInstance();
+           }
+         }
       }
       return charset;
    }
