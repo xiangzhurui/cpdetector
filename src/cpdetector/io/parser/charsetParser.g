@@ -7,7 +7,7 @@ options{
 
 class EncodingParser extends Parser;
 options{
-		k=2;
+		k=1;
 		/*
 		If omitted, a RecognitionException of rule section will 
 		be caught, reported (System.err) and advanced to the next 
@@ -15,7 +15,7 @@ options{
 		trying to parse (my opinion).
 		*/
 		
-		defaultErrorHandler=false; 
+		defaultErrorHandler=false;
 		
 }
 
@@ -30,19 +30,23 @@ htmlDocument returns[String charset]
 class EncodingLexer extends Lexer;
 options{
 	codeGenDebug=false; 
-	k=2;
+	k=10;
 	charVocabulary='\u0000'..'\uFFFE';
 	genHashLines=true;
 	caseSensitive= false;
 	/*
-	Allows to ignore any other token (better: anything that does not match any token.
+	With introduction of a 2nd token (XML) in version 1.01 the 
+	underlying CharBuffer seems to skip when filtering: 
+	"meta http-...=" was read as "me="
 	*/
 	filter = true;
 }
 
-// Clever: SPACINT is newline or whitespaces and ignored here.
+// <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+// Clever: SPACING is newline or whitespaces and ignored here.
 META_CONTENT_TYPE options{ignore=SPACING;} 
 	:
+	'<'!
 	"meta"! 
 	"http-equiv"! 
 	'='! 
@@ -65,7 +69,7 @@ META_CONTENT_TYPE options{ignore=SPACING;}
 taken from:
 http://www.w3.org/TR/2004/REC-xml-20040204/#NT-prolog
 Not insisting on 1.1, as e.g. XMLDecl is mandatory there, which would 
-disallow to parse xml 1.0.
+disallow to parse xml 1.0. The optionality makes it work with both. 
 
 [1]     document      ::=   prolog element Misc*
 [22]   	prolog        ::=   XMLDecl? Misc* (doctypedecl Misc*)?
@@ -80,26 +84,47 @@ disallow to parse xml 1.0.
 All these rules are compressed to the following one that searches for EncName (performance).
 EncName is matched with IDENTIFIER, all others are ignored for token text '!'.
 Note, that spacings are possible around all literals.
+
+10/18/04:
+External Parsed Entities may be found often in form of DTD's. 
+They follow a stripped syntax of xmlDecl: TextDecl.  
+http://www.w3.org/TR/2004/REC-xml-20040204/#TextEntities
+
+[77]   	TextDecl	   ::=   	'<?xml' VersionInfo? EncodingDecl S? '?>'
+
+While VersionInfo becomes optional, EncodingDecl is mandatory now (compare 
+with XMLDecl above. This parser is modified in that rule: versionInfo
+is made optional which allow to formulate only one production 
+for XMLDecl and TextDecl, which is sufficient for our purpose: find the 
+encoding. The encodingDecl (optional in TextDecl) is kept mandatory, as 
+it is, what we search for. If not given, the whole token will not be matched 
+and it is simply not found (easier to handle than checking for empty token text).
+The other way: using two productions would introduce lexical 
+ambiguity for the complete length of XMLDecl -> The parser would need 
+a large lookahead. Unlimited lookahead, as S? may be unlimted spacing!!!
 */
+
 
 XML_ENCODING_DECL options{ignore=SPACING;}
 	:
 	// -> prolog
 	// -> XMLDecl?
 	"<?xml"!
-	// -> VersionInfo
-    "version"! 
-    // <-> Eq
-    "="!
-    // <- VersionInfo
-    // -> VersionNum
-    // <- VersionInfo
-    (
-      "'"! DIGIT! '.'! DIGIT! "'"!
-      |
-      '"'! DIGIT! '.'! DIGIT! '"'!
-     )
-     // <- XMLDecl´
+	(
+    	// -> VersionInfo
+    	"version"! 
+    	// <-> Eq
+    	"="!
+    	// <- VersionInfo
+    	// -> VersionNum
+    	// <- VersionInfo
+    	(
+    	  "'"! DIGIT! '.'! DIGIT! "'"!
+    	  |
+    	  '"'! DIGIT! '.'! DIGIT! '"'!
+    	 )
+    )?
+     // <- XMLDecl
      // -> EncodingDecl
      "encoding"! 
      // <-> Eq
@@ -111,7 +136,8 @@ XML_ENCODING_DECL options{ignore=SPACING;}
       '"'! IDENTIFIER '"'!
      )
      ;
-           
+
+
 protected 
 IDENTIFIER
     :
