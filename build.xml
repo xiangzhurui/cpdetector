@@ -13,18 +13,15 @@
 	<property name="project.name" value="cpdetector" />
 	<property name="libdir" value="ext" />
 	<property name="builddir" value="${basedir}/bin/" />
-	<property name="builddir15" value="${basedir}/bin15/" />
 	<property name="sourcedir" value="${basedir}/src/" />
-	<property name="sourcedir15" value="${basedir}/src15/" />
-	<property name="project.version" value="1.02" />
+	<property name="project.version" value="1.03" />
   <!-- for ant fit testing integration --> 
   <property name="fit.results.dir" value="${basedir}/test/fit/out/"/>
 
 	<!-- General paths & filesets. -->
 	<path description="Classpath of project" id="classpath">
 		<pathelement path="${builddir}" />
-		<pathelement path="${builddir15}" />
-    <pathelement path="../jchardet/bin/" />  
+	  <pathelement path="../jchardet/bin/" />  
 		<fileset refid="externalJars" />
     <fileset refid="testingJars" />
 	</path>
@@ -97,10 +94,8 @@
  <!-- Start of targets --> 
 	<!-- compile the java sources -->
 
-  <target name="build" depends="build.core,build.test">
-  </target>
   
-	<target name="build.core" depends="build.parser,integrate.jars">
+	<target name="build" depends="build.parser,integrate.jars">
 		<mkdir dir="${builddir}" />
     <echo>Compiling 1.4 core code.</echo>  
 		<javac fork="true" debug="true" target="1.4" source="1.4" verbose="true" destdir="${builddir}">
@@ -110,19 +105,6 @@
 			</src>
 		</javac>
 	</target>
-
-  <target name="build.test">
-    <mkdir dir="${builddir}" />
-    <echo>Compiling 1.5 test code.</echo>  
-    <javac fork="true" debug="true" target="1.5" source="1.5" verbose="false" destdir="${builddir}">
-      <src>
-        <pathelement location="${sourcedir15}" />
-      </src>
-      <include name="**/*.java" />
-      <classpath refid="classpath" />
-      <compilerarg value="-Xlint:unchecked" />
-    </javac>
-  </target>
  
  <target name="build.parser" unless="is.uptodate.parsergrammar">
   <antlr target="${sourcedir}/cpdetector/io/parser/charsetParser.g" traceLexer="no">
@@ -148,14 +130,9 @@
 		<jar destfile="${project.name}_${project.version}.jar" update="false" manifest="manifest.mf">
 			<fileset dir="${builddir}">
 				<include name="**/*.class" />
-				<exclude name="cpdetector/test**/*" />
+				<exclude name="cpdetector/test/ui/**/*" />
         <exclude name="junit/**/*" />
 			</fileset>
-			<fileset dir="${builddir15}">
-				<include name="**/*.class" />
-        <exclude name="cpdetector/test**/*" />
-        <exclude name="junit/**/*" />
-     	</fileset>
 		</jar>
 	</target>
 
@@ -172,6 +149,9 @@
         <include name="manifest.mf"/>
         <include name=".project"/>
         <include name="doc/cpdetector.css"/>
+        <include name="src/cpdetector/io/parser/charsetParser.g"/>
+        <include name="test/**/*" />
+        
         <!-- builders -->
         <include name=".external**/**/*" /> 
        </fileset>   
@@ -222,6 +202,7 @@
 			<include name="doc/**/*" />
 			<!-- Also delete the zip file with the doc! -->
 			<include name="${project.name}doc.zip" />
+      <exclude name="doc/cpdetector.css"/>
 		</fileset>
 	</delete>
 </target>
@@ -240,7 +221,7 @@
 <target name="rebuild" depends="delete.classfiles,build" />
 
 <!-- Junit testing -->
-<target name="test.collection.xml" depends="report.testdocuments" if="is.testdocuments">
+<target name="test.collection.xml" depends="build,report.testdocuments" if="is.testdocuments">
   <junit printsummary="yes" haltonfailure="no" filtertrace="true" fork="true" showoutput="true">
     <classpath refid="classpath" />
     <sysproperty key="collectionRoot" value="${basedir}/testdocuments/xmlts20031210/xmlconf/japanese/"/> 
@@ -253,7 +234,7 @@
    </junit> 
 </target>
 
-  <target name="test.collection.multilingual" depends="report.testdocuments" if="is.testdocuments">
+  <target name="test.collection.multilingual" depends="build,report.testdocuments" if="is.testdocuments">
     <junit printsummary="yes" haltonfailure="no" fork="true"  filtertrace="true" showoutput="true" forkmode="once">
       <jvmarg value="-Xmx500M"/> 
       <classpath refid="classpath" />
@@ -267,7 +248,7 @@
      </junit> 
   </target>
  
-  <target name="test.collection.xml.chinese" depends="report.testdocuments" if="is.testdocuments">
+  <target name="test.collection.xml.chinese" depends="build,report.testdocuments" if="is.testdocuments">
     <junit printsummary="yes" haltonfailure="no" fork="true"  filtertrace="true" showoutput="true" forkmode="once">
       <jvmarg value="-Xmx500M"/> 
       <classpath refid="classpath" />
@@ -280,8 +261,23 @@
       </test> 
      </junit> 
   </target>
+  
+	<target name="test.io.jararchive" depends="build">
+	  <junit printsummary="yes" 
+      haltonfailure="no" 
+      filtertrace="true" 
+      fork="true" 
+      dir="${basedir}"   
+      showoutput="true">
+	    <classpath refid="classpath" />
+	 
+	    <test name="cpdetector.test.JarArchiveTestCase" haltonfailure="no" haltonerror="no" outfile="jarArchiveTest">
+	      <formatter type="plain"/>
+	    </test> 
+	   </junit> 
+	</target>
 
-   <target name="runfit" >
+   <target name="runfit" depends="build" >
      <fit destdir="${fit.results.dir}" fork="true">
       <classpath refid="classpath"/> 
       <fileset dir="${basedir}/test/fit/">

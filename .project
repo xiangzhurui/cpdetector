@@ -20,7 +20,7 @@
 			<arguments>
 				<dictionary>
 					<key>LaunchConfigHandle</key>
-					<value>&lt;project&gt;/.externalToolBuilders/net.genady.jdk15.Java15Builder.launch</value>
+					<value>&lt;project&gt;/.externalToolBuilders/org.eclipse.jdt.core.javabuilder.launch</value>
 				</dictionary>
 			</arguments>
 		</buildCommand>
@@ -29,13 +29,12 @@
 			<arguments>
 				<dictionary>
 					<key>LaunchConfigHandle</key>
-					<value>&lt;project&gt;/.externalToolBuilders/org.eclipse.jdt.core.javabuilder.launch</value>
+					<value>&lt;project&gt;/.externalToolBuilders/net.genady.jdk15.Java15Builder.launch</value>
 				</dictionary>
 			</arguments>
 		</buildCommand>
 	</buildSpec>
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
-		<nature>net.genady.jdk15.JDK15ProjectNature</nature>
 	</natures>
 </projectDescription>
