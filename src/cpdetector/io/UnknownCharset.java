@@ -1,9 +1,7 @@
 /*
  * 
- *  UnknownCharset.java  a dummy codepage for cpdetector's CodepageProcessor 
- *  executable.
- * 
- *  Copyright (C) Achim Westermann, created on 20.07.2004, 12:17:13  
+ *  UnknownCharset.java  cpdetector
+ *  Copyright (C) Achim Westermann, created on 26.09.2004, 03:15:15  
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -28,65 +26,54 @@ package cpdetector.io;
 import java.nio.charset.Charset;
 import java.nio.charset.CharsetDecoder;
 import java.nio.charset.CharsetEncoder;
-import java.util.Locale;
 
 /**
+ * 
  * <p>
- * A dummy charset that indicates an unknown (undetected) Charset.
+ * A singleton Charset indicating that no encoding could be detected 
+ * at all (regardless wether supported by platform or not). 
+ * Unlike the {@link UnsupportedCharset} singleton instances it will 
+ * never equal anything. 
  * </p>
  * @author <a href="mailto:Achim.Westermann@gmx.de">Achim Westermann</a>
  *
  */
-public class UnknownCharset extends Charset
-{
+public class UnknownCharset extends Charset {
 
-    public UnknownCharset(String canonicalName, String[] aliases)
-    {
-        super("unknown", aliases);
-        
+  private static Charset instance;
+  /**
+   * @param canonicalName
+   * @param aliases
+   */
+  private UnknownCharset() {
+    super("void",null);
+  }
+  
+  public static Charset getInstance(){
+    if(instance==null){
+      instance = new UnknownCharset();
     }
-    
+    return instance;
+  }
 
-    /* (non-Javadoc)
-     * @see java.nio.charset.Charset#contains(java.nio.charset.Charset)
-     */
-    public boolean contains(Charset cs)
-    {
-        return false;
-    }
+  /* (non-Javadoc)
+   * @see java.nio.charset.Charset#contains(java.nio.charset.Charset)
+   */
+  public boolean contains(Charset cs) {
+    return false;
+  }
 
-    /* (non-Javadoc)
-     * @see java.nio.charset.Charset#newDecoder()
-     */
-    public CharsetDecoder newDecoder()
-    {
-        return null;
-    }
+  /* (non-Javadoc)
+   * @see java.nio.charset.Charset#newDecoder()
+   */
+  public CharsetDecoder newDecoder() {
+   throw new UnsupportedOperationException("This is no real Charset but a flag you should test for!");
+  }
 
-    /* (non-Javadoc)
-     * @see java.nio.charset.Charset#newEncoder()
-     */
-    public CharsetEncoder newEncoder()
-    {
-        return null;
-    }
-    
-    
-
-    /* (non-Javadoc)
-     * @see java.nio.charset.Charset#displayName()
-     */
-    public String displayName()
-    {
-        return super.displayName();
-    }
-
-    /* (non-Javadoc)
-     * @see java.nio.charset.Charset#displayName(java.util.Locale)
-     */
-    public String displayName(Locale locale)
-    {
-        return super.displayName(locale);
-    }
-
+  /* (non-Javadoc)
+   * @see java.nio.charset.Charset#newEncoder()
+   */
+  public CharsetEncoder newEncoder() {
+    throw new UnsupportedOperationException("This is no real Charset but a flag you should test for!");
+  }
 }
