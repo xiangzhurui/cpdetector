@@ -37,7 +37,7 @@ public class DetectURLFixture extends ColumnFixture{
       try{
         document = new URL(this.URL);
       }catch(java.net.MalformedURLException mue){
-        throw new IllegalArgumentException("Could not reach the file or url: "+this.URL+". Terminating.",mue);
+        throw new Exception("Could not reach the file or url: "+this.URL+". Terminating.",mue);
       }
     }
     System.out.println("Testing document: "+document.toExternalForm());
