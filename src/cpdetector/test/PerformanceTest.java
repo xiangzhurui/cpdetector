@@ -25,7 +25,6 @@ package cpdetector.test;
 
 import jargs.gnu.CmdLineParser;
 
-import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileFilter;
 import java.io.InputStream;
@@ -42,9 +41,9 @@ import java.util.StringTokenizer;
 import cpdetector.CmdLineArgsInheritor;
 import cpdetector.io.CodepageDetectorProxy;
 import cpdetector.io.FileFilterExtensions;
-import cpdetector.io.HTMLCodepageDetector;
 import cpdetector.io.ICodepageDetector;
 import cpdetector.io.JChardetFacade;
+import cpdetector.io.ParsingDetector;
 import cpdetector.reflect.SingletonLoader;
 import cpdetector.util.FileUtil;
 
@@ -151,7 +150,7 @@ public class PerformanceTest extends CmdLineArgsInheritor {
     }
     // default detector initialization:
     else {
-      this.detector.add(new HTMLCodepageDetector(false));
+      this.detector.add(new ParsingDetector(false));
       this.detector.add(JChardetFacade.getInstance());
     }
     // Iterations

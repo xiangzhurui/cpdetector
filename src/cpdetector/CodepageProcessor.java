@@ -55,9 +55,9 @@ import java.util.StringTokenizer;
 
 import cpdetector.io.CodepageDetectorProxy;
 import cpdetector.io.FileFilterExtensions;
-import cpdetector.io.HTMLCodepageDetector;
 import cpdetector.io.ICodepageDetector;
 import cpdetector.io.JChardetFacade;
+import cpdetector.io.ParsingDetector;
 import cpdetector.io.UnknownCharset;
 import cpdetector.reflect.SingletonLoader;
 import cpdetector.util.FileUtil;
@@ -272,7 +272,7 @@ public class CodepageProcessor extends CmdLineArgsInheritor
         // default detector initialization:
         else
         {
-            this.detector.add(new HTMLCodepageDetector(this.verbose));
+            this.detector.add(new ParsingDetector(this.verbose));
             this.detector.add(JChardetFacade.getInstance());
         }
         this.loadCodepages();
