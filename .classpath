@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+    <classpathentry kind="src" path="src"/>
+    <classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+    <classpathentry kind="lib" path="ext/antlr-2.7.2a5_11-15-2002.jar"/>
+    <classpathentry kind="lib" path="ext/chardet.jar"/>
+    <classpathentry kind="lib" path="ext/jargs.jar"/>
+    <classpathentry kind="output" path="bin"/>
+</classpath>
