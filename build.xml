@@ -113,7 +113,7 @@
   </target>
 
 	<target name="integrate.jars" unless="is.uptodate.externalJars">
-		<copy file="${basedir}/gpl.txt" toDir="${builddir}" />
+		<copy file="${basedir}/MPL-1.1.txt" toDir="${builddir}" />
 		<unjar dest="${builddir}">
 			<fileset refid="externalJars" />
 		</unjar>
@@ -144,7 +144,7 @@
        <fileset refid="testingJars" />
        <!-- Other shipment resources: -->
        <fileset dir="${basedir}">
-        <include name="gpl.txt"/>
+        <include name="MPL-1.1.txt"/>
         <include name="build.xml"/>
         <include name="manifest.mf"/>
         <include name=".project"/>
