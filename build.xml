@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="awlib" default="build">
+<project name="cpdetector" default="build">
 	<description>
-		A "just-for-fun" java application capable 
-		of mapping sounds to keystrokes in order to 
-		play samples on-demand (great slogan of the 90ies...).
+		A framework for configurable 
+		and extendable encoding detection 
+		of textual documents.
 	</description>
 
 <!-- General Properties -->
@@ -12,6 +12,7 @@
 	<property name="libdir" value="${basedir}/ext" />
 	<property name="builddir" value="${basedir}/bin" />
 	<property name="sourcedir" value="${basedir}/src" />
+	<property name="project.version" value="1.01" />
 	
 
 <!-- General paths & filesets. -->	
@@ -76,14 +77,14 @@
         
     <!-- Create the jar file for command line parsing support -->
     <target name="makejar" depends="delete.classfiles,build">
-    	<jar destfile="${project.name}.jar" basedir="${builddir}" manifest="manifest.mf" >
+    	<jar destfile="${project.name}_${project.version}.jar" basedir="${builddir}" manifest="manifest.mf" >
 			<include name="**/*.class"/>
     	</jar>
     </target>
     
     <!-- Dependency only for ensuring validity -->
     <target name="makezipEclipseProject" depends="build">
-    	<zip destfile="${project.name}_eclipse_project.zip" basedir="${basedir}/.." >
+    	<zip destfile="${project.name}_eclipse_project_${project.version}.zip" basedir="${basedir}/.." >
 			<include name="${project.name}/**/*.java"/>
 			<include name="${project.name}/**/*.txt"/>
 			<include name="${project.name}/**/*.jar"/>
@@ -91,9 +92,13 @@
 			<include name="${project.name}/.project"/>
 			<include name="${project.name}/**/*.xml"/>
 			<include name="${project.name}/manifest.mf"/>
-			<exclude name="${project.name}/jbuzzer*.jar"/>
+    		<include name="${project.name}/doc/${project.name}.css" />
+			<exclude name="${project.name}/*.txt"/>
+			<exclude name="${project.name}/*.jar"/>
+			<exclude name="${project.name}/*.zip"/>
+			<exclude name="${project.name}/test*/**"/>
 			<exclude name="${project.name}/bin/**" />
-			<exclude name="${project.name}/doc/**" />
+			<exclude name="${project.name}/doc/**/*.html" />
     	</zip>
     </target>
 
@@ -103,7 +108,7 @@
             notree="false" nonavbar="false" noindex="false" 
             splitindex="true" Author="true" version="true"
             nodeprecatedlist="false" nodeprecated="false"       
-            doctitle="cpdetector API Documentation"
+            doctitle="cpdetector API Documentation version ${project.version}"
             windowtitle="cpdetector, an extensible codepage-detection framework."
             Verbose="true"
         	stylesheetfile="${basedir}/doc/cpdetector.css"
@@ -124,7 +129,7 @@
 		<description>
 			Zip the javadoc API documentation to a zip named after the property project.name.
 		</description>
-		<zip basedir="${basedir}/doc" destfile="${basedir}/doc/${project.name}doc.zip" includes="**/*.html,**/*.css,package-list" />
+		<zip basedir="${basedir}/doc" destfile="${basedir}/doc/${project.name}doc_${project.version}.zip" includes="**/*.html,**/*.css,package-list" />
     </target>
 
 	<!-- remove all classfiles (except antlr sources) and the jar file-->
@@ -132,7 +137,7 @@
     	<delete verbose="true" failonerror="false">
     		<fileset refid="classfiles"/>
     		<fileset dir="${basedir}">
-    			<include name="${project.name}.jar"/>
+    			<include name="${project.name}_${project.version}.jar"/>
     		</fileset>
     	</delete>
     </target>
