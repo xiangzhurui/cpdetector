@@ -58,7 +58,7 @@ import cpdetector.io.FileFilterExtensions;
 import cpdetector.io.ICodepageDetector;
 import cpdetector.io.JChardetFacade;
 import cpdetector.io.ParsingDetector;
-import cpdetector.io.UnknownCharset;
+import cpdetector.io.UnsupportedCharset;
 import cpdetector.reflect.SingletonLoader;
 import cpdetector.util.FileUtil;
 
@@ -234,12 +234,18 @@ public class CodepageProcessor extends CmdLineArgsInheritor
             catch (Exception e)
             {
                 StringBuffer msg = new StringBuffer();
-                msg.append("Given charset name: \"").append(charset).append("\" for option -t is illegal: \n");
-                msg.append("  ").append(e.getMessage()).append("\n");
+                msg.append("Given charset name: \"");
+                msg.append(charset);
+                msg.append("\" for option -t is illegal: \n");
+                msg.append("  ");
+                msg.append(e.getMessage());
+                msg.append("\n");
                 msg.append("   Legal values are: \n");
                 for (int i = 0; i < parseCodepages.length; i++)
                 {
-                    msg.append("    ").append(parseCodepages[i].name()).append("\n");
+                    msg.append("    ");
+                    msg.append(parseCodepages[i].name());
+                    msg.append("\n");
                 }
                 throw new IllegalArgumentException(msg.toString());
             }
@@ -438,7 +444,7 @@ public class CodepageProcessor extends CmdLineArgsInheritor
             }
             else{
             	// fake charset for name construction:
-            	charset = new UnknownCharset(null,null);
+            	charset = UnsupportedCharset.forName("unknown");
             }
         }
 
@@ -551,17 +557,30 @@ public class CodepageProcessor extends CmdLineArgsInheritor
     {
         StringBuffer msg = new StringBuffer();
         msg.append("Setup:\n");
-        msg.append("  Collection-Root        : ").append(this.collectionRoot.getAbsolutePath()).append('\n');
-        msg.append("  Output-Dir             : ").append(this.outputDir.getAbsolutePath()).append('\n');
-        msg.append("  Move unknown           : ").append(this.moveUnknown).append('\n');
-        msg.append("  verbose                : ").append(this.verbose).append('\n');
-        msg.append("  wait                   : ").append(this.wait).append('\n');
+        msg.append("  Collection-Root        : ");
+        msg.append(this.collectionRoot.getAbsolutePath());
+        msg.append("\n");
+        msg.append("  Output-Dir             : ");
+        msg.append(this.outputDir.getAbsolutePath());
+        msg.append("\n");
+        msg.append("  Move unknown           : ");
+        msg.append(this.moveUnknown);
+        msg.append("\n");
+        msg.append("  verbose                : ");
+        msg.append(this.verbose);
+        msg.append("\n");
+        msg.append("  wait                   : ");
+        msg.append(this.wait);
+        msg.append("\n");
         if (this.targetCodepage != null)
         {
-            msg.append("  transform to codepage  : ").append(this.targetCodepage.name()).append('\n');
+            msg.append("  transform to codepage  : ");
+            msg.append(this.targetCodepage.name());
+            msg.append("\n");
         }
         msg.append("  detection algorithm    : ");
-        msg.append("\n").append(this.detector.toString());
+        msg.append("\n");
+        msg.append(this.detector.toString());
         System.out.println(msg.toString());
     }
 
@@ -571,7 +590,8 @@ public class CodepageProcessor extends CmdLineArgsInheritor
     protected void usage()
     {
         StringBuffer tmp = new StringBuffer();
-        tmp.append("usage: java -jar codepageProcessor.jar [options]").append('\n');
+        tmp.append("usage: java -jar codepageProcessor.jar [options]");
+        tmp.append("\n");
         tmp.append("options: \n");
         tmp.append("\n  Optional:\n");
         tmp.append("  -e <extensions> : A comma- or semicolon- separated string for document extensions like \"-e txt,dat\" (without dot or space!).\n");
