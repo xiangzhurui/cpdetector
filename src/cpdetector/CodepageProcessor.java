@@ -1,8 +1,4 @@
-/*
- * CodepageSorter.java
- * Created on . 
- */
- 
+
 /*
  * 
  *  CodepageProcessor.java an executable that shows best case
