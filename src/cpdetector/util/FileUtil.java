@@ -13,6 +13,8 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.Charset;
 import java.util.Map;
 import java.util.StringTokenizer;
 
@@ -115,10 +117,10 @@ public class FileUtil extends Object {
     java.util.Map.Entry cut = cutExtension(name);
     String prefix = (String) cut.getKey();
     String suffix = (String) cut.getValue();
-    int enum = 0;
+    int num = 0;
     while (f.exists()) {
-      f = new File(new StringBuffer(prefix).append('_').append(enum).append('.').append(suffix).toString());
-      enum++;
+      f = new File(prefix+'_'+num+'.'+suffix);
+      num++;
     }
     return f.getAbsolutePath();
   }
@@ -166,7 +168,7 @@ public class FileUtil extends Object {
         tokenCount--;
         prefCollect.append(tokenizer.nextToken());
         if (tokenCount > 1) {
-          prefCollect.append('.');
+          prefCollect.append(".");
         }
       }
       prefix = prefCollect.toString();
@@ -235,7 +237,8 @@ public class FileUtil extends Object {
         // reuse String filesparator: bad style...
         token = tokenizer.nextToken();
         if (tokenizer.hasMoreTokens()) {
-          dir.append(token).append(fileseparator);
+          dir.append(token);
+          dir.append(fileseparator);
         } else {
           if (new File(path).isFile()) {
             file = token;
@@ -269,16 +272,29 @@ public class FileUtil extends Object {
    * @param path
    * @return
    */
-  public static String cutDirectoryInformation(java.net.URL path) {
-    String ret = "";
-    if (path.toString().endsWith("/")) {
-
+  public static Map.Entry cutDirectoryInformation(java.net.URL path) {
+    Map.Entry ret = null;
+    String pre,suf,parse;
+    StringBuffer tmp = new StringBuffer();
+    parse = path.toExternalForm();
+    if (parse.endsWith("/")) {
+        pre = parse;
+        suf = "";
     } else {
       StringTokenizer tokenizer = new StringTokenizer(path.getFile(), "/");
+      tmp.append(path.getProtocol());
+      tmp.append(":");
+      tmp.append(path.getHost());
+      pre="";
       while (tokenizer.hasMoreElements()) {
-        ret = tokenizer.nextToken();
+        tmp.append(pre);
+        pre = tokenizer.nextToken();
+        tmp.append("/");
       }
+      suf = pre;
+      pre = tmp.toString();
     }
+    ret = new Entry(pre,suf);
     return ret;
   }
   
@@ -310,11 +326,55 @@ public class FileUtil extends Object {
   /**
    * Invokes {@link #readRAM(File)}, but 
    * decorates the result with a {@link java.io.ByteArrayInputStream}.
-   * @throws IOException
-   * 
-   *
+   * This means: The complete content of the given File has been loaded before 
+   * using the returned InputStream. There are no IO-delays afterwards but 
+   * OutOfMemoryErrors may occur.
    */
   public static InputStream readCache(File f) throws IOException{
     return new ByteArrayInputStream(readRAM(f));
+  }
+  
+  public static boolean isAllASCII(File f) throws IOException{
+    return isAllASCII(new FileInputStream(f));
+  }
+  
+  public static boolean isAllASCII(InputStream in) throws IOException{
+    boolean ret = true;
+    int read = -1;
+    do{
+      read = in.read();
+      if(read>0x7F){
+        ret = false;
+        break;
+      }
+      
+    }while(read != -1);
+    return ret;
+  }
+  
+  /**
+   * Tests, wether the content of the given file is identical 
+   * at character level, when it is opened with both different 
+   * Charsets. This is most often the case, if the given file only 
+   * contains ASCII codes but may also occur, when both codepages cover 
+   * common ranges and the document only contains values out of those 
+   * ranges (like the EUC-CN charset contains all mappings from BIG5). 
+   * @throws IOException
+   */
+  public static boolean isEqual(File document,Charset a, Charset b) throws IOException{
+    boolean ret = true;
+    InputStreamReader aReader = new InputStreamReader(new FileInputStream(document),a);
+    InputStreamReader bReader = new InputStreamReader(new FileInputStream(document),b);
+    int readA = -1,readB=-1;
+    do{
+      readA = aReader.read();
+      readB = bReader.read();
+      if(readA!=readB){
+        // also the case, if one is at the end earlier...
+        ret = false;
+        break;
+      }
+    }while(readA!=-1 && readB!=-1);
+    return ret;
   }
 }
