@@ -48,7 +48,6 @@ import java.nio.charset.Charset;
  */
 public abstract class AbstractCodepageDetector implements ICodepageDetector
 {
-
     /**
      * 
      */
@@ -87,5 +86,4 @@ public abstract class AbstractCodepageDetector implements ICodepageDetector
     	String mine = this.getClass().getName();
     	return mine.compareTo(other);
     }
-
 }
