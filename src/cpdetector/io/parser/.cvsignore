@@ -2,3 +2,7 @@ HTMLCharsetLexer.java
 HTMLCharsetParser.java
 HTMLCharsetParserTokenTypes.java
 HTMLCharsetParserTokenTypes.txt
+EncodingLexer.java
+EncodingParser.java
+EncodingParserTokenTypes.java
+EncodingParserTokenTypes.txt

@@ -6,3 +6,14 @@ gpl.txt
 releasenotes1.0.txt
 testdocuments
 performance.txt
+.externalToolBuilders
+bin15
+src15
+cpdetector_eclipse_project_1.01.zip
+xmlTest.xml
+cpdetectordoc_1.02.zip
+multilingualTest.xml
+cpdetector_eclipse_project_1.02.zip
+cpdetector_testdocuments_1.02.zip
+cpdetector_1.02.jar
+cpdetector_1.01.jar
