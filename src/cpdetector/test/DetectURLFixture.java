@@ -5,7 +5,11 @@ import java.net.URL;
 import java.io.File;
 
 public class DetectURLFixture extends ColumnFixture{
-  public String url;
+  /**
+   * I would never name a member like this, just for 
+   * done for the fit-table heading.
+   */
+  public String URL;
   
   /*
    * Internal needed cpdetector:
@@ -21,16 +25,22 @@ public class DetectURLFixture extends ColumnFixture{
   
   public String detectURL() throws Throwable{
     // ignore case: 
-    this.url = this.url.toLowerCase();
+    this.URL = this.URL.toLowerCase();
     // Check, wether local file:
-    File f = new File(this.url);
+    File f = new File(this.URL);
+    System.out.println("Checking file: "+f.getAbsolutePath());
     URL document;
     if(f.exists()){
       document = f.toURL();
     }
     else{
-      document = new URL(this.url);
+      try{
+        document = new URL(this.URL);
+      }catch(java.net.MalformedURLException mue){
+        throw new IllegalArgumentException("Could not reach the file or url: "+this.URL+". Terminating.",mue);
+      }
     }
+    System.out.println("Testing document: "+document.toExternalForm());
     return this.detector.detectCodepage(document).name().toLowerCase();
   }
 }
