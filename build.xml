@@ -103,17 +103,28 @@
             notree="false" nonavbar="false" noindex="false" 
             splitindex="true" Author="true" version="true"
             nodeprecatedlist="false" nodeprecated="false"       
-            doctitle="JBuzzer API Documentation"
+            doctitle="cpdetector API Documentation"
             windowtitle="cpdetector, an extensible codepage-detection framework."
             Verbose="true"
+        	stylesheetfile="${basedir}/doc/cpdetector.css"
+        	charset="UTF-8" 
+        	docencoding="UTF-8"
+        	
        	>
        		<classpath refid="classpath"/>
-       		<bottom><![CDATA[<i>Copyright &#169; 2003 GLPL, All Rights Footloose.</i>]]></bottom>
+       		<bottom><![CDATA[Copyleft &#x32A2; 2003-2004 MPL 1.1, <span title='Save the whales!'>All Rights Footloose.</span>]]></bottom>
         	<fileset refid="sourcefiles"/>
        		<link offline="false" href="http://java.sun.com/j2se/1.4.2/docs/api/" />
        		<link offline="false" href="http://logging.apache.org/log4j/docs/api/" packagelistLoc="http://logging.apache.org/log4j/docs/api/package-list" />
-       		<link offline="false" href="http://www.antlr.org/javadoc/" packagelistLoc="http://www.antlr.org/javadoc/package-list" />
+        	<link offline="false" href="http://www.antlr.org/javadoc/" packagelistLoc="http://www.antlr.org/javadoc/package-list" />
         </javadoc>
+    </target>
+	
+    <target name="zip.javadoc" depends="javadoc" >
+		<description>
+			Zip the javadoc API documentation to a zip named after the property project.name.
+		</description>
+		<zip basedir="${basedir}/doc" destfile="${basedir}/doc/${project.name}doc.zip" includes="**/*.html,**/*.css,package-list" />
     </target>
 
 	<!-- remove all classfiles (except antlr sources) and the jar file-->
