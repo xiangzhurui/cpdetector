@@ -5,17 +5,20 @@
 		and extendable encoding detection 
 		of textual documents.
 	</description>
-
+  <!-- optional taskdefs -->
+  <taskdef name="fit" classname="com.cmdev.fit.ant.FitTask"/>
+    
 	<!-- General Properties -->
 
 	<property name="project.name" value="cpdetector" />
 	<property name="libdir" value="ext" />
-	<property name="builddir" value="${basedir}/bin" />
-	<property name="builddir15" value="${basedir}/bin15" />
-	<property name="sourcedir" value="${basedir}/src" />
-	<property name="sourcedir15" value="${basedir}/src15" />
+	<property name="builddir" value="${basedir}/bin/" />
+	<property name="builddir15" value="${basedir}/bin15/" />
+	<property name="sourcedir" value="${basedir}/src/" />
+	<property name="sourcedir15" value="${basedir}/src15/" />
 	<property name="project.version" value="1.02" />
-
+  <!-- for ant fit testing integration --> 
+  <property name="fit.results.dir" value="${basedir}/test/fit/out/"/>
 
 	<!-- General paths & filesets. -->
 	<path description="Classpath of project" id="classpath">
@@ -23,6 +26,7 @@
 		<pathelement path="${builddir15}" />
     <pathelement path="../jchardet/bin/" />  
 		<fileset refid="externalJars" />
+    <fileset refid="testingJars" />
 	</path>
 
 	<fileset description="Source files of project" dir="${basedir}" id="sourcefiles">
@@ -41,8 +45,12 @@
    	-->
 	<fileset dir="${basedir}" id="externalJars" description="External library jar files that will be shipped with this *.jar distribution.">
 		<include name="${libdir}/**/*.jar" />
+    <exclude name="${libdir}/test/**"/>  
 	</fileset>
  
+  <fileset dir="${basedir}" id="testingJars" description="External library jar files for testing. Will not be shipped in binary jar release.">
+    <include name="${libdir}/test/**/*.jar"/>  
+  </fileset>
   
   <fileset dir="${basedir}" id="testdocuments">
     <include name="testdocuments/**/*" /> 
@@ -60,7 +68,6 @@
   <and>
     <available file="${builddir}/antlr/"/>
     <available file="${builddir}/jargs/"/>
-    <available file="${builddir}/junit/"/>
     <available file="${builddir}/org/mozilla/"/>
     <!-- one uptodate for every external jar -->
     <uptodate> 
@@ -70,10 +77,6 @@
     <uptodate> 
       <srcfiles refid="externalJars"/>
       <mapper type="merge" to="${builddir}/jargs/"/>
-   </uptodate>
-    <uptodate> 
-      <srcfiles refid="externalJars"/>
-      <mapper type="merge" to="${builddir}/junit/"/>
    </uptodate>
     <uptodate> 
       <srcfiles refid="externalJars"/>
@@ -161,6 +164,7 @@
 		<zip destfile="${project.name}_eclipse_project_${project.version}.zip">
        <fileset refid="sourcefiles"/>
        <fileset refid="externalJars" />
+       <fileset refid="testingJars" />
        <!-- Other shipment resources: -->
        <fileset dir="${basedir}">
         <include name="gpl.txt"/>
@@ -263,6 +267,26 @@
      </junit> 
   </target>
  
- 
- 
+  <target name="test.collection.xml.chinese" depends="report.testdocuments" if="is.testdocuments">
+    <junit printsummary="yes" haltonfailure="no" fork="true"  filtertrace="true" showoutput="true" forkmode="once">
+      <jvmarg value="-Xmx500M"/> 
+      <classpath refid="classpath" />
+      <sysproperty key="collectionRoot" value="${basedir}/testdocuments/xml.ascc.net/"/> 
+      <sysproperty key="extensions" value="html,htm,xml,dtd"/> 
+      <sysproperty key="iterations" value="1"/> 
+
+      <test name="cpdetector.test.JunitLargeCollectionTest" haltonfailure="no" haltonerror="no" outfile="xmlChineseTest">
+        <formatter type="xml"/>
+      </test> 
+     </junit> 
+  </target>
+
+   <target name="runfit" >
+     <fit destdir="${fit.results.dir}" fork="true">
+      <classpath refid="classpath"/> 
+      <fileset dir="${basedir}/test/fit/">
+       <include name="*.html"/>
+      </fileset> 
+     </fit>
+    </target>
 </project>

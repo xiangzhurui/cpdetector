@@ -4,8 +4,10 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="ext/jargs.jar"/>
 	<classpathentry exported="true" sourcepath="src15" kind="lib" path="bin15"/>
-	<classpathentry kind="lib" path="ext/junit.jar"/>
 	<classpathentry kind="lib" path="ext/antlr.jar"/>
 	<classpathentry kind="lib" path="ext/chardet.jar"/>
+	<classpathentry kind="lib" path="ext/test/fit.jar"/>
+	<classpathentry kind="lib" path="ext/test/junit.jar"/>
+	<classpathentry kind="lib" path="ext/test/antfit.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
