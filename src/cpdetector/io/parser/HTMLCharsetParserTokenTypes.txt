@@ -1,8 +1,0 @@
-// $ANTLR : charsetParser.g -> HTMLCharsetParserTokenTypes.txt$
-HTMLCharsetParser    // output token vocab name
-META_CONTENT_TYPE=4
-SPACING=5
-NEWLINE=6
-SPACE=7
-DIGIT=8
-LETTER=9
