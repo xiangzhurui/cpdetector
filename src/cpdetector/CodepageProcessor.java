@@ -60,6 +60,7 @@ import cpdetector.io.ICodepageDetector;
 import cpdetector.io.JChardetFacade;
 import cpdetector.io.UnknownCharset;
 import cpdetector.reflect.SingletonLoader;
+import cpdetector.util.FileUtil;
 
 /**
  * <p>
@@ -131,7 +132,7 @@ public class CodepageProcessor extends CmdLineArgsInheritor
      *
      */
     private boolean moveUnknown = false;
-
+    
     private boolean verbose = false;
     /**
      * Wait between processing documents. Default is zero.
@@ -215,7 +216,9 @@ public class CodepageProcessor extends CmdLineArgsInheritor
         }
         if (verboseOption != null)
         {
+          if(((Boolean)verboseOption).booleanValue()){
             this.verbose = true;
+          }
         }
         if (waitOption != null)
         {
@@ -403,7 +406,7 @@ public class CodepageProcessor extends CmdLineArgsInheritor
         String prefix; // the path between this.collectionRoot and the file.
         File target;
 
-        filenameFinder = cutDirectoryInformation(document.getAbsolutePath());
+        filenameFinder = FileUtil.cutDirectoryInformation(document.getAbsolutePath());
         prefix = document.getAbsolutePath();
         int stop = prefix.lastIndexOf(fileseparator);
         int start = this.collectionRoot.getAbsolutePath().length();
@@ -415,12 +418,16 @@ public class CodepageProcessor extends CmdLineArgsInheritor
         {
             prefix = prefix.substring(this.collectionRoot.getAbsolutePath().length(), stop + 1);
         }
-        System.out.println("Processing document: " + prefix + "/" + filenameFinder.getValue());
+        if(this.verbose){
+          System.out.println("Processing document: " + prefix + "/" + filenameFinder.getValue());
+        }
         charset = this.detector.detectCodepage(document.toURL());
 
         if (charset == null)
         {
+          if(this.verbose){
             System.out.println("  Charset not detected.");
+          }
             if (!this.moveUnknown)
             {
                 if (this.verbose)
@@ -455,8 +462,10 @@ public class CodepageProcessor extends CmdLineArgsInheritor
                 }
             }
             target = new File(target.getAbsolutePath() + "/" + filenameFinder.getValue());
-            System.out.println("  Moving to \"" + target.getAbsolutePath() + "\".");
-            if (target.exists() && target.length() == document.length())
+            if(this.verbose){
+                System.out.println("  Moving to \"" + target.getAbsolutePath() + "\".");
+            }
+                if (target.exists() && target.length() == document.length())
             {
                 if (this.verbose)
                 {
@@ -498,7 +507,10 @@ public class CodepageProcessor extends CmdLineArgsInheritor
                 }
             }
             target = new File(target.getAbsolutePath() + "/" + filenameFinder.getValue());
+            if(this.verbose){
+
             System.out.println("  Moving to \"" + target.getAbsolutePath() + "\".");
+            }
             this.rawCopy(document, target);
         }
     }
@@ -553,62 +565,6 @@ public class CodepageProcessor extends CmdLineArgsInheritor
         System.out.println(msg.toString());
     }
 
-    private static Map.Entry cutDirectoryInformation(String path)
-    {
-        StringBuffer dir = new StringBuffer();
-        String file = "";
-        String fileseparator = System.getProperty("file.separator");
-        StringTokenizer tokenizer = new StringTokenizer(path, fileseparator);
-        int size = tokenizer.countTokens();
-        switch (size)
-        {
-            case 0 :
-                {
-                    dir.append(new File(".").getAbsolutePath());
-                    break;
-                }
-            case 1 :
-                {
-                    File test = new File(tokenizer.nextToken());
-                    if (new File(path).isDirectory())
-                    {
-                        dir.append(test.getAbsolutePath());
-                    }
-                    else
-                    {
-                        dir.append(new File(".").getAbsolutePath());
-                        file = path;
-                    }
-                    break;
-                }
-            default :
-                {
-                    String token;
-                    while (tokenizer.hasMoreElements())
-                    {
-                        // reuse String filesparator: bad style... 
-                        token = tokenizer.nextToken();
-                        if (tokenizer.hasMoreTokens())
-                        {
-                            dir.append(token).append(fileseparator);
-                        }
-                        else
-                        {
-                            if (new File(path).isFile())
-                            {
-                                file = token;
-                            }
-                            else
-                            {
-                                dir.append(token);
-                            }
-                        }
-                    }
-                }
-        }
-        return new Entry(dir.toString(), file);
-    }
-
     /* (non-Javadoc)
      * @see com.ibm.es.qa.tests.tokenizer.CmdLineArgsInheritor#usage()
      */
@@ -637,47 +593,7 @@ public class CodepageProcessor extends CmdLineArgsInheritor
         System.out.print(tmp.toString());
     }
 
-    private final static class Entry implements java.util.Map.Entry
-    {
-        private Object key;
-        private Object value;
-
-        public Entry(Object key, Object value)
-        {
-            this.key = key;
-            this.value = value;
-        }
-        /**
-         * Maybe null!
-         * @see java.util.Map.Entry#getKey()
-         */
-        public Object getKey()
-        {
-            return this.key;
-        }
-
-        /**
-         * Maybe null!
-         * @see java.util.Map.Entry#getValue()
-         */
-        public Object getValue()
-        {
-            return this.value;
-        }
-
-        /**
-         * You may use null. But you will get it back next call!
-         *
-         * @see java.util.Map.Entry#setValue(java.lang.Object)
-         */
-        public Object setValue(Object value)
-        {
-            Object ret = this.value;
-            this.value = value;
-            return ret;
-        }
-    }
-
+  
     void loadCodepages()
     {
         SortedMap charSets = Charset.availableCharsets();
