@@ -79,15 +79,21 @@ public interface ICodepageDetector extends Serializable, Comparable {
     * This method allows to detect the charset encoding from every source (even
     * a String, which an URL does not decorate!).
     * </p>
+    * <p>
+    * Note that you cannot reuse the given InputStream unless it supports 
+    * marking ({@link InputStream#markSupported()} == true), you mark the 
+    * initial position with a sufficient readlimit and invoke reset afterwards 
+    * (without getting any exception).
+    * </p>
     * 
     * @param in
     *           An InputStream for the document, that supports mark and a
     *           readlimit of argument length.
     * @param length
-    *           The amount of bytes to take into account. This number shouls not
+    *           The amount of bytes to take into account. This number should not
     *           be longer than the amount of bytes retrievable from the
     *           InputStream but should be as long as possible to give the
-    *           fallback detection (chardet) more hints to guess. *
+    *           fallback detection (chardet) more hints to guess. 
     */
    public Charset detectCodepage(InputStream in, int length) throws IOException;
 }
