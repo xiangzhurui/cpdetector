@@ -133,7 +133,11 @@ public class ParsingDetector extends AbstractCodepageDetector {
          parser = new EncodingParser(lexer);
          csName = parser.htmlDocument();
          if (csName != null) {
+           // TODO: prepare document with illegal value, then test: Decide to catch exception and return UnsupportedCharset.
             charset = Charset.forName(csName);
+         }
+         else{
+           charset = UnknownCharset.getInstance();
          }
       } catch (ANTLRException ae) {
          if (this.verbose) {

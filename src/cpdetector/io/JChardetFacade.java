@@ -28,92 +28,99 @@ import org.mozilla.intl.chardet.nsPSMDetector;
  * uses the frequency statistics of characters in a given language." </i>( <a
  * href="http://www.i18nfaq.com/chardet.html#8">source of description </a>).
  * </p>
+ * <p>
+ * It is a singleton for performance reasons (buffer allocation). Because it is
+ * stateful (internal buffer) the method
+ * {@link #detectCodepage(InputStream, int)}(delegated to by
+ * {@link #detectCodepage(URL)}has to be synchronized.
+ * </p>
+ * 
  * 
  * @author <a href="mailto:Achim.Westermann@gmx.de">Achim Westermann </a>
  *  
  */
 public final class JChardetFacade extends AbstractCodepageDetector implements nsICharsetDetectionObserver {
-   private static JChardetFacade instance = null;
+  private static JChardetFacade instance = null;
 
-   private static nsDetector det = new nsDetector(nsPSMDetector.ALL);
+  private static nsDetector det = new nsDetector(nsPSMDetector.ALL);
 
-   private static byte[] buf = new byte[4096];
+  private static byte[] buf = new byte[4096];
 
-   private Charset codpage = null;
+  private Charset codpage = null;
 
-   /**
-    *  
-    */
-   private JChardetFacade() {
-      super();
-      det.Init(this);
-   }
+  /**
+   *  
+   */
+  private JChardetFacade() {
+    super();
+    det.Init(this);
+  }
 
-   public static JChardetFacade getInstance() {
-      if (instance == null) {
-         instance = new JChardetFacade();
+  public static JChardetFacade getInstance() {
+    if (instance == null) {
+      instance = new JChardetFacade();
+    }
+    return instance;
+  }
+
+  /**
+   * 
+   * @param url
+   *          Should link to a file containing textual document. No check for
+   *          images or other resources is made.
+   * @throws IOException
+   *           If a problem with the url - handling occurs.
+   */
+  public Charset detectCodepage(URL url) throws IOException {
+    return this.detectCodepage(new BufferedInputStream(url.openStream()), Integer.MAX_VALUE);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see cpdetector.io.ICodepageDetector#detectCodepage(java.io.InputStream)
+   */
+  public synchronized Charset detectCodepage(InputStream in, int length) throws IOException {
+    this.Reset();
+    int len;
+    int read = 0;
+    boolean done = false;
+    boolean isAscii = true;
+    Charset ret = null;
+    do {
+      len = in.read(buf, 0, Math.min(buf.length, length - read));
+      if (len > 0) {
+        read += len;
       }
-      return instance;
-   }
+      if (!done)
+        done = det.DoIt(buf, len, false);
+    } while (len != -1 && !done);
+    det.DataEnd();
+    if (this.codpage == null) {
+      // The callback Notify will not have been called...
+      // looked in method isAscii... and found,
+      // that the leading bits above the 7 one are filtered.
+      // So it is US-ASCII detection.
+      ret = UnknownCharset.getInstance();
+    }
+    else {
+      ret = this.codpage;
+    }
+    return ret;
 
-   /**
-    * 
-    * @param url
-    *           Should link to a file containing textual document. No check for
-    *           images or other resources is made.
-    * @throws IOException
-    *            If a problem with the url - handling occurs.
-    */
-   public Charset detectCodepage(URL url) throws IOException {
-      return this.detectCodepage(new BufferedInputStream(url.openStream()),Integer.MAX_VALUE);
-   }
+  }
 
-   /*
-    * (non-Javadoc)
-    * 
-    * @see cpdetector.io.ICodepageDetector#detectCodepage(java.io.InputStream)
-    */
-   public Charset detectCodepage(InputStream in, int length) throws IOException {
-      int len;
-      int read = 0;
-      boolean done = false;
-      boolean isAscii = true;
-      Charset ret = null;
-      do {
-         len = in.read(buf, 0, Math.min(buf.length, length - read));
-         if (len > 0) {
-            read += len;
-         }
-         // Check if the stream is only ascii.
-         if (isAscii)
-            isAscii = det.isAscii(buf, len);
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.mozilla.intl.chardet.nsICharsetDetectionObserver#Notify(java.lang.String)
+   */
+  public void Notify(String charset) {
+    this.codpage = Charset.forName(charset);
+  }
 
-         // DoIt if non-ascii and not done yet.
-         if (!isAscii && !done)
-            done = det.DoIt(buf, len, false);
-      } while (len != -1);
-      det.DataEnd();
-      if (isAscii) {
-         // The callback Notify will not have been called...
-         // looked in method isAscii... and found,
-         // that the leading bits above the 7 one are filtered.
-         // So it is US-ASCII detection.
-         ret = Charset.forName("US-ASCII");
-      }
-      else {
-         ret = this.codpage;
-      }
-      det.Reset();
-      return ret;
-
-   }
-
-   /*
-    * (non-Javadoc)
-    * 
-    * @see org.mozilla.intl.chardet.nsICharsetDetectionObserver#Notify(java.lang.String)
-    */
-   public void Notify(String charset) {
-      this.codpage = Charset.forName(charset);
-   }
+  public void Reset() {
+    det.Reset();
+    this.codpage = null;
+  }
 }
