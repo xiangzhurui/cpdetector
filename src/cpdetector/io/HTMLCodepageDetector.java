@@ -26,80 +26,89 @@
 package cpdetector.io;
 
 import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.InputStream;
 import java.net.URL;
 import java.nio.charset.Charset;
 
-import antlr.ANTLRException;
-import cpdetector.io.parser.HTMLCharsetLexer;
-import cpdetector.io.parser.HTMLCharsetParser;
-
 /**
+ * 
  * <p>
- * A Façade (<a href="http://c2.com/cgi/wiki?DesignPatternsBook" target="_blank">GOF-pattern</a>) 
- * that ports an <a href="http://www.antlr.org">ANTLR</a> - based parser / lexer 
- * that searches for &lt;charset&gt;
- * <pre>
- * meta http-equiv="content-type" content="text/html; charset=&ltcharset&gt;"
- * </pre>
- * in html pages to the interface {@link ICodepageDetector}.
+ * <b>
+ * This class has been replaced by {@link cpdetector.io.ParsingDetector} 
+ * and only exists for backward-compatibility.
+ * </b>
+ * The name simply would not match any more, as parsing 
+ * is not limited to html (1.1 includes xml as well).
+ * New code should stick to the replacement. 
+ * This class has been modified with version 1.1 and now 
+ * is delegating all calls to an instance of the replacement 
+ * class (5 minutes with eclipse and a common interface), which 
+ * introduces a small overhead (minimal, as one invokevirtual 
+ * is nothing compared to codepage detection by parsing). 
  * </p>
- * @author <a href="mailto:Achim.Westermann@gmx.de">Achim Westermann</a>
- *
+ * 
+ * <p>
+ * Documentation may be found in the class {@link cpdetector.io.ParsingDetector}. 
+ * It is valid for this class.
+ * </p>
+ * 
+ * @version 1.1
+ * @deprecated This class should not be used in new code. It has been 
+ * replaced by {@link cpdetector.io.ParsingDetector}. Future versions may 
+ * drop this class.
+ * @see ParsingDetector
+ * @author <a href="mailto:Achim.Westermann@gmx.de">Achim Westermann </a>
+ *  
  */
-public class HTMLCodepageDetector extends AbstractCodepageDetector
-{
-	private boolean verbose = false;
+public class HTMLCodepageDetector extends AbstractCodepageDetector {
+  /**
+   * Deprecation support. Instances of this 
+   * class stick to the replacement.
+   */
+  private ParsingDetector delegate;
+  
+  public HTMLCodepageDetector() {
+    this(false);
+  }
 
-
-	public HTMLCodepageDetector(){
-		this(true);
-	}
-
-    public HTMLCodepageDetector(boolean verbose)
-    {
-        super();
-        this.verbose = verbose;
-    }
-    
-
-    /* (non-Javadoc)
-     * @see aw.io.ICodepageDetector#detectCodepage(java.net.URL)
-     */
-    public Charset detectCodepage(URL url) throws IOException
-    {
-        HTMLCharsetLexer lexer;
-        HTMLCharsetParser parser;
-        Charset charset = null;
-        String csName = null;
-        if (this.verbose)
-        {
-            System.out.println("  trying to parse for charset attribute with codepage: US-ASCII");
-        }
-        try
-        {
-            lexer = new HTMLCharsetLexer(new InputStreamReader(url.openStream(), "US-ASCII"));
-            parser = new HTMLCharsetParser(lexer);
-			csName = parser.htmlDocument();
-			if(csName != null){
-            	charset = Charset.forName(csName);
-			}
-        }
-        catch (ANTLRException ae)
-        {
-            if (this.verbose)
-            {
-                System.out.println("  ANTLR parser exception: " + ae.getMessage());
-            }
-        }
-        catch (Exception deepdown)
-        {
-            if (this.verbose)
-            {
-                System.out.println("  Decoding Exception: " + deepdown.getMessage()+" (unsupported java charset).");
-            }
-        }
-        return charset;
-    }
-
+  public HTMLCodepageDetector(boolean verbose) {
+    super();
+    this.delegate = new ParsingDetector(verbose);
+  }
+  /* (non-Javadoc)
+   * @see cpdetector.io.AbstractCodepageDetector#compareTo(java.lang.Object)
+   */
+  public int compareTo(Object o) {
+    return delegate.compareTo(o);
+  }
+  /**
+   * 
+   */
+  public Charset detectCodepage(InputStream in, int length) throws IOException {
+    return delegate.detectCodepage(in, length);
+  }
+  /**
+   * 
+   */
+  public Charset detectCodepage(URL url) throws IOException {
+    return delegate.detectCodepage(url);
+  }
+  /* (non-Javadoc)
+   * @see java.lang.Object#equals(java.lang.Object)
+   */
+  public boolean equals(Object obj) {
+    return delegate.equals(obj);
+  }
+  /* (non-Javadoc)
+   * @see java.lang.Object#hashCode()
+   */
+  public int hashCode() {
+    return delegate.hashCode();
+  }
+  /* (non-Javadoc)
+   * @see java.lang.Object#toString()
+   */
+  public String toString() {
+    return delegate.toString();
+  }
 }
