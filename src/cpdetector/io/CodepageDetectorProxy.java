@@ -9,8 +9,8 @@ import java.io.InputStream;
 import java.net.URL;
 import java.nio.charset.Charset;
 import java.util.Iterator;
+import java.util.LinkedHashSet;
 import java.util.Set;
-import java.util.TreeSet;
 
 /**
  * <p>
@@ -41,7 +41,7 @@ public final class CodepageDetectorProxy extends AbstractCodepageDetector {
    * {@link IOException}is thrown the search will terminate early (assuming
    * that the execption is related to a general problem with the given URL.
    */
-  private Set detectors = new TreeSet();
+  private Set detectors = new  LinkedHashSet();
 
   /**
    * Singleton constructor. For internal use only.
@@ -86,7 +86,9 @@ public final class CodepageDetectorProxy extends AbstractCodepageDetector {
      while (detectorIt.hasNext()) {
        ret = ((ICodepageDetector) detectorIt.next()).detectCodepage(url);
        if (ret != null) {
-         break;
+         if(ret != UnknownCharset.getInstance()){
+           break;
+         }
        }
      }
      return ret;
@@ -126,7 +128,9 @@ public final class CodepageDetectorProxy extends AbstractCodepageDetector {
       ret = ((ICodepageDetector) detectorIt.next()).detectCodepage(in,length);
       in.reset();
       if (ret != null) {
-        break;
+        if(ret != UnknownCharset.getInstance()){
+          break;
+        }
       }
     }
     return ret;
@@ -136,7 +140,10 @@ public final class CodepageDetectorProxy extends AbstractCodepageDetector {
     Iterator it = this.detectors.iterator();
     int i = 1;
     while (it.hasNext()) {
-      ret.append(i).append(") ").append(it.next().getClass().getName()).append('\n');
+      ret.append(i);
+      ret.append(") ");
+      ret.append(it.next().getClass().getName());
+      ret.append("\n");
       i++;
     }
     return ret.toString();
