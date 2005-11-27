@@ -1,9 +1,9 @@
 /*
- * 
- *  AbstractCharsetdetector.java, provides the default implementation 
+ *
+ *  AbstractCharsetdetector.java, provides the default implementation
  *  for the high-level codepage detection method of interface ICodepageProcessor.
- * 
- *  Copyright (C) Achim Westermann, created on 19.07.2004, 21:45:47  
+ *
+ *  Copyright (C) Achim Westermann, created on 19.07.2004, 21:45:47
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -18,10 +18,10 @@
  *  You should have received a copy of the GNU General Public License
  *  along with this program; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
- *  
+ *
  *  If you modify or optimize the code in a useful way please let me know.
  *  Achim.Westermann@gmx.de
- *	
+ *
  */
 package cpdetector.io;
 
@@ -34,56 +34,61 @@ import java.nio.charset.Charset;
 
 /**
  * <p>
- * This implementation provides the default implementation 
- * for the high-level codepage detection method {@link #open(URL)} 
- * of the implemented interface ICodepageProcessor.
+ * This implementation provides the default implementation for the high-level
+ * codepage detection method {@link #open(URL)}of the implemented interface
+ * ICodepageProcessor.
  * </p>
  * <p>
- * Also the Comparable interface implementation is provided here by 
- * comparing the class-name strings of the implementations.
+ * Also the Comparable interface implementation is provided here by comparing
+ * the class-name strings of the implementations.
  * </p>
- * 
- * @author <a href="mailto:Achim.Westermann@gmx.de">Achim Westermann</a>
+ *
+ * @author <a href="mailto:Achim.Westermann@gmx.de">Achim Westermann </a>
  *
  */
-public abstract class AbstractCodepageDetector implements ICodepageDetector
-{
-    /**
-     * 
-     */
-    public AbstractCodepageDetector()
-    {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+public abstract class AbstractCodepageDetector implements ICodepageDetector {
+  /**
+   *
+   */
+  public AbstractCodepageDetector() {
+    super();
+  }
 
- 	
-	/** 
-	 * A default delegation to {@link #detectCodepage(URL)} 
-	 * that opens the document specified by the given URL with 
-	 * the detected codepage.
-	 * 
-	 * @see cpdetector.io.ICodepageDetector#open(java.net.URL)
-	 */
-	public final Reader open(URL url) throws IOException
-	{
-		Reader ret = null;
-		Charset cs = this.detectCodepage(url);
-		if(cs != null){
-			ret = new InputStreamReader(
-				new BufferedInputStream(url.openStream()),
-				cs
-			);
-		}
-		return ret;
-	}
-    /* (non-Javadoc)
-     * @see java.lang.Comparable#compareTo(java.lang.Object)
-     */
-    public int compareTo(Object o)
-    {
-    	String other = o.getClass().getName();
-    	String mine = this.getClass().getName();
-    	return mine.compareTo(other);
+  /**
+   * <p>
+   * Delegates to {@link #detectCodepage(java.io.InputStream, int)} with a
+   * buffered input stream.
+   * </p>
+   *
+   * @see aw.io.ICodepageDetector#detectCodepage(java.net.URL)
+   */
+  public Charset detectCodepage(URL url) throws IOException {
+    return this.detectCodepage(new BufferedInputStream(url.openStream()), Integer.MAX_VALUE);
+  }
+
+  /**
+   * A default delegation to {@link #detectCodepage(URL)}that opens the
+   * document specified by the given URL with the detected codepage.
+   *
+   * @see cpdetector.io.ICodepageDetector#open(java.net.URL)
+   */
+  public final Reader open(URL url) throws IOException {
+    Reader ret = null;
+    Charset cs = this.detectCodepage(url);
+    if (cs != null) {
+      ret = new InputStreamReader(new BufferedInputStream(url.openStream()), cs);
     }
+    return ret;
+  }
+
+  /*
+   * (non-Javadoc)
+   *
+   * @see java.lang.Comparable#compareTo(java.lang.Object)
+   */
+  public int compareTo(Object o) {
+    String other = o.getClass().getName();
+    String mine = this.getClass().getName();
+    return mine.compareTo(other);
+  }
 }
