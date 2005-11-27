@@ -1,9 +1,9 @@
 /*
- * 
- *  Encoding.java, a facade to an ANTLR grammar based 
- *  parser / lexer that searches for the "charset" attribute of a 
+ *
+ *  Encoding.java, a facade to an ANTLR grammar based
+ *  parser / lexer that searches for the "charset" attribute of a
  *  html page.
- *  Copyright (C) Achim Westermann, created on 20.07.2004, 10:35:46  
+ *  Copyright (C) Achim Westermann, created on 20.07.2004, 10:35:46
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -18,10 +18,10 @@
  *  You should have received a copy of the GNU General Public License
  *  along with this program; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
- *  
+ *
  *  If you modify or optimize the code in a useful way please let me know.
  *  Achim.Westermann@gmx.de
- *	
+ *
  */
 package cpdetector.io;
 
@@ -38,20 +38,20 @@ import cpdetector.io.parser.EncodingParser;
 
 /**
  * <p>
- * A <a target="_blank" href="http://wiki.cs.uiuc.edu/PatternStories/FacadePattern">Façade</a> 
- * that internally uses an 
+ * A <a target="_blank" href="http://wiki.cs.uiuc.edu/PatternStories/FacadePattern">Façade</a>
+ * that internally uses an
  * <a href="http://www.antlr.org">ANTLR </a>- based parser / lexer.<br>
  * </p>
  * <p>
  * The underlying lexer is more a filter: It does not verify lexical correctness
  * by the means of matching a defined order of tokens, but just filters out
- * certain tokens. By now the following tokens are filtered: 
+ * certain tokens. By now the following tokens are filtered:
  * <table border="0" id="userstyle">
  *  <colgroup>
- *    <col width="20%"> 
- *    <col width="30%"> 
- *    <col width="8%"> 
- *    <col width="42%"> 
+ *    <col width="20%">
+ *    <col width="30%">
+ *    <col width="8%">
+ *    <col width="42%">
  *  </colgroup>
  *  <tr>
  *    <th>Token Name</th>
@@ -90,12 +90,17 @@ import cpdetector.io.parser.EncodingParser;
  *  </tr>
  * </table>
  * </p>
- * 
+ *
  * @author <a href="mailto:Achim.Westermann@gmx.de">Achim Westermann </a>
- *  
+ *
  */
 public class ParsingDetector extends AbstractCodepageDetector {
-   private boolean verbose = false;
+   /**
+   * Generated <code>serialVersionUID</code>.
+   */
+  private static final long serialVersionUID = 3618977875919778866L;
+
+  private boolean verbose = false;
 
    public ParsingDetector() {
       this(false);
@@ -106,18 +111,10 @@ public class ParsingDetector extends AbstractCodepageDetector {
       this.verbose = verbose;
    }
 
+  
    /*
     * (non-Javadoc)
-    * 
-    * @see aw.io.ICodepageDetector#detectCodepage(java.net.URL)
-    */
-   public Charset detectCodepage(URL url) throws IOException {
-      return this.detectCodepage(new BufferedInputStream(url.openStream()), Integer.MAX_VALUE);
-   }
-
-   /*
-    * (non-Javadoc)
-    * 
+    *
     * @see cpdetector.io.ICodepageDetector#detectCodepage(java.io.InputStream)
     */
    public Charset detectCodepage(InputStream in, int length) throws IOException {
