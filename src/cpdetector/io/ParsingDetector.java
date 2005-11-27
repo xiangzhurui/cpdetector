@@ -25,11 +25,9 @@
  */
 package cpdetector.io;
 
-import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.net.URL;
 import java.nio.charset.Charset;
 
 import antlr.ANTLRException;

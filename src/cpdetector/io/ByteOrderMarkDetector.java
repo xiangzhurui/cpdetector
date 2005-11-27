@@ -26,6 +26,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.nio.charset.Charset;
+import java.nio.charset.UnsupportedCharsetException;
 
 /**
  * <p>
@@ -103,7 +104,7 @@ public class ByteOrderMarkDetector extends AbstractCodepageDetector implements I
   public Charset detectCodepage(InputStream in, int length) throws IOException {
     // dumbest pragmatic code ever written (nearly a code generator would have
     // been faster). But it's proven fast.
-    Charset result = null;
+    Charset result = UnknownCharset.getInstance();
     int readByte = 0;
     readByte = in.read();
     switch (readByte) {
@@ -130,15 +131,22 @@ public class ByteOrderMarkDetector extends AbstractCodepageDetector implements I
                           case ('E'): {
                             // 0x 00 00 FE
                             // UCS-4, big-endian machine (1234 order)
-                            result = Charset.forName("UCS-4 BE");
+                            try {
+                              result = Charset.forName("UCS-4BE");
+                            } catch (UnsupportedCharsetException uce) {
+                              result = UnsupportedCharset.forName("UCS-4BE");
+                            }
                             return result;
 
                           }
                           case ('F'): {
                             // 0x 00 00 FF
                             // UCS-4, unusual octet order (2143)
-                            // TODO: look this up
-                            // result = whatever;
+                            try {
+                              result = Charset.forName("UCS-4");
+                            } catch (UnsupportedCharsetException uce) {
+                              result = UnsupportedCharset.forName("UCS-4");
+                            }
                             return result;
                           }
                           default:
@@ -196,39 +204,62 @@ public class ByteOrderMarkDetector extends AbstractCodepageDetector implements I
                                   case ('0'): {
                                     // 0x FE FF 00 00
                                     // UCS-4, unusual octet order (3412)
-                                    // TODO: look this up
-                                    // result = whatever;
+                                    try {
+                                      result = Charset.forName("UCS-4");
+                                    } catch (UnsupportedCharsetException uce) {
+                                      result = UnsupportedCharset.forName("UCS-4");
+                                    }
                                     return result;
                                   }
                                   default: {
-                                    result = Charset.forName("UTF-16 BE");
+                                    try {
+                                      result = Charset.forName("UTF-16BE");
+                                    } catch (UnsupportedCharsetException uce) {
+                                      result = UnsupportedCharset.forName("UTF-16BE");
+                                    }
                                     return result;
                                   }
                                 }
                               }
                               default: {
-                                result = Charset.forName("UTF-16 BE");
+                                try {
+                                  result = Charset.forName("UTF-16BE");
+                                } catch (UnsupportedCharsetException uce) {
+                                  result = UnsupportedCharset.forName("UTF-16BE");
+                                }
                                 return result;
                               }
 
                             }
                           }
                           default: {
-                            result = Charset.forName("UTF-16 BE");
+                            try {
+                              result = Charset.forName("UTF-16BE");
+                            } catch (UnsupportedCharsetException uce) {
+                              result = UnsupportedCharset.forName("UTF-16BE");
+                            }
                             return result;
                           }
 
                         }
                       }
                       default: {
-                        result = Charset.forName("UTF-16 BE");
+                        try {
+                          result = Charset.forName("UTF-16BE");
+                        } catch (UnsupportedCharsetException uce) {
+                          result = UnsupportedCharset.forName("UTF-16BE");
+                        }
                         return result;
                       }
 
                     }
                   }
                   default: {
-                    result = Charset.forName("UTF-16 BE");
+                    try {
+                      result = Charset.forName("UTF-16BE");
+                    } catch (UnsupportedCharsetException uce) {
+                      result = UnsupportedCharset.forName("UTF-16BE");
+                    }
                     return result;
                   }
                 }
@@ -264,39 +295,62 @@ public class ByteOrderMarkDetector extends AbstractCodepageDetector implements I
                                   case ('0'): {
                                     // 0x FF FE 00 00
                                     // UCS-4, little-endian machine (4321 order)
-                                    // TODO: look this up
-                                    // result = whatever;
+                                    try {
+                                      result = Charset.forName("UCS-4LE");
+                                    } catch (UnsupportedCharsetException uce) {
+                                      result = UnsupportedCharset.forName("UCS-4LE");
+                                    }
                                     return result;
                                   }
                                   default: {
-                                    result = Charset.forName("UTF-16 LE");
+                                    try {
+                                      result = Charset.forName("UTF-16LE");
+                                    } catch (UnsupportedCharsetException uce) {
+                                      result = UnsupportedCharset.forName("UTF-16LE");
+                                    }
                                     return result;
                                   }
                                 }
                               }
                               default: {
-                                result = Charset.forName("UTF-16 LE");
+                                try {
+                                  result = Charset.forName("UTF-16LE");
+                                } catch (UnsupportedCharsetException uce) {
+                                  result = UnsupportedCharset.forName("UTF-16LE");
+                                }
                                 return result;
                               }
 
                             }
                           }
                           default: {
-                            result = Charset.forName("UTF-16 LE");
+                            try {
+                              result = Charset.forName("UTF-16LE");
+                            } catch (UnsupportedCharsetException uce) {
+                              result = UnsupportedCharset.forName("UTF-16LE");
+                            }
                             return result;
                           }
 
                         }
                       }
                       default: {
-                        result = Charset.forName("UTF-16 LE");
+                        try {
+                          result = Charset.forName("UTF-16LE");
+                        } catch (UnsupportedCharsetException uce) {
+                          result = UnsupportedCharset.forName("UTF-16LE");
+                        }
                         return result;
                       }
 
                     }
                   }
                   default: {
-                    result = Charset.forName("UTF-16 LE");
+                    try {
+                      result = Charset.forName("UTF-16LE");
+                    } catch (UnsupportedCharsetException uce) {
+                      result = UnsupportedCharset.forName("UTF-16LE");
+                    }
                     return result;
                   }
                 }
@@ -328,7 +382,11 @@ public class ByteOrderMarkDetector extends AbstractCodepageDetector implements I
                         readByte = in.read();
                         switch (readByte) {
                           case ('F'): {
-                            result = Charset.forName("utf-8");
+                            try {
+                              result = Charset.forName("utf-8");
+                            } catch (UnsupportedCharsetException uce) {
+                              result = UnsupportedCharset.forName("utf-8");
+                            }
                             return result;
                           }
                           default: {
