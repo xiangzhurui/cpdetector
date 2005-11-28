@@ -431,14 +431,4 @@ public class ByteOrderMarkDetector extends AbstractCodepageDetector implements I
   public Charset detectCodepage(URL url) throws IOException {
     return this.detectCodepage(new BufferedInputStream(url.openStream(), 10), Integer.MAX_VALUE);
   }
-
-  /*
-   * (non-Javadoc)
-   *
-   * @see java.lang.Comparable#compareTo(java.lang.Object)
-   */
-  public int compareTo(Object o) {
-    // TODO Auto-generated method stub
-    return 0;
-  }
 }
