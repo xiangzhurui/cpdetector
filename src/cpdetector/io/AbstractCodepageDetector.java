@@ -34,61 +34,62 @@ import java.nio.charset.Charset;
 
 /**
  * <p>
- * This implementation provides the default implementation for the high-level
- * codepage detection method {@link #open(URL)}of the implemented interface
- * ICodepageProcessor.
+ * This implementation provides the default implementation for the high-level codepage detection method
+ * {@link #open(URL)}of the implemented interface ICodepageProcessor.
  * </p>
  * <p>
- * Also the Comparable interface implementation is provided here by comparing
- * the class-name strings of the implementations.
+ * Also the Comparable interface implementation is provided here by comparing the class-name strings of the
+ * implementations.
  * </p>
- *
+ * 
  * @author <a href="mailto:Achim.Westermann@gmx.de">Achim Westermann </a>
- *
+ * 
  */
 public abstract class AbstractCodepageDetector implements ICodepageDetector {
-  /**
-   *
-   */
-  public AbstractCodepageDetector() {
-    super();
-  }
-
-  /**
-   * <p>
-   * Delegates to {@link #detectCodepage(java.io.InputStream, int)} with a
-   * buffered input stream.
-   * </p>
-   *
-   * @see aw.io.ICodepageDetector#detectCodepage(java.net.URL)
-   */
-  public Charset detectCodepage(URL url) throws IOException {
-    return this.detectCodepage(new BufferedInputStream(url.openStream()), Integer.MAX_VALUE);
-  }
-
-  /**
-   * A default delegation to {@link #detectCodepage(URL)}that opens the
-   * document specified by the given URL with the detected codepage.
-   *
-   * @see cpdetector.io.ICodepageDetector#open(java.net.URL)
-   */
-  public final Reader open(URL url) throws IOException {
-    Reader ret = null;
-    Charset cs = this.detectCodepage(url);
-    if (cs != null) {
-      ret = new InputStreamReader(new BufferedInputStream(url.openStream()), cs);
+    /**
+     * 
+     */
+    public AbstractCodepageDetector() {
+        super();
     }
-    return ret;
-  }
 
-  /*
-   * (non-Javadoc)
-   *
-   * @see java.lang.Comparable#compareTo(java.lang.Object)
-   */
-  public int compareTo(Object o) {
-    String other = o.getClass().getName();
-    String mine = this.getClass().getName();
-    return mine.compareTo(other);
-  }
+    /**
+     * Delegates to {@link #detectCodepage(java.io.InputStream, int)} with a buffered input stream.
+     * <p>
+     * 
+     * @see aw.io.ICodepageDetector#detectCodepage(java.net.URL)
+     */
+    public Charset detectCodepage(final URL url) throws IOException {
+        Charset result;
+        BufferedInputStream in = new BufferedInputStream(url.openStream());
+        result = this.detectCodepage(in, Integer.MAX_VALUE);
+        in.close();
+        return result;
+
+    }
+
+    /**
+     * A default delegation to {@link #detectCodepage(URL)}that opens the document specified by the given URL with the
+     * detected codepage.
+     * <p>
+     * 
+     * @see cpdetector.io.ICodepageDetector#open(java.net.URL)
+     */
+    public final Reader open(URL url) throws IOException {
+        Reader ret = null;
+        Charset cs = this.detectCodepage(url);
+        if (cs != null) {
+            ret = new InputStreamReader(new BufferedInputStream(url.openStream()), cs);
+        }
+        return ret;
+    }
+
+    /**
+     * @see java.lang.Comparable#compareTo(java.lang.Object)
+     */
+    public int compareTo(final Object o) {
+        String other = o.getClass().getName();
+        String mine = this.getClass().getName();
+        return mine.compareTo(other);
+    }
 }
