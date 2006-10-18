@@ -22,7 +22,7 @@ import java.util.List;
 
 /**
  * <p>
- * An {@link ItreeNode}implementation, that does not allow equal children of
+ * An {@link ItreeNode} implementation, that does not allow equal m_children of
  * one common parent node. Common elements in the path from an arbitrary node
  * (seen as the root) to different leaves will share the same <tt>ITreeNode</tt>
  * instances at runtime.
@@ -44,14 +44,14 @@ public class TreeNodeUniqueChildren extends ITreeNode.DefaultTreeNode {
   }
 
   /**
-   * @param userObject
+   * @param m_userObject
    */
   public TreeNodeUniqueChildren(Object userObject) {
     super(userObject);
   }
 
   /**
-   * @param userObject
+   * @param m_userObject
    * @param child
    */
   public TreeNodeUniqueChildren(Object userObject, ITreeNode child) {
@@ -59,8 +59,8 @@ public class TreeNodeUniqueChildren extends ITreeNode.DefaultTreeNode {
   }
 
   /**
-   * @param userObject
-   * @param children
+   * @param m_userObject
+   * @param m_children
    */
   public TreeNodeUniqueChildren(Object userObject, ITreeNode[] children) {
     super(userObject, children);
