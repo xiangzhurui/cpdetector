@@ -2,7 +2,7 @@
  * Created on 11.04.2004
  *	
  */
-package cpdetector;
+package cpdetector; 
 
 import jargs.gnu.CmdLineParser;
 

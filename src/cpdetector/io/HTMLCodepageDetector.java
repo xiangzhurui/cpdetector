@@ -94,7 +94,7 @@ public class HTMLCodepageDetector extends AbstractCodepageDetector {
   /**
    *
    */
-  public Charset detectCodepage(URL url) throws IOException {
+  public Charset detectCodepage(final URL url) throws IOException {
     return delegate.detectCodepage(url);
   }
   /* (non-Javadoc)
