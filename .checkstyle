@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fileset-config file-format-version="1.2.0" simple-config="true">
+    <local-check-config name="cs-cpdetector" location="cs-cpdetector.xml" type="project" description="Checkstyle-Configuration: cs-jchart2d&#13;&#10;Description:&#13;&#10;Derived from the sun checks standard. &#13;&#10;&#13;&#10;Softer:&#13;&#10;- No force to define numeric literals in constants. &#13;&#10;- Allow catch blocks without statements.&#13;&#10;- Maximum line length of 140.&#13;&#10;- Allow redundant modifier public in interfaces: It is no mistake to put an emphasis on sth. &#13;&#10;  that is implicitly set (default) in special cases (here: interface scope).&#13;&#10;- Allow throws declaration of unchecked Exceptions. Some higher level layer &#13;&#10;  could decide to be able to deal with those exceptions.&#13;&#10;- Allow code in non final non private methods to enable higher flexibility. Method contract &#13;&#10;  may be broken by subclasses but higher flexibility is possible.&#13;&#10;- Allow protected members for fast access (allows to avoid invokevirtuals in subtype for access).&#13;&#10;- Allow inline conditional a = (condition) ? b:c,&#13;&#10;Harder: &#13;&#10;- Requires this for member access. &#13;&#10;- Enforce super.clone() in clone implementation. &#13;&#10;- Enforce abstract classnames to be prefixed by A.">
+        <additional-data name="protect-config-file" value="false"/>
+    </local-check-config>
+    <fileset name="Alle" enabled="true" check-config-name="cs-cpdetector" local="true">
+        <file-match-pattern match-pattern="." include-pattern="true"/>
+    </fileset>
+</fileset-config>
