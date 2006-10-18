@@ -1,7 +1,7 @@
 /**
  * StopWatchSimple, a basic implementation of the interface IStopWatch 
  * meant for measurements of short times (>hours). 
- * Copyright (C) 2002  Achim Westermann, Achim.Westermann@gmx.de
+ * Copyright (C) 2002 Achim Westermann, Achim.Westermann@gmx.de
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Library General Public
