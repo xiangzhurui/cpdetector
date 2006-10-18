@@ -30,50 +30,66 @@ import java.nio.charset.CharsetEncoder;
 /**
  * 
  * <p>
- * A singleton Charset indicating that no encoding could be detected 
- * at all (regardless wether supported by platform or not). 
- * Unlike the {@link UnsupportedCharset} singleton instances it will 
- * never equal anything. 
+ * A singleton Charset indicating that no encoding could be detected at all (regardless wether supported by platform or
+ * not). Unlike the {@link UnsupportedCharset} singleton instances it will never equal anything.
  * </p>
+ * 
  * @author <a href="mailto:Achim.Westermann@gmx.de">Achim Westermann</a>
- *
+ * 
  */
 public class UnknownCharset extends Charset {
 
-  private static Charset instance;
-  /**
-   * @param canonicalName
-   * @param aliases
-   */
-  private UnknownCharset() {
-    super("void",null);
-  }
-  
-  public static Charset getInstance(){
-    if(instance==null){
-      instance = new UnknownCharset();
+    private static Charset instance;
+
+    /**
+     * @param canonicalName
+     * @param aliases
+     */
+    private UnknownCharset() {
+        super("void", null);
     }
-    return instance;
-  }
 
-  /* (non-Javadoc)
-   * @see java.nio.charset.Charset#contains(java.nio.charset.Charset)
-   */
-  public boolean contains(Charset cs) {
-    return false;
-  }
+    public static Charset getInstance() {
+        if (instance == null) {
+            instance = new UnknownCharset();
+        }
+        return instance;
+    }
 
-  /* (non-Javadoc)
-   * @see java.nio.charset.Charset#newDecoder()
-   */
-  public CharsetDecoder newDecoder() {
-   throw new UnsupportedOperationException("This is no real Charset but a flag you should test for!");
-  }
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.nio.charset.Charset#contains(java.nio.charset.Charset)
+     */
+    public boolean contains(Charset cs) {
+        return false;
+    }
 
-  /* (non-Javadoc)
-   * @see java.nio.charset.Charset#newEncoder()
-   */
-  public CharsetEncoder newEncoder() {
-    throw new UnsupportedOperationException("This is no real Charset but a flag you should test for!");
-  }
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.nio.charset.Charset#newDecoder()
+     */
+    public CharsetDecoder newDecoder() {
+        throw new UnsupportedOperationException(
+                "This is no real Charset but a flag you should test for!");
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.nio.charset.Charset#newEncoder()
+     */
+    public CharsetEncoder newEncoder() {
+        throw new UnsupportedOperationException(
+                "This is no real Charset but a flag you should test for!");
+    }
+
+    /**
+     * @see java.lang.Comparable#compareTo(java.lang.Object)
+     */
+    public int compareTo(Object arg0) {
+        return new Integer(this.hashCode()).compareTo(new Integer(arg0.hashCode()));
+    }
+
 }

@@ -108,5 +108,11 @@ public class UnsupportedCharset extends Charset
     {
         return super.displayName(locale);
     }
-  
+    /**
+     * @see java.lang.Comparable#compareTo(java.lang.Object)
+     */
+    public int compareTo(Object arg0) {
+        return new Integer(this.hashCode()).compareTo(new Integer(arg0.hashCode()));
+    }
+
 }
