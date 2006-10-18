@@ -27,97 +27,111 @@ import java.io.IOException;
 import java.io.InputStream;
 
 /**
- * Prints out every character read. 
- *  Use as a proxy. Only needed for debugging the 
- * ANTLR Parser (ParsingDetector). Therefore the chronological 
- * order is preserved: sun's StreamDecoder.CharsetDS (nio) replaces 
- * InputStream.read() by buffer operations that fetch complete arrays. 
- * This is avoided by allowing to fetch only one char per method call.
+ * Prints m_out every character read. Use as a proxy. Only needed for debugging the ANTLR Parser (ParsingDetector).
+ * Therefore the chronological order is preserved: sun's StreamDecoder.CharsetDS (nio) replaces InputStream.read() by
+ * buffer operations that fetch complete arrays. This is avoided by allowing to fetch only one char per method call.
  * 
  * @author <a href="mailto:Achim.Westermann@gmx.de">Achim Westermann</a>
- *
+ * 
  */
-public class InputStreamDebug extends InputStream{
-  private InputStream delegate;
- 
-  public InputStreamDebug(InputStream delegate){
-    this.delegate = delegate;
-  }
-  
-  public synchronized int read() throws IOException {
-    int ret = this.delegate.read();
-    System.out.print((char)ret);
-    return ret;
-  }
-  /**
-   * 
-   */
-  public int available() throws IOException {
-    return delegate.available();
-  }
-  /**
-   * 
-   */
-  public void close() throws IOException {
-    delegate.close();
-  }
-  /* (non-Javadoc)
-   * @see java.lang.Object#equals(java.lang.Object)
-   */
-  public boolean equals(Object obj) {
-    return delegate.equals(obj);
-  }
-  /* (non-Javadoc)
-   * @see java.lang.Object#hashCode()
-   */
-  public int hashCode() {
-    return delegate.hashCode();
-  }
-  /**
-   * 
-   */
-  public void mark(int readlimit) {
-    delegate.mark(readlimit);
-  }
-  /**
-   * 
-   */
-  public boolean markSupported() {
-    return delegate.markSupported();
-  }
-  /**
-   * 
-   */
-  public int read(byte[] b) throws IOException {
-   return this.read(b,0,b.length);
-  }
-  /**
-   * 
-   */
-  public int read(byte[] b, int off, int len) throws IOException {
-    int ret = this.read();
-    if(ret!=-1){
-      b[off] = (byte) ret;
-      ret = 1;
+public class InputStreamDebug extends InputStream {
+    private InputStream m_delegate;
+
+    public InputStreamDebug(InputStream delegate) {
+        this.m_delegate = delegate;
     }
-    return ret;
-  }
-  /**
-   * 
-   */
-  public void reset() throws IOException {
-    delegate.reset();
-  }
-  /**
-   * 
-   */
-  public long skip(long n) throws IOException {
-    return delegate.skip(n);
-  }
-  /* (non-Javadoc)
-   * @see java.lang.Object#toString()
-   */
-  public String toString() {
-    return delegate.toString();
-  }
+
+    public synchronized int read() throws IOException {
+        int ret = this.m_delegate.read();
+        System.out.print((char)ret);
+        return ret;
+    }
+
+    /**
+     * 
+     */
+    public int available() throws IOException {
+        return m_delegate.available();
+    }
+
+    /**
+     * 
+     */
+    public void close() throws IOException {
+        m_delegate.close();
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.lang.Object#equals(java.lang.Object)
+     */
+    public boolean equals(Object obj) {
+        return m_delegate.equals(obj);
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.lang.Object#hashCode()
+     */
+    public int hashCode() {
+        return m_delegate.hashCode();
+    }
+
+    /**
+     * 
+     */
+    public void mark(int readlimit) {
+        m_delegate.mark(readlimit);
+    }
+
+    /**
+     * 
+     */
+    public boolean markSupported() {
+        return m_delegate.markSupported();
+    }
+
+    /**
+     * 
+     */
+    public int read(byte[] b) throws IOException {
+        return this.read(b, 0, b.length);
+    }
+
+    /**
+     * 
+     */
+    public int read(byte[] b, int off, int len) throws IOException {
+        int ret = this.read();
+        if (ret != -1) {
+            b[off] = (byte)ret;
+            ret = 1;
+        }
+        return ret;
+    }
+
+    /**
+     * 
+     */
+    public void reset() throws IOException {
+        m_delegate.reset();
+    }
+
+    /**
+     * 
+     */
+    public long skip(long n) throws IOException {
+        return m_delegate.skip(n);
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.lang.Object#toString()
+     */
+    public String toString() {
+        return m_delegate.toString();
+    }
 }

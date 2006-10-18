@@ -21,18 +21,18 @@ import java.util.StringTokenizer;
  * @author <a href="mailto:Achim.Westermann@gmx.de">Achim Westermann</a>
  */
 public final class FileFilterExtensions implements FileFilter {
-	private String[] extensions;
+	private String[] m_extensions;
 	/**
 	 * 
 	 * @param extensionsWithoutDot A String[] containing extension strings without the dot like: <nobr><code>new String[]{"bat","txt","dict"}</code></nobr>. 
 	 */
 	public FileFilterExtensions(String[] extensionsWithoutDot) throws IllegalArgumentException {
 		this.verify(extensionsWithoutDot);
-		this.extensions = extensionsWithoutDot;
+		this.m_extensions = extensionsWithoutDot;
 	}
 
 	/**
-	 * @param extensions The array with the Strings of extensions.
+	 * @param extensions The array with the Strings of m_extensions.
 	 * @throws IllegalArgumentException If a String of the array is null or contains a dot ('.').
 	 */
 	private void verify(String[] extensions) throws IllegalArgumentException {
@@ -62,8 +62,8 @@ public final class FileFilterExtensions implements FileFilter {
 		while (tokenizer.hasMoreElements()) {
 			extension = tokenizer.nextToken();
 		}
-		for (int i = this.extensions.length - 1; i >= 0; i--) {
-			if (this.extensions[i].equals(extension)) {
+		for (int i = this.m_extensions.length - 1; i >= 0; i--) {
+			if (this.m_extensions[i].equals(extension)) {
 				ret = true;
 				break;
 			}

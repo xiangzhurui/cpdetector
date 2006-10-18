@@ -41,12 +41,12 @@ package cpdetector.util;
  */
 public final class Entry implements java.util.Map.Entry
 {
-	private Object key;
-	private Object value;
+	private Object m_key;
+	private Object m_value;
 	
 	public Entry(Object key,Object value){
-		this.key = key;
-		this.value = value;
+		this.m_key = key;
+		this.m_value = value;
 	}
 	/**
 	 * Maybe null!
@@ -54,7 +54,7 @@ public final class Entry implements java.util.Map.Entry
 	 */
 	public Object getKey()
 	{
-		return this.key;
+		return this.m_key;
 	}
 
 	/**
@@ -63,7 +63,7 @@ public final class Entry implements java.util.Map.Entry
 	 */
 	public Object getValue()
 	{
-		return this.value;
+		return this.m_value;
 	}
 
 	/** 
@@ -73,8 +73,8 @@ public final class Entry implements java.util.Map.Entry
 	 */
 	public Object setValue(Object value)
 	{
-		Object ret = this.value;
-		this.value = value;
+		Object ret = this.m_value;
+		this.m_value = value;
 		return ret;
 	}
 
