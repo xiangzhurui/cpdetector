@@ -1,0 +1,33 @@
+/*
+ * File   : $Source$
+ * Date   : $Date$
+ * Version: $Revision$
+ *
+ * This file is part of cpdetector -
+ * the Open Source code page detection library.
+ *
+ * Copyright (c) 2006 Achim Westermann
+ */
+
+History of changes for the cpdetector project.
+
+Changes are chronologically ordered from top (most recent) 
+to bottom (least recent).
+
+Legend:
+! New Feature
+* Bug fixed
+- General comment
+o API change that requires refactoring.
+
+cpdetector- 1.0.5 - Month, Day, 2006
+
+! Begin with checkstyle conventions. 
+! Started history.txt for changelog. 
+! Added Testcase for core API. 
+* Fixed part of issue  #1570118: CodePageDetectorProxy.detectCodePage(java.net.URL) 
+  does not close opened input stream which disallows deletion of file after detection. 
+* Fixed issue in cpdetector.util.FileUtil.readRam(java.io.File): 
+  Openend input stream was not closed. 
+
+// TODO: Take release notes from sourceforge to historize previous releases!
