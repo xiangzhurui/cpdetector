@@ -1,7 +1,47 @@
 /*
- * FileUtil.java
+ * FileUtil.java, helpers for disk I/O.
+ * Copyright (C) 2001 Achim Westermann, created on 13.10.2001
  *
- * Created on 13. Oktober 2001, 11:04
+ * ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ * 
+ * The contents of this collection are subject to the Mozilla Public License Version 
+ * 1.1 (the "License"); you may not use this file except in compliance with 
+ * the License. You may obtain a copy of the License at 
+ * http://www.mozilla.org/MPL/
+ * 
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ * 
+ * The Original Code is the cpDetector code in [sub] packages info.monitorenter and 
+ * cpdetector. 
+ * 
+ * The Initial Developer of the Original Code is
+ * Achim Westermann <achim.westermann@gmx.de>.
+ * 
+ * Portions created by the Initial Developer are Copyright (C) 2006 
+ * the Initial Developer. All Rights Reserved.
+ * 
+ * Contributor(s):
+ * 
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ * 
+ * ***** END LICENSE BLOCK ***** * 
+ *  
+ * If you modify or optimize the code in a useful way please let me know.
+ * Achim.Westermann@gmx.de
  */
 package cpdetector.util;
 
@@ -93,12 +133,12 @@ public class FileUtil extends Object {
      * Else:
      * 
      * <pre>
-     *  
-     *   		&quot;myFile.out&quot;       --&gt; &quot;myFile_0.out&quot;
-     *   		&quot;myFile_0.out&quot;   --&gt; &quot;myFile_1.out&quot;
-     *   		&quot;myFile_1.out&quot;   --&gt; &quot;myFile_2.out&quot;
-     *           ....
-     *   	
+     *   
+     *    		&quot;myFile.out&quot;       --&gt; &quot;myFile_0.out&quot;
+     *    		&quot;myFile_0.out&quot;   --&gt; &quot;myFile_1.out&quot;
+     *    		&quot;myFile_1.out&quot;   --&gt; &quot;myFile_2.out&quot;
+     *            ....
+     *    	
      * </pre>
      * 
      * The potential extension is preserved, but a number is appended to the prefix name.
@@ -186,14 +226,14 @@ public class FileUtil extends Object {
      * <p>
      * 
      * <pre>
-     *  
-     *   	&quot;c:/work/programming/anyfile.jar --&gt; Map.Entry(&quot;c:/work/programming/&quot;,&quot;anyfile.jar&quot;);
-     *    &quot;anyfile.jar&quot;                    --&gt; Map.Entry(new File(&quot;.&quot;).getAbsolutePath(),&quot;anyfile.jar&quot;);
-     *    &quot;c:/directory1/directory2/&quot;      --&gt; Map.Entry(&quot;c:/directory1/directory2/&quot;,&quot;&quot;);
-     *    &quot;c:/directory1/directory2&quot;       --&gt; Map.Entry(&quot;c:/directory1/directory2/&quot;,&quot;&quot;); // directory2 is a directory!
-     *    &quot;c:/directory1/file2&quot;            --&gt; Map.Entry(&quot;c:/directory1/&quot;,&quot;file2&quot;);       // file2 is a file!
-     *    &quot;c:/&quot;                            --&gt; Map.Entry(&quot;c:/&quot;,&quot;&quot;);
      *   
+     *    	&quot;c:/work/programming/anyfile.jar --&gt; Map.Entry(&quot;c:/work/programming/&quot;,&quot;anyfile.jar&quot;);
+     *     &quot;anyfile.jar&quot;                    --&gt; Map.Entry(new File(&quot;.&quot;).getAbsolutePath(),&quot;anyfile.jar&quot;);
+     *     &quot;c:/directory1/directory2/&quot;      --&gt; Map.Entry(&quot;c:/directory1/directory2/&quot;,&quot;&quot;);
+     *     &quot;c:/directory1/directory2&quot;       --&gt; Map.Entry(&quot;c:/directory1/directory2/&quot;,&quot;&quot;); // directory2 is a directory!
+     *     &quot;c:/directory1/file2&quot;            --&gt; Map.Entry(&quot;c:/directory1/&quot;,&quot;file2&quot;);       // file2 is a file!
+     *     &quot;c:/&quot;                            --&gt; Map.Entry(&quot;c:/&quot;,&quot;&quot;);
+     *    
      * </pre>
      * 
      * Assuming, that '/' is the current file separator character.
@@ -255,11 +295,11 @@ public class FileUtil extends Object {
      * <p>
      * 
      * <pre>
-     *  
-     *   	&quot;file//c:/work/programming/anyfile.jar --&gt; &quot;anyfile.jar&quot;
-     *    &quot;http://jamwg.de&quot;                      --&gt; &quot;&quot; // No file part.
-     *    &quot;ftp://files.com/directory2/           --&gt; &quot;&quot; // File part of URL denotes a directory.
      *   
+     *    	&quot;file//c:/work/programming/anyfile.jar --&gt; &quot;anyfile.jar&quot;
+     *     &quot;http://jamwg.de&quot;                      --&gt; &quot;&quot; // No file part.
+     *     &quot;ftp://files.com/directory2/           --&gt; &quot;&quot; // File part of URL denotes a directory.
+     *    
      * </pre>
      * 
      * Assuming, that '/' is the current file separator character.
@@ -306,18 +346,18 @@ public class FileUtil extends Object {
         int total = (int)f.length();
         byte[] ret = new byte[total];
         InputStream in = new FileInputStream(f);
-        try{
-        int offset = 0;
-        int read = 0;
-        do {
-            read = in.read(ret, offset, total - read);
-            if (read > 0) {
-                offset += read;
-            }
-        } while (read != -1 && offset != total);
-        return ret;
-        }finally{
-            if(in != null) {
+        try {
+            int offset = 0;
+            int read = 0;
+            do {
+                read = in.read(ret, offset, total - read);
+                if (read > 0) {
+                    offset += read;
+                }
+            } while (read != -1 && offset != total);
+            return ret;
+        } finally {
+            if (in != null) {
                 in.close();
             }
         }
