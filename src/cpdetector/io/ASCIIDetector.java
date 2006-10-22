@@ -79,11 +79,12 @@ import cpdetector.util.FileUtil;
  * on the result.
  * </code>
  * </p>
- *
+ * 
  * @author <a href="mailto:Achim.Westermann@gmx.de">Achim Westermann </a>
- *
+ * 
  */
-public final class ASCIIDetector extends AbstractCodepageDetector {
+public final class ASCIIDetector
+    extends AbstractCodepageDetector {
   /**
    * Generated <code>serialVersionUID</code>.
    */
@@ -106,18 +107,19 @@ public final class ASCIIDetector extends AbstractCodepageDetector {
     return instance;
   }
 
-  /*
-   * (non-Javadoc)
-   *
+  /**
    * @see cpdetector.io.ICodepageDetector#detectCodepage(java.io.InputStream,
    *      int)
    */
-  public Charset detectCodepage(InputStream in, int length) throws IOException {
+  public Charset detectCodepage(final InputStream in, final int length) throws IOException {
     Charset ret = UnknownCharset.getInstance();
+    InputStream localin;
     if (!(in instanceof BufferedInputStream)) {
-      in = new BufferedInputStream(in, 4096);
+      localin = new BufferedInputStream(in, 4096);
+    } else {
+      localin = in;
     }
-    if (FileUtil.isAllASCII(in)) {
+    if (FileUtil.isAllASCII(localin)) {
       ret = Charset.forName("US-ASCII");
     }
     return ret;
