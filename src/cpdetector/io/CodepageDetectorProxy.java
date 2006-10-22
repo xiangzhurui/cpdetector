@@ -124,10 +124,11 @@ public final class CodepageDetectorProxy extends AbstractCodepageDetector {
      * @see cpdetector.io.ICodepageDetector#detectCodepage(java.io.InputStream)
      */
     public Charset detectCodepage(InputStream in, int length) throws IOException {
-        in.mark(length);
+        
         Charset ret = null;
         Iterator detectorIt = this.detectors.iterator();
         while (detectorIt.hasNext()) {
+            in.mark(length);
             ret = ((ICodepageDetector)detectorIt.next()).detectCodepage(in, length);
             in.reset();
             if (ret != null) {
