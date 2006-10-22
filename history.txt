@@ -22,6 +22,7 @@ o API change that requires refactoring.
 
 cpdetector- 1.0.5 - Month, Day, 2006
 
+* Fixed issue with infinite loop for exhausted input stream in jchardet facade.
 ! Begin with checkstyle conventions. 
 ! Started history.txt for changelog. 
 ! Added Testcase for core API. 
