@@ -14,7 +14,7 @@
   <property name="builddir" value="bin/" />
   <property name="sourcedir" value="src/" />
   <property name="testsourcedir" value="test/" />
-  <property name="project.version" value="1.05" />
+  <property name="project.version" value="1.0.5" />
   <!-- for ant fit testing integration -->
   <property name="fit.results.dir" value="${basedir}/test/fit/out/" />
 
