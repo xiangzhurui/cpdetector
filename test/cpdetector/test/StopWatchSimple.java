@@ -1,31 +1,52 @@
-/**
+/*
  * StopWatchSimple, a basic implementation of the interface IStopWatch 
  * meant for measurements of short times (>hours). 
  * Copyright (C) 2002 Achim Westermann, Achim.Westermann@gmx.de
  *
- * This library is free software; you can redistribute it and/or
- * modify it under the terms of the GNU Library General Public
- * License as published by the Free Software Foundation; either
- * version 2 of the License, or (at your option) any later version.
- *
- * This library is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * Library General Public License for more details.
- *
- * You should have received a copy of the GNU Library General Public
- * License along with this library; if not, write to the Free
- * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
- *
- *  If you modify or optimize the code in a useful way please let me know. 
- *  Achim.Westermann@gmx.de
+ * ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ * 
+ * The contents of this collection are subject to the Mozilla Public License Version 
+ * 1.1 (the "License"); you may not use this file except in compliance with 
+ * the License. You may obtain a copy of the License at 
+ * http://www.mozilla.org/MPL/
+ * 
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ * 
+ * The Original Code is the cpDetector code in [sub] packages info.monitorenter and 
+ * cpdetector. 
+ * 
+ * The Initial Developer of the Original Code is
+ * Achim Westermann <achim.westermann@gmx.de>.
+ * 
+ * Portions created by the Initial Developer are Copyright (C) 2006 
+ * the Initial Developer. All Rights Reserved.
+ * 
+ * Contributor(s):
+ * 
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ * 
+ * ***** END LICENSE BLOCK ***** * 
  */
 
 package cpdetector.test;
 
 /**
  *  A very simple implementation of the IStopWatch that does nothing more
- *  than the interface describes. Only the start - value, the running - boolean
+ *  than the interface describes. Only the m_start - value, the running - boolean
  *  and the summation of runtimes is hold: Little RAM - consumption and little
  *  calculations here.
  *
@@ -33,7 +54,7 @@ package cpdetector.test;
  * @version 1.1
  */
 public class StopWatchSimple implements IStopWatch{
-    protected long start;
+    protected long m_start;
     protected long allms;
     protected boolean running = false;
     
@@ -55,38 +76,38 @@ public class StopWatchSimple implements IStopWatch{
      * <ul>
      * <li>
      * Running- Reset: <br>
-     * The start- value of the measurement is set to the current time, even if
+     * The m_start- value of the measurement is set to the current time, even if
      * the StopWatch is running.
      * </li>
      * <li>
      * Next- measurement- Reset:<br>
-     * A flag is set which causes the next call to start to delete the old
-     * start - value.
+     * A flag is set which causes the next call to m_start to delete the old
+     * m_start - value.
      * </li>
      * </ul>
-     * Note that continuous calls to <code>start()</code> and <code>stop()</code>
+     * Note that continuous calls to <code>m_start()</code> and <code>stop()</code>
      * without calling reset will always relate the measurement of time to the
-     * first time <code>start()</code> was called!
+     * first time <code>m_start()</code> was called!
      */
     public final void reset() {
-        this.start = System.currentTimeMillis();
+        this.m_start = System.currentTimeMillis();
         this.allms = 0;
     }
     
     /**
      * Sets the state to running. This allows a call to <code>stop()</code>
      * to make a new measurement by taking the current time.
-     * If <code>reset()</code> was invoked before, the start - time is set
+     * If <code>reset()</code> was invoked before, the m_start - time is set
      * to the return value of <code>System.currentTimeMillis()</code>.
      * Else the old value is preserved.
      * False is returned if a measurement is already in progress.
-     * <b> A call to start will only start a new measurement with the current
+     * <b> A call to m_start will only m_start a new measurement with the current
      * Time, if it is the first run or reset was called before. Else the time
      * kept after the next call to stop will be the sum of all previous runtimes.
      */
     public final boolean start(){
         if(!running){
-            this.start = System.currentTimeMillis();
+            this.m_start = System.currentTimeMillis();
             this.running = true;
             return true;
         }
@@ -98,18 +119,18 @@ public class StopWatchSimple implements IStopWatch{
      * an update of the overall measurement- data inside.
      * The difference to <code>stop()<code>:<br>
      * After <code>stop()</code> has been called the state is set to !running which
-     * causes a new start-value to be set during the next call to <code>start()</code>.
+     * causes a new m_start-value to be set during the next call to <code>m_start()</code>.
      * The call to <code>snapShot()</code> does not switch the state.
-     * If afterwards <code>start()</code> is called, no new value gets assigned
-     * to the start- value of the StopWatch. Despite of this <code>snapShot</code>
-     * Adds the period from the start-value to now to the internal total measurement-
-     * call. To avoid double - summation of the same time- periods a new start- value
+     * If afterwards <code>m_start()</code> is called, no new value gets assigned
+     * to the m_start- value of the StopWatch. Despite of this <code>snapShot</code>
+     * Adds the period from the m_start-value to now to the internal total measurement-
+     * call. To avoid double - summation of the same time- periods a new m_start- value
      * is set directly.
      */
     public long snapShot() {
         long restart = System.currentTimeMillis();
-        this.allms += restart-this.start;
-        this.start = restart;
+        this.allms += restart-this.m_start;
+        this.m_start = restart;
         return allms;
     }
     
@@ -120,7 +141,7 @@ public class StopWatchSimple implements IStopWatch{
     public synchronized boolean stop() {
         if(this.running){
             // filling internal data
-            this.allms += System.currentTimeMillis() - this.start;
+            this.allms += System.currentTimeMillis() - this.m_start;
             this.running = false;
             return true;
         }
@@ -129,7 +150,7 @@ public class StopWatchSimple implements IStopWatch{
     
     /**
      * Returns the current value of the IStopWatch in ms.
-     * This has to be the sum of all previous measurements (circles  of <code>start()-stop()</code>)
+     * This has to be the sum of all previous measurements (circles  of <code>m_start()-stop()</code>)
      * not interrupted by calls to <code>reset()</code>.
      */
     public final long getPureMilliSeconds() {
