@@ -1,0 +1,135 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <!--#include virtual="./head.shtml" -->
+ <script language="javascript">
+  var update="08/23/2004";
+ </script>
+ <body id="credit">
+  <div id="wrapper">
+   <div id="main">
+    <!-- Header -->
+    <!--#include virtual="./header.shtml" -->
+
+    
+    <!--#include virtual="./navigation.shtml" -->
+    <!-- Navigation -->
+    
+    
+    <div id="content">
+     <h2>Credits</h2>
+     <p>
+     <table border="0">
+
+      <tr>
+       <td>
+        <h3>Open Source</h3>
+       </td>
+       <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td id="box">
+          JArgs
+        </td>
+       <td>
+        <!-- description -->
+        <a href="http://jargs.sourceforge.net" target="_blank">http://jargs.sourceforge.net</a><br>
+         <blockquote>
+         "...convenient, compact, pre-packaged and comprehensively documented suite of command line option parsers for the use of Java programmers."
+         </blockquote>
+         I agree. 
+       </td>
+      </tr>
+      <tr>
+        <td id="box">
+          ANTLR
+        </td>
+       <td>
+        <!-- description -->
+        <a href="http://www.antlr.org" target="_blank">http://www.antlr.org</a><br>
+         ANother Tool for Language Recognition. A remarkable parser / lexer generator. 
+         Used in cpdetector for parsing for html meta charset attributes.
+       </td>
+      </tr>
+      <tr>
+        <td id="box">
+          jchardet
+        </td>
+       <td>
+        <!-- description -->
+        <a href="http://www.i18nfaq.com/chardet.html" target="_blank">http://www.i18nfaq.com/chardet.html</a><br>
+         Java port of the source from mozilla's automatic charset detection algorithm. 
+         The configurable fall-back solution for code page detection within cpdetector.
+       </td>
+      </tr>
+      <tr><td colspan="2">&nbsp;</td><tr>
+  
+      <tr>
+       <td >
+        <h3>Page design.</h3>
+       </td>
+       <td>&nbsp;</td>
+      </tr>
+      <tr>
+       <td id="box">
+        Dionidium
+       </td>
+       <td>
+        <a href="http://dionidium.com" target="_blank">http://diondium.com</a><br>
+        Psst! The design of this page was heavily inspired by dionidium.com. 
+        One could say, it was copied and modified a little bit. 
+        When it comes to art I just know, what my eyes like and what not. 
+        But I lack the ability to invent nice designs. Big credit. 
+       </td>
+      </tr>
+      
+      <tr><td colspan="2">&nbsp;</td><tr>
+      
+      <tr>
+       <td >
+        <h3>Hosting</h3>
+       </td>
+       <td>&nbsp;</td>
+      </tr>
+      <tr>
+       <td id="box">
+         <A href="http://sourceforge.net" ><IMG src="http://sourceforge.net/sflogo.php?group_id=112713&amp;type=1" width="88" height="31" border="0" alt="SourceForge.net Logo" title="Sourceforge website."/></A>
+       </td>
+       <td>
+        <a href="http://sourceforge.net" target="_blank">http://www.sourceforge.net</a><br>
+         Great full-service for open source development. 
+       </td>
+      </tr>
+
+      <tr><td colspan="2">&nbsp;</td><tr>
+      
+      <tr>
+       <td>
+        <h3>Decent hit counter</h3>
+       </td>
+       <td>&nbsp;</td>
+      </tr>
+      <tr>
+       <td id="box">
+         <a href="http://www.statcounter.com/"><img src="http://www.statcounter.com/images/button1.gif" alt="Free Website Statistics" width="88" height="31" border="0"></a>
+       </td>
+       <td>
+        <a href="http://www.statcounter.com" target="_blank">http://www.statcounter.com</a><br>
+        Very nice and decent service indeed. 
+       </td>
+      </tr>
+
+      <tr><td colspan="2">&nbsp;</td><tr>
+
+     
+     </table>
+     </p>
+     
+    </div>
+    <!-- End of contents div -->
+    <!-- The counter -->
+    <!--#include virtual="./footer.shtml" -->
+   </div>
+   <!-- End of main div -->
+  </div>	
+  <!-- End of wrapper div -->
+ </body>
+</html>

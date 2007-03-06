@@ -1,0 +1,49 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <!--#include virtual="./head.shtml" -->
+ <script language="javascript">
+  var update="10/21/2004";
+ </script>
+ <body id="feature">
+  <div id="wrapper">
+   <div id="main">
+    <!-- Header -->
+    <!--#include virtual="./header.shtml" -->
+
+    
+    <!--#include virtual="./navigation.shtml" -->
+    <!-- Navigation -->
+    <div id="content">
+     <h2>Request new features</h2>
+     <p>
+      cpdetector is quite stable now. But still some features are missing and may 
+      be desireable. It will tried to add these by doing it in a clever order: 
+      First the basic features that will be needed by the more advanced ones. 
+      This allows to keeps it clean and stable without long terms of blind development 
+      (unable to perform a build). 
+      </p>
+      <p>
+       cpdetector is quite small and simple. Extensions with new code page -  detection 
+       implementations may be done without affecting other code as these implementations 
+       are only taken into the code path if the user configures the proxy. Further implementations 
+       are welcome. Extensions of existing implementations like the ANTLR facade or 
+       the proxy itself have to be cross - checked or done by a team member.
+      </p>
+      <p>
+       Regardless of the unofficial roadmap it is important to know, 
+       which features are most desirable for the users. <br>
+       So it is important to let us (by now only me) know about 
+       it: <br> 
+       <a href="http://sourceforge.net/tracker/?func=add&group_id=114421&atid=668285" target="blank">
+       Request a feature</a>.
+      </p>
+     
+    </div>
+    <!-- End of contents div -->
+    <!-- The counter -->
+    <!--#include virtual="./footer.shtml" -->
+   </div>
+   <!-- End of main div -->
+  </div>	
+  <!-- End of wrapper div -->
+ </body>
+</html>

@@ -1,0 +1,12 @@
+<ul id="nav">
+ <li id="homenav"><a href="index.shtml" accesskey="0">home</a></li>
+ <li id="usagenav"><a href="usage.shtml" accesskey="1">usage</a></li>	
+ <li id="docsnav"><a href="docs.shtml" accesskey="2">documentation</a></li>	
+ <li id="downloadnav"><a href="download.shtml" accesskey="3">download</a></li>
+ <li id="featurenav"><a href="feature.shtml" accesskey="4">features</a></li>
+ <li id="bugnav"><a href="bug.shtml" accesskey="5">bugs</a></li>
+ <li id="donationnav"><a href="donation.shtml" accesskey="6">donations</a></li>
+ <li id="mailingnav"><a href="mailing.shtml" accesskey="7">mailing lists</a></li>
+ <li id="creditnav"><a href="credit.shtml" accesskey="8">credits</a></li>
+ <li id="linknav"><a href="link.shtml" accesskey="9">links</a></li>
+</ul>

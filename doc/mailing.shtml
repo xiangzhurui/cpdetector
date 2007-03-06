@@ -1,0 +1,64 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <!--#include virtual="./head.shtml" -->
+ <!--
+  Some trick: seting the date here allows to include it (client - side) 
+  by the generic footer via a "document.write(update);" - script.
+ -->
+ <script language="javascript">
+  var update="10/21/2004";
+ </script>
+ <body id="mailing">
+  <div id="wrapper">
+   <div id="main">
+    <!-- Header -->
+    <!--#include virtual="./header.shtml" -->
+
+    
+    <!--#include virtual="./navigation.shtml" -->
+    <!-- Navigation -->
+    <div id="content">
+     
+      <h2>Keep me up to date about cpdetector</h2>
+      <p>
+       If you want to be informed by mail about new releases or changes of 
+       cpdetector, you may subscribe the corresponding project as freshmeat: 
+       <a target="_blank" href="http://freshmeat.net/projects/cpdetector/">http://freshmeat.net/projects/cpdetector/</a>. 
+       Scroll down. Above the branches you will find the subscription button. 
+       I will not be able to see any information about you.
+      </p>
+      <p>
+       If you want to get more information feel
+       
+       free to sign up to one of the mailing lists at the 
+       following page:<br>
+       <a href="http://sourceforge.net/mail/?group_id=114421" target="_blank">Sign up to cpdetector mailing lists</a>.
+       <br> 
+       <br>
+       I might be able to see your e-mail address through an administrative interface if 
+       was curious about it.  
+       
+      </p>
+      <h2>Privacy</h2>
+      <p>
+       No information about visitors and subscribes will be given to 3rd party members 
+       or used for other purposes than provide the requested service (inform about cpdetector). 
+       This includes subscription e-mail addresses, forum postings at the 
+       <a target="_blank" href="http://sourceforge.net/projects/cpdetector/">sourceforge project page</a>, 
+       direct E-Mails to cpdetector's author (me) and statistic data that is logged for this page. 
+      </p>
+      <p>
+       If you for example are from a big company with a good name and 
+       I could see that you regularly visit this page I would not set up a reference page telling your name 
+       or pass information to 3rd party members about the assumption that you currently are 
+       working on code page detection. 
+      </p>
+     </div>     
+    <!-- End of contents div -->
+    <!-- The counter -->
+    <!--#include virtual="./footer.shtml" -->
+   </div>
+   <!-- End of main div -->
+  </div>	
+  <!-- End of wrapper div -->
+ </body>
+</html>

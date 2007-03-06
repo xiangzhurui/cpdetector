@@ -1,0 +1,87 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <!--#include virtual="./head.shtml" -->
+ <script language="javascript">
+  var update="01/09/2005";
+ </script>
+ <body id="bug">
+  <div id="wrapper">
+   <div id="main">
+    <!-- Header -->
+    <!--#include virtual="./header.shtml" -->
+
+    
+    <!--#include virtual="./navigation.shtml" -->
+    <!-- Navigation -->
+    <div id="content">
+     <h2>Submit a bug</h2>
+     <p>
+      cpdetector was not tested with all operating systems and all different virtual 
+      machine implementations. Even if I think that it runs quite stable, 
+      changes in the underlying implementations (jchardet) or even the own product code may contain 
+      paths never run through by own tests. 
+     </p>
+     <p>
+      Please improve cpdetector by posting your detailed bug report here:<br>
+      <a href="http://sourceforge.net/tracker/?func=add&group_id=114421&atid=668282" target="_blank">
+      Submit a bug</a>.
+     </p>
+     <p>
+      Please include a detailed stacktrace as well as the code that is needed to reproduce the bug.
+     </p>
+     
+     <h2>Why should I?</h2>
+     <h3>The license</h3>
+      <p>
+        The 
+       <a target="_blank" href="http://www.mozilla.org/MPL/MPL-1.1-annotated.html">Mozilla Public License 1.1</a> 
+       imposes restrictions if you modify  the source files of the 
+       original distribution (or make extractions) of the initial developer's code: that modified code has to be  
+       distributed under MPL 1.1 but without the need to inform the originial developer. 
+       But why would someone do that? To fix a bug or add 
+       a feature. If the code itself is only used by an application (original files remain untouched 
+       and no excerpts are extracted) the MPL 1.1 does not affect 
+       the license of the application. To stay on the safe side 
+       you should prefer reporting bugs instead of fixing them by yourself. Or even better: fix the bug, 
+       report it and send the changes to the author. That would improve quality, development cycle and 
+       your reputation as a developer if you'd like to be put on some record. 
+      </p>
+      
+      <h3>My interpretation</h3>
+      <blockquote>
+       "...if you incorporate code or algorithms from open source places, even 
+        inadvertantly, you are going to infect the intellectual property rights 
+        of what you are creating with the original code itself, depending on the 
+        license terms."
+      </blockquote>
+       I found this statement in a newsgroup. 
+      <p>
+       I don't want to be responsible for infecting someone's work with an "open source virus". 
+       I don't want people to think of open source as a virus. I don't care if you do not follow 
+       the license. Users have to negotiate this with their conscience. 
+      </p>
+      <h3>Privacy</h3>
+      <p>
+       Users that report a bug or request a feature will remain anonymous to the public unless 
+       they declare upon a potential request that they agree to let their name be 
+       shown on some testimonial page in future. Also regardless of what (commercial) purpose,  
+       extend of profit the usage of cpdetector causes or the size of the user's company 
+       the developers of cpdetector will not demand a donation from users that contact the 
+       developer. Donations are a matter of the user's concience and/or engagement within her/his company too. 
+      </p>
+      <p>
+       In ref-logs I've seen  
+       visits from major companies that returned several times to this page 
+       and stayed longer than 2 minutes. Don't be afraid, your contribution will be handled with 
+       discretion. 
+      </p> 
+     
+    </div>
+    <!-- End of contents div -->
+    <!-- The counter -->
+    <!--#include virtual="./footer.shtml" -->
+   </div>
+   <!-- End of main div -->
+  </div>	
+  <!-- End of wrapper div -->
+ </body>
+</html>

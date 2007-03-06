@@ -1,0 +1,134 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <!--#include virtual="./head.shtml" -->
+ <script language="javascript">
+  var update="09/24/2004";
+ </script>
+ <body id="home">
+  <div id="wrapper">
+   <div id="main">
+    <!-- Header -->
+    <!--#include virtual="./header.shtml" -->
+
+    
+    <!--#include virtual="./navigation.shtml" -->
+    <!-- Navigation -->
+    <div id="content">
+     <h2>What is cpdetector?</h2>
+     <p >
+      The name cpdetector is a short form for code page - detector and has nothing to 
+      do with java classpaths. 
+      cpdetector is a framework for configurable code page-detection of documents. 
+      It may be used to detect the code page of documents retrieved from remote hosts. 
+      Code page - detection is needed whenever it is not known, which encoding a 
+      document belongs to. Therefore it is a core requirement for any 
+      application in the field of information mining  or just information retrieval.
+     </p>
+     <h2>What is a code page?</h2>
+     Excerpt from <a href="http://www.unicode.org/standard/WhatIsUnicode.html" target="_blank">http://www.unicode.org/standard/WhatIsUnicode.html</a>:
+     <br>
+     <p>
+       <blockquote>
+        <i>"Fundamentally, computers just deal with numbers. They store letters and other characters by assigning a number for each one."</i>
+       </blockquote>
+     </p>
+     <p>
+      At first, a textual document is nothing more than sequences of bits. A 
+      computer has to decide, how he can display this data in form of characters (which are identified by 
+      the computer as numbers). 
+      A code page - which is also known as charset encoding - maps the raw data 
+      of a textual document to characters. The original ASCII code page for example 
+      only uses 7 bits of an octet (byte) for deciding the character that is represented 
+      thus allowing only to map 128 different characters. In the past memory was expensive 
+      and computers most often only had registers and busses for 8 bit. When a mainframe 
+      was conceived it had to be decided, which characters it should support. Physicians and 
+      mathematicians for example needed special characters for equations. As a result, 
+      a computer often shipped with a special codepage. 
+     </p>
+     <p>
+      Even today - where <a href="http://www.unicode.org" target="_blank">unicode</a> 
+      unifies all different character encodings by providing a unique number 
+      (codepoint) for every character - the documents in the internet are encoded in various 
+      different code pages. Especially asian documents consist of a huge amount 
+      of characters and therefore often are encoded in special language-specific codepages. 
+      In order to process a textual document, it's bits have to be mapped (decoded) to characters 
+      by the correct character encoding table (code page).
+     </p>
+     <p>
+      A further definition is given on  
+      <a href="http://www.webster-dictionary.org/definition/code%20page" target="_blank" >http://www.webster-dictionary.org</a>.
+     </p>
+     <p>
+      <b>Codepage-detection is needed in:</b>
+      <ul>
+       <li>
+        <b>Search engines:</b><br>
+        Codepage detection is the first step that has to be performed with an 
+        incoming document. A crawler would retrieve the raw binary document, detect the 
+        codepage and then map the bits to characters to continue with tokenization, 
+        annotation, indexing, language identification and further desireable steps. 
+       <li>
+        <b>Browsers:</b><br>
+        You will have seen weird documents in your browser conatining lots of empty squares 
+        or question marks. In that case, you either requested a document that was opened 
+        with the wrong character encoding or your computer just does know how to render the 
+        characters of the code page.<br>
+        Browser like <a href="http://www.mozilla.org" target="_blank">mozilla</a> contain clever strategies 
+        for code page - detection.
+       <li>
+        <b>File sharing software:</b><br>
+        <p>
+         Bittorrent for example needs to exchange metadata (.torrent files) that has to 
+         be interpreted as character stream.
+        </p>
+      </ul>
+     </p>
+     
+     <h2>Why configurable code page - detection?</h2>
+     <p>
+      One may need different techniques to find out the codepage of a document. 
+      These techniques vary from the type of documents to be processed. 
+      XML documents may specify the "<i>encoding</i>" attribute in ASCII characters 
+      (the ASCII range is defined in almost all code pages so the search for it may 
+      be performed by interpretation of the unknown document as ASCII). HTML pages 
+      may specify the "<i>charset</i>" attribute in a meta tag. 
+      The hard way would be to perform exclusion of code pages by inspection of 
+      byte-sequences and narrow down the remaining candidates by frequency analyis for characters. 
+      This way could be skipped if other techniques are successful. But these other techniques 
+      are only useful for certain types of documents... .
+     </p>
+     
+     <h2>Latest News</h2>
+     <p>
+      The news are exported as a weekly cronjob (that tends to be ignored), so it might take a day before changes 
+      are reflected.<br>
+      Last retrieval:  <!--#flastmod file="./projnews.cache" -->.
+     </p>
+     <div id="news" CLASS="wrapper">
+      <!--#include virtual="./projnews.cache" -->
+     </p>
+     </div>
+     <!-- A short script to bend the links from the imported news -->
+     <script language="javascript">
+      function newsLinkTargets(){
+       var links = document.links;
+       for(var i=links.length-1;i>=0;i--){
+        if(links[i].hostname.indexOf("cpdetector")==-1){
+       	 if(links[i].protocol == "http:"){
+          //window.alert("Bending link: "+links[i]+" with hostname: "+links[i].hostname+" and protocol: "+links[i].protocol);
+       	  links[i].target="_blank";
+       	 }
+        }
+       }
+      }
+      window.setTimeout("newsLinkTargets()",2000);
+     </script>
+    </div>
+    <!-- End of contents div -->
+    <!-- The counter -->
+    <!--#include virtual="./footer.shtml" -->
+   </div>
+   <!-- End of main div -->
+  </div>	
+  <!-- End of wrapper div -->
+ </body>
+</html>
