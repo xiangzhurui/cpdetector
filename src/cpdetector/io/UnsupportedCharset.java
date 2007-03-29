@@ -57,86 +57,89 @@ import java.util.Map;
 
 /**
  * <p>
- * A dummy charset that indicates an unknown charset. 
- * Nevertheless some indication of a encoding definition 
- * has been found that is contained here. The system just 
- * does not support that codepage. 
+ * A dummy charset that indicates an unknown charset. Nevertheless some
+ * indication of a encoding definition has been found that is contained here.
+ * The system just does not support that codepage.
  * </p>
  * <p>
- *  These instances are obtained by the static singleton retrieval 
- *  call {@link #forName(String)} which allows unique instances for 
- *  a detected string.
+ * These instances are obtained by the static singleton retrieval call
+ * {@link #forName(String)} which allows unique instances for a detected string.
  * </p>
+ * 
  * @author <a href="mailto:Achim.Westermann@gmx.de">Achim Westermann</a>
- *
+ * 
  */
-public class UnsupportedCharset extends Charset
-{
+public class UnsupportedCharset
+    extends Charset {
 
-    private static Map singletons = new HashMap();
-    
-    private UnsupportedCharset(String name)
-    {
-        super(name, null);
-        
-    }
-    
-    public static Charset forName(String name){
-      Charset ret = (Charset)singletons.get(name);
-      if(ret == null){
-        ret = new UnsupportedCharset(name);
-        singletons.put(name,ret);
-      }
-      return ret;
-    }
-    
+  private static Map singletons = new HashMap();
 
-    /* (non-Javadoc)
-     * @see java.nio.charset.Charset#contains(java.nio.charset.Charset)
-     */
-    public boolean contains(Charset cs)
-    {
-        return false;
-    }
+  private UnsupportedCharset(String name) {
+    super(name, null);
 
-    /* (non-Javadoc)
-     * @see java.nio.charset.Charset#newDecoder()
-     */
-    public CharsetDecoder newDecoder()
-    {
-      throw new UnsupportedOperationException("This is no real Charset but a flag you should test for!");
-    }
+  }
 
-    /* (non-Javadoc)
-     * @see java.nio.charset.Charset#newEncoder()
-     */
-    public CharsetEncoder newEncoder()
-    {
-      throw new UnsupportedOperationException("This is no real Charset but a flag you should test for!");
+  public static Charset forName(String name) {
+    Charset ret = (Charset) singletons.get(name);
+    if (ret == null) {
+      ret = new UnsupportedCharset(name);
+      singletons.put(name, ret);
     }
-    
-    
+    return ret;
+  }
 
-    /* (non-Javadoc)
-     * @see java.nio.charset.Charset#displayName()
-     */
-    public String displayName()
-    {
-        return super.displayName();
-    }
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.nio.charset.Charset#contains(java.nio.charset.Charset)
+   */
+  public boolean contains(Charset cs) {
+    return false;
+  }
 
-    /* (non-Javadoc)
-     * @see java.nio.charset.Charset#displayName(java.util.Locale)
-     */
-    public String displayName(Locale locale)
-    {
-        return super.displayName(locale);
-    }
-    /**
-     * @see java.lang.Comparable#compareTo(java.lang.Object)
-     */
-    public int compareTo(Object arg0) {
-        return new Integer(this.hashCode()).compareTo(new Integer(arg0.hashCode()));
-    }
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.nio.charset.Charset#newDecoder()
+   */
+  public CharsetDecoder newDecoder() {
+    throw new UnsupportedOperationException(
+        "This is no real Charset but a flag you should test for!");
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.nio.charset.Charset#newEncoder()
+   */
+  public CharsetEncoder newEncoder() {
+    throw new UnsupportedOperationException(
+        "This is no real Charset but a flag you should test for!");
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.nio.charset.Charset#displayName()
+   */
+  public String displayName() {
+    return super.displayName();
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.nio.charset.Charset#displayName(java.util.Locale)
+   */
+  public String displayName(Locale locale) {
+    return super.displayName(locale);
+  }
+
+  /**
+   * @see java.lang.Comparable#compareTo(java.lang.Object)
+   */
+//  public int compareTo(Object arg0) {
+//    return new Integer(this.hashCode()).compareTo(new Integer(arg0.hashCode()));
+//  }
 
 }

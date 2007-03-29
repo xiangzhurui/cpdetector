@@ -51,11 +51,9 @@ import java.nio.charset.CharsetDecoder;
 import java.nio.charset.CharsetEncoder;
 
 /**
- * 
- * <p>
  * A singleton Charset indicating that no encoding could be detected at all (regardless wether supported by platform or
  * not). Unlike the {@link UnsupportedCharset} singleton instances it will never equal anything.
- * </p>
+ * <p>
  * 
  * @author <a href="mailto:Achim.Westermann@gmx.de">Achim Westermann</a>
  * 
@@ -111,8 +109,8 @@ public class UnknownCharset extends Charset {
     /**
      * @see java.lang.Comparable#compareTo(java.lang.Object)
      */
-    public int compareTo(Object arg0) {
-        return new Integer(this.hashCode()).compareTo(new Integer(arg0.hashCode()));
-    }
+//    public int compareTo(Object arg0) {
+//        return new Integer(this.hashCode()).compareTo(new Integer(arg0.hashCode()));
+//    }
 
 }
