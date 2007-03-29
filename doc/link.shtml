@@ -47,9 +47,6 @@
 			target="_blank"> Mozilla's Universal Charset Detector</a>.</td>
 	</tr>
 	<tr>
-		<td colspan="2">&nbsp;</td>
-	<tr>
-	<tr>
 		<td id="box"><a
 			href="http://fredeaker.blogspot.com/2007/01/character-encoding-detection.html"
 			target="_blank">Comparison of available detectors</a></td>
@@ -57,9 +54,6 @@
 		quite some research an testing on codepage detection. In his applied
 		comparison of available detectors cpdetector does not look too bad!</td>
 	</tr>
-	<tr>
-		<td colspan="2">&nbsp;</td>
-	<tr>
 	<tr>
 		<td id="box"><a href="http://utrac.sourceforge.net/" target="_blank">Utrac</a>
 		</td>
