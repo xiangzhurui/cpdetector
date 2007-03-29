@@ -172,8 +172,8 @@
   </target>
 
   <target name="javadoc">
-    <mkdir dir="${basedir}/doc" />
-    <javadoc destdir="${basedir}/doc" access="public" use="false" notree="false" nonavbar="false" noindex="false" splitindex="true" Author="true" version="true" nodeprecatedlist="false" nodeprecated="false" doctitle="cpdetector API Documentation version ${project.version}" windowtitle="cpdetector, an extensible codepage-detection framework." Verbose="true" stylesheetfile="${basedir}/doc/cpdetector.css" charset="UTF-8" docencoding="UTF-8">
+    <mkdir dir="${basedir}/doc/javadoc" />
+    <javadoc destdir="${basedir}/doc/javadoc" access="protected" use="false" notree="false" nonavbar="false" noindex="false" splitindex="true" Author="true" version="true" nodeprecatedlist="false" nodeprecated="false" doctitle="cpdetector API Documentation version ${project.version}" windowtitle="cpdetector, an extensible codepage-detection framework." Verbose="true" stylesheetfile="${basedir}/doc/javadoc/cpdetector.css" charset="UTF-8" docencoding="UTF-8">
       <classpath refid="classpath" />
       <bottom>
         <![CDATA[Copyleft &#x32A2; 2003-2004 MPL 1.1, <span title='Save the whales!'>All Rights Footloose.</span>]]></bottom>
