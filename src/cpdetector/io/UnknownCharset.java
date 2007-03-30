@@ -1,5 +1,4 @@
 /*
- * 
  *  UnknownCharset.java  cpdetector
  *  Copyright (C) Achim Westermann, created on 26.09.2004, 03:15:15  
  *
