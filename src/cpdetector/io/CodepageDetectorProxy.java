@@ -175,11 +175,22 @@ public final class CodepageDetectorProxy
   public Charset detectCodepage(final InputStream in, final int length) throws IOException {
 
     Charset ret = null;
+    int markLimit = length;
     Iterator detectorIt = this.detectors.iterator();
     while (detectorIt.hasNext()) {
-      in.mark(length);
+      if (in.markSupported()) {
+        in.mark(markLimit);
+      }
       ret = ((ICodepageDetector) detectorIt.next()).detectCodepage(in, length);
-      in.reset();
+      if (in.markSupported()) {
+        // if more bytes have been read than marked (length) this will throw an exception:
+        try {
+        in.reset();
+        } catch(IOException ioex) {
+          ioex.printStackTrace(System.err);
+          markLimit *=2;
+        }
+      }
       if (ret != null) {
         if (ret != UnknownCharset.getInstance()) {
           if (ret instanceof UnsupportedCharset) {
