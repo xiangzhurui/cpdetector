@@ -111,7 +111,7 @@ public class CodePageDetectorProxyTest extends TestCase {
 
             // mark a position (0) from outside to test mark-reset integrity:
             in.mark(100);
-            Charset result = this.m_detector.detectCodepage(in, 100);
+            Charset result = this.m_detector.detectCodepage(in, (int)f.length());
             System.out.println("Result: " + result);
             assertEquals(Charset.forName("utf-8"), result);
 
@@ -151,6 +151,7 @@ public class CodePageDetectorProxyTest extends TestCase {
         f.createNewFile();
         OutputStream out = new FileOutputStream(f);
         out.write(barr);
+        out.flush();
         out.close();
         assertTrue("File " + f.getAbsolutePath()
                 + " seems to be locked (open InputStream) after detection.", f.canWrite());
