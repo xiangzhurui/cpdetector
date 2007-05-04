@@ -170,26 +170,34 @@ public final class CodepageDetectorProxy
    *          InputStream but should be as long as possible to give the fallback
    *          detection (chardet) more hints to guess.
    * 
-   * @see cpdetector.io.ICodepageDetector#detectCodepage(java.io.InputStream)
+   * @see cpdetector.io.ICodepageDetector#detectCodepage(java.io.InputStream,
+   *      int length)
+   * 
+   * @throws IllegalArgumentException
+   *           if more bytes had to be read from the input stream than param
+   *           length or the given input stream does not support marking.
    */
-  public Charset detectCodepage(final InputStream in, final int length) throws IOException {
+  public Charset detectCodepage(final InputStream in, final int length) throws IOException,
+      IllegalArgumentException {
 
+    if (!in.markSupported()) {
+      throw new IllegalArgumentException("The given input stream (" + in.getClass().getName()
+          + ") has to support marking.");
+    }
     Charset ret = null;
     int markLimit = length;
     Iterator detectorIt = this.detectors.iterator();
     while (detectorIt.hasNext()) {
-      if (in.markSupported()) {
-        in.mark(markLimit);
-      }
+      in.mark(markLimit);
       ret = ((ICodepageDetector) detectorIt.next()).detectCodepage(in, length);
-      if (in.markSupported()) {
-        // if more bytes have been read than marked (length) this will throw an exception:
-        try {
+      // if more bytes have been read than marked (length) this will throw an
+      // exception:
+      try {
         in.reset();
-        } catch(IOException ioex) {
-          ioex.printStackTrace(System.err);
-          markLimit *=2;
-        }
+      } catch (IOException ioex) {
+        throw new IllegalArgumentException(
+            "More than the given length had to be read and the given stream could not be reset. Undetermined state for this detection.");
+
       }
       if (ret != null) {
         if (ret != UnknownCharset.getInstance()) {
