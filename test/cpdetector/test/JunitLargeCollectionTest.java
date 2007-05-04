@@ -1,6 +1,6 @@
 /*
  * 
- *  PerformanceTest.java  cpdetector
+ *  JunitLargeCollectionTest.java of project cpdetector
  *  Copyright (C) Achim Westermann, created on 22.09.2004, 16:13:15  
  *
  *  This program is free software; you can redistribute it and/or modify
