@@ -6,7 +6,7 @@
  * This file is part of cpdetector -
  * the Open Source code page detection library.
  *
- * Copyright (c) 2006 Achim Westermann
+ * Copyright (c) 2007 Achim Westermann
  */
 
 History of changes for the cpdetector project.
@@ -20,7 +20,7 @@ Legend:
 - General comment
 o API change that requires refactoring.
 
-cpdetector- 1.0.5 - Month, Day, 2006
+cpdetector- 1.0.5 - 04, 21, 2007
 
 * Fixed issue with infinite loop for exhausted input stream in jchardet facade.
 ! Begin with checkstyle conventions. 
@@ -30,5 +30,72 @@ cpdetector- 1.0.5 - Month, Day, 2006
   does not close opened input stream which disallows deletion of file after detection. 
 * Fixed issue in cpdetector.util.FileUtil.readRam(java.io.File): 
   Openend input stream was not closed. 
+  
+Version 1.04: Minor Bugfix
 
-// TODO: Take release notes from sourceforge to historize previous releases!
+- Sync with new source release...
+
+Version 1.03: 
+
+- First start with FIT testing (ANTFIT). 
+1.04:
+- Bugfix for "missing fit task".
+- Restructuring the archive: top-level folder is now project root. 
+
+1.03: 
+- Removal of java 1.5 sourcecode for consistency. 
+- Rebuild of jchardet for jdk1.4.2. 
+- Start of ANT - integrated FIT testing: see http://fit.c2.com/ 
+
+FIT Howto: 
+This testing framework produces human readable beautiful 
+output and does not require programming skills. Just a html page  
+has to be written. The first class that processes the data is 
+provided in cpdetector. Even the programming of the test 
+classes causes minimal effort. 
+
+Please look at: cpdetector/test/fit/detectURL.html. In that file 
+there is only one table row that runs a test. You could help by 
+adding other rows that reference the files from the 
+testdocuments that are available in the release
+- Step back to jdk 1.4.2 (Test sources were 1.5). 
+- Choosable guessing of charsets: If jchardet fails to narrow 
+  down the set of possible charsets to one, it may (if chosen) 
+  return a potential one. 
+  See cpdetector.io.JChardetFacade.setGuessing(boolean). 
+
+
+Version 1.02: 
+
+Bugfix (unreported): 
+Version 1.01 introduced a major bug that disabled html charset parsing. This has been verified to result from the behaviour of the parser generator and fixed. 
+
+Bugfix (unreported): 
+CodpageDetectorProxy iterated over the  ICodepageDetector implementations in an arbitrary order thus ignoring the precedence. 
+
+Feature:
+Support for XML external parsed entities (e.g.: dtd's) with optional version info. 
+
+Feature:
+Build automation. 
+
+Feature: 
+Start of quality assurance with integrations of junit in ANT.
+
+
+
+Version 1.01: 
+
+- ANTLR parsing now detects XML encoding 
+(http://www.w3.org/TR/2004/REC-xml-20040204/#NT-EncodingDecl)
+  This offers a performance speedup when handling 
+  mainly xml, as the fallback guessing algorithm may 
+  be skipped. 
+
+- New interface method for InputStreams allows working with
+  any data (even byte arrays or Strings). 
+
+- Deprecated HTMLCharsetDetector due to a misleading name: 
+  ANTLR parsing looks for xml encodin as well as html charset 
+  and will possibly include more in future.  The new 
+  implementation is called ParsingDetector. 
