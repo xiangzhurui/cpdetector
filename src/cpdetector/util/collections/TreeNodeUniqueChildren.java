@@ -50,61 +50,59 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
- * <p>
- * An {@link ItreeNode} implementation, that does not allow equal m_children of
- * one common parent node. Common elements in the path from an arbitrary node
- * (seen as the root) to different leaves will share the same <tt>ITreeNode</tt>
- * instances at runtime.
- * </p>
+ * An {@link cpdetector.util.collections.ITreeNode} implementation, that does
+ * not allow equal m_children of one common parent node. Common elements in the
+ * path from an arbitrary node (seen as the root) to different leaves will share
+ * the same <tt>ITreeNode</tt> instances at runtime.
  * <p>
  * This behaviour may be used to create the smallest possible tree containing
  * all given serialized paths.
- * </p>
+ * <p>
  * 
  * @author <a href="mailto:Achim.Westermann@gmx.de">Achim Westermann </a>
  */
-public class TreeNodeUniqueChildren extends ITreeNode.DefaultTreeNode {
+public class TreeNodeUniqueChildren
+    extends ITreeNode.DefaultTreeNode {
 
   /**
-   *  
+   * 
    */
   public TreeNodeUniqueChildren() {
     super();
   }
 
   /**
-   * @param m_userObject
+   * @param userObject
    */
-  public TreeNodeUniqueChildren(Object userObject) {
+  public TreeNodeUniqueChildren(final Object userObject) {
     super(userObject);
   }
 
   /**
-   * @param m_userObject
+   * @param userObject
    * @param child
    */
-  public TreeNodeUniqueChildren(Object userObject, ITreeNode child) {
+  public TreeNodeUniqueChildren(final Object userObject, final ITreeNode child) {
     super(userObject, child);
   }
 
   /**
-   * @param m_userObject
-   * @param m_children
+   * @param userObject
+   * @param children
    */
-  public TreeNodeUniqueChildren(Object userObject, ITreeNode[] children) {
+  public TreeNodeUniqueChildren(final Object userObject,final  ITreeNode[] children) {
     super(userObject, children);
   }
 
   /**
-   * <p>
    * If the given argument is already a child node of this one (by the means of
    * the equals method), it will replace the old node but gets the childs of the
    * old node.
-   * </p>
+   * <p>
    * 
-   * @see aw.util.collections.ITreeNode#addChildNode(aw.util.collections.ITreeNode)
+   * @see ITreeNode#addChildNode(ITreeNode)
    */
-  public boolean addChildNode(ITreeNode node) {
+  public boolean addChildNode(final ITreeNode node) {
     boolean ret = true;
     if (node == null) {
       throw new IllegalArgumentException("Argument node is null!");
@@ -151,9 +149,9 @@ public class TreeNodeUniqueChildren extends ITreeNode.DefaultTreeNode {
    *               / | \
    *              8  9  10
    * 
-   *  &lt;pre&gt;
+   *  </pre>
    *  As only unique nodes are supported, the paths have to be flattended to:
-   *  &lt;pre&gt;
+   *  <pre>
    * 
    *              0
    *             / \
@@ -168,11 +166,11 @@ public class TreeNodeUniqueChildren extends ITreeNode.DefaultTreeNode {
    *           / | \
    *          8  9  10
    * 
-   *  &lt;pre&gt;
+   *  </pre>
    * 
    * 
    * 
-   * 
+   *
    */
   public static void main(String[] args) throws Exception {
     StringBuffer prettyPrint = new StringBuffer();
@@ -206,13 +204,13 @@ public class TreeNodeUniqueChildren extends ITreeNode.DefaultTreeNode {
     System.out.println("Assuming tree:\n" + prettyPrint.toString());
 
     ITreeNode root = new TreeNodeUniqueChildren(new Integer(0), new ITreeNode[] {
+        new DefaultTreeNode(new Integer(1), new ITreeNode[] {new DefaultTreeNode(new Integer(4)),
+            new DefaultTreeNode(new Integer(5)) }),
+        new DefaultTreeNode(new Integer(2)),
         new DefaultTreeNode(new Integer(1), new ITreeNode[] {
-            new DefaultTreeNode(new Integer(4)), new DefaultTreeNode(new Integer(5))
-        }), new DefaultTreeNode(new Integer(2)), new DefaultTreeNode(new Integer(1), new ITreeNode[] {
             new DefaultTreeNode(new Integer(6), new ITreeNode[] {
-                new DefaultTreeNode(new Integer(8)), new DefaultTreeNode(new Integer(9)), new DefaultTreeNode(new Integer(10))
-            }), new DefaultTreeNode(new Integer(7))
-        })
+                new DefaultTreeNode(new Integer(8)), new DefaultTreeNode(new Integer(9)),
+                new DefaultTreeNode(new Integer(10)) }), new DefaultTreeNode(new Integer(7)) })
 
     });
     System.out.println("The tree:");
