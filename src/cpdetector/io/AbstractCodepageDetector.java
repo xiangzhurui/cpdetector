@@ -81,7 +81,7 @@ public abstract class AbstractCodepageDetector implements ICodepageDetector {
      * Delegates to {@link #detectCodepage(java.io.InputStream, int)} with a buffered input stream.
      * <p>
      * 
-     * @see aw.io.ICodepageDetector#detectCodepage(java.net.URL)
+     * @see ICodepageDetector#detectCodepage(URL)
      */
     public Charset detectCodepage(final URL url) throws IOException {
         Charset result;
