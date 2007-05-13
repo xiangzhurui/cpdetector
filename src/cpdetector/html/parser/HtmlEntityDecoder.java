@@ -1,4 +1,4 @@
-// $ANTLR : "htmlentitydecoder.g" -> "HtmlEntityDecoder.java"$
+// $ANTLR 2.7.4: "htmlentitydecoder.g" -> "HtmlEntityDecoder.java"$
 
 package cpdetector.html.parser;
 
@@ -622,6 +622,744 @@ public HtmlEntityDecoder(ParserSharedInputState state) {
 			out.write('\u00FF');
 			break;
 		}
+		case ALPHA:
+		{
+			match(ALPHA);
+			out.write('\u00FF');
+			break;
+		}
+		case BETA:
+		{
+			match(BETA);
+			out.write('\u00FF');
+			break;
+		}
+		case GAMMA:
+		{
+			match(GAMMA);
+			out.write('\u00FF');
+			break;
+		}
+		case DELTA:
+		{
+			match(DELTA);
+			out.write('\u00FF');
+			break;
+		}
+		case EPSILON:
+		{
+			match(EPSILON);
+			out.write('\u00FF');
+			break;
+		}
+		case ZETA:
+		{
+			match(ZETA);
+			out.write('\u00FF');
+			break;
+		}
+		case ETA:
+		{
+			match(ETA);
+			out.write('\u00FF');
+			break;
+		}
+		case THETA:
+		{
+			match(THETA);
+			out.write('\u00FF');
+			break;
+		}
+		case IOTA:
+		{
+			match(IOTA);
+			out.write('\u00FF');
+			break;
+		}
+		case KAPPA:
+		{
+			match(KAPPA);
+			out.write('\u00FF');
+			break;
+		}
+		case LAMBDA:
+		{
+			match(LAMBDA);
+			out.write('\u00FF');
+			break;
+		}
+		case MU:
+		{
+			match(MU);
+			out.write('\u00FF');
+			break;
+		}
+		case NU:
+		{
+			match(NU);
+			out.write('\u00FF');
+			break;
+		}
+		case XI:
+		{
+			match(XI);
+			out.write('\u00FF');
+			break;
+		}
+		case OMICRON:
+		{
+			match(OMICRON);
+			out.write('\u00FF');
+			break;
+		}
+		case PI:
+		{
+			match(PI);
+			out.write('\u00FF');
+			break;
+		}
+		case RHO:
+		{
+			match(RHO);
+			out.write('\u00FF');
+			break;
+		}
+		case SIGMA:
+		{
+			match(SIGMA);
+			out.write('\u00FF');
+			break;
+		}
+		case TAU:
+		{
+			match(TAU);
+			out.write('\u00FF');
+			break;
+		}
+		case UPSILON:
+		{
+			match(UPSILON);
+			out.write('\u00FF');
+			break;
+		}
+		case PHI:
+		{
+			match(PHI);
+			out.write('\u00FF');
+			break;
+		}
+		case CHI:
+		{
+			match(CHI);
+			out.write('\u00FF');
+			break;
+		}
+		case PSI:
+		{
+			match(PSI);
+			out.write('\u00FF');
+			break;
+		}
+		case OMEGA:
+		{
+			match(OMEGA);
+			out.write('\u00FF');
+			break;
+		}
+		case ALPHA_LC:
+		{
+			match(ALPHA_LC);
+			out.write('\u00FF');
+			break;
+		}
+		case BETA_LC:
+		{
+			match(BETA_LC);
+			out.write('\u00FF');
+			break;
+		}
+		case GAMMA_LC:
+		{
+			match(GAMMA_LC);
+			out.write('\u00FF');
+			break;
+		}
+		case DELTA_LC:
+		{
+			match(DELTA_LC);
+			out.write('\u00FF');
+			break;
+		}
+		case EPSILON_LC:
+		{
+			match(EPSILON_LC);
+			out.write('\u00FF');
+			break;
+		}
+		case ZETA_LC:
+		{
+			match(ZETA_LC);
+			out.write('\u00FF');
+			break;
+		}
+		case ETA_LC:
+		{
+			match(ETA_LC);
+			out.write('\u00FF');
+			break;
+		}
+		case THETA_LC:
+		{
+			match(THETA_LC);
+			out.write('\u00FF');
+			break;
+		}
+		case IOTA_LC:
+		{
+			match(IOTA_LC);
+			out.write('\u00FF');
+			break;
+		}
+		case KAPPA_LC:
+		{
+			match(KAPPA_LC);
+			out.write('\u00FF');
+			break;
+		}
+		case LAMBDA_LC:
+		{
+			match(LAMBDA_LC);
+			out.write('\u00FF');
+			break;
+		}
+		case MU_LC:
+		{
+			match(MU_LC);
+			out.write('\u00FF');
+			break;
+		}
+		case NU_LC:
+		{
+			match(NU_LC);
+			out.write('\u00FF');
+			break;
+		}
+		case XI_LC:
+		{
+			match(XI_LC);
+			out.write('\u00FF');
+			break;
+		}
+		case OMICRON_LC:
+		{
+			match(OMICRON_LC);
+			out.write('\u00FF');
+			break;
+		}
+		case PI_LC:
+		{
+			match(PI_LC);
+			out.write('\u00FF');
+			break;
+		}
+		case RHO_LC:
+		{
+			match(RHO_LC);
+			out.write('\u00FF');
+			break;
+		}
+		case SIGMAF_LC:
+		{
+			match(SIGMAF_LC);
+			out.write('\u00FF');
+			break;
+		}
+		case SIGMA_LC:
+		{
+			match(SIGMA_LC);
+			out.write('\u00FF');
+			break;
+		}
+		case TAU_LC:
+		{
+			match(TAU_LC);
+			out.write('\u00FF');
+			break;
+		}
+		case UPSILON_LC:
+		{
+			match(UPSILON_LC);
+			out.write('\u00FF');
+			break;
+		}
+		case PHI_LC:
+		{
+			match(PHI_LC);
+			out.write('\u00FF');
+			break;
+		}
+		case CHI_LC:
+		{
+			match(CHI_LC);
+			out.write('\u00FF');
+			break;
+		}
+		case PSI_LC:
+		{
+			match(PSI_LC);
+			out.write('\u00FF');
+			break;
+		}
+		case OMEGA_LC:
+		{
+			match(OMEGA_LC);
+			out.write('\u00FF');
+			break;
+		}
+		case THETASYM:
+		{
+			match(THETASYM);
+			out.write('\u00FF');
+			break;
+		}
+		case UPSIH:
+		{
+			match(UPSIH);
+			out.write('\u00FF');
+			break;
+		}
+		case PIV:
+		{
+			match(PIV);
+			out.write('\u00FF');
+			break;
+		}
+		case BULL:
+		{
+			match(BULL);
+			out.write('\u00FF');
+			break;
+		}
+		case HELLIP:
+		{
+			match(HELLIP);
+			out.write('\u00FF');
+			break;
+		}
+		case PRIME_LC:
+		{
+			match(PRIME_LC);
+			out.write('\u00FF');
+			break;
+		}
+		case PRIME:
+		{
+			match(PRIME);
+			out.write('\u00FF');
+			break;
+		}
+		case OLINE:
+		{
+			match(OLINE);
+			out.write('\u00FF');
+			break;
+		}
+		case FRASL:
+		{
+			match(FRASL);
+			out.write('\u00FF');
+			break;
+		}
+		case WEIERP:
+		{
+			match(WEIERP);
+			out.write('\u00FF');
+			break;
+		}
+		case IMAGE:
+		{
+			match(IMAGE);
+			out.write('\u00FF');
+			break;
+		}
+		case REAL:
+		{
+			match(REAL);
+			out.write('\u00FF');
+			break;
+		}
+		case TRADE:
+		{
+			match(TRADE);
+			out.write('\u00FF');
+			break;
+		}
+		case ALEFSYM:
+		{
+			match(ALEFSYM);
+			out.write('\u00FF');
+			break;
+		}
+		case LARR:
+		{
+			match(LARR);
+			out.write('\u00FF');
+			break;
+		}
+		case UARR:
+		{
+			match(UARR);
+			out.write('\u00FF');
+			break;
+		}
+		case RARR:
+		{
+			match(RARR);
+			out.write('\u00FF');
+			break;
+		}
+		case DARR:
+		{
+			match(DARR);
+			out.write('\u00FF');
+			break;
+		}
+		case HARR:
+		{
+			match(HARR);
+			out.write('\u00FF');
+			break;
+		}
+		case CRARR:
+		{
+			match(CRARR);
+			out.write('\u00FF');
+			break;
+		}
+		case LARR_D:
+		{
+			match(LARR_D);
+			out.write('\u00FF');
+			break;
+		}
+		case UARR_D:
+		{
+			match(UARR_D);
+			out.write('\u00FF');
+			break;
+		}
+		case RARR_D:
+		{
+			match(RARR_D);
+			out.write('\u00FF');
+			break;
+		}
+		case DARR_D:
+		{
+			match(DARR_D);
+			out.write('\u00FF');
+			break;
+		}
+		case HARR_D:
+		{
+			match(HARR_D);
+			out.write('\u00FF');
+			break;
+		}
+		case FORALL:
+		{
+			match(FORALL);
+			out.write('\u00FF');
+			break;
+		}
+		case PART:
+		{
+			match(PART);
+			out.write('\u00FF');
+			break;
+		}
+		case EXIST:
+		{
+			match(EXIST);
+			out.write('\u00FF');
+			break;
+		}
+		case EMPTY:
+		{
+			match(EMPTY);
+			out.write('\u00FF');
+			break;
+		}
+		case NABLA:
+		{
+			match(NABLA);
+			out.write('\u00FF');
+			break;
+		}
+		case ISIN:
+		{
+			match(ISIN);
+			out.write('\u00FF');
+			break;
+		}
+		case NOTIN:
+		{
+			match(NOTIN);
+			out.write('\u00FF');
+			break;
+		}
+		case NI:
+		{
+			match(NI);
+			out.write('\u00FF');
+			break;
+		}
+		case PROD:
+		{
+			match(PROD);
+			out.write('\u00FF');
+			break;
+		}
+		case SUM:
+		{
+			match(SUM);
+			out.write('\u00FF');
+			break;
+		}
+		case MINUS:
+		{
+			match(MINUS);
+			out.write('\u00FF');
+			break;
+		}
+		case LOWAST:
+		{
+			match(LOWAST);
+			out.write('\u00FF');
+			break;
+		}
+		case RADIC:
+		{
+			match(RADIC);
+			out.write('\u00FF');
+			break;
+		}
+		case PROP:
+		{
+			match(PROP);
+			out.write('\u00FF');
+			break;
+		}
+		case INFIN:
+		{
+			match(INFIN);
+			out.write('\u00FF');
+			break;
+		}
+		case ANG:
+		{
+			match(ANG);
+			out.write('\u00FF');
+			break;
+		}
+		case AND:
+		{
+			match(AND);
+			out.write('\u00FF');
+			break;
+		}
+		case OR:
+		{
+			match(OR);
+			out.write('\u00FF');
+			break;
+		}
+		case CAP:
+		{
+			match(CAP);
+			out.write('\u00FF');
+			break;
+		}
+		case CUP:
+		{
+			match(CUP);
+			out.write('\u00FF');
+			break;
+		}
+		case INT:
+		{
+			match(INT);
+			out.write('\u00FF');
+			break;
+		}
+		case THERE4:
+		{
+			match(THERE4);
+			out.write('\u00FF');
+			break;
+		}
+		case SIM:
+		{
+			match(SIM);
+			out.write('\u00FF');
+			break;
+		}
+		case CONG:
+		{
+			match(CONG);
+			out.write('\u00FF');
+			break;
+		}
+		case ASYMP:
+		{
+			match(ASYMP);
+			out.write('\u00FF');
+			break;
+		}
+		case NE:
+		{
+			match(NE);
+			out.write('\u00FF');
+			break;
+		}
+		case EQUIV:
+		{
+			match(EQUIV);
+			out.write('\u00FF');
+			break;
+		}
+		case LE:
+		{
+			match(LE);
+			out.write('\u00FF');
+			break;
+		}
+		case GE:
+		{
+			match(GE);
+			out.write('\u00FF');
+			break;
+		}
+		case SUB:
+		{
+			match(SUB);
+			out.write('\u00FF');
+			break;
+		}
+		case SUP:
+		{
+			match(SUP);
+			out.write('\u00FF');
+			break;
+		}
+		case NSUB:
+		{
+			match(NSUB);
+			out.write('\u00FF');
+			break;
+		}
+		case SUBE:
+		{
+			match(SUBE);
+			out.write('\u00FF');
+			break;
+		}
+		case SUPE:
+		{
+			match(SUPE);
+			out.write('\u00FF');
+			break;
+		}
+		case OPLUS:
+		{
+			match(OPLUS);
+			out.write('\u00FF');
+			break;
+		}
+		case OTIMES:
+		{
+			match(OTIMES);
+			out.write('\u00FF');
+			break;
+		}
+		case PERP:
+		{
+			match(PERP);
+			out.write('\u00FF');
+			break;
+		}
+		case SDOT:
+		{
+			match(SDOT);
+			out.write('\u00FF');
+			break;
+		}
+		case LCEIL:
+		{
+			match(LCEIL);
+			out.write('\u00FF');
+			break;
+		}
+		case RCEIL:
+		{
+			match(RCEIL);
+			out.write('\u00FF');
+			break;
+		}
+		case LFLOOR:
+		{
+			match(LFLOOR);
+			out.write('\u00FF');
+			break;
+		}
+		case RFLOOR:
+		{
+			match(RFLOOR);
+			out.write('\u00FF');
+			break;
+		}
+		case LANG:
+		{
+			match(LANG);
+			out.write('\u00FF');
+			break;
+		}
+		case RANG:
+		{
+			match(RANG);
+			out.write('\u00FF');
+			break;
+		}
+		case LOZ:
+		{
+			match(LOZ);
+			out.write('\u00FF');
+			break;
+		}
+		case SPADES:
+		{
+			match(SPADES);
+			out.write('\u00FF');
+			break;
+		}
+		case CLUBS:
+		{
+			match(CLUBS);
+			out.write('\u00FF');
+			break;
+		}
+		case HEARTS:
+		{
+			match(HEARTS);
+			out.write('\u00FF');
+			break;
+		}
+		case DIAMS:
+		{
+			match(DIAMS);
+			out.write('\u00FF');
+			break;
+		}
 		case ANY_CHAR:
 		{
 			token = LT(1);
@@ -737,6 +1475,129 @@ public HtmlEntityDecoder(ParserSharedInputState state) {
 		"YACUTE_LC",
 		"THORN_LC",
 		"YUML_LC",
+		"ALPHA",
+		"BETA",
+		"GAMMA",
+		"DELTA",
+		"EPSILON",
+		"ZETA",
+		"ETA",
+		"THETA",
+		"IOTA",
+		"KAPPA",
+		"LAMBDA",
+		"MU",
+		"NU",
+		"XI",
+		"OMICRON",
+		"PI",
+		"RHO",
+		"SIGMA",
+		"TAU",
+		"UPSILON",
+		"PHI",
+		"CHI",
+		"PSI",
+		"OMEGA",
+		"ALPHA_LC",
+		"BETA_LC",
+		"GAMMA_LC",
+		"DELTA_LC",
+		"EPSILON_LC",
+		"ZETA_LC",
+		"ETA_LC",
+		"THETA_LC",
+		"IOTA_LC",
+		"KAPPA_LC",
+		"LAMBDA_LC",
+		"MU_LC",
+		"NU_LC",
+		"XI_LC",
+		"OMICRON_LC",
+		"PI_LC",
+		"RHO_LC",
+		"SIGMAF_LC",
+		"SIGMA_LC",
+		"TAU_LC",
+		"UPSILON_LC",
+		"PHI_LC",
+		"CHI_LC",
+		"PSI_LC",
+		"OMEGA_LC",
+		"THETASYM",
+		"UPSIH",
+		"PIV",
+		"BULL",
+		"HELLIP",
+		"PRIME_LC",
+		"PRIME",
+		"OLINE",
+		"FRASL",
+		"WEIERP",
+		"IMAGE",
+		"REAL",
+		"TRADE",
+		"ALEFSYM",
+		"LARR",
+		"UARR",
+		"RARR",
+		"DARR",
+		"HARR",
+		"CRARR",
+		"LARR_D",
+		"UARR_D",
+		"RARR_D",
+		"DARR_D",
+		"HARR_D",
+		"FORALL",
+		"PART",
+		"EXIST",
+		"EMPTY",
+		"NABLA",
+		"ISIN",
+		"NOTIN",
+		"NI",
+		"PROD",
+		"SUM",
+		"MINUS",
+		"LOWAST",
+		"RADIC",
+		"PROP",
+		"INFIN",
+		"ANG",
+		"AND",
+		"OR",
+		"CAP",
+		"CUP",
+		"INT",
+		"THERE4",
+		"SIM",
+		"CONG",
+		"ASYMP",
+		"NE",
+		"EQUIV",
+		"LE",
+		"GE",
+		"SUB",
+		"SUP",
+		"NSUB",
+		"SUBE",
+		"SUPE",
+		"OPLUS",
+		"OTIMES",
+		"PERP",
+		"SDOT",
+		"LCEIL",
+		"RCEIL",
+		"LFLOOR",
+		"RFLOOR",
+		"LANG",
+		"RANG",
+		"LOZ",
+		"SPADES",
+		"CLUBS",
+		"HEARTS",
+		"DIAMS",
 		"ANY_CHAR",
 		"MICRO"
 	};

@@ -260,6 +260,252 @@ decode [OutputStreamWriter out] throws IOException
 	|
 	YUML_LC { out.write('\u00FF');}
 	|
+	ALPHA { out.write('\u00FF');}
+	|
+	BETA { out.write('\u00FF');}
+	|
+	GAMMA { out.write('\u00FF');}
+	|
+	DELTA { out.write('\u00FF');}
+	|
+	EPSILON { out.write('\u00FF');}
+	|
+	ZETA { out.write('\u00FF');}
+	|
+	ETA { out.write('\u00FF');}
+	|
+	THETA { out.write('\u00FF');}
+	|
+	IOTA { out.write('\u00FF');}
+	|
+	KAPPA { out.write('\u00FF');}
+	|
+	LAMBDA { out.write('\u00FF');}
+	|
+	MU { out.write('\u00FF');}
+	|
+	NU { out.write('\u00FF');}
+	|
+	XI { out.write('\u00FF');}
+	|
+	OMICRON { out.write('\u00FF');}
+	|
+	PI { out.write('\u00FF');}
+	|
+	RHO { out.write('\u00FF');}
+	|
+	SIGMA { out.write('\u00FF');}
+	|
+	TAU { out.write('\u00FF');}
+	|
+	UPSILON { out.write('\u00FF');}
+	|
+	PHI { out.write('\u00FF');}
+	|
+	CHI { out.write('\u00FF');}
+	|
+	PSI { out.write('\u00FF');}
+	|
+	OMEGA { out.write('\u00FF');}
+	|
+	ALPHA_LC { out.write('\u00FF');}
+	|
+	BETA_LC { out.write('\u00FF');}
+	|
+	GAMMA_LC { out.write('\u00FF');}
+	|
+	DELTA_LC  { out.write('\u00FF');}
+	|
+	EPSILON_LC { out.write('\u00FF');}
+	|
+	ZETA_LC { out.write('\u00FF');}
+	|
+	ETA_LC { out.write('\u00FF');}
+	|
+	THETA_LC { out.write('\u00FF');}
+	|
+	IOTA_LC { out.write('\u00FF');}
+	|
+	KAPPA_LC { out.write('\u00FF');}
+	|
+	LAMBDA_LC { out.write('\u00FF');}
+	|
+	MU_LC { out.write('\u00FF');}
+	|
+	NU_LC { out.write('\u00FF');}
+	|
+	XI_LC { out.write('\u00FF');}
+	|
+	OMICRON_LC { out.write('\u00FF');}
+	|
+	PI_LC { out.write('\u00FF');}
+	|
+	RHO_LC { out.write('\u00FF');}
+	|
+	SIGMAF_LC { out.write('\u00FF');}
+	|
+	SIGMA_LC { out.write('\u00FF');}
+	|
+	TAU_LC { out.write('\u00FF');}
+	|
+	UPSILON_LC { out.write('\u00FF');}
+	|
+	PHI_LC { out.write('\u00FF');}
+	|
+	CHI_LC { out.write('\u00FF');}
+	|
+	PSI_LC { out.write('\u00FF');}
+	|
+	OMEGA_LC { out.write('\u00FF');}
+	|
+	THETASYM { out.write('\u00FF');}
+	|
+	UPSIH { out.write('\u00FF');}
+	|
+	PIV { out.write('\u00FF');} 
+	| 
+	BULL { out.write('\u00FF');}
+	|
+	HELLIP { out.write('\u00FF');}
+	|
+	PRIME_LC { out.write('\u00FF');}
+	|
+	PRIME { out.write('\u00FF');}
+	|
+	OLINE { out.write('\u00FF');}
+	|
+	FRASL { out.write('\u00FF');}
+	|
+	WEIERP { out.write('\u00FF');}
+	|
+	IMAGE { out.write('\u00FF');}
+	|
+	REAL { out.write('\u00FF');}
+	|
+	TRADE { out.write('\u00FF');}
+	|
+	ALEFSYM { out.write('\u00FF');}
+	|
+	LARR { out.write('\u00FF');}
+	|
+	UARR { out.write('\u00FF');}
+	|
+	RARR { out.write('\u00FF');}
+	|
+	DARR { out.write('\u00FF');}
+	|
+	HARR { out.write('\u00FF');}
+	|
+	CRARR { out.write('\u00FF');}
+	|
+	LARR_D { out.write('\u00FF');}
+	|
+	UARR_D { out.write('\u00FF');}
+	|
+	RARR_D { out.write('\u00FF');}
+	|
+	DARR_D { out.write('\u00FF');}
+	|
+	HARR_D { out.write('\u00FF');}
+	|
+	FORALL { out.write('\u00FF');}
+	|
+	PART { out.write('\u00FF');}
+	|
+	EXIST { out.write('\u00FF');}
+	|
+	EMPTY { out.write('\u00FF');}
+	|
+	NABLA { out.write('\u00FF');}
+	|
+	ISIN { out.write('\u00FF');}
+	|
+	NOTIN { out.write('\u00FF');}
+	|
+	NI { out.write('\u00FF');}
+	|
+	PROD { out.write('\u00FF');}
+	|
+	SUM { out.write('\u00FF');}
+	|
+	MINUS { out.write('\u00FF');}
+	|
+	LOWAST { out.write('\u00FF');}
+	|
+	RADIC { out.write('\u00FF');}
+	|
+	PROP { out.write('\u00FF');}
+	|
+	INFIN { out.write('\u00FF');}
+	|
+	ANG { out.write('\u00FF');}
+	|
+	AND { out.write('\u00FF');}
+	|
+	OR { out.write('\u00FF');}
+	|
+	CAP { out.write('\u00FF');}
+	|
+	CUP { out.write('\u00FF');}
+	|
+	INT { out.write('\u00FF');}
+	|
+	THERE4 { out.write('\u00FF');}
+	|
+	SIM { out.write('\u00FF');}
+	|
+	CONG { out.write('\u00FF');}
+	|
+	ASYMP { out.write('\u00FF');}
+	|
+	NE { out.write('\u00FF');}
+	|
+	EQUIV { out.write('\u00FF');}
+	|
+	LE { out.write('\u00FF');}
+	|
+	GE { out.write('\u00FF');}
+	|
+	SUB { out.write('\u00FF');}
+	|
+	SUP { out.write('\u00FF');}
+	|
+	NSUB { out.write('\u00FF');}
+	|
+	SUBE { out.write('\u00FF');}
+	|
+	SUPE { out.write('\u00FF');}
+	|
+	OPLUS { out.write('\u00FF');}
+	|
+	OTIMES { out.write('\u00FF');}
+	|
+	PERP { out.write('\u00FF');}
+	|
+	SDOT { out.write('\u00FF');}
+	|
+	LCEIL { out.write('\u00FF');}
+	|
+	RCEIL { out.write('\u00FF');}
+	|
+	LFLOOR { out.write('\u00FF');}
+	|
+	RFLOOR { out.write('\u00FF');}
+	|
+	LANG { out.write('\u00FF');}
+	|
+	RANG { out.write('\u00FF');}
+	|
+	LOZ { out.write('\u00FF');}
+	|
+	SPADES { out.write('\u00FF');}
+	|
+	CLUBS { out.write('\u00FF');}
+	|
+	HEARTS { out.write('\u00FF');}
+	|
+	DIAMS { out.write('\u00FF');}
+	|
 	token: ANY_CHAR { out.write(token.getText());}
 	;
  
@@ -277,7 +523,7 @@ options{
 /*
  * Taken from http://www.w3.org/TR/html401/sgml/entities.html 
  */
-
+// 24.2.1 The list of characters
 NBSP    : "&nbsp;";
 IEXCL   : "&iexcl;";
 CENT    : "&cent;";
@@ -375,4 +621,136 @@ YACUTE_LC  : "&yacute;";
 THORN_LC   : "&thorn;";
 YUML_LC    : "&yuml;";
 
-ANY_CHAR: .;  
+// 24.3 Character entity references for symbols, mathematical symbols, and Greek letters 
+
+ALPHA      : "&Alpha;";
+BETA       : "&Beta;";
+GAMMA      : "&Gamma;";
+DELTA      : "&Delta;";
+EPSILON    : "&Epsilon;";
+ZETA       : "&Zeta;";
+ETA        : "&Eta;";
+THETA      : "&Theta;";
+IOTA       : "&Iota;";
+KAPPA      : "&Kappa;";
+LAMBDA     : "&Lambda;";
+MU         : "&Mu;";
+NU         : "&Nu;";
+XI         : "&Xi;";
+OMICRON    : "&Omicron;";
+PI         : "&Pi;";
+RHO        : "&Rho;";
+SIGMA      : "&Sigma;";
+TAU        : "&Tau;";
+UPSILON    : "&Upsilon;";
+PHI        : "&Phi;";
+CHI        : "&Chi;";
+PSI        : "&Psi;";
+OMEGA      : "&Omega;";
+ALPHA_LC   : "&alpha;";
+BETA_LC    : "&beta;";
+GAMMA_LC   : "&gamma;";
+DELTA_LC   : "&delta;";
+EPSILON_LC : "&epsilon;";
+ZETA_LC    : "&zeta;";
+ETA_LC     : "&eta;";
+THETA_LC   : "&theta;";
+IOTA_LC    : "&iota;";
+KAPPA_LC   : "&kappa;";
+LAMBDA_LC  : "&lambda;";
+MU_LC      : "&mu;";
+NU_LC      : "&nu;";
+XI_LC      : "&xi;";
+OMICRON_LC : "&omicron;";
+PI_LC      : "&pi;";
+RHO_LC     : "&rho;";
+SIGMAF_LC  : "&sigmaf;";
+SIGMA_LC   : "&sigma;";
+TAU_LC     : "&tau;";
+UPSILON_LC : "&upsilon;";
+PHI_LC     : "&phi;";
+CHI_LC     : "&chi;";
+PSI_LC     : "&psi;";
+OMEGA_LC   : "&omega;";
+THETASYM   : "&thetasym;";
+UPSIH      : "&upsih;";
+PIV        : "&piv;";
+BULL       : "&bull;";
+HELLIP     : "&hellip;";
+PRIME_LC   : "&prime;";
+PRIME      : "&Prime;";
+OLINE      : "&oline;";
+FRASL      : "&frasl;";
+WEIERP     : "&weierp;";
+IMAGE      : "&image;";
+REAL       : "&real;";
+TRADE      : "&trade;";
+ALEFSYM    : "&alefsym;";
+LARR       : "&larr;";
+UARR       : "&uarr;";
+RARR       : "&rarr;";
+DARR       : "&darr;";
+HARR       : "&harr;";
+CRARR      : "&crarr;";
+LARR_D     : "&lArr;";
+UARR_D     : "&uArr;";
+RARR_D     : "&rArr;";
+DARR_D     : "&dArr;";
+HARR_D     : "&hArr;";
+FORALL     : "&forall;";
+PART       : "&part;";
+EXIST      : "&exist;";
+EMPTY      : "&empty;";
+NABLA      : "&nabla;";
+ISIN       : "&isin;";
+NOTIN      : "&notin;";
+NI         : "&ni;";
+PROD       : "&prod;";
+SUM        : "&sum;";
+MINUS      : "&minus;";
+LOWAST     : "&lowast;";
+RADIC      : "&radic;";
+PROP       : "&prop;";
+INFIN      : "&infin;";
+ANG        : "&ang;";
+AND        : "&and;";
+OR         : "&or;";
+CAP        : "&cap;";
+CUP        : "&cup;";
+INT        : "&int;";
+THERE4     : "&there4;";
+SIM        : "&sim;";
+CONG       : "&cong;";
+ASYMP      : "&asymp;";
+NE         : "&ne;";
+EQUIV      : "&equiv;";
+LE         : "&le;";
+GE         : "&ge;";
+SUB        : "&sub;";
+SUP        : "&sup;";
+NSUB       : "&nsub;";
+SUBE       : "&sube;";
+SUPE       : "&supe;";
+OPLUS      : "&oplus;";
+OTIMES     : "&otimes;";
+PERP       : "&perp;";
+SDOT       : "&sdot;";
+LCEIL      : "&lceil;";
+RCEIL      : "&rceil;";
+LFLOOR     : "&lfloor;";
+RFLOOR     : "&rfloor;";
+LANG       : "&lang;";
+RANG       : "&rang;";
+LOZ        : "&loz;";
+SPADES     : "&spades;";
+CLUBS      : "&clubs;";
+HEARTS     : "&hearts;";
+DIAMS      : "&diams;";
+// newline UNIX and Windows to have correct lexer line information
+ANY_CHAR   :
+	'\n' { newline();} 
+	| 
+	'\r' '\n'{ newline(); }
+	|
+    .;  
+

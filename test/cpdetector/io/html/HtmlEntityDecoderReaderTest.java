@@ -72,7 +72,7 @@ public class HtmlEntityDecoderReaderTest
    * functionality with a test file and different char[] sizes.
    * <p>
    * 
-   * @throws IOException
+   * @throws IOException if sth. goes wrong.
    */
   public void testDecode() throws IOException {
 
@@ -120,4 +120,59 @@ public class HtmlEntityDecoderReaderTest
     test.close();
     System.out.println();
   }
+  
+  /**
+   * Tests <code>{@link HtmlEntityDecoderReader#read(char[])}</code>
+   * functionality with a big test html file and different char[] sizes.
+   * <p>
+   * 
+   * @throws IOException if sth. goes wrong.
+   */
+  public void testDecodeBigFile() throws IOException {
+
+    // raw output:
+    InputStream in = this.getClass().getResourceAsStream("test2.html");
+    Reader reader = new InputStreamReader(in);
+    int read = 1;
+    char[] cbuf = new char[10];
+    while (read > 0) {
+      read = reader.read(cbuf);
+      for (int i = 0; i < cbuf.length && i < read; i++) {
+        System.out.print(cbuf[i]);
+      }
+    }
+    System.out.println();
+    reader.close();
+    
+    // char[2]
+    in = this.getClass().getResourceAsStream("test2.html");
+    reader = new InputStreamReader(in);
+    Reader test = new HtmlEntityDecoderReader(reader);
+    cbuf = new char[2];
+    read = 1;
+    while (read > 0) {
+      read = test.read(cbuf);
+      for (int i = 0; i < cbuf.length && i < read; i++) {
+        System.out.print(cbuf[i]);
+      }
+    }
+    System.out.println();
+    test.close();
+
+    // char[100]
+    in = this.getClass().getResourceAsStream("test2.html");
+    reader = new InputStreamReader(in);
+    test = new HtmlEntityDecoderReader(reader);
+    cbuf = new char[100];
+    read = 1;
+    while (read > 0) {
+      read = test.read(cbuf);
+      for (int i = 0; i < cbuf.length && i < read; i++) {
+        System.out.print(cbuf[i]);
+      }
+    }
+    test.close();
+    System.out.println();
+  }
+  
 }
