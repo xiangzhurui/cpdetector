@@ -1,4 +1,4 @@
-// $ANTLR 2.7.4: "htmlentitydecoder.g" -> "HtmlEntityDecoder.java"$
+// $ANTLR : "htmlentitydecoder.g" -> "HtmlEntityDecoder.java"$
 
 package cpdetector.html.parser;
 
@@ -625,739 +625,739 @@ public HtmlEntityDecoder(ParserSharedInputState state) {
 		case ALPHA:
 		{
 			match(ALPHA);
-			out.write('\u00FF');
+			out.write('\u0391');
 			break;
 		}
 		case BETA:
 		{
 			match(BETA);
-			out.write('\u00FF');
+			out.write('\u0392');
 			break;
 		}
 		case GAMMA:
 		{
 			match(GAMMA);
-			out.write('\u00FF');
+			out.write('\u0393');
 			break;
 		}
 		case DELTA:
 		{
 			match(DELTA);
-			out.write('\u00FF');
+			out.write('\u0394');
 			break;
 		}
 		case EPSILON:
 		{
 			match(EPSILON);
-			out.write('\u00FF');
+			out.write('\u0395');
 			break;
 		}
 		case ZETA:
 		{
 			match(ZETA);
-			out.write('\u00FF');
+			out.write('\u0396');
 			break;
 		}
 		case ETA:
 		{
 			match(ETA);
-			out.write('\u00FF');
+			out.write('\u0397');
 			break;
 		}
 		case THETA:
 		{
 			match(THETA);
-			out.write('\u00FF');
+			out.write('\u0398');
 			break;
 		}
 		case IOTA:
 		{
 			match(IOTA);
-			out.write('\u00FF');
+			out.write('\u0399');
 			break;
 		}
 		case KAPPA:
 		{
 			match(KAPPA);
-			out.write('\u00FF');
+			out.write('\u039A');
 			break;
 		}
 		case LAMBDA:
 		{
 			match(LAMBDA);
-			out.write('\u00FF');
+			out.write('\u039B');
 			break;
 		}
 		case MU:
 		{
 			match(MU);
-			out.write('\u00FF');
+			out.write('\u039C');
 			break;
 		}
 		case NU:
 		{
 			match(NU);
-			out.write('\u00FF');
+			out.write('\u039D');
 			break;
 		}
 		case XI:
 		{
 			match(XI);
-			out.write('\u00FF');
+			out.write('\u039E');
 			break;
 		}
 		case OMICRON:
 		{
 			match(OMICRON);
-			out.write('\u00FF');
+			out.write('\u039F');
 			break;
 		}
 		case PI:
 		{
 			match(PI);
-			out.write('\u00FF');
+			out.write('\u03A0');
 			break;
 		}
 		case RHO:
 		{
 			match(RHO);
-			out.write('\u00FF');
+			out.write('\u03A1');
 			break;
 		}
 		case SIGMA:
 		{
 			match(SIGMA);
-			out.write('\u00FF');
+			out.write('\u03A3');
 			break;
 		}
 		case TAU:
 		{
 			match(TAU);
-			out.write('\u00FF');
+			out.write('\u03A4');
 			break;
 		}
 		case UPSILON:
 		{
 			match(UPSILON);
-			out.write('\u00FF');
+			out.write('\u03A5');
 			break;
 		}
 		case PHI:
 		{
 			match(PHI);
-			out.write('\u00FF');
+			out.write('\u03A6');
 			break;
 		}
 		case CHI:
 		{
 			match(CHI);
-			out.write('\u00FF');
+			out.write('\u03A7');
 			break;
 		}
 		case PSI:
 		{
 			match(PSI);
-			out.write('\u00FF');
+			out.write('\u03A8');
 			break;
 		}
 		case OMEGA:
 		{
 			match(OMEGA);
-			out.write('\u00FF');
+			out.write('\u03A9');
 			break;
 		}
 		case ALPHA_LC:
 		{
 			match(ALPHA_LC);
-			out.write('\u00FF');
+			out.write('\u03B1');
 			break;
 		}
 		case BETA_LC:
 		{
 			match(BETA_LC);
-			out.write('\u00FF');
+			out.write('\u03B2');
 			break;
 		}
 		case GAMMA_LC:
 		{
 			match(GAMMA_LC);
-			out.write('\u00FF');
+			out.write('\u03B3');
 			break;
 		}
 		case DELTA_LC:
 		{
 			match(DELTA_LC);
-			out.write('\u00FF');
+			out.write('\u03B4');
 			break;
 		}
 		case EPSILON_LC:
 		{
 			match(EPSILON_LC);
-			out.write('\u00FF');
+			out.write('\u03B5');
 			break;
 		}
 		case ZETA_LC:
 		{
 			match(ZETA_LC);
-			out.write('\u00FF');
+			out.write('\u03B6');
 			break;
 		}
 		case ETA_LC:
 		{
 			match(ETA_LC);
-			out.write('\u00FF');
+			out.write('\u03B7');
 			break;
 		}
 		case THETA_LC:
 		{
 			match(THETA_LC);
-			out.write('\u00FF');
+			out.write('\u03B8');
 			break;
 		}
 		case IOTA_LC:
 		{
 			match(IOTA_LC);
-			out.write('\u00FF');
+			out.write('\u03B9');
 			break;
 		}
 		case KAPPA_LC:
 		{
 			match(KAPPA_LC);
-			out.write('\u00FF');
+			out.write('\u03BA');
 			break;
 		}
 		case LAMBDA_LC:
 		{
 			match(LAMBDA_LC);
-			out.write('\u00FF');
+			out.write('\u03BB');
 			break;
 		}
 		case MU_LC:
 		{
 			match(MU_LC);
-			out.write('\u00FF');
+			out.write('\u03BC');
 			break;
 		}
 		case NU_LC:
 		{
 			match(NU_LC);
-			out.write('\u00FF');
+			out.write('\u03BD');
 			break;
 		}
 		case XI_LC:
 		{
 			match(XI_LC);
-			out.write('\u00FF');
+			out.write('\u03BE');
 			break;
 		}
 		case OMICRON_LC:
 		{
 			match(OMICRON_LC);
-			out.write('\u00FF');
+			out.write('\u03BF');
 			break;
 		}
 		case PI_LC:
 		{
 			match(PI_LC);
-			out.write('\u00FF');
+			out.write('\u03C0');
 			break;
 		}
 		case RHO_LC:
 		{
 			match(RHO_LC);
-			out.write('\u00FF');
+			out.write('\u03C1');
 			break;
 		}
 		case SIGMAF_LC:
 		{
 			match(SIGMAF_LC);
-			out.write('\u00FF');
+			out.write('\u03C2');
 			break;
 		}
 		case SIGMA_LC:
 		{
 			match(SIGMA_LC);
-			out.write('\u00FF');
+			out.write('\u03C3');
 			break;
 		}
 		case TAU_LC:
 		{
 			match(TAU_LC);
-			out.write('\u00FF');
+			out.write('\u03C4');
 			break;
 		}
 		case UPSILON_LC:
 		{
 			match(UPSILON_LC);
-			out.write('\u00FF');
+			out.write('\u03C5');
 			break;
 		}
 		case PHI_LC:
 		{
 			match(PHI_LC);
-			out.write('\u00FF');
+			out.write('\u03C6');
 			break;
 		}
 		case CHI_LC:
 		{
 			match(CHI_LC);
-			out.write('\u00FF');
+			out.write('\u03C7');
 			break;
 		}
 		case PSI_LC:
 		{
 			match(PSI_LC);
-			out.write('\u00FF');
+			out.write('\u03C8');
 			break;
 		}
 		case OMEGA_LC:
 		{
 			match(OMEGA_LC);
-			out.write('\u00FF');
+			out.write('\u03C9');
 			break;
 		}
 		case THETASYM:
 		{
 			match(THETASYM);
-			out.write('\u00FF');
+			out.write('\u03D1');
 			break;
 		}
 		case UPSIH:
 		{
 			match(UPSIH);
-			out.write('\u00FF');
+			out.write('\u03D2');
 			break;
 		}
 		case PIV:
 		{
 			match(PIV);
-			out.write('\u00FF');
+			out.write('\u03D6');
 			break;
 		}
 		case BULL:
 		{
 			match(BULL);
-			out.write('\u00FF');
+			out.write('\u2022');
 			break;
 		}
 		case HELLIP:
 		{
 			match(HELLIP);
-			out.write('\u00FF');
+			out.write('\u2026');
 			break;
 		}
 		case PRIME_LC:
 		{
 			match(PRIME_LC);
-			out.write('\u00FF');
+			out.write('\u2032');
 			break;
 		}
 		case PRIME:
 		{
 			match(PRIME);
-			out.write('\u00FF');
+			out.write('\u2033');
 			break;
 		}
 		case OLINE:
 		{
 			match(OLINE);
-			out.write('\u00FF');
+			out.write('\u203E');
 			break;
 		}
 		case FRASL:
 		{
 			match(FRASL);
-			out.write('\u00FF');
+			out.write('\u2044');
 			break;
 		}
 		case WEIERP:
 		{
 			match(WEIERP);
-			out.write('\u00FF');
+			out.write('\u2118');
 			break;
 		}
 		case IMAGE:
 		{
 			match(IMAGE);
-			out.write('\u00FF');
+			out.write('\u2111');
 			break;
 		}
 		case REAL:
 		{
 			match(REAL);
-			out.write('\u00FF');
+			out.write('\u211C');
 			break;
 		}
 		case TRADE:
 		{
 			match(TRADE);
-			out.write('\u00FF');
+			out.write('\u2122');
 			break;
 		}
 		case ALEFSYM:
 		{
 			match(ALEFSYM);
-			out.write('\u00FF');
+			out.write('\u2135');
 			break;
 		}
 		case LARR:
 		{
 			match(LARR);
-			out.write('\u00FF');
+			out.write('\u2190');
 			break;
 		}
 		case UARR:
 		{
 			match(UARR);
-			out.write('\u00FF');
+			out.write('\u2191');
 			break;
 		}
 		case RARR:
 		{
 			match(RARR);
-			out.write('\u00FF');
+			out.write('\u2192');
 			break;
 		}
 		case DARR:
 		{
 			match(DARR);
-			out.write('\u00FF');
+			out.write('\u2193');
 			break;
 		}
 		case HARR:
 		{
 			match(HARR);
-			out.write('\u00FF');
+			out.write('\u2194');
 			break;
 		}
 		case CRARR:
 		{
 			match(CRARR);
-			out.write('\u00FF');
+			out.write('\u21B5');
 			break;
 		}
 		case LARR_D:
 		{
 			match(LARR_D);
-			out.write('\u00FF');
+			out.write('\u21D0');
 			break;
 		}
 		case UARR_D:
 		{
 			match(UARR_D);
-			out.write('\u00FF');
+			out.write('\u21D1');
 			break;
 		}
 		case RARR_D:
 		{
 			match(RARR_D);
-			out.write('\u00FF');
+			out.write('\u21D2');
 			break;
 		}
 		case DARR_D:
 		{
 			match(DARR_D);
-			out.write('\u00FF');
+			out.write('\u21D3');
 			break;
 		}
 		case HARR_D:
 		{
 			match(HARR_D);
-			out.write('\u00FF');
+			out.write('\u21D4');
 			break;
 		}
 		case FORALL:
 		{
 			match(FORALL);
-			out.write('\u00FF');
+			out.write('\u2200');
 			break;
 		}
 		case PART:
 		{
 			match(PART);
-			out.write('\u00FF');
+			out.write('\u2202');
 			break;
 		}
 		case EXIST:
 		{
 			match(EXIST);
-			out.write('\u00FF');
+			out.write('\u2203');
 			break;
 		}
 		case EMPTY:
 		{
 			match(EMPTY);
-			out.write('\u00FF');
+			out.write('\u2205');
 			break;
 		}
 		case NABLA:
 		{
 			match(NABLA);
-			out.write('\u00FF');
+			out.write('\u2207');
 			break;
 		}
 		case ISIN:
 		{
 			match(ISIN);
-			out.write('\u00FF');
+			out.write('\u2208');
 			break;
 		}
 		case NOTIN:
 		{
 			match(NOTIN);
-			out.write('\u00FF');
+			out.write('\u2209');
 			break;
 		}
 		case NI:
 		{
 			match(NI);
-			out.write('\u00FF');
+			out.write('\u220B');
 			break;
 		}
 		case PROD:
 		{
 			match(PROD);
-			out.write('\u00FF');
+			out.write('\u220F');
 			break;
 		}
 		case SUM:
 		{
 			match(SUM);
-			out.write('\u00FF');
+			out.write('\u2211');
 			break;
 		}
 		case MINUS:
 		{
 			match(MINUS);
-			out.write('\u00FF');
+			out.write('\u2212');
 			break;
 		}
 		case LOWAST:
 		{
 			match(LOWAST);
-			out.write('\u00FF');
+			out.write('\u2217');
 			break;
 		}
 		case RADIC:
 		{
 			match(RADIC);
-			out.write('\u00FF');
+			out.write('\u221A');
 			break;
 		}
 		case PROP:
 		{
 			match(PROP);
-			out.write('\u00FF');
+			out.write('\u221D');
 			break;
 		}
 		case INFIN:
 		{
 			match(INFIN);
-			out.write('\u00FF');
+			out.write('\u221E');
 			break;
 		}
 		case ANG:
 		{
 			match(ANG);
-			out.write('\u00FF');
+			out.write('\u2220');
 			break;
 		}
 		case AND:
 		{
 			match(AND);
-			out.write('\u00FF');
+			out.write('\u2227');
 			break;
 		}
 		case OR:
 		{
 			match(OR);
-			out.write('\u00FF');
+			out.write('\u2228');
 			break;
 		}
 		case CAP:
 		{
 			match(CAP);
-			out.write('\u00FF');
+			out.write('\u2229');
 			break;
 		}
 		case CUP:
 		{
 			match(CUP);
-			out.write('\u00FF');
+			out.write('\u222A');
 			break;
 		}
 		case INT:
 		{
 			match(INT);
-			out.write('\u00FF');
+			out.write('\u222B');
 			break;
 		}
 		case THERE4:
 		{
 			match(THERE4);
-			out.write('\u00FF');
+			out.write('\u2234');
 			break;
 		}
 		case SIM:
 		{
 			match(SIM);
-			out.write('\u00FF');
+			out.write('\u223C');
 			break;
 		}
 		case CONG:
 		{
 			match(CONG);
-			out.write('\u00FF');
+			out.write('\u2245');
 			break;
 		}
 		case ASYMP:
 		{
 			match(ASYMP);
-			out.write('\u00FF');
+			out.write('\u2248');
 			break;
 		}
 		case NE:
 		{
 			match(NE);
-			out.write('\u00FF');
+			out.write('\u2260');
 			break;
 		}
 		case EQUIV:
 		{
 			match(EQUIV);
-			out.write('\u00FF');
+			out.write('\u2261');
 			break;
 		}
 		case LE:
 		{
 			match(LE);
-			out.write('\u00FF');
+			out.write('\u2264');
 			break;
 		}
 		case GE:
 		{
 			match(GE);
-			out.write('\u00FF');
+			out.write('\u2265');
 			break;
 		}
 		case SUB:
 		{
 			match(SUB);
-			out.write('\u00FF');
+			out.write('\u2282');
 			break;
 		}
 		case SUP:
 		{
 			match(SUP);
-			out.write('\u00FF');
+			out.write('\u2283');
 			break;
 		}
 		case NSUB:
 		{
 			match(NSUB);
-			out.write('\u00FF');
+			out.write('\u2284');
 			break;
 		}
 		case SUBE:
 		{
 			match(SUBE);
-			out.write('\u00FF');
+			out.write('\u2286');
 			break;
 		}
 		case SUPE:
 		{
 			match(SUPE);
-			out.write('\u00FF');
+			out.write('\u2287');
 			break;
 		}
 		case OPLUS:
 		{
 			match(OPLUS);
-			out.write('\u00FF');
+			out.write('\u2295');
 			break;
 		}
 		case OTIMES:
 		{
 			match(OTIMES);
-			out.write('\u00FF');
+			out.write('\u2297');
 			break;
 		}
 		case PERP:
 		{
 			match(PERP);
-			out.write('\u00FF');
+			out.write('\u22A5');
 			break;
 		}
 		case SDOT:
 		{
 			match(SDOT);
-			out.write('\u00FF');
+			out.write('\u22C5');
 			break;
 		}
 		case LCEIL:
 		{
 			match(LCEIL);
-			out.write('\u00FF');
+			out.write('\u2308');
 			break;
 		}
 		case RCEIL:
 		{
 			match(RCEIL);
-			out.write('\u00FF');
+			out.write('\u2309');
 			break;
 		}
 		case LFLOOR:
 		{
 			match(LFLOOR);
-			out.write('\u00FF');
+			out.write('\u230A');
 			break;
 		}
 		case RFLOOR:
 		{
 			match(RFLOOR);
-			out.write('\u00FF');
+			out.write('\u230B');
 			break;
 		}
 		case LANG:
 		{
 			match(LANG);
-			out.write('\u00FF');
+			out.write('\u2329');
 			break;
 		}
 		case RANG:
 		{
 			match(RANG);
-			out.write('\u00FF');
+			out.write('\u232A');
 			break;
 		}
 		case LOZ:
 		{
 			match(LOZ);
-			out.write('\u00FF');
+			out.write('\u25CA');
 			break;
 		}
 		case SPADES:
 		{
 			match(SPADES);
-			out.write('\u00FF');
+			out.write('\u2660');
 			break;
 		}
 		case CLUBS:
 		{
 			match(CLUBS);
-			out.write('\u00FF');
+			out.write('\u2663');
 			break;
 		}
 		case HEARTS:
 		{
 			match(HEARTS);
-			out.write('\u00FF');
+			out.write('\u2665');
 			break;
 		}
 		case DIAMS:
 		{
 			match(DIAMS);
-			out.write('\u00FF');
+			out.write('\u2666');
 			break;
 		}
 		case ANY_CHAR:

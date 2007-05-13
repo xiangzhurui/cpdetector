@@ -1,4 +1,4 @@
-// $ANTLR 2.7.4: "htmlentitydecoder.g" -> "HtmlEntityLexer.java"$
+// $ANTLR : "htmlentitydecoder.g" -> "HtmlEntityLexer.java"$
 
 package cpdetector.html.parser;
 
@@ -948,6 +948,7 @@ tryAgain:
 				return _returnToken;
 			}
 			catch (RecognitionException e) {
+              e.printStackTrace(System.err);
 				throw new TokenStreamRecognitionException(e);
 			}
 		}
@@ -964,3977 +965,2877 @@ tryAgain:
 
 	public final void mNBSP(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mNBSP");
 		_ttype = NBSP;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&nbsp;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mNBSP");
+		
+		match("&nbsp;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mIEXCL(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mIEXCL");
 		_ttype = IEXCL;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&iexcl;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mIEXCL");
+		
+		match("&iexcl;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mCENT(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mCENT");
 		_ttype = CENT;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&cent;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mCENT");
+		
+		match("&cent;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mPOUND(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mPOUND");
 		_ttype = POUND;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&pound;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mPOUND");
+		
+		match("&pound;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mCURREN(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mCURREN");
 		_ttype = CURREN;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&curren;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mCURREN");
+		
+		match("&curren;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mYEN(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mYEN");
 		_ttype = YEN;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&yen;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mYEN");
+		
+		match("&yen;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mBRVBAR(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mBRVBAR");
 		_ttype = BRVBAR;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&brvbar;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mBRVBAR");
+		
+		match("&brvbar;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mSECT(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mSECT");
 		_ttype = SECT;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&sect;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mSECT");
+		
+		match("&sect;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mUML(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mUML");
 		_ttype = UML;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&uml;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mUML");
+		
+		match("&uml;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mCOPY(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mCOPY");
 		_ttype = COPY;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&copy;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mCOPY");
+		
+		match("&copy;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mORDF(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mORDF");
 		_ttype = ORDF;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&ordf;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mORDF");
+		
+		match("&ordf;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mLAQUO(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mLAQUO");
 		_ttype = LAQUO;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&laquo;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mLAQUO");
+		
+		match("&laquo;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mNOT(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mNOT");
 		_ttype = NOT;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&not;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mNOT");
+		
+		match("&not;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mSHY(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mSHY");
 		_ttype = SHY;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&shy;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mSHY");
+		
+		match("&shy;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mREG(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mREG");
 		_ttype = REG;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&reg;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mREG");
+		
+		match("&reg;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mMACR(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mMACR");
 		_ttype = MACR;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&macr;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mMACR");
+		
+		match("&macr;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mDEG(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mDEG");
 		_ttype = DEG;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&deg;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mDEG");
+		
+		match("&deg;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mPLUSMN(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mPLUSMN");
 		_ttype = PLUSMN;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&plusmn;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mPLUSMN");
+		
+		match("&plusmn;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mSUP2(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mSUP2");
 		_ttype = SUP2;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&sup2;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mSUP2");
+		
+		match("&sup2;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mSUP3(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mSUP3");
 		_ttype = SUP3;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&sup3;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mSUP3");
+		
+		match("&sup3;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mACUTE(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mACUTE");
 		_ttype = ACUTE;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&acute;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mACUTE");
+		
+		match("&acute;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mMICRO(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mMICRO");
 		_ttype = MICRO;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&micro;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mMICRO");
+		
+		match("&micro;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mPARA(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mPARA");
 		_ttype = PARA;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&para;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mPARA");
+		
+		match("&para;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mMIDDOT(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mMIDDOT");
 		_ttype = MIDDOT;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&middot");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mMIDDOT");
+		
+		match("&middot");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mCEDIL(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mCEDIL");
 		_ttype = CEDIL;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&cedil;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mCEDIL");
+		
+		match("&cedil;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mSUP1(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mSUP1");
 		_ttype = SUP1;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&sup1;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mSUP1");
+		
+		match("&sup1;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mORDM(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mORDM");
 		_ttype = ORDM;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&ordm;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mORDM");
+		
+		match("&ordm;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mRAQUO(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mRAQUO");
 		_ttype = RAQUO;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&raquo;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mRAQUO");
+		
+		match("&raquo;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mFRAC14(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mFRAC14");
 		_ttype = FRAC14;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&frac14;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mFRAC14");
+		
+		match("&frac14;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mFRAC12(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mFRAC12");
 		_ttype = FRAC12;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&frac12;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mFRAC12");
+		
+		match("&frac12;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mFRAC34(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mFRAC34");
 		_ttype = FRAC34;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&frac34;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mFRAC34");
+		
+		match("&frac34;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mIQUEST(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mIQUEST");
 		_ttype = IQUEST;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&iquest;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mIQUEST");
+		
+		match("&iquest;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mAGRAVE(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mAGRAVE");
 		_ttype = AGRAVE;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&Agrave;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mAGRAVE");
+		
+		match("&Agrave;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mAACUTE(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mAACUTE");
 		_ttype = AACUTE;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&Aacute;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mAACUTE");
+		
+		match("&Aacute;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mACIRC(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mACIRC");
 		_ttype = ACIRC;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&Acirc;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mACIRC");
+		
+		match("&Acirc;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mATILDE(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mATILDE");
 		_ttype = ATILDE;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&Atilde;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mATILDE");
+		
+		match("&Atilde;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mAUML(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mAUML");
 		_ttype = AUML;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&Auml;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mAUML");
+		
+		match("&Auml;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mARING(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mARING");
 		_ttype = ARING;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&Aring;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mARING");
+		
+		match("&Aring;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mAELIG(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mAELIG");
 		_ttype = AELIG;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&AElig;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mAELIG");
+		
+		match("&AElig;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mCCEDIL(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mCCEDIL");
 		_ttype = CCEDIL;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&Ccedil;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mCCEDIL");
+		
+		match("&Ccedil;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mEGRAVE(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mEGRAVE");
 		_ttype = EGRAVE;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&Egrave;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mEGRAVE");
+		
+		match("&Egrave;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mEACUTE(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mEACUTE");
 		_ttype = EACUTE;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&Eacute;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mEACUTE");
+		
+		match("&Eacute;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mECIRC(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mECIRC");
 		_ttype = ECIRC;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&Ecirc;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mECIRC");
+		
+		match("&Ecirc;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mEUML(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mEUML");
 		_ttype = EUML;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&Euml;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mEUML");
+		
+		match("&Euml;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mIGRAVE(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mIGRAVE");
 		_ttype = IGRAVE;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&Igrave;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mIGRAVE");
+		
+		match("&Igrave;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mIACUTE(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mIACUTE");
 		_ttype = IACUTE;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&Iacute;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mIACUTE");
+		
+		match("&Iacute;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mICIRC(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mICIRC");
 		_ttype = ICIRC;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&Icirc;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mICIRC");
+		
+		match("&Icirc;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mIUML(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mIUML");
 		_ttype = IUML;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&Iuml;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mIUML");
+		
+		match("&Iuml;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mETH(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mETH");
 		_ttype = ETH;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&ETH;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mETH");
+		
+		match("&ETH;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mNTILDE(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mNTILDE");
 		_ttype = NTILDE;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&Ntilde;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mNTILDE");
+		
+		match("&Ntilde;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mOGRAVE(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mOGRAVE");
 		_ttype = OGRAVE;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&Ograve;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mOGRAVE");
+		
+		match("&Ograve;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mOACUTE(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mOACUTE");
 		_ttype = OACUTE;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&Oacute;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mOACUTE");
+		
+		match("&Oacute;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mOCIRC(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mOCIRC");
 		_ttype = OCIRC;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&Ocirc;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mOCIRC");
+		
+		match("&Ocirc;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mOTILDE(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mOTILDE");
 		_ttype = OTILDE;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&Otilde;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mOTILDE");
+		
+		match("&Otilde;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mOUML(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mOUML");
 		_ttype = OUML;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&Ouml;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mOUML");
+		
+		match("&Ouml;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mTIMES(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mTIMES");
 		_ttype = TIMES;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&times;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mTIMES");
+		
+		match("&times;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mOSLASH(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mOSLASH");
 		_ttype = OSLASH;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&Oslash;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mOSLASH");
+		
+		match("&Oslash;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mUGRAVE(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mUGRAVE");
 		_ttype = UGRAVE;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&Ugrave;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mUGRAVE");
+		
+		match("&Ugrave;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mUACUTE(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mUACUTE");
 		_ttype = UACUTE;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&Uacute;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mUACUTE");
+		
+		match("&Uacute;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mUCIRC(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mUCIRC");
 		_ttype = UCIRC;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&Ucirc;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mUCIRC");
+		
+		match("&Ucirc;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mUUML(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mUUML");
 		_ttype = UUML;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&Uuml;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mUUML");
+		
+		match("&Uuml;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mYACUTE(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mYACUTE");
 		_ttype = YACUTE;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&Yacute;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mYACUTE");
+		
+		match("&Yacute;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mTHORN(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mTHORN");
 		_ttype = THORN;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&THORN;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mTHORN");
+		
+		match("&THORN;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mSZLIG(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mSZLIG");
 		_ttype = SZLIG;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&szlig;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mSZLIG");
+		
+		match("&szlig;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mAGRAVE_LC(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mAGRAVE_LC");
 		_ttype = AGRAVE_LC;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&agrave;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mAGRAVE_LC");
+		
+		match("&agrave;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mAACUTE_LC(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mAACUTE_LC");
 		_ttype = AACUTE_LC;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&aacute;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mAACUTE_LC");
+		
+		match("&aacute;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mACIRC_LC(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mACIRC_LC");
 		_ttype = ACIRC_LC;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&acirc;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mACIRC_LC");
+		
+		match("&acirc;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mATILDE_LC(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mATILDE_LC");
 		_ttype = ATILDE_LC;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&atilde;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mATILDE_LC");
+		
+		match("&atilde;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mAUML_LC(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mAUML_LC");
 		_ttype = AUML_LC;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&auml;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mAUML_LC");
+		
+		match("&auml;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mARING_LC(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mARING_LC");
 		_ttype = ARING_LC;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&aring;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mARING_LC");
+		
+		match("&aring;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mAELIG_LC(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mAELIG_LC");
 		_ttype = AELIG_LC;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&aelig;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mAELIG_LC");
+		
+		match("&aelig;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mCCEDIL_LC(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mCCEDIL_LC");
 		_ttype = CCEDIL_LC;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&ccedil;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mCCEDIL_LC");
+		
+		match("&ccedil;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mEGRAVE_LC(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mEGRAVE_LC");
 		_ttype = EGRAVE_LC;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&egrave;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mEGRAVE_LC");
+		
+		match("&egrave;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mEACUTE_LC(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mEACUTE_LC");
 		_ttype = EACUTE_LC;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&eacute;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mEACUTE_LC");
+		
+		match("&eacute;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mECIRC_LC(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mECIRC_LC");
 		_ttype = ECIRC_LC;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&ecirc;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mECIRC_LC");
+		
+		match("&ecirc;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mEUML_LC(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mEUML_LC");
 		_ttype = EUML_LC;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&euml;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mEUML_LC");
+		
+		match("&euml;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mIGRAVE_LC(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mIGRAVE_LC");
 		_ttype = IGRAVE_LC;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&igrave;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mIGRAVE_LC");
+		
+		match("&igrave;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mIACUTE_LC(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mIACUTE_LC");
 		_ttype = IACUTE_LC;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&iacute;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mIACUTE_LC");
+		
+		match("&iacute;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mICIRC_LC(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mICIRC_LC");
 		_ttype = ICIRC_LC;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&icirc;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mICIRC_LC");
+		
+		match("&icirc;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mIUML_LC(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mIUML_LC");
 		_ttype = IUML_LC;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&iuml;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mIUML_LC");
+		
+		match("&iuml;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mETH_LC(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mETH_LC");
 		_ttype = ETH_LC;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&eth;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mETH_LC");
+		
+		match("&eth;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mNTILDE_LC(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mNTILDE_LC");
 		_ttype = NTILDE_LC;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&ntilde;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mNTILDE_LC");
+		
+		match("&ntilde;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mOGRAVE_LC(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mOGRAVE_LC");
 		_ttype = OGRAVE_LC;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&ograve;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mOGRAVE_LC");
+		
+		match("&ograve;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mOACUTE_LC(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mOACUTE_LC");
 		_ttype = OACUTE_LC;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&oacute;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mOACUTE_LC");
+		
+		match("&oacute;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mOCIRC_LC(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mOCIRC_LC");
 		_ttype = OCIRC_LC;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&ocirc;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mOCIRC_LC");
+		
+		match("&ocirc;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mOTILDE_LC(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mOTILDE_LC");
 		_ttype = OTILDE_LC;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&otilde;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mOTILDE_LC");
+		
+		match("&otilde;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mOUML_LC(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mOUML_LC");
 		_ttype = OUML_LC;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&ouml;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mOUML_LC");
+		
+		match("&ouml;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mDIVIDE(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mDIVIDE");
 		_ttype = DIVIDE;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&divide;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mDIVIDE");
+		
+		match("&divide;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mOSLASH_LC(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mOSLASH_LC");
 		_ttype = OSLASH_LC;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&oslash;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mOSLASH_LC");
+		
+		match("&oslash;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mUGRAVE_LC(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mUGRAVE_LC");
 		_ttype = UGRAVE_LC;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&ugrave;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mUGRAVE_LC");
+		
+		match("&ugrave;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mUACUTE_LC(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mUACUTE_LC");
 		_ttype = UACUTE_LC;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&uacute;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mUACUTE_LC");
+		
+		match("&uacute;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mUCIRC_LC(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mUCIRC_LC");
 		_ttype = UCIRC_LC;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&ucirc;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mUCIRC_LC");
+		
+		match("&ucirc;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mUUML_LC(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mUUML_LC");
 		_ttype = UUML_LC;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&uuml;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mUUML_LC");
+		
+		match("&uuml;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mYACUTE_LC(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mYACUTE_LC");
 		_ttype = YACUTE_LC;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&yacute;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mYACUTE_LC");
+		
+		match("&yacute;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mTHORN_LC(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mTHORN_LC");
 		_ttype = THORN_LC;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&thorn;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mTHORN_LC");
+		
+		match("&thorn;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mYUML_LC(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mYUML_LC");
 		_ttype = YUML_LC;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&yuml;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mYUML_LC");
+		
+		match("&yuml;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mALPHA(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mALPHA");
 		_ttype = ALPHA;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&Alpha;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mALPHA");
+		
+		match("&Alpha;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mBETA(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mBETA");
 		_ttype = BETA;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&Beta;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mBETA");
+		
+		match("&Beta;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mGAMMA(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mGAMMA");
 		_ttype = GAMMA;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&Gamma;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mGAMMA");
+		
+		match("&Gamma;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mDELTA(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mDELTA");
 		_ttype = DELTA;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&Delta;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mDELTA");
+		
+		match("&Delta;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mEPSILON(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mEPSILON");
 		_ttype = EPSILON;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&Epsilon;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mEPSILON");
+		
+		match("&Epsilon;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mZETA(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mZETA");
 		_ttype = ZETA;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&Zeta;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mZETA");
+		
+		match("&Zeta;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mETA(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mETA");
 		_ttype = ETA;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&Eta;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mETA");
+		
+		match("&Eta;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mTHETA(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mTHETA");
 		_ttype = THETA;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&Theta;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mTHETA");
+		
+		match("&Theta;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mIOTA(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mIOTA");
 		_ttype = IOTA;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&Iota;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mIOTA");
+		
+		match("&Iota;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mKAPPA(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mKAPPA");
 		_ttype = KAPPA;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&Kappa;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mKAPPA");
+		
+		match("&Kappa;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mLAMBDA(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mLAMBDA");
 		_ttype = LAMBDA;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&Lambda;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mLAMBDA");
+		
+		match("&Lambda;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mMU(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mMU");
 		_ttype = MU;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&Mu;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mMU");
+		
+		match("&Mu;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mNU(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mNU");
 		_ttype = NU;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&Nu;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mNU");
+		
+		match("&Nu;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mXI(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mXI");
 		_ttype = XI;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&Xi;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mXI");
+		
+		match("&Xi;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mOMICRON(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mOMICRON");
 		_ttype = OMICRON;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&Omicron;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mOMICRON");
+		
+		match("&Omicron;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mPI(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mPI");
 		_ttype = PI;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&Pi;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mPI");
+		
+		match("&Pi;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mRHO(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mRHO");
 		_ttype = RHO;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&Rho;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mRHO");
+		
+		match("&Rho;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mSIGMA(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mSIGMA");
 		_ttype = SIGMA;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&Sigma;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mSIGMA");
+		
+		match("&Sigma;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mTAU(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mTAU");
 		_ttype = TAU;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&Tau;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mTAU");
+		
+		match("&Tau;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mUPSILON(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mUPSILON");
 		_ttype = UPSILON;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&Upsilon;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mUPSILON");
+		
+		match("&Upsilon;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mPHI(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mPHI");
 		_ttype = PHI;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&Phi;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mPHI");
+		
+		match("&Phi;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mCHI(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mCHI");
 		_ttype = CHI;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&Chi;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mCHI");
+		
+		match("&Chi;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mPSI(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mPSI");
 		_ttype = PSI;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&Psi;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mPSI");
+		
+		match("&Psi;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mOMEGA(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mOMEGA");
 		_ttype = OMEGA;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&Omega;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mOMEGA");
+		
+		match("&Omega;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mALPHA_LC(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mALPHA_LC");
 		_ttype = ALPHA_LC;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&alpha;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mALPHA_LC");
+		
+		match("&alpha;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mBETA_LC(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mBETA_LC");
 		_ttype = BETA_LC;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&beta;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mBETA_LC");
+		
+		match("&beta;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mGAMMA_LC(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mGAMMA_LC");
 		_ttype = GAMMA_LC;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&gamma;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mGAMMA_LC");
+		
+		match("&gamma;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mDELTA_LC(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mDELTA_LC");
 		_ttype = DELTA_LC;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&delta;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mDELTA_LC");
+		
+		match("&delta;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mEPSILON_LC(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mEPSILON_LC");
 		_ttype = EPSILON_LC;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&epsilon;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mEPSILON_LC");
+		
+		match("&epsilon;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mZETA_LC(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mZETA_LC");
 		_ttype = ZETA_LC;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&zeta;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mZETA_LC");
+		
+		match("&zeta;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mETA_LC(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mETA_LC");
 		_ttype = ETA_LC;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&eta;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mETA_LC");
+		
+		match("&eta;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mTHETA_LC(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mTHETA_LC");
 		_ttype = THETA_LC;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&theta;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mTHETA_LC");
+		
+		match("&theta;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mIOTA_LC(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mIOTA_LC");
 		_ttype = IOTA_LC;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&iota;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mIOTA_LC");
+		
+		match("&iota;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mKAPPA_LC(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mKAPPA_LC");
 		_ttype = KAPPA_LC;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&kappa;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mKAPPA_LC");
+		
+		match("&kappa;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mLAMBDA_LC(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mLAMBDA_LC");
 		_ttype = LAMBDA_LC;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&lambda;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mLAMBDA_LC");
+		
+		match("&lambda;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mMU_LC(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mMU_LC");
 		_ttype = MU_LC;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&mu;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mMU_LC");
+		
+		match("&mu;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mNU_LC(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mNU_LC");
 		_ttype = NU_LC;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&nu;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mNU_LC");
+		
+		match("&nu;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mXI_LC(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mXI_LC");
 		_ttype = XI_LC;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&xi;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mXI_LC");
+		
+		match("&xi;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mOMICRON_LC(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mOMICRON_LC");
 		_ttype = OMICRON_LC;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&omicron;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mOMICRON_LC");
+		
+		match("&omicron;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mPI_LC(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mPI_LC");
 		_ttype = PI_LC;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&pi;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mPI_LC");
+		
+		match("&pi;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mRHO_LC(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mRHO_LC");
 		_ttype = RHO_LC;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&rho;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mRHO_LC");
+		
+		match("&rho;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mSIGMAF_LC(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mSIGMAF_LC");
 		_ttype = SIGMAF_LC;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&sigmaf;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mSIGMAF_LC");
+		
+		match("&sigmaf;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mSIGMA_LC(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mSIGMA_LC");
 		_ttype = SIGMA_LC;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&sigma;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mSIGMA_LC");
+		
+		match("&sigma;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mTAU_LC(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mTAU_LC");
 		_ttype = TAU_LC;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&tau;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mTAU_LC");
+		
+		match("&tau;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mUPSILON_LC(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mUPSILON_LC");
 		_ttype = UPSILON_LC;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&upsilon;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mUPSILON_LC");
+		
+		match("&upsilon;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mPHI_LC(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mPHI_LC");
 		_ttype = PHI_LC;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&phi;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mPHI_LC");
+		
+		match("&phi;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mCHI_LC(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mCHI_LC");
 		_ttype = CHI_LC;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&chi;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mCHI_LC");
+		
+		match("&chi;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mPSI_LC(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mPSI_LC");
 		_ttype = PSI_LC;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&psi;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mPSI_LC");
+		
+		match("&psi;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mOMEGA_LC(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mOMEGA_LC");
 		_ttype = OMEGA_LC;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&omega;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mOMEGA_LC");
+		
+		match("&omega;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mTHETASYM(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mTHETASYM");
 		_ttype = THETASYM;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&thetasym;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mTHETASYM");
+		
+		match("&thetasym;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mUPSIH(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mUPSIH");
 		_ttype = UPSIH;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&upsih;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mUPSIH");
+		
+		match("&upsih;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mPIV(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mPIV");
 		_ttype = PIV;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&piv;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mPIV");
+		
+		match("&piv;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mBULL(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mBULL");
 		_ttype = BULL;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&bull;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mBULL");
+		
+		match("&bull;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mHELLIP(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mHELLIP");
 		_ttype = HELLIP;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&hellip;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mHELLIP");
+		
+		match("&hellip;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mPRIME_LC(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mPRIME_LC");
 		_ttype = PRIME_LC;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&prime;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mPRIME_LC");
+		
+		match("&prime;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mPRIME(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mPRIME");
 		_ttype = PRIME;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&Prime;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mPRIME");
+		
+		match("&Prime;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mOLINE(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mOLINE");
 		_ttype = OLINE;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&oline;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mOLINE");
+		
+		match("&oline;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mFRASL(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mFRASL");
 		_ttype = FRASL;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&frasl;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mFRASL");
+		
+		match("&frasl;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mWEIERP(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mWEIERP");
 		_ttype = WEIERP;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&weierp;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mWEIERP");
+		
+		match("&weierp;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mIMAGE(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mIMAGE");
 		_ttype = IMAGE;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&image;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mIMAGE");
+		
+		match("&image;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mREAL(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mREAL");
 		_ttype = REAL;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&real;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mREAL");
+		
+		match("&real;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mTRADE(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mTRADE");
 		_ttype = TRADE;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&trade;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mTRADE");
+		
+		match("&trade;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mALEFSYM(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mALEFSYM");
 		_ttype = ALEFSYM;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&alefsym;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mALEFSYM");
+		
+		match("&alefsym;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mLARR(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mLARR");
 		_ttype = LARR;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&larr;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mLARR");
+		
+		match("&larr;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mUARR(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mUARR");
 		_ttype = UARR;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&uarr;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mUARR");
+		
+		match("&uarr;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mRARR(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mRARR");
 		_ttype = RARR;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&rarr;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mRARR");
+		
+		match("&rarr;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mDARR(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mDARR");
 		_ttype = DARR;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&darr;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mDARR");
+		
+		match("&darr;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mHARR(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mHARR");
 		_ttype = HARR;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&harr;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mHARR");
+		
+		match("&harr;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mCRARR(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mCRARR");
 		_ttype = CRARR;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&crarr;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mCRARR");
+		
+		match("&crarr;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mLARR_D(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mLARR_D");
 		_ttype = LARR_D;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&lArr;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mLARR_D");
+		
+		match("&lArr;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mUARR_D(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mUARR_D");
 		_ttype = UARR_D;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&uArr;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mUARR_D");
+		
+		match("&uArr;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mRARR_D(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mRARR_D");
 		_ttype = RARR_D;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&rArr;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mRARR_D");
+		
+		match("&rArr;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mDARR_D(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mDARR_D");
 		_ttype = DARR_D;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&dArr;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mDARR_D");
+		
+		match("&dArr;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mHARR_D(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mHARR_D");
 		_ttype = HARR_D;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&hArr;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mHARR_D");
+		
+		match("&hArr;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mFORALL(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mFORALL");
 		_ttype = FORALL;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&forall;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mFORALL");
+		
+		match("&forall;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mPART(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mPART");
 		_ttype = PART;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&part;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mPART");
+		
+		match("&part;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mEXIST(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mEXIST");
 		_ttype = EXIST;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&exist;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mEXIST");
+		
+		match("&exist;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mEMPTY(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mEMPTY");
 		_ttype = EMPTY;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&empty;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mEMPTY");
+		
+		match("&empty;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mNABLA(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mNABLA");
 		_ttype = NABLA;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&nabla;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mNABLA");
+		
+		match("&nabla;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mISIN(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mISIN");
 		_ttype = ISIN;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&isin;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mISIN");
+		
+		match("&isin;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mNOTIN(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mNOTIN");
 		_ttype = NOTIN;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&notin;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mNOTIN");
+		
+		match("&notin;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mNI(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mNI");
 		_ttype = NI;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&ni;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mNI");
+		
+		match("&ni;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mPROD(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mPROD");
 		_ttype = PROD;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&prod;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mPROD");
+		
+		match("&prod;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mSUM(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mSUM");
 		_ttype = SUM;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&sum;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mSUM");
+		
+		match("&sum;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mMINUS(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mMINUS");
 		_ttype = MINUS;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&minus;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mMINUS");
+		
+		match("&minus;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mLOWAST(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mLOWAST");
 		_ttype = LOWAST;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&lowast;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mLOWAST");
+		
+		match("&lowast;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mRADIC(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mRADIC");
 		_ttype = RADIC;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&radic;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mRADIC");
+		
+		match("&radic;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mPROP(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mPROP");
 		_ttype = PROP;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&prop;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mPROP");
+		
+		match("&prop;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mINFIN(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mINFIN");
 		_ttype = INFIN;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&infin;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mINFIN");
+		
+		match("&infin;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mANG(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mANG");
 		_ttype = ANG;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&ang;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mANG");
+		
+		match("&ang;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mAND(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mAND");
 		_ttype = AND;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&and;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mAND");
+		
+		match("&and;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mOR(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mOR");
 		_ttype = OR;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&or;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mOR");
+		
+		match("&or;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mCAP(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mCAP");
 		_ttype = CAP;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&cap;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mCAP");
+		
+		match("&cap;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mCUP(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mCUP");
 		_ttype = CUP;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&cup;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mCUP");
+		
+		match("&cup;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mINT(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mINT");
 		_ttype = INT;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&int;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mINT");
+		
+		match("&int;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mTHERE4(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mTHERE4");
 		_ttype = THERE4;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&there4;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mTHERE4");
+		
+		match("&there4;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mSIM(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mSIM");
 		_ttype = SIM;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&sim;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mSIM");
+		
+		match("&sim;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mCONG(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mCONG");
 		_ttype = CONG;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&cong;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mCONG");
+		
+		match("&cong;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mASYMP(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mASYMP");
 		_ttype = ASYMP;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&asymp;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mASYMP");
+		
+		match("&asymp;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mNE(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mNE");
 		_ttype = NE;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&ne;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mNE");
+		
+		match("&ne;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mEQUIV(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mEQUIV");
 		_ttype = EQUIV;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&equiv;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mEQUIV");
+		
+		match("&equiv;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mLE(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mLE");
 		_ttype = LE;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&le;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mLE");
+		
+		match("&le;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mGE(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mGE");
 		_ttype = GE;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&ge;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mGE");
+		
+		match("&ge;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mSUB(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mSUB");
 		_ttype = SUB;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&sub;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mSUB");
+		
+		match("&sub;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mSUP(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mSUP");
 		_ttype = SUP;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&sup;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mSUP");
+		
+		match("&sup;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mNSUB(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mNSUB");
 		_ttype = NSUB;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&nsub;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mNSUB");
+		
+		match("&nsub;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mSUBE(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mSUBE");
 		_ttype = SUBE;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&sube;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mSUBE");
+		
+		match("&sube;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mSUPE(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mSUPE");
 		_ttype = SUPE;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&supe;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mSUPE");
+		
+		match("&supe;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mOPLUS(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mOPLUS");
 		_ttype = OPLUS;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&oplus;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mOPLUS");
+		
+		match("&oplus;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mOTIMES(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mOTIMES");
 		_ttype = OTIMES;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&otimes;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mOTIMES");
+		
+		match("&otimes;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mPERP(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mPERP");
 		_ttype = PERP;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&perp;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mPERP");
+		
+		match("&perp;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mSDOT(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mSDOT");
 		_ttype = SDOT;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&sdot;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mSDOT");
+		
+		match("&sdot;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mLCEIL(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mLCEIL");
 		_ttype = LCEIL;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&lceil;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mLCEIL");
+		
+		match("&lceil;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mRCEIL(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mRCEIL");
 		_ttype = RCEIL;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&rceil;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mRCEIL");
+		
+		match("&rceil;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mLFLOOR(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mLFLOOR");
 		_ttype = LFLOOR;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&lfloor;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mLFLOOR");
+		
+		match("&lfloor;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mRFLOOR(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mRFLOOR");
 		_ttype = RFLOOR;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&rfloor;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mRFLOOR");
+		
+		match("&rfloor;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mLANG(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mLANG");
 		_ttype = LANG;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&lang;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mLANG");
+		
+		match("&lang;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mRANG(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mRANG");
 		_ttype = RANG;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&rang;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mRANG");
+		
+		match("&rang;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mLOZ(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mLOZ");
 		_ttype = LOZ;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&loz;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mLOZ");
+		
+		match("&loz;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mSPADES(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mSPADES");
 		_ttype = SPADES;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&spades;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mSPADES");
+		
+		match("&spades;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mCLUBS(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mCLUBS");
 		_ttype = CLUBS;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&clubs;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mCLUBS");
+		
+		match("&clubs;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mHEARTS(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mHEARTS");
 		_ttype = HEARTS;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&hearts;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mHEARTS");
+		
+		match("&hearts;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mDIAMS(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mDIAMS");
 		_ttype = DIAMS;
 		int _saveIndex;
-		try { // debugging
-			
-			match("&diams;");
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mDIAMS");
+		
+		match("&diams;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
 		}
+		_returnToken = _token;
 	}
 	
 	public final void mANY_CHAR(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		traceIn("mANY_CHAR");
 		_ttype = ANY_CHAR;
 		int _saveIndex;
-		try { // debugging
-			
-			if ((LA(1)=='\r') && (LA(2)=='\n')) {
-				match('\r');
-				match('\n');
-				newline();
-			}
-			else if ((LA(1)=='\n') && (true) && (true) && (true) && (true) && (true) && (true)) {
-				match('\n');
-				newline();
-			}
-			else if (((LA(1) >= '\u0000' && LA(1) <= '\ufffe')) && (true) && (true) && (true) && (true) && (true) && (true)) {
-				matchNot(EOF_CHAR);
-			}
-			else {
-				throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());
-			}
-			
-			if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-				_token = makeToken(_ttype);
-				_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-			}
-			_returnToken = _token;
-		} finally { // debugging
-			traceOut("mANY_CHAR");
+		
+		if ((LA(1)=='\r') && (LA(2)=='\n')) {
+			match('\r');
+			match('\n');
+			newline();
 		}
+		else if ((LA(1)=='\n') && (true) && (true) && (true) && (true) && (true) && (true)) {
+			match('\n');
+			newline();
+		}
+		else if (((LA(1) >= '\u0000' && LA(1) <= '\ufffe')) && (true) && (true) && (true) && (true) && (true) && (true)) {
+			matchNot(EOF_CHAR);
+		}
+		else {
+			throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());
+		}
+		
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
+		}
+		_returnToken = _token;
 	}
 	
 	

@@ -260,251 +260,251 @@ decode [OutputStreamWriter out] throws IOException
 	|
 	YUML_LC { out.write('\u00FF');}
 	|
-	ALPHA { out.write('\u00FF');}
+	ALPHA { out.write('\u0391');}
 	|
-	BETA { out.write('\u00FF');}
+	BETA { out.write('\u0392');}
 	|
-	GAMMA { out.write('\u00FF');}
+	GAMMA { out.write('\u0393');}
 	|
-	DELTA { out.write('\u00FF');}
+	DELTA { out.write('\u0394');}
 	|
-	EPSILON { out.write('\u00FF');}
+	EPSILON { out.write('\u0395');}
 	|
-	ZETA { out.write('\u00FF');}
+	ZETA { out.write('\u0396');}
 	|
-	ETA { out.write('\u00FF');}
+	ETA { out.write('\u0397');}
 	|
-	THETA { out.write('\u00FF');}
+	THETA { out.write('\u0398');}
 	|
-	IOTA { out.write('\u00FF');}
+	IOTA { out.write('\u0399');}
 	|
-	KAPPA { out.write('\u00FF');}
+	KAPPA { out.write('\u039A');}
 	|
-	LAMBDA { out.write('\u00FF');}
+	LAMBDA { out.write('\u039B');}
 	|
-	MU { out.write('\u00FF');}
+	MU { out.write('\u039C');}
 	|
-	NU { out.write('\u00FF');}
+	NU { out.write('\u039D');}
 	|
-	XI { out.write('\u00FF');}
+	XI { out.write('\u039E');}
 	|
-	OMICRON { out.write('\u00FF');}
+	OMICRON { out.write('\u039F');}
 	|
-	PI { out.write('\u00FF');}
+	PI { out.write('\u03A0');}
 	|
-	RHO { out.write('\u00FF');}
+	RHO { out.write('\u03A1');}
 	|
-	SIGMA { out.write('\u00FF');}
+	SIGMA { out.write('\u03A3');}
 	|
-	TAU { out.write('\u00FF');}
+	TAU { out.write('\u03A4');}
 	|
-	UPSILON { out.write('\u00FF');}
+	UPSILON { out.write('\u03A5');}
 	|
-	PHI { out.write('\u00FF');}
+	PHI { out.write('\u03A6');}
 	|
-	CHI { out.write('\u00FF');}
+	CHI { out.write('\u03A7');}
 	|
-	PSI { out.write('\u00FF');}
+	PSI { out.write('\u03A8');}
 	|
-	OMEGA { out.write('\u00FF');}
+	OMEGA { out.write('\u03A9');}
 	|
-	ALPHA_LC { out.write('\u00FF');}
+	ALPHA_LC { out.write('\u03B1');}
 	|
-	BETA_LC { out.write('\u00FF');}
+	BETA_LC { out.write('\u03B2');}
 	|
-	GAMMA_LC { out.write('\u00FF');}
+	GAMMA_LC { out.write('\u03B3');}
 	|
-	DELTA_LC  { out.write('\u00FF');}
+	DELTA_LC  { out.write('\u03B4');}
 	|
-	EPSILON_LC { out.write('\u00FF');}
+	EPSILON_LC { out.write('\u03B5');}
 	|
-	ZETA_LC { out.write('\u00FF');}
+	ZETA_LC { out.write('\u03B6');}
 	|
-	ETA_LC { out.write('\u00FF');}
+	ETA_LC { out.write('\u03B7');}
 	|
-	THETA_LC { out.write('\u00FF');}
+	THETA_LC { out.write('\u03B8');}
 	|
-	IOTA_LC { out.write('\u00FF');}
+	IOTA_LC { out.write('\u03B9');}
 	|
-	KAPPA_LC { out.write('\u00FF');}
+	KAPPA_LC { out.write('\u03BA');}
 	|
-	LAMBDA_LC { out.write('\u00FF');}
+	LAMBDA_LC { out.write('\u03BB');}
 	|
-	MU_LC { out.write('\u00FF');}
+	MU_LC { out.write('\u03BC');}
 	|
-	NU_LC { out.write('\u00FF');}
+	NU_LC { out.write('\u03BD');}
 	|
-	XI_LC { out.write('\u00FF');}
+	XI_LC { out.write('\u03BE');}
 	|
-	OMICRON_LC { out.write('\u00FF');}
+	OMICRON_LC { out.write('\u03BF');}
 	|
-	PI_LC { out.write('\u00FF');}
+	PI_LC { out.write('\u03C0');}
 	|
-	RHO_LC { out.write('\u00FF');}
+	RHO_LC { out.write('\u03C1');}
 	|
-	SIGMAF_LC { out.write('\u00FF');}
+	SIGMAF_LC { out.write('\u03C2');}
 	|
-	SIGMA_LC { out.write('\u00FF');}
+	SIGMA_LC { out.write('\u03C3');}
 	|
-	TAU_LC { out.write('\u00FF');}
+	TAU_LC { out.write('\u03C4');}
 	|
-	UPSILON_LC { out.write('\u00FF');}
+	UPSILON_LC { out.write('\u03C5');}
 	|
-	PHI_LC { out.write('\u00FF');}
+	PHI_LC { out.write('\u03C6');}
 	|
-	CHI_LC { out.write('\u00FF');}
+	CHI_LC { out.write('\u03C7');}
 	|
-	PSI_LC { out.write('\u00FF');}
+	PSI_LC { out.write('\u03C8');}
 	|
-	OMEGA_LC { out.write('\u00FF');}
+	OMEGA_LC { out.write('\u03C9');}
 	|
-	THETASYM { out.write('\u00FF');}
+	THETASYM { out.write('\u03D1');}
 	|
-	UPSIH { out.write('\u00FF');}
+	UPSIH { out.write('\u03D2');}
 	|
-	PIV { out.write('\u00FF');} 
+	PIV { out.write('\u03D6');} 
 	| 
-	BULL { out.write('\u00FF');}
+	BULL { out.write('\u2022');}
 	|
-	HELLIP { out.write('\u00FF');}
+	HELLIP { out.write('\u2026');}
 	|
-	PRIME_LC { out.write('\u00FF');}
+	PRIME_LC { out.write('\u2032');}
 	|
-	PRIME { out.write('\u00FF');}
+	PRIME { out.write('\u2033');}
 	|
-	OLINE { out.write('\u00FF');}
+	OLINE { out.write('\u203E');}
 	|
-	FRASL { out.write('\u00FF');}
+	FRASL { out.write('\u2044');}
 	|
-	WEIERP { out.write('\u00FF');}
+	WEIERP { out.write('\u2118');}
 	|
-	IMAGE { out.write('\u00FF');}
+	IMAGE { out.write('\u2111');}
 	|
-	REAL { out.write('\u00FF');}
+	REAL { out.write('\u211C');}
 	|
-	TRADE { out.write('\u00FF');}
+	TRADE { out.write('\u2122');}
 	|
-	ALEFSYM { out.write('\u00FF');}
+	ALEFSYM { out.write('\u2135');}
 	|
-	LARR { out.write('\u00FF');}
+	LARR { out.write('\u2190');}
 	|
-	UARR { out.write('\u00FF');}
+	UARR { out.write('\u2191');}
 	|
-	RARR { out.write('\u00FF');}
+	RARR { out.write('\u2192');}
 	|
-	DARR { out.write('\u00FF');}
+	DARR { out.write('\u2193');}
 	|
-	HARR { out.write('\u00FF');}
+	HARR { out.write('\u2194');}
 	|
-	CRARR { out.write('\u00FF');}
+	CRARR { out.write('\u21B5');}
 	|
-	LARR_D { out.write('\u00FF');}
+	LARR_D { out.write('\u21D0');}
 	|
-	UARR_D { out.write('\u00FF');}
+	UARR_D { out.write('\u21D1');}
 	|
-	RARR_D { out.write('\u00FF');}
+	RARR_D { out.write('\u21D2');}
 	|
-	DARR_D { out.write('\u00FF');}
+	DARR_D { out.write('\u21D3');}
 	|
-	HARR_D { out.write('\u00FF');}
+	HARR_D { out.write('\u21D4');}
 	|
-	FORALL { out.write('\u00FF');}
+	FORALL { out.write('\u2200');}
 	|
-	PART { out.write('\u00FF');}
+	PART { out.write('\u2202');}
 	|
-	EXIST { out.write('\u00FF');}
+	EXIST { out.write('\u2203');}
 	|
-	EMPTY { out.write('\u00FF');}
+	EMPTY { out.write('\u2205');}
 	|
-	NABLA { out.write('\u00FF');}
+	NABLA { out.write('\u2207');}
 	|
-	ISIN { out.write('\u00FF');}
+	ISIN { out.write('\u2208');}
 	|
-	NOTIN { out.write('\u00FF');}
+	NOTIN { out.write('\u2209');}
 	|
-	NI { out.write('\u00FF');}
+	NI { out.write('\u220B');}
 	|
-	PROD { out.write('\u00FF');}
+	PROD { out.write('\u220F');}
 	|
-	SUM { out.write('\u00FF');}
+	SUM { out.write('\u2211');}
 	|
-	MINUS { out.write('\u00FF');}
+	MINUS { out.write('\u2212');}
 	|
-	LOWAST { out.write('\u00FF');}
+	LOWAST { out.write('\u2217');}
 	|
-	RADIC { out.write('\u00FF');}
+	RADIC { out.write('\u221A');}
 	|
-	PROP { out.write('\u00FF');}
+	PROP { out.write('\u221D');}
 	|
-	INFIN { out.write('\u00FF');}
+	INFIN { out.write('\u221E');}
 	|
-	ANG { out.write('\u00FF');}
+	ANG { out.write('\u2220');}
 	|
-	AND { out.write('\u00FF');}
+	AND { out.write('\u2227');}
 	|
-	OR { out.write('\u00FF');}
+	OR { out.write('\u2228');}
 	|
-	CAP { out.write('\u00FF');}
+	CAP { out.write('\u2229');}
 	|
-	CUP { out.write('\u00FF');}
+	CUP { out.write('\u222A');}
 	|
-	INT { out.write('\u00FF');}
+	INT { out.write('\u222B');}
 	|
-	THERE4 { out.write('\u00FF');}
+	THERE4 { out.write('\u2234');}
 	|
-	SIM { out.write('\u00FF');}
+	SIM { out.write('\u223C');}
 	|
-	CONG { out.write('\u00FF');}
+	CONG { out.write('\u2245');}
 	|
-	ASYMP { out.write('\u00FF');}
+	ASYMP { out.write('\u2248');}
 	|
-	NE { out.write('\u00FF');}
+	NE { out.write('\u2260');}
 	|
-	EQUIV { out.write('\u00FF');}
+	EQUIV { out.write('\u2261');}
 	|
-	LE { out.write('\u00FF');}
+	LE { out.write('\u2264');}
 	|
-	GE { out.write('\u00FF');}
+	GE { out.write('\u2265');}
 	|
-	SUB { out.write('\u00FF');}
+	SUB { out.write('\u2282');}
 	|
-	SUP { out.write('\u00FF');}
+	SUP { out.write('\u2283');}
 	|
-	NSUB { out.write('\u00FF');}
+	NSUB { out.write('\u2284');}
 	|
-	SUBE { out.write('\u00FF');}
+	SUBE { out.write('\u2286');}
 	|
-	SUPE { out.write('\u00FF');}
+	SUPE { out.write('\u2287');}
 	|
-	OPLUS { out.write('\u00FF');}
+	OPLUS { out.write('\u2295');}
 	|
-	OTIMES { out.write('\u00FF');}
+	OTIMES { out.write('\u2297');}
 	|
-	PERP { out.write('\u00FF');}
+	PERP { out.write('\u22A5');}
 	|
-	SDOT { out.write('\u00FF');}
+	SDOT { out.write('\u22C5');}
 	|
-	LCEIL { out.write('\u00FF');}
+	LCEIL { out.write('\u2308');}
 	|
-	RCEIL { out.write('\u00FF');}
+	RCEIL { out.write('\u2309');}
 	|
-	LFLOOR { out.write('\u00FF');}
+	LFLOOR { out.write('\u230A');}
 	|
-	RFLOOR { out.write('\u00FF');}
+	RFLOOR { out.write('\u230B');}
 	|
-	LANG { out.write('\u00FF');}
+	LANG { out.write('\u2329');}
 	|
-	RANG { out.write('\u00FF');}
+	RANG { out.write('\u232A');}
 	|
-	LOZ { out.write('\u00FF');}
+	LOZ { out.write('\u25CA');}
 	|
-	SPADES { out.write('\u00FF');}
+	SPADES { out.write('\u2660');}
 	|
-	CLUBS { out.write('\u00FF');}
+	CLUBS { out.write('\u2663');}
 	|
-	HEARTS { out.write('\u00FF');}
+	HEARTS { out.write('\u2665');}
 	|
-	DIAMS { out.write('\u00FF');}
+	DIAMS { out.write('\u2666');}
 	|
 	token: ANY_CHAR { out.write(token.getText());}
 	;

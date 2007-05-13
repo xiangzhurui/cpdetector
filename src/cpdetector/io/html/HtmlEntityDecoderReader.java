@@ -467,6 +467,376 @@ public class HtmlEntityDecoderReader
       case HtmlEntityDecoderTokenTypes.YUML_LC:
         result += '\u00FF';
         break;
+      case HtmlEntityDecoderTokenTypes.ALPHA:
+        result += '\u0391';
+        break;
+      // Now the greek symbols & math
+      case HtmlEntityDecoderTokenTypes.BETA:
+        result += '\u0392';
+        break;
+      case HtmlEntityDecoderTokenTypes.GAMMA:
+        result += '\u0393';
+        break;
+      case HtmlEntityDecoderTokenTypes.DELTA:
+        result += '\u0394';
+        break;
+      case HtmlEntityDecoderTokenTypes.EPSILON:
+        result += '\u0395';
+        break;
+      case HtmlEntityDecoderTokenTypes.ZETA:
+        result += '\u0396';
+        break;
+      case HtmlEntityDecoderTokenTypes.ETA:
+        result += '\u0397';
+        break;
+      case HtmlEntityDecoderTokenTypes.THETA:
+        result += '\u0398';
+        break;
+      case HtmlEntityDecoderTokenTypes.IOTA:
+        result += '\u0399';
+        break;
+      case HtmlEntityDecoderTokenTypes.KAPPA:
+        result += '\u039A';
+        break;
+      case HtmlEntityDecoderTokenTypes.LAMBDA:
+        result += '\u039B';
+        break;
+      case HtmlEntityDecoderTokenTypes.MU:
+        result += '\u039C';
+        break;
+      case HtmlEntityDecoderTokenTypes.NU:
+        result += '\u039D';
+        break;
+      case HtmlEntityDecoderTokenTypes.XI:
+        result += '\u039E';
+        break;
+      case HtmlEntityDecoderTokenTypes.OMICRON:
+        result += '\u039F';
+        break;
+      case HtmlEntityDecoderTokenTypes.PI:
+        result += '\u03A0';
+        break;
+      case HtmlEntityDecoderTokenTypes.RHO:
+        result += '\u03A1';
+        break;
+      case HtmlEntityDecoderTokenTypes.SIGMA:
+        result += '\u03A3';
+        break;
+      case HtmlEntityDecoderTokenTypes.TAU:
+        result += '\u03A4';
+        break;
+      case HtmlEntityDecoderTokenTypes.UPSILON:
+        result += '\u03A5';
+        break;
+      case HtmlEntityDecoderTokenTypes.PHI:
+        result += '\u03A6';
+        break;
+      case HtmlEntityDecoderTokenTypes.CHI:
+        result += '\u03A7';
+        break;
+      case HtmlEntityDecoderTokenTypes.PSI:
+        result += '\u03A8';
+        break;
+      case HtmlEntityDecoderTokenTypes.OMEGA:
+        result += '\u03A9';
+        break;
+      case HtmlEntityDecoderTokenTypes.ALPHA_LC:
+        result += '\u03B1';
+        break;
+      case HtmlEntityDecoderTokenTypes.BETA_LC:
+        result += '\u03B2';
+        break;
+      case HtmlEntityDecoderTokenTypes.GAMMA_LC:
+        result += '\u03B3';
+        break;
+      case HtmlEntityDecoderTokenTypes.DELTA_LC:
+        result += '\u03B4';
+        break;
+      case HtmlEntityDecoderTokenTypes.EPSILON_LC:
+        result += '\u03B5';
+        break;
+      case HtmlEntityDecoderTokenTypes.ZETA_LC:
+        result += '\u03B6';
+        break;
+      case HtmlEntityDecoderTokenTypes.ETA_LC:
+        result += '\u03B7';
+        break;
+      case HtmlEntityDecoderTokenTypes.THETA_LC:
+        result += '\u03B8';
+        break;
+      case HtmlEntityDecoderTokenTypes.IOTA_LC:
+        result += '\u03B9';
+        break;
+      case HtmlEntityDecoderTokenTypes.KAPPA_LC:
+        result += '\u03BA';
+        break;
+      case HtmlEntityDecoderTokenTypes.LAMBDA_LC:
+        result += '\u03BB';
+        break;
+      case HtmlEntityDecoderTokenTypes.MU_LC:
+        result += '\u03BC';
+        break;
+      case HtmlEntityDecoderTokenTypes.NU_LC:
+        result += '\u03BD';
+        break;
+      case HtmlEntityDecoderTokenTypes.XI_LC:
+        result += '\u03BE';
+        break;
+      case HtmlEntityDecoderTokenTypes.OMICRON_LC:
+        result += '\u03BF';
+        break;
+      case HtmlEntityDecoderTokenTypes.PI_LC:
+        result += '\u03C0';
+        break;
+      case HtmlEntityDecoderTokenTypes.RHO_LC:
+        result += '\u03C1';
+        break;
+      case HtmlEntityDecoderTokenTypes.SIGMAF_LC:
+        result += '\u03C2';
+        break;
+      case HtmlEntityDecoderTokenTypes.SIGMA_LC:
+        result += '\u03C3';
+        break;
+      case HtmlEntityDecoderTokenTypes.TAU_LC:
+        result += '\u03C4';
+        break;
+      case HtmlEntityDecoderTokenTypes.UPSILON_LC:
+        result += '\u03C5';
+        break;
+      case HtmlEntityDecoderTokenTypes.PHI_LC:
+        result += '\u03C6';
+        break;
+      case HtmlEntityDecoderTokenTypes.CHI_LC:
+        result += '\u03C7';
+        break;
+      case HtmlEntityDecoderTokenTypes.PSI_LC:
+        result += '\u03C8';
+        break;
+      case HtmlEntityDecoderTokenTypes.OMEGA_LC:
+        result += '\u03C9';
+        break;
+      case HtmlEntityDecoderTokenTypes.THETASYM:
+        result += '\u03D1';
+        break;
+      case HtmlEntityDecoderTokenTypes.UPSIH:
+        result += '\u03D2';
+        break;
+      case HtmlEntityDecoderTokenTypes.PIV:
+        result += '\u03D6';
+        break;
+      case HtmlEntityDecoderTokenTypes.BULL:
+        result += '\u2022';
+        break;
+      case HtmlEntityDecoderTokenTypes.HELLIP:
+        result += '\u2026';
+        break;
+      case HtmlEntityDecoderTokenTypes.PRIME_LC:
+        result += '\u2032';
+        break;
+      case HtmlEntityDecoderTokenTypes.PRIME:
+        result += '\u2033';
+        break;
+      case HtmlEntityDecoderTokenTypes.OLINE:
+        result += '\u203E';
+        break;
+      case HtmlEntityDecoderTokenTypes.FRASL:
+        result += '\u2044';
+        break;
+      case HtmlEntityDecoderTokenTypes.WEIERP:
+        result += '\u2118';
+        break;
+      case HtmlEntityDecoderTokenTypes.IMAGE:
+        result += '\u2111';
+        break;
+      case HtmlEntityDecoderTokenTypes.REAL:
+        result += '\u211C';
+        break;
+      case HtmlEntityDecoderTokenTypes.TRADE:
+        result += '\u2122';
+        break;
+      case HtmlEntityDecoderTokenTypes.ALEFSYM:
+        result += '\u2135';
+        break;
+      case HtmlEntityDecoderTokenTypes.LARR:
+        result += '\u2190';
+        break;
+      case HtmlEntityDecoderTokenTypes.UARR:
+        result += '\u2191';
+        break;
+      case HtmlEntityDecoderTokenTypes.RARR:
+        result += '\u2192';
+        break;
+      case HtmlEntityDecoderTokenTypes.DARR:
+        result += '\u2193';
+        break;
+      case HtmlEntityDecoderTokenTypes.HARR:
+        result += '\u2194';
+        break;
+      case HtmlEntityDecoderTokenTypes.CRARR:
+        result += '\u21B5';
+        break;
+      case HtmlEntityDecoderTokenTypes.LARR_D:
+        result += '\u21D0';
+        break;
+      case HtmlEntityDecoderTokenTypes.UARR_D:
+        result += '\u21D1';
+        break;
+      case HtmlEntityDecoderTokenTypes.RARR_D:
+        result += '\u21D2';
+        break;
+      case HtmlEntityDecoderTokenTypes.DARR_D:
+        result += '\u21D3';
+        break;
+      case HtmlEntityDecoderTokenTypes.HARR_D:
+        result += '\u21D4';
+        break;
+      case HtmlEntityDecoderTokenTypes.FORALL:
+        result += '\u2200';
+        break;
+      case HtmlEntityDecoderTokenTypes.PART:
+        result += '\u2202';
+        break;
+      case HtmlEntityDecoderTokenTypes.EXIST:
+        result += '\u2203';
+        break;
+      case HtmlEntityDecoderTokenTypes.EMPTY:
+        result += '\u2205';
+        break;
+      case HtmlEntityDecoderTokenTypes.NABLA:
+        result += '\u2207';
+        break;
+      case HtmlEntityDecoderTokenTypes.ISIN:
+        result += '\u2208';
+        break;
+      case HtmlEntityDecoderTokenTypes.NOTIN:
+        result += '\u2209';
+        break;
+      case HtmlEntityDecoderTokenTypes.NI:
+        result += '\u220B';
+        break;
+      case HtmlEntityDecoderTokenTypes.PROD:
+        result += '\u220F';
+        break;
+      case HtmlEntityDecoderTokenTypes.SUM:
+        result += '\u2211';
+        break;
+      case HtmlEntityDecoderTokenTypes.MINUS:
+        result += '\u2212';
+        break;
+      case HtmlEntityDecoderTokenTypes.LOWAST:
+        result += '\u2217';
+        break;
+      case HtmlEntityDecoderTokenTypes.RADIC:
+        result += '\u221A';
+        break;
+      case HtmlEntityDecoderTokenTypes.PROP:
+        result += '\u221D';
+        break;
+      case HtmlEntityDecoderTokenTypes.INFIN:
+        result += '\u221E';
+        break;
+      case HtmlEntityDecoderTokenTypes.ANG:
+        result += '\u2220';
+        break;
+      case HtmlEntityDecoderTokenTypes.AND:
+        result += '\u2227';
+        break;
+      case HtmlEntityDecoderTokenTypes.OR:
+        result += '\u2228';
+        break;
+      case HtmlEntityDecoderTokenTypes.CAP:
+        result += '\u2229';
+        break;
+      case HtmlEntityDecoderTokenTypes.CUP:
+        result += '\u222A';
+        break;
+      case HtmlEntityDecoderTokenTypes.INT:
+        result += '\u222B';
+        break;
+      case HtmlEntityDecoderTokenTypes.THERE4:
+        result += '\u2234';
+        break;
+      case HtmlEntityDecoderTokenTypes.SIM:
+        result += '\u223C';
+        break;
+      case HtmlEntityDecoderTokenTypes.CONG:
+        result += '\u2245';
+        break;
+      case HtmlEntityDecoderTokenTypes.ASYMP:
+        result += '\u2248';
+        break;
+      case HtmlEntityDecoderTokenTypes.NE:
+        result += '\u2260';
+        break;
+      case HtmlEntityDecoderTokenTypes.EQUIV:
+        result += '\u2261';
+        break;
+      case HtmlEntityDecoderTokenTypes.LE:
+        result += '\u2264';
+        break;
+      case HtmlEntityDecoderTokenTypes.GE:
+        result += '\u2265';
+        break;
+      case HtmlEntityDecoderTokenTypes.SUB:
+        result += '\u2282';
+        break;
+      case HtmlEntityDecoderTokenTypes.SUP:
+        result += '\u2283';
+        break;
+      case HtmlEntityDecoderTokenTypes.NSUB:
+        result += '\u2284';
+        break;
+      case HtmlEntityDecoderTokenTypes.SUBE:
+        result += '\u2286';
+        break;
+      case HtmlEntityDecoderTokenTypes.SUPE:
+        result += '\u2287';
+        break;
+      case HtmlEntityDecoderTokenTypes.OPLUS:
+        result += '\u2295';
+        break;
+      case HtmlEntityDecoderTokenTypes.OTIMES:
+        result += '\u2297';
+        break;
+      case HtmlEntityDecoderTokenTypes.PERP:
+        result += '\u22A5';
+        break;
+      case HtmlEntityDecoderTokenTypes.SDOT:
+        result += '\u22C5';
+        break;
+      case HtmlEntityDecoderTokenTypes.LCEIL:
+        result += '\u2308';
+        break;
+      case HtmlEntityDecoderTokenTypes.RCEIL:
+        result += '\u2309';
+        break;
+      case HtmlEntityDecoderTokenTypes.LFLOOR:
+        result += '\u230A';
+        break;
+      case HtmlEntityDecoderTokenTypes.RFLOOR:
+        result += '\u230B';
+        break;
+      case HtmlEntityDecoderTokenTypes.LANG:
+        result += '\u2329';
+        break;
+      case HtmlEntityDecoderTokenTypes.RANG:
+        result += '\u232A';
+        break;
+      case HtmlEntityDecoderTokenTypes.LOZ:
+        result += '\u25CA';
+        break;
+      case HtmlEntityDecoderTokenTypes.SPADES:
+        result += '\u2660';
+        break;
+      case HtmlEntityDecoderTokenTypes.CLUBS:
+        result += '\u2663';
+        break;
+      case HtmlEntityDecoderTokenTypes.HEARTS:
+        result += '\u2665';
+        break;
+      case HtmlEntityDecoderTokenTypes.DIAMS:
+        result += '\u2666';
+        break;
       case HtmlEntityDecoderTokenTypes.ANY_CHAR:
       default:
         result = token.getText();
