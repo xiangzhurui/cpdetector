@@ -376,4 +376,3 @@ THORN_LC   : "&thorn;";
 YUML_LC    : "&yuml;";
 
 ANY_CHAR: .;  
-		
