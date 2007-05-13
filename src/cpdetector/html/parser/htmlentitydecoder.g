@@ -506,7 +506,73 @@ decode [OutputStreamWriter out] throws IOException
 	|
 	DIAMS { out.write('\u2666');}
 	|
-	token: ANY_CHAR { out.write(token.getText());}
+	DIAMS { out.write('\u2666');}
+	|
+	QUOT { out.write('\u0022');}
+	|
+	AMP { out.write('\u0026');}
+	|
+	LT { out.write('\u003C');}
+	|
+	GT { out.write('\u003E');}
+	|
+	OELIG { out.write('\u0152');}
+	|
+	OELIG_LC { out.write('\u0153');}
+	|
+	SCARON { out.write('\u0160');}
+	|
+	SCARON_LC { out.write('\u0161');}
+	|
+	YUML { out.write('\u0178');}
+	|
+	CIRC { out.write('\u02C6');}
+	|
+	TILDE { out.write('\u02DC');}
+	|
+	ENSP { out.write('\u2002');}
+	|
+	EMSP { out.write('\u2003');}
+	|
+	THINSP { out.write('\u2009');}
+	|
+	ZWNJ { out.write('\u200C');}
+	|
+	ZWJ { out.write('\u200D');}
+	|
+	LRM { out.write('\u200E');}
+	|
+	RLM { out.write('\u200F');}
+	|
+	NDASH { out.write('\u2013');}
+	|
+	MDASH { out.write('\u2014');}
+	|
+	LSQUO { out.write('\u2018');}
+	|
+	RSQUO { out.write('\u2019');}
+	|
+	SBQUO { out.write('\u201A');}
+	|
+	LDQUO { out.write('\u201C');}
+	|
+	RDQUO { out.write('\u201D');}
+	|
+	BDQUO { out.write('\u201E');}
+	|
+	DAGGER_LC { out.write('\u2020');}
+	|
+	DAGGER { out.write('\u2021');}
+	|
+	PERMIL { out.write('\u2030');}
+	|
+	LSAQUO { out.write('\u2039');}
+	|
+	RSAQUO { out.write('\u203A');}
+	|
+	EURO { out.write('\u20AC');}
+	|
+	token : ANY_CHAR { out.write(token.getText());}
 	;
  
 
@@ -746,6 +812,41 @@ SPADES     : "&spades;";
 CLUBS      : "&clubs;";
 HEARTS     : "&hearts;";
 DIAMS      : "&diams;";
+
+//24.4.1 The list of characters
+QUOT       : "&quot;";
+AMP        : "&amp;";
+LT         : "&lt;";
+GT         : "&gt;";
+OELIG      : "&OElig;";
+OELIG_LC   : "&oelig;";
+SCARON     : "&Scaron;";
+SCARON_LC  : "&scaron;";
+YUML       : "&Yuml;";
+CIRC       : "&circ;";
+TILDE      : "&tilde;";
+ENSP       : "&ensp;";
+EMSP       : "&emsp;";
+THINSP     : "&thinsp;";
+ZWNJ       : "&zwnj;";
+ZWJ        : "&zwj;";
+LRM        : "&lrm;";
+RLM        : "&rlm;";
+NDASH      : "&ndash;";
+LSQUO      : "&lsquo;";
+RSQUO      : "&rsquo;";
+SBQUO      : "&sbquo;";
+LDQUO      : "&ldquo;";
+RDQUO      : "&rdquo;";
+BDQUO      : "&bdquo;";
+DAGGER_LC  : "&dagger;";
+DAGGER     : "&Dagger;";
+PERMIL     : "&permil;";
+LSAQUO     : "&lsaquo;";
+RSAQUO     : "&rsaquo;";
+EURO       : "&euro;";
+
+
 // newline UNIX and Windows to have correct lexer line information
 ANY_CHAR   :
 	'\n' { newline();} 

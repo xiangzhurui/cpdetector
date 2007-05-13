@@ -834,8 +834,102 @@ public class HtmlEntityDecoderReader
       case HtmlEntityDecoderTokenTypes.HEARTS:
         result += '\u2665';
         break;
-      case HtmlEntityDecoderTokenTypes.DIAMS:
-        result += '\u2666';
+      case HtmlEntityDecoderTokenTypes.QUOT:
+        result += '\u0022';
+        break;
+      // 24.4.1 The list of characters
+      case HtmlEntityDecoderTokenTypes.AMP:
+        result += '\u0026';
+        break;
+      case HtmlEntityDecoderTokenTypes.LT:
+        result += '\u003C';
+        break;
+      case HtmlEntityDecoderTokenTypes.GT:
+        result += '\u003E';
+        break;
+      case HtmlEntityDecoderTokenTypes.OELIG:
+        result += '\u0152';
+        break;
+      case HtmlEntityDecoderTokenTypes.OELIG_LC:
+        result += '\u0153';
+        break;
+      case HtmlEntityDecoderTokenTypes.SCARON:
+        result += '\u0160';
+        break;
+      case HtmlEntityDecoderTokenTypes.SCARON_LC:
+        result += '\u0161';
+        break;
+      case HtmlEntityDecoderTokenTypes.YUML:
+        result += '\u0178';
+        break;
+      case HtmlEntityDecoderTokenTypes.CIRC:
+        result += '\u02C6';
+        break;
+      case HtmlEntityDecoderTokenTypes.TILDE:
+        result += '\u02DC';
+        break;
+      case HtmlEntityDecoderTokenTypes.ENSP:
+        result += '\u2002';
+        break;
+      case HtmlEntityDecoderTokenTypes.EMSP:
+        result += '\u2003';
+        break;
+      case HtmlEntityDecoderTokenTypes.THINSP:
+        result += '\u2009';
+        break;
+      case HtmlEntityDecoderTokenTypes.ZWNJ:
+        result += '\u200C';
+        break;
+      case HtmlEntityDecoderTokenTypes.ZWJ:
+        result += '\u200D';
+        break;
+      case HtmlEntityDecoderTokenTypes.LRM:
+        result += '\u200E';
+        break;
+      case HtmlEntityDecoderTokenTypes.RLM:
+        result += '\u200F';
+        break;
+      case HtmlEntityDecoderTokenTypes.NDASH:
+        result += '\u2013';
+        break;
+      case HtmlEntityDecoderTokenTypes.MDASH:
+        result += '\u2014';
+        break;
+      case HtmlEntityDecoderTokenTypes.LSQUO:
+        result += '\u2018';
+        break;
+      case HtmlEntityDecoderTokenTypes.RSQUO:
+        result += '\u2019';
+        break;
+      case HtmlEntityDecoderTokenTypes.SBQUO:
+        result += '\u201A';
+        break;
+      case HtmlEntityDecoderTokenTypes.LDQUO:
+        result += '\u201C';
+        break;
+      case HtmlEntityDecoderTokenTypes.RDQUO:
+        result += '\u201D';
+        break;
+      case HtmlEntityDecoderTokenTypes.BDQUO:
+        result += '\u201E';
+        break;
+      case HtmlEntityDecoderTokenTypes.DAGGER_LC:
+        result += '\u2020';
+        break;
+      case HtmlEntityDecoderTokenTypes.DAGGER:
+        result += '\u2021';
+        break;
+      case HtmlEntityDecoderTokenTypes.PERMIL:
+        result += '\u2030';
+        break;
+      case HtmlEntityDecoderTokenTypes.LSAQUO:
+        result += '\u2039';
+        break;
+      case HtmlEntityDecoderTokenTypes.RSAQUO:
+        result += '\u203A';
+        break;
+      case HtmlEntityDecoderTokenTypes.EURO:
+        result += '\u20AC';
         break;
       case HtmlEntityDecoderTokenTypes.ANY_CHAR:
       default:

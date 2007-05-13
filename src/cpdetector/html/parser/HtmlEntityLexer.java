@@ -168,6 +168,14 @@ tryAgain:
 					mOTIMES(true);
 					theRetToken=_returnToken;
 				}
+				else if ((LA(1)=='&') && (LA(2)=='p') && (LA(3)=='e') && (LA(4)=='r') && (LA(5)=='p')) {
+					mPERP(true);
+					theRetToken=_returnToken;
+				}
+				else if ((LA(1)=='&') && (LA(2)=='p') && (LA(3)=='e') && (LA(4)=='r') && (LA(5)=='m')) {
+					mPERMIL(true);
+					theRetToken=_returnToken;
+				}
 				else if ((LA(1)=='&') && (LA(2)=='c') && (LA(3)=='e') && (LA(4)=='n')) {
 					mCENT(true);
 					theRetToken=_returnToken;
@@ -212,8 +220,16 @@ tryAgain:
 					mRAQUO(true);
 					theRetToken=_returnToken;
 				}
+				else if ((LA(1)=='&') && (LA(2)=='t') && (LA(3)=='i') && (LA(4)=='m')) {
+					mTIMES(true);
+					theRetToken=_returnToken;
+				}
 				else if ((LA(1)=='&') && (LA(2)=='a') && (LA(3)=='c') && (LA(4)=='i')) {
 					mACIRC_LC(true);
+					theRetToken=_returnToken;
+				}
+				else if ((LA(1)=='&') && (LA(2)=='e') && (LA(3)=='u') && (LA(4)=='m')) {
+					mEUML_LC(true);
 					theRetToken=_returnToken;
 				}
 				else if ((LA(1)=='&') && (LA(2)=='e') && (LA(3)=='t') && (LA(4)=='h')) {
@@ -300,6 +316,14 @@ tryAgain:
 					mRARR(true);
 					theRetToken=_returnToken;
 				}
+				else if ((LA(1)=='&') && (LA(2)=='d') && (LA(3)=='a') && (LA(4)=='r')) {
+					mDARR(true);
+					theRetToken=_returnToken;
+				}
+				else if ((LA(1)=='&') && (LA(2)=='e') && (LA(3)=='m') && (LA(4)=='p')) {
+					mEMPTY(true);
+					theRetToken=_returnToken;
+				}
 				else if ((LA(1)=='&') && (LA(2)=='s') && (LA(3)=='u') && (LA(4)=='m')) {
 					mSUM(true);
 					theRetToken=_returnToken;
@@ -366,6 +390,50 @@ tryAgain:
 				}
 				else if ((LA(1)=='&') && (LA(2)=='d') && (LA(3)=='i') && (LA(4)=='a')) {
 					mDIAMS(true);
+					theRetToken=_returnToken;
+				}
+				else if ((LA(1)=='&') && (LA(2)=='t') && (LA(3)=='i') && (LA(4)=='l')) {
+					mTILDE(true);
+					theRetToken=_returnToken;
+				}
+				else if ((LA(1)=='&') && (LA(2)=='e') && (LA(3)=='m') && (LA(4)=='s')) {
+					mEMSP(true);
+					theRetToken=_returnToken;
+				}
+				else if ((LA(1)=='&') && (LA(2)=='t') && (LA(3)=='h') && (LA(4)=='i')) {
+					mTHINSP(true);
+					theRetToken=_returnToken;
+				}
+				else if ((LA(1)=='&') && (LA(2)=='z') && (LA(3)=='w') && (LA(4)=='n')) {
+					mZWNJ(true);
+					theRetToken=_returnToken;
+				}
+				else if ((LA(1)=='&') && (LA(2)=='z') && (LA(3)=='w') && (LA(4)=='j')) {
+					mZWJ(true);
+					theRetToken=_returnToken;
+				}
+				else if ((LA(1)=='&') && (LA(2)=='l') && (LA(3)=='s') && (LA(4)=='q')) {
+					mLSQUO(true);
+					theRetToken=_returnToken;
+				}
+				else if ((LA(1)=='&') && (LA(2)=='r') && (LA(3)=='s') && (LA(4)=='q')) {
+					mRSQUO(true);
+					theRetToken=_returnToken;
+				}
+				else if ((LA(1)=='&') && (LA(2)=='d') && (LA(3)=='a') && (LA(4)=='g')) {
+					mDAGGER_LC(true);
+					theRetToken=_returnToken;
+				}
+				else if ((LA(1)=='&') && (LA(2)=='l') && (LA(3)=='s') && (LA(4)=='a')) {
+					mLSAQUO(true);
+					theRetToken=_returnToken;
+				}
+				else if ((LA(1)=='&') && (LA(2)=='r') && (LA(3)=='s') && (LA(4)=='a')) {
+					mRSAQUO(true);
+					theRetToken=_returnToken;
+				}
+				else if ((LA(1)=='&') && (LA(2)=='e') && (LA(3)=='u') && (LA(4)=='r')) {
+					mEURO(true);
 					theRetToken=_returnToken;
 				}
 				else if ((LA(1)=='&') && (LA(2)=='n') && (LA(3)=='b')) {
@@ -504,10 +572,6 @@ tryAgain:
 					mOUML(true);
 					theRetToken=_returnToken;
 				}
-				else if ((LA(1)=='&') && (LA(2)=='t') && (LA(3)=='i')) {
-					mTIMES(true);
-					theRetToken=_returnToken;
-				}
 				else if ((LA(1)=='&') && (LA(2)=='O') && (LA(3)=='s')) {
 					mOSLASH(true);
 					theRetToken=_returnToken;
@@ -526,6 +590,10 @@ tryAgain:
 				}
 				else if ((LA(1)=='&') && (LA(2)=='U') && (LA(3)=='u')) {
 					mUUML(true);
+					theRetToken=_returnToken;
+				}
+				else if ((LA(1)=='&') && (LA(2)=='Y') && (LA(3)=='a')) {
+					mYACUTE(true);
 					theRetToken=_returnToken;
 				}
 				else if ((LA(1)=='&') && (LA(2)=='T') && (LA(3)=='H')) {
@@ -574,10 +642,6 @@ tryAgain:
 				}
 				else if ((LA(1)=='&') && (LA(2)=='e') && (LA(3)=='c')) {
 					mECIRC_LC(true);
-					theRetToken=_returnToken;
-				}
-				else if ((LA(1)=='&') && (LA(2)=='e') && (LA(3)=='u')) {
-					mEUML_LC(true);
 					theRetToken=_returnToken;
 				}
 				else if ((LA(1)=='&') && (LA(2)=='i') && (LA(3)=='g')) {
@@ -644,6 +708,10 @@ tryAgain:
 					mALPHA(true);
 					theRetToken=_returnToken;
 				}
+				else if ((LA(1)=='&') && (LA(2)=='D') && (LA(3)=='e')) {
+					mDELTA(true);
+					theRetToken=_returnToken;
+				}
 				else if ((LA(1)=='&') && (LA(2)=='E') && (LA(3)=='p')) {
 					mEPSILON(true);
 					theRetToken=_returnToken;
@@ -666,6 +734,10 @@ tryAgain:
 				}
 				else if ((LA(1)=='&') && (LA(2)=='P') && (LA(3)=='i')) {
 					mPI(true);
+					theRetToken=_returnToken;
+				}
+				else if ((LA(1)=='&') && (LA(2)=='S') && (LA(3)=='i')) {
+					mSIGMA(true);
 					theRetToken=_returnToken;
 				}
 				else if ((LA(1)=='&') && (LA(2)=='T') && (LA(3)=='a')) {
@@ -698,6 +770,10 @@ tryAgain:
 				}
 				else if ((LA(1)=='&') && (LA(2)=='e') && (LA(3)=='p')) {
 					mEPSILON_LC(true);
+					theRetToken=_returnToken;
+				}
+				else if ((LA(1)=='&') && (LA(2)=='z') && (LA(3)=='e')) {
+					mZETA_LC(true);
 					theRetToken=_returnToken;
 				}
 				else if ((LA(1)=='&') && (LA(2)=='i') && (LA(3)=='o')) {
@@ -752,10 +828,6 @@ tryAgain:
 					mTRADE(true);
 					theRetToken=_returnToken;
 				}
-				else if ((LA(1)=='&') && (LA(2)=='d') && (LA(3)=='a')) {
-					mDARR(true);
-					theRetToken=_returnToken;
-				}
 				else if ((LA(1)=='&') && (LA(2)=='h') && (LA(3)=='a')) {
 					mHARR(true);
 					theRetToken=_returnToken;
@@ -790,10 +862,6 @@ tryAgain:
 				}
 				else if ((LA(1)=='&') && (LA(2)=='e') && (LA(3)=='x')) {
 					mEXIST(true);
-					theRetToken=_returnToken;
-				}
-				else if ((LA(1)=='&') && (LA(2)=='e') && (LA(3)=='m')) {
-					mEMPTY(true);
 					theRetToken=_returnToken;
 				}
 				else if ((LA(1)=='&') && (LA(2)=='n') && (LA(3)=='a')) {
@@ -840,10 +908,6 @@ tryAgain:
 					mOPLUS(true);
 					theRetToken=_returnToken;
 				}
-				else if ((LA(1)=='&') && (LA(2)=='p') && (LA(3)=='e')) {
-					mPERP(true);
-					theRetToken=_returnToken;
-				}
 				else if ((LA(1)=='&') && (LA(2)=='s') && (LA(3)=='d')) {
 					mSDOT(true);
 					theRetToken=_returnToken;
@@ -872,8 +936,76 @@ tryAgain:
 					mCLUBS(true);
 					theRetToken=_returnToken;
 				}
-				else if ((LA(1)=='&') && (LA(2)=='Y')) {
-					mYACUTE(true);
+				else if ((LA(1)=='&') && (LA(2)=='a') && (LA(3)=='m')) {
+					mAMP(true);
+					theRetToken=_returnToken;
+				}
+				else if ((LA(1)=='&') && (LA(2)=='l') && (LA(3)=='t')) {
+					mLT(true);
+					theRetToken=_returnToken;
+				}
+				else if ((LA(1)=='&') && (LA(2)=='g') && (LA(3)=='t')) {
+					mGT(true);
+					theRetToken=_returnToken;
+				}
+				else if ((LA(1)=='&') && (LA(2)=='O') && (LA(3)=='E')) {
+					mOELIG(true);
+					theRetToken=_returnToken;
+				}
+				else if ((LA(1)=='&') && (LA(2)=='o') && (LA(3)=='e')) {
+					mOELIG_LC(true);
+					theRetToken=_returnToken;
+				}
+				else if ((LA(1)=='&') && (LA(2)=='S') && (LA(3)=='c')) {
+					mSCARON(true);
+					theRetToken=_returnToken;
+				}
+				else if ((LA(1)=='&') && (LA(2)=='s') && (LA(3)=='c')) {
+					mSCARON_LC(true);
+					theRetToken=_returnToken;
+				}
+				else if ((LA(1)=='&') && (LA(2)=='Y') && (LA(3)=='u')) {
+					mYUML(true);
+					theRetToken=_returnToken;
+				}
+				else if ((LA(1)=='&') && (LA(2)=='c') && (LA(3)=='i')) {
+					mCIRC(true);
+					theRetToken=_returnToken;
+				}
+				else if ((LA(1)=='&') && (LA(2)=='e') && (LA(3)=='n')) {
+					mENSP(true);
+					theRetToken=_returnToken;
+				}
+				else if ((LA(1)=='&') && (LA(2)=='l') && (LA(3)=='r')) {
+					mLRM(true);
+					theRetToken=_returnToken;
+				}
+				else if ((LA(1)=='&') && (LA(2)=='r') && (LA(3)=='l')) {
+					mRLM(true);
+					theRetToken=_returnToken;
+				}
+				else if ((LA(1)=='&') && (LA(2)=='n') && (LA(3)=='d')) {
+					mNDASH(true);
+					theRetToken=_returnToken;
+				}
+				else if ((LA(1)=='&') && (LA(2)=='s') && (LA(3)=='b')) {
+					mSBQUO(true);
+					theRetToken=_returnToken;
+				}
+				else if ((LA(1)=='&') && (LA(2)=='l') && (LA(3)=='d')) {
+					mLDQUO(true);
+					theRetToken=_returnToken;
+				}
+				else if ((LA(1)=='&') && (LA(2)=='r') && (LA(3)=='d')) {
+					mRDQUO(true);
+					theRetToken=_returnToken;
+				}
+				else if ((LA(1)=='&') && (LA(2)=='b') && (LA(3)=='d')) {
+					mBDQUO(true);
+					theRetToken=_returnToken;
+				}
+				else if ((LA(1)=='&') && (LA(2)=='D') && (LA(3)=='a')) {
+					mDAGGER(true);
 					theRetToken=_returnToken;
 				}
 				else if ((LA(1)=='&') && (LA(2)=='B')) {
@@ -882,10 +1014,6 @@ tryAgain:
 				}
 				else if ((LA(1)=='&') && (LA(2)=='G')) {
 					mGAMMA(true);
-					theRetToken=_returnToken;
-				}
-				else if ((LA(1)=='&') && (LA(2)=='D')) {
-					mDELTA(true);
 					theRetToken=_returnToken;
 				}
 				else if ((LA(1)=='&') && (LA(2)=='Z')) {
@@ -912,14 +1040,6 @@ tryAgain:
 					mRHO(true);
 					theRetToken=_returnToken;
 				}
-				else if ((LA(1)=='&') && (LA(2)=='S')) {
-					mSIGMA(true);
-					theRetToken=_returnToken;
-				}
-				else if ((LA(1)=='&') && (LA(2)=='z')) {
-					mZETA_LC(true);
-					theRetToken=_returnToken;
-				}
 				else if ((LA(1)=='&') && (LA(2)=='k')) {
 					mKAPPA_LC(true);
 					theRetToken=_returnToken;
@@ -930,6 +1050,10 @@ tryAgain:
 				}
 				else if ((LA(1)=='&') && (LA(2)=='w')) {
 					mWEIERP(true);
+					theRetToken=_returnToken;
+				}
+				else if ((LA(1)=='&') && (LA(2)=='q')) {
+					mQUOT(true);
 					theRetToken=_returnToken;
 				}
 				else if (((LA(1) >= '\u0000' && LA(1) <= '\ufffe')) && (true)) {
@@ -948,7 +1072,6 @@ tryAgain:
 				return _returnToken;
 			}
 			catch (RecognitionException e) {
-              e.printStackTrace(System.err);
 				throw new TokenStreamRecognitionException(e);
 			}
 		}
@@ -3803,6 +3926,409 @@ tryAgain:
 		int _saveIndex;
 		
 		match("&diams;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
+		}
+		_returnToken = _token;
+	}
+	
+	public final void mQUOT(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
+		int _ttype; Token _token=null; int _begin=text.length();
+		_ttype = QUOT;
+		int _saveIndex;
+		
+		match("&quot;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
+		}
+		_returnToken = _token;
+	}
+	
+	public final void mAMP(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
+		int _ttype; Token _token=null; int _begin=text.length();
+		_ttype = AMP;
+		int _saveIndex;
+		
+		match("&amp;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
+		}
+		_returnToken = _token;
+	}
+	
+	public final void mLT(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
+		int _ttype; Token _token=null; int _begin=text.length();
+		_ttype = LT;
+		int _saveIndex;
+		
+		match("&lt;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
+		}
+		_returnToken = _token;
+	}
+	
+	public final void mGT(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
+		int _ttype; Token _token=null; int _begin=text.length();
+		_ttype = GT;
+		int _saveIndex;
+		
+		match("&gt;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
+		}
+		_returnToken = _token;
+	}
+	
+	public final void mOELIG(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
+		int _ttype; Token _token=null; int _begin=text.length();
+		_ttype = OELIG;
+		int _saveIndex;
+		
+		match("&OElig;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
+		}
+		_returnToken = _token;
+	}
+	
+	public final void mOELIG_LC(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
+		int _ttype; Token _token=null; int _begin=text.length();
+		_ttype = OELIG_LC;
+		int _saveIndex;
+		
+		match("&oelig;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
+		}
+		_returnToken = _token;
+	}
+	
+	public final void mSCARON(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
+		int _ttype; Token _token=null; int _begin=text.length();
+		_ttype = SCARON;
+		int _saveIndex;
+		
+		match("&Scaron;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
+		}
+		_returnToken = _token;
+	}
+	
+	public final void mSCARON_LC(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
+		int _ttype; Token _token=null; int _begin=text.length();
+		_ttype = SCARON_LC;
+		int _saveIndex;
+		
+		match("&scaron;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
+		}
+		_returnToken = _token;
+	}
+	
+	public final void mYUML(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
+		int _ttype; Token _token=null; int _begin=text.length();
+		_ttype = YUML;
+		int _saveIndex;
+		
+		match("&Yuml;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
+		}
+		_returnToken = _token;
+	}
+	
+	public final void mCIRC(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
+		int _ttype; Token _token=null; int _begin=text.length();
+		_ttype = CIRC;
+		int _saveIndex;
+		
+		match("&circ;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
+		}
+		_returnToken = _token;
+	}
+	
+	public final void mTILDE(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
+		int _ttype; Token _token=null; int _begin=text.length();
+		_ttype = TILDE;
+		int _saveIndex;
+		
+		match("&tilde;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
+		}
+		_returnToken = _token;
+	}
+	
+	public final void mENSP(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
+		int _ttype; Token _token=null; int _begin=text.length();
+		_ttype = ENSP;
+		int _saveIndex;
+		
+		match("&ensp;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
+		}
+		_returnToken = _token;
+	}
+	
+	public final void mEMSP(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
+		int _ttype; Token _token=null; int _begin=text.length();
+		_ttype = EMSP;
+		int _saveIndex;
+		
+		match("&emsp;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
+		}
+		_returnToken = _token;
+	}
+	
+	public final void mTHINSP(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
+		int _ttype; Token _token=null; int _begin=text.length();
+		_ttype = THINSP;
+		int _saveIndex;
+		
+		match("&thinsp;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
+		}
+		_returnToken = _token;
+	}
+	
+	public final void mZWNJ(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
+		int _ttype; Token _token=null; int _begin=text.length();
+		_ttype = ZWNJ;
+		int _saveIndex;
+		
+		match("&zwnj;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
+		}
+		_returnToken = _token;
+	}
+	
+	public final void mZWJ(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
+		int _ttype; Token _token=null; int _begin=text.length();
+		_ttype = ZWJ;
+		int _saveIndex;
+		
+		match("&zwj;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
+		}
+		_returnToken = _token;
+	}
+	
+	public final void mLRM(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
+		int _ttype; Token _token=null; int _begin=text.length();
+		_ttype = LRM;
+		int _saveIndex;
+		
+		match("&lrm;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
+		}
+		_returnToken = _token;
+	}
+	
+	public final void mRLM(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
+		int _ttype; Token _token=null; int _begin=text.length();
+		_ttype = RLM;
+		int _saveIndex;
+		
+		match("&rlm;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
+		}
+		_returnToken = _token;
+	}
+	
+	public final void mNDASH(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
+		int _ttype; Token _token=null; int _begin=text.length();
+		_ttype = NDASH;
+		int _saveIndex;
+		
+		match("&ndash;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
+		}
+		_returnToken = _token;
+	}
+	
+	public final void mLSQUO(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
+		int _ttype; Token _token=null; int _begin=text.length();
+		_ttype = LSQUO;
+		int _saveIndex;
+		
+		match("&lsquo;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
+		}
+		_returnToken = _token;
+	}
+	
+	public final void mRSQUO(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
+		int _ttype; Token _token=null; int _begin=text.length();
+		_ttype = RSQUO;
+		int _saveIndex;
+		
+		match("&rsquo;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
+		}
+		_returnToken = _token;
+	}
+	
+	public final void mSBQUO(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
+		int _ttype; Token _token=null; int _begin=text.length();
+		_ttype = SBQUO;
+		int _saveIndex;
+		
+		match("&sbquo;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
+		}
+		_returnToken = _token;
+	}
+	
+	public final void mLDQUO(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
+		int _ttype; Token _token=null; int _begin=text.length();
+		_ttype = LDQUO;
+		int _saveIndex;
+		
+		match("&ldquo;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
+		}
+		_returnToken = _token;
+	}
+	
+	public final void mRDQUO(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
+		int _ttype; Token _token=null; int _begin=text.length();
+		_ttype = RDQUO;
+		int _saveIndex;
+		
+		match("&rdquo;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
+		}
+		_returnToken = _token;
+	}
+	
+	public final void mBDQUO(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
+		int _ttype; Token _token=null; int _begin=text.length();
+		_ttype = BDQUO;
+		int _saveIndex;
+		
+		match("&bdquo;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
+		}
+		_returnToken = _token;
+	}
+	
+	public final void mDAGGER_LC(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
+		int _ttype; Token _token=null; int _begin=text.length();
+		_ttype = DAGGER_LC;
+		int _saveIndex;
+		
+		match("&dagger;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
+		}
+		_returnToken = _token;
+	}
+	
+	public final void mDAGGER(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
+		int _ttype; Token _token=null; int _begin=text.length();
+		_ttype = DAGGER;
+		int _saveIndex;
+		
+		match("&Dagger;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
+		}
+		_returnToken = _token;
+	}
+	
+	public final void mPERMIL(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
+		int _ttype; Token _token=null; int _begin=text.length();
+		_ttype = PERMIL;
+		int _saveIndex;
+		
+		match("&permil;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
+		}
+		_returnToken = _token;
+	}
+	
+	public final void mLSAQUO(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
+		int _ttype; Token _token=null; int _begin=text.length();
+		_ttype = LSAQUO;
+		int _saveIndex;
+		
+		match("&lsaquo;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
+		}
+		_returnToken = _token;
+	}
+	
+	public final void mRSAQUO(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
+		int _ttype; Token _token=null; int _begin=text.length();
+		_ttype = RSAQUO;
+		int _saveIndex;
+		
+		match("&rsaquo;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
+		}
+		_returnToken = _token;
+	}
+	
+	public final void mEURO(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
+		int _ttype; Token _token=null; int _begin=text.length();
+		_ttype = EURO;
+		int _saveIndex;
+		
+		match("&euro;");
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));

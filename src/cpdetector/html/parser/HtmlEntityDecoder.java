@@ -1354,10 +1354,196 @@ public HtmlEntityDecoder(ParserSharedInputState state) {
 			out.write('\u2665');
 			break;
 		}
-		case DIAMS:
+		case QUOT:
 		{
-			match(DIAMS);
-			out.write('\u2666');
+			match(QUOT);
+			out.write('\u0022');
+			break;
+		}
+		case AMP:
+		{
+			match(AMP);
+			out.write('\u0026');
+			break;
+		}
+		case LT:
+		{
+			match(LT);
+			out.write('\u003C');
+			break;
+		}
+		case GT:
+		{
+			match(GT);
+			out.write('\u003E');
+			break;
+		}
+		case OELIG:
+		{
+			match(OELIG);
+			out.write('\u0152');
+			break;
+		}
+		case OELIG_LC:
+		{
+			match(OELIG_LC);
+			out.write('\u0153');
+			break;
+		}
+		case SCARON:
+		{
+			match(SCARON);
+			out.write('\u0160');
+			break;
+		}
+		case SCARON_LC:
+		{
+			match(SCARON_LC);
+			out.write('\u0161');
+			break;
+		}
+		case YUML:
+		{
+			match(YUML);
+			out.write('\u0178');
+			break;
+		}
+		case CIRC:
+		{
+			match(CIRC);
+			out.write('\u02C6');
+			break;
+		}
+		case TILDE:
+		{
+			match(TILDE);
+			out.write('\u02DC');
+			break;
+		}
+		case ENSP:
+		{
+			match(ENSP);
+			out.write('\u2002');
+			break;
+		}
+		case EMSP:
+		{
+			match(EMSP);
+			out.write('\u2003');
+			break;
+		}
+		case THINSP:
+		{
+			match(THINSP);
+			out.write('\u2009');
+			break;
+		}
+		case ZWNJ:
+		{
+			match(ZWNJ);
+			out.write('\u200C');
+			break;
+		}
+		case ZWJ:
+		{
+			match(ZWJ);
+			out.write('\u200D');
+			break;
+		}
+		case LRM:
+		{
+			match(LRM);
+			out.write('\u200E');
+			break;
+		}
+		case RLM:
+		{
+			match(RLM);
+			out.write('\u200F');
+			break;
+		}
+		case NDASH:
+		{
+			match(NDASH);
+			out.write('\u2013');
+			break;
+		}
+		case MDASH:
+		{
+			match(MDASH);
+			out.write('\u2014');
+			break;
+		}
+		case LSQUO:
+		{
+			match(LSQUO);
+			out.write('\u2018');
+			break;
+		}
+		case RSQUO:
+		{
+			match(RSQUO);
+			out.write('\u2019');
+			break;
+		}
+		case SBQUO:
+		{
+			match(SBQUO);
+			out.write('\u201A');
+			break;
+		}
+		case LDQUO:
+		{
+			match(LDQUO);
+			out.write('\u201C');
+			break;
+		}
+		case RDQUO:
+		{
+			match(RDQUO);
+			out.write('\u201D');
+			break;
+		}
+		case BDQUO:
+		{
+			match(BDQUO);
+			out.write('\u201E');
+			break;
+		}
+		case DAGGER_LC:
+		{
+			match(DAGGER_LC);
+			out.write('\u2020');
+			break;
+		}
+		case DAGGER:
+		{
+			match(DAGGER);
+			out.write('\u2021');
+			break;
+		}
+		case PERMIL:
+		{
+			match(PERMIL);
+			out.write('\u2030');
+			break;
+		}
+		case LSAQUO:
+		{
+			match(LSAQUO);
+			out.write('\u2039');
+			break;
+		}
+		case RSAQUO:
+		{
+			match(RSAQUO);
+			out.write('\u203A');
+			break;
+		}
+		case EURO:
+		{
+			match(EURO);
+			out.write('\u20AC');
 			break;
 		}
 		case ANY_CHAR:
@@ -1368,7 +1554,15 @@ public HtmlEntityDecoder(ParserSharedInputState state) {
 			break;
 		}
 		default:
-		{
+			if ((LA(1)==DIAMS)) {
+				match(DIAMS);
+				out.write('\u2666');
+			}
+			else if ((LA(1)==DIAMS)) {
+				match(DIAMS);
+				out.write('\u2666');
+			}
+		else {
 			throw new NoViableAltException(LT(1), getFilename());
 		}
 		}
@@ -1598,6 +1792,38 @@ public HtmlEntityDecoder(ParserSharedInputState state) {
 		"CLUBS",
 		"HEARTS",
 		"DIAMS",
+		"QUOT",
+		"AMP",
+		"LT",
+		"GT",
+		"OELIG",
+		"OELIG_LC",
+		"SCARON",
+		"SCARON_LC",
+		"YUML",
+		"CIRC",
+		"TILDE",
+		"ENSP",
+		"EMSP",
+		"THINSP",
+		"ZWNJ",
+		"ZWJ",
+		"LRM",
+		"RLM",
+		"NDASH",
+		"MDASH",
+		"LSQUO",
+		"RSQUO",
+		"SBQUO",
+		"LDQUO",
+		"RDQUO",
+		"BDQUO",
+		"DAGGER_LC",
+		"DAGGER",
+		"PERMIL",
+		"LSAQUO",
+		"RSAQUO",
+		"EURO",
 		"ANY_CHAR",
 		"MICRO"
 	};
