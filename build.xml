@@ -6,7 +6,12 @@
   of textual documents.
  </description>
     <!-- optional taskdefs -->
-
+    <!-- Taskdefs -->
+    <!--
+          Shrinking for jarfiles
+     -->
+    <taskdef resource="proguard/ant/task.properties"
+             classpath="${libdir}/build/proguard.jar" />
     <!-- General Properties -->
 
     <property name="project.name" value="cpdetector" />
@@ -73,6 +78,37 @@
         <available file="testdocuments">
         </available>
     </condition>
+    <target name="temp" depends="jar.binaries">
+        <!-- 
+           Shrink the jar file as external jars (e.g. infovis for range chooser panel) 
+           contain many unused classes. 
+           Ignorewarnings is on as external jar infovis depends on further jars.
+           Tun this off is more jars have deps that may not be ignored.
+          -->
+        <proguard obfuscate="false"
+                  shrink="true"
+                  overloadaggressively="false"
+                  warn="true"
+                  verbose="true"
+                  ignorewarnings="true"
+                  optimize="false"
+                  printmapping="true"
+                  allowaccessmodification="false">
+            <libraryjar>
+                <pathelement path="${java.home}/lib/rt.jar" />
+            </libraryjar>
+            <!--
+                caution: The name attribut value has to be the same expression
+                        as the  destfile of the makejar- target [depend].
+                       -->
+            <injar name="${basedir}/${project.name}_${project.version}.jar" />
+            <outjar name="${basedir}/htmlentitydecoder.jar" />
+            <!-- Filter -->
+            <keep name="cpdetector.html.HtmlUtils">
+                <method access="public static" />
+            </keep>
+        </proguard>
+    </target>
 
 
     <condition property="is.uptodate.externalJars">
@@ -118,7 +154,8 @@
     <!-- compile the java sources -->
 
 
-    <target name="build" depends="build.parser.charset,build.parser.htmlentities,integrate.jars">
+    <target name="build"
+            depends="build.parser.charset,build.parser.htmlentities,integrate.jars">
         <mkdir dir="${builddir}" />
         <echo>Compiling 1.4 core code.</echo>
         <javac fork="true"
@@ -145,8 +182,8 @@
 
     <target name="build.parser.htmlentities"
             unless="is.uptodate.parsergrammar.htmlentities">
-        <antlr target="${sourcedir}/cpdetector/util/htmlentitydecoder.g"
-               traceLexer="yes"> 
+        <antlr target="${sourcedir}/cpdetector/html/parser/htmlentitydecoder.g"
+               traceLexer="yes">
             <classpath refid="classpath" />
         </antlr>
     </target>

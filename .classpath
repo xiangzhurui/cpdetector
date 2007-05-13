@@ -4,10 +4,12 @@
 	<classpathentry kind="src" path="test"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="ext/jargs.jar"/>
-	<classpathentry kind="lib" path="ext/antlr.jar"/>
+	<classpathentry kind="lib" path="ext/antlr.jar" sourcepath="C:/work/programming/antlr277/src"/>
 	<classpathentry kind="lib" path="ext/chardet.jar"/>
 	<classpathentry kind="lib" path="ext/test/fit.jar"/>
 	<classpathentry kind="lib" path="ext/test/junit.jar"/>
 	<classpathentry kind="lib" path="ext/test/antfit.jar"/>
+	<classpathentry kind="var" path="ANTLR_HOME/antlr.jar" sourcepath="ANTLR_HOME/antlrsrc.zip"/>
+	<classpathentry kind="lib" path="ext/build/proguard.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
