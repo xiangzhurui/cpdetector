@@ -50,6 +50,7 @@ public HtmlEntityDecoder(ParserSharedInputState state) {
 	) throws RecognitionException, TokenStreamException, IOException {
 		
 		Token  token = null;
+		Token  ncrtoken = null;
 		
 		switch ( LA(1)) {
 		case NBSP:
@@ -1553,6 +1554,15 @@ public HtmlEntityDecoder(ParserSharedInputState state) {
 			out.write(token.getText());
 			break;
 		}
+		case NCR:
+		{
+			ncrtoken = LT(1);
+			match(NCR);
+			
+					out.write( new String(new char[] {(char) Integer.parseInt(token.getText(), 16)}));
+				
+			break;
+		}
 		default:
 			if ((LA(1)==DIAMS)) {
 				match(DIAMS);
@@ -1825,7 +1835,9 @@ public HtmlEntityDecoder(ParserSharedInputState state) {
 		"RSAQUO",
 		"EURO",
 		"ANY_CHAR",
-		"MICRO"
+		"NCR",
+		"MICRO",
+		"HEXDIGIT"
 	};
 	
 	

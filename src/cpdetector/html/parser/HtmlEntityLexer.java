@@ -1056,7 +1056,15 @@ tryAgain:
 					mQUOT(true);
 					theRetToken=_returnToken;
 				}
-				else if (((LA(1) >= '\u0000' && LA(1) <= '\ufffe')) && (true)) {
+				else if ((LA(1)=='&') && (LA(2)=='#')) {
+					mNCR(true);
+					theRetToken=_returnToken;
+				}
+				else if ((_tokenSet_0.member(LA(1))) && (true) && (true) && (true) && (true) && (true) && (true)) {
+					mHEXDIGIT(true);
+					theRetToken=_returnToken;
+				}
+				else if (((LA(1) >= '\u0000' && LA(1) <= '\ufffe')) && (true) && (true) && (true) && (true) && (true) && (true)) {
 					mANY_CHAR(true);
 					theRetToken=_returnToken;
 				}
@@ -4336,6 +4344,65 @@ tryAgain:
 		_returnToken = _token;
 	}
 	
+	public final void mNCR(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
+		int _ttype; Token _token=null; int _begin=text.length();
+		_ttype = NCR;
+		int _saveIndex;
+		
+		_saveIndex=text.length();
+		match("&#");
+		text.setLength(_saveIndex);
+		mHEXDIGIT(false);
+		mHEXDIGIT(false);
+		mHEXDIGIT(false);
+		mHEXDIGIT(false);
+		_saveIndex=text.length();
+		match(";");
+		text.setLength(_saveIndex);
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
+		}
+		_returnToken = _token;
+	}
+	
+	public final void mHEXDIGIT(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
+		int _ttype; Token _token=null; int _begin=text.length();
+		_ttype = HEXDIGIT;
+		int _saveIndex;
+		
+		switch ( LA(1)) {
+		case '0':  case '1':  case '2':  case '3':
+		case '4':  case '5':  case '6':  case '7':
+		case '8':  case '9':
+		{
+			matchRange('0','9');
+			break;
+		}
+		case 'a':  case 'b':  case 'c':  case 'd':
+		case 'e':  case 'f':
+		{
+			matchRange('a','f');
+			break;
+		}
+		case 'A':  case 'B':  case 'C':  case 'D':
+		case 'E':  case 'F':
+		{
+			matchRange('A','F');
+			break;
+		}
+		default:
+		{
+			throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());
+		}
+		}
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
+		}
+		_returnToken = _token;
+	}
+	
 	public final void mANY_CHAR(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
 		_ttype = ANY_CHAR;
@@ -4365,5 +4432,12 @@ tryAgain:
 	}
 	
 	
+	private static final long[] mk_tokenSet_0() {
+		long[] data = new long[1025];
+		data[0]=287948901175001088L;
+		data[1]=541165879422L;
+		return data;
+	}
+	public static final BitSet _tokenSet_0 = new BitSet(mk_tokenSet_0());
 	
 	}

@@ -931,6 +931,9 @@ public class HtmlEntityDecoderReader
       case HtmlEntityDecoderTokenTypes.EURO:
         result += '\u20AC';
         break;
+      case HtmlEntityDecoderTokenTypes.NCR:
+        result = new String(new char[] {(char) Integer.parseInt(token.getText(), 16) });
+        break;
       case HtmlEntityDecoderTokenTypes.ANY_CHAR:
       default:
         result = token.getText();

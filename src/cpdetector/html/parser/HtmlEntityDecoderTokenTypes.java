@@ -259,5 +259,7 @@ public interface HtmlEntityDecoderTokenTypes {
 	int RSAQUO = 252;
 	int EURO = 253;
 	int ANY_CHAR = 254;
-	int MICRO = 255;
+	int NCR = 255;
+	int MICRO = 256;
+	int HEXDIGIT = 257;
 }

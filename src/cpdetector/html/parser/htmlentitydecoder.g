@@ -573,6 +573,11 @@ decode [OutputStreamWriter out] throws IOException
 	EURO { out.write('\u20AC');}
 	|
 	token : ANY_CHAR { out.write(token.getText());}
+	|
+	ncrtoken : NCR 
+	{
+		out.write( new String(new char[] {(char) Integer.parseInt(token.getText(), 16)}));
+	}
 	;
  
 
@@ -846,7 +851,17 @@ LSAQUO     : "&lsaquo;";
 RSAQUO     : "&rsaquo;";
 EURO       : "&euro;";
 
+// Numeric character references (http://www.w3.org/TR/html4/charset.html#h-5.3.1)
 
+NCR        : "&#"! HEXDIGIT HEXDIGIT HEXDIGIT HEXDIGIT ";"!;
+
+HEXDIGIT   : 
+	'0'..'9'
+	|
+	'a'..'f'
+	|
+	'A'..'F'
+	;
 // newline UNIX and Windows to have correct lexer line information
 ANY_CHAR   :
 	'\n' { newline();} 
