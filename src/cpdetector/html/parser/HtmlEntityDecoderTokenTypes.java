@@ -1,4 +1,4 @@
-// $ANTLR : "htmlentitydecoder.g" -> "HtmlEntityDecoder.java"$
+// $ANTLR 2.7.4: "htmlentitydecoder.g" -> "HtmlEntityDecoder.java"$
 
 package cpdetector.html.parser;
 
@@ -259,7 +259,9 @@ public interface HtmlEntityDecoderTokenTypes {
 	int RSAQUO = 252;
 	int EURO = 253;
 	int ANY_CHAR = 254;
-	int NCR = 255;
+	int NCR_H = 255;
 	int MICRO = 256;
-	int HEXDIGIT = 257;
+	int NCR_D = 257;
+	int DIGIT = 258;
+	int HEXDIGIT = 259;
 }

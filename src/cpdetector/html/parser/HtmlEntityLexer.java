@@ -1,4 +1,4 @@
-// $ANTLR : "htmlentitydecoder.g" -> "HtmlEntityLexer.java"$
+// $ANTLR 2.7.4: "htmlentitydecoder.g" -> "HtmlEntityLexer.java"$
 
 package cpdetector.html.parser;
 
@@ -1008,6 +1008,14 @@ tryAgain:
 					mDAGGER(true);
 					theRetToken=_returnToken;
 				}
+				else if ((LA(1)=='&') && (LA(2)=='#') && ((LA(3) >= '0' && LA(3) <= '9'))) {
+					mNCR_D(true);
+					theRetToken=_returnToken;
+				}
+				else if ((LA(1)=='&') && (LA(2)=='#') && (LA(3)=='X'||LA(3)=='x')) {
+					mNCR_H(true);
+					theRetToken=_returnToken;
+				}
 				else if ((LA(1)=='&') && (LA(2)=='B')) {
 					mBETA(true);
 					theRetToken=_returnToken;
@@ -1056,11 +1064,11 @@ tryAgain:
 					mQUOT(true);
 					theRetToken=_returnToken;
 				}
-				else if ((LA(1)=='&') && (LA(2)=='#')) {
-					mNCR(true);
+				else if ((_tokenSet_0.member(LA(1))) && (true) && (true) && (true) && (true) && (true) && (true)) {
+					mHEXDIGIT(true);
 					theRetToken=_returnToken;
 				}
-				else if (((LA(1) >= '\u0000' && LA(1) <= '\ufffe')) && (true)) {
+				else if (((LA(1) >= '\u0000' && LA(1) <= '\ufffe')) && (true) && (true) && (true) && (true) && (true) && (true)) {
 					mANY_CHAR(true);
 					theRetToken=_returnToken;
 				}
@@ -4340,18 +4348,62 @@ tryAgain:
 		_returnToken = _token;
 	}
 	
-	public final void mNCR(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
+	public final void mNCR_D(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
-		_ttype = NCR;
+		_ttype = NCR_D;
 		int _saveIndex;
 		
 		_saveIndex=text.length();
 		match("&#");
 		text.setLength(_saveIndex);
-		mHEXDIGIT(false);
-		mHEXDIGIT(false);
-		mHEXDIGIT(false);
-		mHEXDIGIT(false);
+		{
+		if (((LA(1) >= '0' && LA(1) <= '9')) && ((LA(2) >= '0' && LA(2) <= '9')) && ((LA(3) >= '0' && LA(3) <= '9')) && ((LA(4) >= '0' && LA(4) <= '9')) && ((LA(5) >= '0' && LA(5) <= '9')) && ((LA(6) >= '0' && LA(6) <= '9')) && (LA(7)==';')) {
+			mDIGIT(false);
+			mDIGIT(false);
+			mDIGIT(false);
+			mDIGIT(false);
+			mDIGIT(false);
+			mDIGIT(false);
+		}
+		else if (((LA(1) >= '0' && LA(1) <= '9')) && ((LA(2) >= '0' && LA(2) <= '9')) && ((LA(3) >= '0' && LA(3) <= '9')) && ((LA(4) >= '0' && LA(4) <= '9')) && ((LA(5) >= '0' && LA(5) <= '9')) && ((LA(6) >= '0' && LA(6) <= '9')) && ((LA(7) >= '0' && LA(7) <= '9'))) {
+			mDIGIT(false);
+			mDIGIT(false);
+			mDIGIT(false);
+			mDIGIT(false);
+			mDIGIT(false);
+			mDIGIT(false);
+			mDIGIT(false);
+		}
+		else if (((LA(1) >= '0' && LA(1) <= '9')) && ((LA(2) >= '0' && LA(2) <= '9')) && ((LA(3) >= '0' && LA(3) <= '9')) && ((LA(4) >= '0' && LA(4) <= '9')) && ((LA(5) >= '0' && LA(5) <= '9')) && (LA(6)==';')) {
+			mDIGIT(false);
+			mDIGIT(false);
+			mDIGIT(false);
+			mDIGIT(false);
+			mDIGIT(false);
+		}
+		else if (((LA(1) >= '0' && LA(1) <= '9')) && ((LA(2) >= '0' && LA(2) <= '9')) && ((LA(3) >= '0' && LA(3) <= '9')) && ((LA(4) >= '0' && LA(4) <= '9')) && (LA(5)==';')) {
+			mDIGIT(false);
+			mDIGIT(false);
+			mDIGIT(false);
+			mDIGIT(false);
+		}
+		else if (((LA(1) >= '0' && LA(1) <= '9')) && ((LA(2) >= '0' && LA(2) <= '9')) && ((LA(3) >= '0' && LA(3) <= '9')) && (LA(4)==';')) {
+			mDIGIT(false);
+			mDIGIT(false);
+			mDIGIT(false);
+		}
+		else if (((LA(1) >= '0' && LA(1) <= '9')) && ((LA(2) >= '0' && LA(2) <= '9')) && (LA(3)==';')) {
+			mDIGIT(false);
+			mDIGIT(false);
+		}
+		else if (((LA(1) >= '0' && LA(1) <= '9')) && (LA(2)==';')) {
+			mDIGIT(false);
+		}
+		else {
+			throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());
+		}
+		
+		}
 		_saveIndex=text.length();
 		match(";");
 		text.setLength(_saveIndex);
@@ -4362,7 +4414,90 @@ tryAgain:
 		_returnToken = _token;
 	}
 	
-	protected final void mHEXDIGIT(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
+	protected final void mDIGIT(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
+		int _ttype; Token _token=null; int _begin=text.length();
+		_ttype = DIGIT;
+		int _saveIndex;
+		
+		matchRange('0','9');
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
+		}
+		_returnToken = _token;
+	}
+	
+	public final void mNCR_H(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
+		int _ttype; Token _token=null; int _begin=text.length();
+		_ttype = NCR_H;
+		int _saveIndex;
+		
+		{
+		if ((LA(1)=='&') && (LA(2)=='#') && (LA(3)=='x')) {
+			_saveIndex=text.length();
+			match("&#x");
+			text.setLength(_saveIndex);
+		}
+		else if ((LA(1)=='&') && (LA(2)=='#') && (LA(3)=='X')) {
+			_saveIndex=text.length();
+			match("&#X");
+			text.setLength(_saveIndex);
+		}
+		else {
+			throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());
+		}
+		
+		}
+		{
+		if ((_tokenSet_0.member(LA(1))) && (_tokenSet_0.member(LA(2))) && (_tokenSet_0.member(LA(3))) && (_tokenSet_0.member(LA(4))) && (_tokenSet_0.member(LA(5))) && (LA(6)==';')) {
+			mHEXDIGIT(false);
+			mHEXDIGIT(false);
+			mHEXDIGIT(false);
+			mHEXDIGIT(false);
+			mHEXDIGIT(false);
+		}
+		else if ((_tokenSet_0.member(LA(1))) && (_tokenSet_0.member(LA(2))) && (_tokenSet_0.member(LA(3))) && (_tokenSet_0.member(LA(4))) && (_tokenSet_0.member(LA(5))) && (_tokenSet_0.member(LA(6)))) {
+			mHEXDIGIT(false);
+			mHEXDIGIT(false);
+			mHEXDIGIT(false);
+			mHEXDIGIT(false);
+			mHEXDIGIT(false);
+			mHEXDIGIT(false);
+		}
+		else if ((_tokenSet_0.member(LA(1))) && (_tokenSet_0.member(LA(2))) && (_tokenSet_0.member(LA(3))) && (_tokenSet_0.member(LA(4))) && (LA(5)==';')) {
+			mHEXDIGIT(false);
+			mHEXDIGIT(false);
+			mHEXDIGIT(false);
+			mHEXDIGIT(false);
+		}
+		else if ((_tokenSet_0.member(LA(1))) && (_tokenSet_0.member(LA(2))) && (_tokenSet_0.member(LA(3))) && (LA(4)==';')) {
+			mHEXDIGIT(false);
+			mHEXDIGIT(false);
+			mHEXDIGIT(false);
+		}
+		else if ((_tokenSet_0.member(LA(1))) && (_tokenSet_0.member(LA(2))) && (LA(3)==';')) {
+			mHEXDIGIT(false);
+			mHEXDIGIT(false);
+		}
+		else if ((_tokenSet_0.member(LA(1))) && (LA(2)==';')) {
+			mHEXDIGIT(false);
+		}
+		else {
+			throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());
+		}
+		
+		}
+		_saveIndex=text.length();
+		match(";");
+		text.setLength(_saveIndex);
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
+		}
+		_returnToken = _token;
+	}
+	
+	public final void mHEXDIGIT(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
 		_ttype = HEXDIGIT;
 		int _saveIndex;
@@ -4428,5 +4563,12 @@ tryAgain:
 	}
 	
 	
+	private static final long[] mk_tokenSet_0() {
+		long[] data = new long[1025];
+		data[0]=287948901175001088L;
+		data[1]=541165879422L;
+		return data;
+	}
+	public static final BitSet _tokenSet_0 = new BitSet(mk_tokenSet_0());
 	
 	}

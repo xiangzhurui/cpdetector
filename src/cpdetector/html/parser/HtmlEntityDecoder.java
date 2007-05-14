@@ -1,4 +1,4 @@
-// $ANTLR : "htmlentitydecoder.g" -> "HtmlEntityDecoder.java"$
+// $ANTLR 2.7.4: "htmlentitydecoder.g" -> "HtmlEntityDecoder.java"$
 
 package cpdetector.html.parser;
 
@@ -50,10 +50,11 @@ public HtmlEntityDecoder(ParserSharedInputState state) {
 	) throws RecognitionException, TokenStreamException, IOException {
 		
 		Token  token = null;
-		Token  ncrtoken = null;
+		Token  ncrhtoken = null;
+		Token  ncrdtoken = null;
 		
 		{
-		_loop260:
+		_loop3:
 		do {
 			switch ( LA(1)) {
 			case NBSP:
@@ -1358,6 +1359,12 @@ public HtmlEntityDecoder(ParserSharedInputState state) {
 				out.write('\u2665');
 				break;
 			}
+			case DIAMS:
+			{
+				match(DIAMS);
+				out.write('\u2666');
+				break;
+			}
 			case QUOT:
 			{
 				match(QUOT);
@@ -1557,26 +1564,23 @@ public HtmlEntityDecoder(ParserSharedInputState state) {
 				out.write(token.getText());
 				break;
 			}
-			case NCR:
-			{
-				ncrtoken = LT(1);
-				match(NCR);
-				
-						out.write( new String(new char[] {(char) Integer.parseInt(token.getText(), 16)}));
-					
-				break;
-			}
 			default:
-				if ((LA(1)==DIAMS)) {
-					match(DIAMS);
-					out.write('\u2666');
+				if ((LA(1)==NCR_H)) {
+					ncrhtoken = LT(1);
+					match(NCR_H);
+					
+							out.write( new String(new char[] {(char) Integer.parseInt(token.getText(), 16)}));
+						
 				}
-				else if ((LA(1)==DIAMS)) {
-					match(DIAMS);
-					out.write('\u2666');
+				else if ((LA(1)==NCR_H)) {
+					ncrdtoken = LT(1);
+					match(NCR_H);
+					
+							out.write( new String(new char[] {(char) Integer.parseInt(token.getText(), 10)}));
+						
 				}
 			else {
-				break _loop260;
+				break _loop3;
 			}
 			}
 		} while (true);
@@ -1840,8 +1844,10 @@ public HtmlEntityDecoder(ParserSharedInputState state) {
 		"RSAQUO",
 		"EURO",
 		"ANY_CHAR",
-		"NCR",
+		"NCR_H",
 		"MICRO",
+		"NCR_D",
+		"DIGIT",
 		"HEXDIGIT"
 	};
 	

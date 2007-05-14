@@ -17,7 +17,7 @@
  * License.
  * 
  * The Original Code is the cpDetector code in [sub] packages info.monitorenter and 
- * cpdetector. 
+ * cpdetector.
  * 
  * The Initial Developer of the Original Code is
  * Achim Westermann <achim.westermann@gmx.de>.
@@ -64,13 +64,13 @@ options{
 		trying to parse (my opinion).
 		*/
 		
-		defaultErrorHandler=false;
+		defaultErrorHandler=false; 
 		
 }
 
 decode [OutputStreamWriter out] throws IOException
 	:
-	(
+	( 
 	NBSP { out.write('\u00A0');}
 	|
 	IEXCL { out.write('\u00A1');}
@@ -82,7 +82,7 @@ decode [OutputStreamWriter out] throws IOException
 	CURREN { out.write('\u00A4');}
 	|
 	YEN { out.write('\u00A5');}
-	|
+	| 
 	BRVBAR { out.write('\u00A6');}
 	|
 	SECT { out.write('\u00A7');}
@@ -507,8 +507,6 @@ decode [OutputStreamWriter out] throws IOException
 	|
 	DIAMS { out.write('\u2666');}
 	|
-	DIAMS { out.write('\u2666');}
-	|
 	QUOT { out.write('\u0022');}
 	|
 	AMP { out.write('\u0026');}
@@ -575,9 +573,14 @@ decode [OutputStreamWriter out] throws IOException
 	|
 	token : ANY_CHAR { out.write(token.getText());}
 	|
-	ncrtoken : NCR 
+	ncrhtoken : NCR_H
 	{
 		out.write( new String(new char[] {(char) Integer.parseInt(token.getText(), 16)}));
+	}
+	|
+	ncrdtoken : NCR_H
+	{
+		out.write( new String(new char[] {(char) Integer.parseInt(token.getText(), 10)}));
 	}
 	)*
 	;
@@ -854,9 +857,50 @@ RSAQUO     : "&rsaquo;";
 EURO       : "&euro;";
 
 // Numeric character references (http://www.w3.org/TR/html4/charset.html#h-5.3.1)
+// decimal
+NCR_D : 
+	"&#"! 
+	(
+		DIGIT 
+		|	
+		DIGIT DIGIT 
+		|	
+		DIGIT DIGIT DIGIT 
+		|	
+		DIGIT DIGIT DIGIT DIGIT 
+		|	
+		DIGIT DIGIT DIGIT DIGIT DIGIT 
+		|	
+		DIGIT DIGIT DIGIT DIGIT DIGIT DIGIT 
+		|	
+		DIGIT DIGIT DIGIT DIGIT DIGIT DIGIT DIGIT 
+	)
+	";"!
+	;
 
-NCR        : "&#"! HEXDIGIT HEXDIGIT HEXDIGIT HEXDIGIT ";"!;
-
+// hexadecimal
+NCR_H :
+	(
+		"&#x"!
+		|
+		"&#X"!
+	)
+	(
+		HEXDIGIT 
+		|
+		HEXDIGIT HEXDIGIT 
+		|
+		HEXDIGIT HEXDIGIT HEXDIGIT 
+		|
+		HEXDIGIT HEXDIGIT HEXDIGIT HEXDIGIT 
+		|
+		HEXDIGIT HEXDIGIT HEXDIGIT HEXDIGIT HEXDIGIT 
+		|
+		HEXDIGIT HEXDIGIT HEXDIGIT HEXDIGIT HEXDIGIT HEXDIGIT 
+	)
+	";"!
+	;
+	
 // newline UNIX and Windows to have correct lexer line information
 ANY_CHAR   :
 	'\n' { newline();} 
@@ -866,7 +910,11 @@ ANY_CHAR   :
     .;  
     
 protected
-HEXDIGIT   : 
+DIGIT :
+	'0'..'9'
+	;
+	
+HEXDIGIT : 
 	'0'..'9'
 	|
 	'a'..'f'
