@@ -70,6 +70,7 @@ options{
 
 decode [OutputStreamWriter out] throws IOException
 	:
+	(
 	NBSP { out.write('\u00A0');}
 	|
 	IEXCL { out.write('\u00A1');}
@@ -578,6 +579,7 @@ decode [OutputStreamWriter out] throws IOException
 	{
 		out.write( new String(new char[] {(char) Integer.parseInt(token.getText(), 16)}));
 	}
+	)*
 	;
  
 
@@ -855,6 +857,15 @@ EURO       : "&euro;";
 
 NCR        : "&#"! HEXDIGIT HEXDIGIT HEXDIGIT HEXDIGIT ";"!;
 
+// newline UNIX and Windows to have correct lexer line information
+ANY_CHAR   :
+	'\n' { newline();} 
+	| 
+	'\r' '\n'{ newline(); } 
+	|
+    .;  
+    
+protected
 HEXDIGIT   : 
 	'0'..'9'
 	|
@@ -862,11 +873,3 @@ HEXDIGIT   :
 	|
 	'A'..'F'
 	;
-// newline UNIX and Windows to have correct lexer line information
-ANY_CHAR   :
-	'\n' { newline();} 
-	| 
-	'\r' '\n'{ newline(); }
-	|
-    .;  
-

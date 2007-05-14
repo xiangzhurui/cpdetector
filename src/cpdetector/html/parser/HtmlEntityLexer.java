@@ -1060,11 +1060,7 @@ tryAgain:
 					mNCR(true);
 					theRetToken=_returnToken;
 				}
-				else if ((_tokenSet_0.member(LA(1))) && (true) && (true) && (true) && (true) && (true) && (true)) {
-					mHEXDIGIT(true);
-					theRetToken=_returnToken;
-				}
-				else if (((LA(1) >= '\u0000' && LA(1) <= '\ufffe')) && (true) && (true) && (true) && (true) && (true) && (true)) {
+				else if (((LA(1) >= '\u0000' && LA(1) <= '\ufffe')) && (true)) {
 					mANY_CHAR(true);
 					theRetToken=_returnToken;
 				}
@@ -4366,7 +4362,7 @@ tryAgain:
 		_returnToken = _token;
 	}
 	
-	public final void mHEXDIGIT(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
+	protected final void mHEXDIGIT(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
 		_ttype = HEXDIGIT;
 		int _saveIndex;
@@ -4432,12 +4428,5 @@ tryAgain:
 	}
 	
 	
-	private static final long[] mk_tokenSet_0() {
-		long[] data = new long[1025];
-		data[0]=287948901175001088L;
-		data[1]=541165879422L;
-		return data;
-	}
-	public static final BitSet _tokenSet_0 = new BitSet(mk_tokenSet_0());
 	
 	}

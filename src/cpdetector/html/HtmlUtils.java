@@ -51,12 +51,15 @@ package cpdetector.html;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
 import antlr.RecognitionException;
 import antlr.TokenStreamException;
 import cpdetector.html.parser.HtmlEntityDecoder;
 import cpdetector.html.parser.HtmlEntityLexer;
+import cpdetector.io.parser.EncodingLexer;
+import cpdetector.io.parser.EncodingParser;
 
 /**
  * HTML related easy to use utility functions with scope on data conversion.
@@ -128,6 +131,13 @@ public final class HtmlUtils {
     decoder.decode(out);
     out.flush();
     out.close();
-    return bos.toString("utf-8");
+    return bos.toString();
+  }
+  
+  
+  public static void main(String[]args) throws RecognitionException, TokenStreamException, IOException {
+      String decode = "Halllllo &nbsp;  K&ouml;rpert&auml;towierung.\n";
+      decode = HtmlUtils.decodeHtmlEntities(decode);
+      System.out.println(decode);
   }
 }

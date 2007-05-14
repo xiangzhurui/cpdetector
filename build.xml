@@ -85,7 +85,7 @@
            Ignorewarnings is on as external jar infovis depends on further jars.
            Tun this off is more jars have deps that may not be ignored.
           -->
-        <proguard obfuscate="false"
+        <proguard obfuscate="true"
                   shrink="true"
                   overloadaggressively="false"
                   warn="true"
@@ -106,6 +106,12 @@
             <!-- Filter -->
             <keep name="cpdetector.html.HtmlUtils">
                 <method access="public static" />
+            </keep>
+        	<!-- keep all Exceptions they are moved outside -->
+            <keep name="antlr.**Exception*">
+            </keep>
+        	<!-- keep all Tokens they are moved outside -->
+            <keep name="antlr.**Token*" extends="antlr.Token">
             </keep>
         </proguard>
     </target>
