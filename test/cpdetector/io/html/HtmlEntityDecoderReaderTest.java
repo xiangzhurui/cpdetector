@@ -68,11 +68,31 @@ public class HtmlEntityDecoderReaderTest
     extends TestCase {
 
   /**
+   * Creates a test case named by this class.
+   * <p>
+   */
+  public HtmlEntityDecoderReaderTest() {
+    super();
+  }
+
+  /**
+   * Creates a test case with the given name.
+   * <p>
+   * 
+   * @param arg0
+   *          the name of the test case.
+   */
+  public HtmlEntityDecoderReaderTest(String arg0) {
+    super(arg0);
+  }
+
+  /**
    * Tests <code>{@link HtmlEntityDecoderReader#read(char[])}</code>
    * functionality with a test file and different char[] sizes.
    * <p>
    * 
-   * @throws IOException if sth. goes wrong.
+   * @throws IOException
+   *           if sth. goes wrong.
    */
   public void testDecode() throws IOException {
 
@@ -89,7 +109,7 @@ public class HtmlEntityDecoderReaderTest
     }
     System.out.println();
     reader.close();
-    
+
     // char[2]
     in = this.getClass().getResourceAsStream("test1.txt");
     reader = new InputStreamReader(in);
@@ -120,51 +140,23 @@ public class HtmlEntityDecoderReaderTest
     test.close();
     System.out.println();
   }
-  
+
   /**
    * Tests <code>{@link HtmlEntityDecoderReader#read(char[])}</code>
-   * functionality with a big test html file and different char[] sizes.
+   * functionality with a big test html file.
    * <p>
    * 
-   * @throws IOException if sth. goes wrong.
+   * @throws IOException
+   *           if sth. goes wrong.
    */
-  public void testDecodeBigFile() throws IOException {
-
-    // raw output:
-    InputStream in = this.getClass().getResourceAsStream("test2.html");
-    Reader reader = new InputStreamReader(in);
-    int read = 1;
-    char[] cbuf = new char[10];
-    while (read > 0) {
-      read = reader.read(cbuf);
-      for (int i = 0; i < cbuf.length && i < read; i++) {
-        System.out.print(cbuf[i]);
-      }
-    }
-    System.out.println();
-    reader.close();
-    
-    // char[2]
-    in = this.getClass().getResourceAsStream("test2.html");
-    reader = new InputStreamReader(in);
-    Reader test = new HtmlEntityDecoderReader(reader);
-    cbuf = new char[2];
-    read = 1;
-    while (read > 0) {
-      read = test.read(cbuf);
-      for (int i = 0; i < cbuf.length && i < read; i++) {
-        System.out.print(cbuf[i]);
-      }
-    }
-    System.out.println();
-    test.close();
+  public void testDecodeBigFile1() throws IOException {
 
     // char[100]
-    in = this.getClass().getResourceAsStream("test2.html");
-    reader = new InputStreamReader(in);
-    test = new HtmlEntityDecoderReader(reader);
-    cbuf = new char[100];
-    read = 1;
+    InputStream in = this.getClass().getResourceAsStream("test2.html");
+    Reader reader = new InputStreamReader(in);
+    HtmlEntityDecoderReader test = new HtmlEntityDecoderReader(reader);
+    char[] cbuf = new char[100];
+    int read = 1;
     while (read > 0) {
       read = test.read(cbuf);
       for (int i = 0; i < cbuf.length && i < read; i++) {
@@ -174,5 +166,112 @@ public class HtmlEntityDecoderReaderTest
     test.close();
     System.out.println();
   }
-  
+
+  /**
+   * Tests <code>{@link HtmlEntityDecoderReader#read(char[])}</code>
+   * functionality with a big test html file (NCR, named entities of latin-1).
+   * <p>
+   * 
+   * @throws IOException
+   *           if sth. goes wrong.
+   */
+  public void testDecodeBigFile2() throws IOException {
+
+    // char[100]
+    InputStream in = this.getClass().getResourceAsStream("test3.html");
+    Reader reader = new InputStreamReader(in);
+    HtmlEntityDecoderReader test = new HtmlEntityDecoderReader(reader);
+    char[] cbuf = new char[100];
+    int read = 1;
+    while (read > 0) {
+      read = test.read(cbuf);
+      for (int i = 0; i < cbuf.length && i < read; i++) {
+        System.out.print(cbuf[i]);
+      }
+    }
+    test.close();
+    System.out.println();
+  }
+
+  /**
+   * Tests <code>{@link HtmlEntityDecoderReader#read(char[])}</code>
+   * functionality with a big test html file (NCR, named entities with
+   * mathematical, greek and symbolic characters).
+   * <p>
+   * 
+   * @throws IOException
+   *           if sth. goes wrong.
+   */
+  public void testDecodeBigFile3() throws IOException {
+
+    // char[100]
+    InputStream in = this.getClass().getResourceAsStream("test4.html");
+    Reader reader = new InputStreamReader(in);
+    HtmlEntityDecoderReader test = new HtmlEntityDecoderReader(reader);
+    char[] cbuf = new char[100];
+    int read = 1;
+    while (read > 0) {
+      read = test.read(cbuf);
+      for (int i = 0; i < cbuf.length && i < read; i++) {
+        System.out.print(cbuf[i]);
+      }
+    }
+    test.close();
+    System.out.println();
+  }
+
+  /**
+   * Tests <code>{@link HtmlEntityDecoderReader#read(char[])}</code>
+   * functionality with a big test html file (NCR, named entities with special
+   * characters).
+   * <p>
+   * 
+   * @throws IOException
+   *           if sth. goes wrong.
+   */
+  public void testDecodeBigFile4() throws IOException {
+
+    // char[100]
+    InputStream in = this.getClass().getResourceAsStream("test5.html");
+    Reader reader = new InputStreamReader(in);
+    HtmlEntityDecoderReader test = new HtmlEntityDecoderReader(reader);
+    char[] cbuf = new char[100];
+    int read = 1;
+    while (read > 0) {
+      read = test.read(cbuf);
+      for (int i = 0; i < cbuf.length && i < read; i++) {
+        System.out.print(cbuf[i]);
+      }
+    }
+    test.close();
+    System.out.println();
+  }
+
+  /**
+   * Tests <code>{@link HtmlEntityDecoderReader#read(char[])}</code>
+   * functionality with various different notations of NCRs as described in
+   * http://www.w3.org/TR/html4/charset.html#h-5.3.1.
+   * <p>
+   * 
+   * @throws IOException
+   *           if sth. goes wrong.
+   */
+  public void testDecodeNCR() throws IOException {
+
+    // char[100]
+    InputStream in = this.getClass().getResourceAsStream("ncr.txt");
+    Reader reader = new InputStreamReader(in);
+    HtmlEntityDecoderReader test = new HtmlEntityDecoderReader(reader);
+    char[] cbuf = new char[100];
+    int read = 1;
+    while (read > 0) {
+      read = test.read(cbuf);
+      for (int i = 0; i < cbuf.length && i < read; i++) {
+        System.out.print(cbuf[i]);
+      }
+    }
+    test.close();
+    System.out.println();
+  }
+
 }
