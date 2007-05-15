@@ -578,7 +578,7 @@ decode [OutputStreamWriter out] throws IOException
 		out.write( new String(new char[] {(char) Integer.parseInt(token.getText(), 16)}));
 	}
 	|
-	ncrdtoken : NCR_H
+	ncrdtoken : NCR_D
 	{
 		out.write( new String(new char[] {(char) Integer.parseInt(token.getText(), 10)}));
 	}
