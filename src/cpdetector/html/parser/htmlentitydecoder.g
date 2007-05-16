@@ -64,7 +64,7 @@ options{
 		trying to parse (my opinion).
 		*/
 		
-		defaultErrorHandler=false; 
+		defaultErrorHandler=true;
 		
 }
 
@@ -575,12 +575,12 @@ decode [OutputStreamWriter out] throws IOException
 	|
 	ncrhtoken : NCR_H
 	{
-		out.write( new String(new char[] {(char) Integer.parseInt(token.getText(), 16)}));
+		out.write( new String(new char[] {(char) Integer.parseInt(ncrhtoken.getText(), 16)}));
 	}
 	|
 	ncrdtoken : NCR_D
 	{
-		out.write( new String(new char[] {(char) Integer.parseInt(token.getText(), 10)}));
+		out.write( new String(new char[] {(char) Integer.parseInt(ncrdtoken.getText(), 10)}));
 	}
 	)*
 	;
@@ -896,7 +896,7 @@ NCR_H :
 		|
 		HEXDIGIT HEXDIGIT HEXDIGIT HEXDIGIT HEXDIGIT 
 		|
-		HEXDIGIT HEXDIGIT HEXDIGIT HEXDIGIT HEXDIGIT HEXDIGIT 
+		HEXDIGIT HEXDIGIT HEXDIGIT HEXDIGIT HEXDIGIT  HEXDIGIT
 	)
 	";"!
 	;
@@ -912,8 +912,8 @@ ANY_CHAR   :
 protected
 DIGIT :
 	'0'..'9'
-	;
-	
+	; 
+protected	
 HEXDIGIT : 
 	'0'..'9'
 	|

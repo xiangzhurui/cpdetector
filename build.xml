@@ -78,7 +78,7 @@
         <available file="testdocuments">
         </available>
     </condition>
-    <target name="temp" depends="jar.binaries">
+    <target name="jar.htmlentitydecoder" depends="jar.binaries">
         <!-- 
            Shrink the jar file as external jars (e.g. infovis for range chooser panel) 
            contain many unused classes. 
@@ -189,7 +189,7 @@
     <target name="build.parser.htmlentities"
             unless="is.uptodate.parsergrammar.htmlentities">
         <antlr target="${sourcedir}/cpdetector/html/parser/htmlentitydecoder.g"
-               traceLexer="no">
+               traceLexer="no" traceParser="no">
             <classpath refid="classpath" />
         </antlr>
     </target>

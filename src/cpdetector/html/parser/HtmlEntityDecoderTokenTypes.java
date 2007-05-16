@@ -260,8 +260,8 @@ public interface HtmlEntityDecoderTokenTypes {
 	int EURO = 253;
 	int ANY_CHAR = 254;
 	int NCR_H = 255;
-	int MICRO = 256;
-	int NCR_D = 257;
+	int NCR_D = 256;
+	int MICRO = 257;
 	int DIGIT = 258;
 	int HEXDIGIT = 259;
 }

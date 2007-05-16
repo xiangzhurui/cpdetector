@@ -3,4 +3,4 @@ Taken from: http://www.w3.org/TR/html4/charset.html#h-5.3.1
 &#xE5;
 &#Xe5;
 &#1048;
-&#x6C34; 
+&#x6C34;
