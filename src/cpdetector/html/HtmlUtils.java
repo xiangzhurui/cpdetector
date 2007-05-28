@@ -51,15 +51,12 @@ package cpdetector.html;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
 import antlr.RecognitionException;
 import antlr.TokenStreamException;
 import cpdetector.html.parser.HtmlEntityDecoder;
 import cpdetector.html.parser.HtmlEntityLexer;
-import cpdetector.io.parser.EncodingLexer;
-import cpdetector.io.parser.EncodingParser;
 
 /**
  * HTML related easy to use utility functions with scope on data conversion.
@@ -107,7 +104,7 @@ public final class HtmlUtils {
    * 
    * @return a new String with the unicode representation of the HTML Entities
    *         in the input html.
-   *         
+   * 
    * @throws IOException
    *           if sth. goes wrong.
    * @throws TokenStreamException
@@ -133,11 +130,27 @@ public final class HtmlUtils {
     out.close();
     return bos.toString();
   }
-  
-  
-  public static void main(String[]args) throws RecognitionException, TokenStreamException, IOException {
-      String decode = "Halllllo &nbsp;  K&ouml;rpert&auml;towierung.\n";
-      decode = HtmlUtils.decodeHtmlEntities(decode);
-      System.out.println(decode);
+
+  /**
+   * Main hook used for short test.
+   * <p>
+   * 
+   * @param args
+   *          ignored.
+   * 
+   * @throws RecognitionException
+   *           if sth. in the parser goes wrong.
+   * 
+   * @throws TokenStreamException
+   *           if sth. in the lexer goes wrong.
+   * 
+   * @throws IOException
+   *           if sth. in io goes wrong.
+   */
+  public static void main(final String[] args) throws RecognitionException, TokenStreamException,
+      IOException {
+    String decode = "Halllllo &nbsp;  K&ouml;rpert&auml;towierung.\n";
+    decode = HtmlUtils.decodeHtmlEntities(decode);
+    System.out.println(decode);
   }
 }

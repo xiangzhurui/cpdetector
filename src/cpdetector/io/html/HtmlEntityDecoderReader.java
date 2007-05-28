@@ -51,11 +51,12 @@ package cpdetector.io.html;
 import java.io.IOException;
 import java.io.Reader;
 
+import cpdetector.html.parser.HtmlEntityDecoderTokenTypes;
+import cpdetector.html.parser.HtmlEntityLexer;
+
 import antlr.Token;
 import antlr.TokenStreamException;
 
-import cpdetector.html.parser.HtmlEntityDecoderTokenTypes;
-import cpdetector.html.parser.HtmlEntityLexer;
 
 /**
  * Decorates the given <code>{@link Reader}</code> with the support for html

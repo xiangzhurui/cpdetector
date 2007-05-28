@@ -54,7 +54,7 @@ options{
 //		language="java";	 
 }
 
-class HtmlEntityDecoder extends Parser;
+class HtmlEntityDecoder extends Parser; 
 options{
 		k=1;
 		/*
@@ -69,7 +69,7 @@ options{
 }
 
 decode [OutputStreamWriter out] throws IOException
-	:
+	: 
 	( 
 	NBSP { out.write('\u00A0');}
 	|
