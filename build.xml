@@ -67,6 +67,7 @@
 		<available file="testdocuments">
 		</available>
 	</condition>
+    
 	<target name="jar.htmlentitydecoder" depends="jar.binaries">
 		<!-- 
            Shrink the jar file as external jars (e.g. infovis for range chooser panel) 
@@ -85,7 +86,7 @@
 			<injar name="${basedir}/${project.name}_${project.version}.jar" />
 			<outjar name="${basedir}/htmlentitydecoder.jar" />
 			<!-- Filter -->
-			<keep name="cpdetector.html.HtmlUtils">
+			<keep name="info.monitorenter.unicode.decoder.DecodeUtil">
 				<method access="public static" />
 			</keep>
 			<!-- keep all Exceptions they are moved outside -->
@@ -97,6 +98,35 @@
 		</proguard>
 	</target>
 
+    <target name="jar.latexencoder" depends="jar.binaries">
+    		<!-- 
+               Shrink the jar file as external jars (e.g. infovis for range chooser panel) 
+               contain many unused classes. 
+               Ignorewarnings is on as external jar infovis depends on further jars.
+               Tun this off is more jars have deps that may not be ignored.
+              -->
+    		<proguard obfuscate="true" shrink="true" overloadaggressively="false" warn="true" verbose="true" ignorewarnings="true" optimize="false" printmapping="true" allowaccessmodification="false">
+    			<libraryjar>
+    				<pathelement path="${java.home}/lib/rt.jar" />
+    			</libraryjar>
+    			<!--
+                    caution: The name attribut value has to be the same expression
+                            as the  destfile of the makejar- target [depend].
+                           -->
+    			<injar name="${basedir}/${project.name}_${project.version}.jar" />
+    			<outjar name="${basedir}/latexencoder.jar" />
+    			<!-- Filter -->
+    			<keep name="info.monitorenter.unicode.encoder.EncodeUtil">
+    				<method access="public static" />
+    			</keep>
+    			<!-- keep all Exceptions they are moved outside -->
+    			<keep name="antlr.**Exception*">
+    			</keep>
+    			<!-- keep all Tokens they are moved outside -->
+    			<keep name="antlr.**Token*" extends="antlr.Token">
+    			</keep>
+    		</proguard>
+    	</target>
 
 	<condition property="is.uptodate.externalJars">
 		<and>
@@ -125,12 +155,12 @@
 	</condition>
 
 	<condition property="is.uptodate.parsergrammar.htmlentities">
-		<uptodate srcfile="${sourcedir}/cpdetector/html/parser/htmlentitydecoder.g" targetfile="${sourcedir}/cpdetector/html/parser/HtmlEntityParser.java">
+		<uptodate srcfile="${sourcedir}/info/monitorenter/unicode/decoder.html/htmlentitydecoder.g" targetfile="${sourcedir}/info/monitorenter/unicode/decoder/html/HtmlEntityParser.java">
 		</uptodate>
 	</condition>
 
 	<condition property="is.uptodate.parsergrammar.latexencoder">
-		<uptodate srcfile="${sourcedir}/info/monitorenter/conversion/latex/parser/latexencoder.g" targetfile="${sourcedir}/info/monitorenter/conversion/latex/parser/LatexEncoder.java">
+		<uptodate srcfile="${sourcedir}/info/monitorenter/unicode/encoder/latex/latexencoder.g" targetfile="${sourcedir}/info/monitorenter/unicode/encoder/latex/LatexEncoder.java">
 		</uptodate>
 	</condition>
 
@@ -163,13 +193,13 @@
 	</target>
 
 	<target name="build.parser.htmlentities" unless="is.uptodate.parsergrammar.htmlentities">
-		<antlr target="${sourcedir}/cpdetector/html/parser/htmlentitydecoder.g" traceLexer="no" traceParser="no">
+		<antlr target="${sourcedir}/info/monitorenter/unicode/decoder/html/htmlentitydecoder.g" traceLexer="no" traceParser="no">
 			<classpath refid="classpath" />
 		</antlr>
 	</target>
 
 	<target name="build.parser.latexencoder" unless="is.uptodate.parsergrammar.latexencoder">
-		<antlr target="${sourcedir}/info/monitorenter/conversion/latex/parser/latexencoder.g" traceLexer="no" traceParser="no">
+		<antlr target="${sourcedir}/info/monitorenter/unicode/encoder/latex/latexencoder.g" traceLexer="no" traceParser="no">
 			<classpath refid="classpath" />
 		</antlr>
 	</target>

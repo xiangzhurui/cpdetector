@@ -1,5 +1,5 @@
 /*
- * HtmlUtils.java, <purpose>
+ * DecodeUtils.java, <purpose>
  *
  * Copyright 2007 (C) Achim Westermann, 
  * created on 12.05.2007 14:51:43.
@@ -46,7 +46,11 @@
  * Achim.Westermann@gmx.de
  *
  */
-package cpdetector.html;
+package info.monitorenter.unicode.decoder;
+
+
+import info.monitorenter.unicode.decoder.html.HtmlEntityDecoder;
+import info.monitorenter.unicode.decoder.html.HtmlEntityLexer;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -55,11 +59,9 @@ import java.io.OutputStreamWriter;
 
 import antlr.RecognitionException;
 import antlr.TokenStreamException;
-import cpdetector.html.parser.HtmlEntityDecoder;
-import cpdetector.html.parser.HtmlEntityLexer;
 
 /**
- * HTML related easy to use utility functions with scope on data conversion.
+ * Easy to use utility functions with scope on decoding to unicode.
  * <p>
  * 
  * Be careful with the methods that work on String data (vs. Streams): Large
@@ -71,13 +73,13 @@ import cpdetector.html.parser.HtmlEntityLexer;
  * 
  * @version $Revision$
  */
-public final class HtmlUtils {
+public final class DecodeUtil {
   /**
    * Utility class construtor.
    * <p>
    * 
    */
-  private HtmlUtils() {
+  private DecodeUtil() {
     // nop as stateless
   }
 
@@ -96,7 +98,7 @@ public final class HtmlUtils {
    * <p>
    * 
    * For enterprise support of arbitrary large files prefer the approach of
-   * <code>{@link cpdetector.io.html.HtmlEntityDecoderReader}</code>.
+   * <code>{@link info.monitorenter.unicode.decoder.html.HtmlEntityDecoderReader}</code>.
    * <p>
    * 
    * @param html
@@ -150,7 +152,7 @@ public final class HtmlUtils {
   public static void main(final String[] args) throws RecognitionException, TokenStreamException,
       IOException {
     String decode = "Halllllo &nbsp;  K&ouml;rpert&auml;towierung.\n";
-    decode = HtmlUtils.decodeHtmlEntities(decode);
+    decode = DecodeUtil.decodeHtmlEntities(decode);
     System.out.println(decode);
   }
 }

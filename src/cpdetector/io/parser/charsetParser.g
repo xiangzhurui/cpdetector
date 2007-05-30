@@ -4,7 +4,7 @@
  *  Copyright (C) Achim Westermann, created on 28.10.2004, 12:27:19  
  *
  * ***** BEGIN LICENSE BLOCK *****
- * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1 
  * 
  * The contents of this collection are subject to the Mozilla Public License Version 
  * 1.1 (the "License"); you may not use this file except in compliance with 
@@ -61,11 +61,11 @@ options{
 		trying to parse (my opinion).
 		*/
 		
-		defaultErrorHandler=false;
-		
+		defaultErrorHandler=true;
+		 
 }
 
-htmlDocument returns[String charset] 
+htmlDocument returns[String charset] { charset = null;}
 	:
 		(token1:META_CONTENT_TYPE) {charset=token1.getText();}
 		| (token2:XML_ENCODING_DECL) {charset=token2.getText();}

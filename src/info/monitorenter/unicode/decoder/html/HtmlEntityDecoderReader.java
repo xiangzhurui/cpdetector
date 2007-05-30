@@ -46,13 +46,12 @@
  * Achim.Westermann@gmx.de
  *
  */
-package cpdetector.io.html;
+package info.monitorenter.unicode.decoder.html;
+
 
 import java.io.IOException;
 import java.io.Reader;
 
-import cpdetector.html.parser.HtmlEntityDecoderTokenTypes;
-import cpdetector.html.parser.HtmlEntityLexer;
 
 import antlr.Token;
 import antlr.TokenStreamException;

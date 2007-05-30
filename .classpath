@@ -9,7 +9,7 @@
 	<classpathentry kind="lib" path="ext/test/fit.jar"/>
 	<classpathentry kind="lib" path="ext/test/junit.jar"/>
 	<classpathentry kind="lib" path="ext/test/antfit.jar"/>
-	<classpathentry kind="var" path="ANTLR_HOME/antlr.jar" sourcepath="ANTLR_HOME/antlrsrc.zip"/>
 	<classpathentry kind="lib" path="ext/build/proguard.jar"/>
+	<classpathentry kind="var" path="ANTLR_HOME/antlr.jar" sourcepath="ANTLR_HOME/antlrsrc.zip"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -47,15 +47,16 @@
  *
  */
 
-package cpdetector.html;
+package info.monitorenter.unicode.decoder.html;
 
-import antlr.RecognitionException;
-import antlr.TokenStreamException;
+import info.monitorenter.unicode.decoder.DecodeUtil;
 
 import java.io.IOException;
 import java.io.InputStream;
 
 import junit.framework.TestCase;
+import antlr.RecognitionException;
+import antlr.TokenStreamException;
 import cpdetector.util.FileUtil;
 
 /**
@@ -66,12 +67,12 @@ import cpdetector.util.FileUtil;
  * @version $Revision$
  *
  */
-public class HtmlUtilsText extends TestCase {
+public class DecodeUtilTest extends TestCase {
 
     /**
      * Creates a test case with the class name.<p>
      */
-    public HtmlUtilsText() {
+    public DecodeUtilTest() {
 
         super();
 
@@ -83,7 +84,7 @@ public class HtmlUtilsText extends TestCase {
      * @param testName the name of the test case.
      * 
      */
-    public HtmlUtilsText(final String testName) {
+    public DecodeUtilTest(final String testName) {
 
         super(testName);
 
@@ -101,22 +102,22 @@ public class HtmlUtilsText extends TestCase {
      */
     public void testDecodeHtmlEntities() throws IOException, RecognitionException, TokenStreamException {
 
-        InputStream in = this.getClass().getClassLoader().getResourceAsStream("cpdetector/io/html/test1.txt");
+        InputStream in = this.getClass().getClassLoader().getResourceAsStream("info/monitorenter/decoder/html/test1.txt");
         byte[] contentBytes = FileUtil.readRAM(in, 500);
         String content = new String(contentBytes);
-        content = HtmlUtils.decodeHtmlEntities(content);
+        content = DecodeUtil.decodeHtmlEntities(content);
         System.out.println(content);
 
-        in = this.getClass().getClassLoader().getResourceAsStream("cpdetector/io/html/ncr.txt");
+        in = this.getClass().getClassLoader().getResourceAsStream("info/monitorenter/decoder/html/ncr.txt");
         contentBytes = FileUtil.readRAM(in, 500);
         content = new String(contentBytes);
-        content = HtmlUtils.decodeHtmlEntities(content);
+        content = DecodeUtil.decodeHtmlEntities(content);
         System.out.println(content);
 
-        in = this.getClass().getClassLoader().getResourceAsStream("cpdetector/io/html/test2.html");
+        in = this.getClass().getClassLoader().getResourceAsStream("info/monitorenter/decoder/html/test2.html");
         contentBytes = FileUtil.readRAM(in, 500);
         content = new String(contentBytes);
-        content = HtmlUtils.decodeHtmlEntities(content);
+        content = DecodeUtil.decodeHtmlEntities(content);
         System.out.println(content);
 
     }

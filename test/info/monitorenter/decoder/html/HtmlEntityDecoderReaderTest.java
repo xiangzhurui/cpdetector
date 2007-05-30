@@ -46,7 +46,9 @@
  * Achim.Westermann@gmx.de
  *
  */
-package cpdetector.io.html;
+package info.monitorenter.decoder.html;
+
+import info.monitorenter.unicode.decoder.html.HtmlEntityDecoderReader;
 
 import java.io.IOException;
 import java.io.InputStream;

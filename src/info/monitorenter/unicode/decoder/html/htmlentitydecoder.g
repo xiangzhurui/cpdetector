@@ -14,7 +14,7 @@
  * Software distributed under the License is distributed on an "AS IS" basis,
  * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
  * for the specific language governing rights and limitations under the
- * License.
+ * License. 
  * 
  * The Original Code is the cpDetector code in [sub] packages info.monitorenter and 
  * cpdetector.
@@ -45,7 +45,7 @@
  * Achim.Westermann@gmx.de
  */
 header{
-package cpdetector.html.parser;
+package info.monitorenter.unicode.decoder.html;
 
 import java.io.IOException;
 import java.io.OutputStreamWriter;
