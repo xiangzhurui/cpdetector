@@ -843,6 +843,7 @@ ZWJ        : "&zwj;";
 LRM        : "&lrm;";
 RLM        : "&rlm;";
 NDASH      : "&ndash;";
+MDASH      : "&mdash;";
 LSQUO      : "&lsquo;";
 RSQUO      : "&rsquo;";
 SBQUO      : "&sbquo;";
