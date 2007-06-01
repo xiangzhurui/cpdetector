@@ -199,7 +199,7 @@
 	</target>
 
 	<target name="build.parser.latexencoder" unless="is.uptodate.parsergrammar.latexencoder">
-		<antlr target="${sourcedir}/info/monitorenter/unicode/encoder/latex/latexencoder.g" traceLexer="no" traceParser="no">
+		<antlr target="${sourcedir}/info/monitorenter/unicode/encoder/latex/latexencoder.g" traceLexer="yes" traceParser="no">
 			<classpath refid="classpath" />
 		</antlr>
 	</target>
