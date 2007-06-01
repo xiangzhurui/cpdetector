@@ -988,6 +988,10 @@ tryAgain:
 					mNDASH(true);
 					theRetToken=_returnToken;
 				}
+				else if ((LA(1)=='&') && (LA(2)=='m') && (LA(3)=='d')) {
+					mMDASH(true);
+					theRetToken=_returnToken;
+				}
 				else if ((LA(1)=='&') && (LA(2)=='s') && (LA(3)=='b')) {
 					mSBQUO(true);
 					theRetToken=_returnToken;
@@ -4181,6 +4185,19 @@ tryAgain:
 		int _saveIndex;
 		
 		match("&ndash;");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
+		}
+		_returnToken = _token;
+	}
+	
+	public final void mMDASH(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
+		int _ttype; Token _token=null; int _begin=text.length();
+		_ttype = MDASH;
+		int _saveIndex;
+		
+		match("&mdash;");
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
