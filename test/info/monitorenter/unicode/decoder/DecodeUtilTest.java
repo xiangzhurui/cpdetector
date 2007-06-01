@@ -1,5 +1,5 @@
 /*
- * HtmlEntityDecoderReader.java, <purpose>
+ * DecodeUtilTest.java, <purpose>
  *
  * Copyright 2007 (C) Achim Westermann, 
  * created on 12.05.2007 16:57:04.
@@ -47,7 +47,7 @@
  *
  */
 
-package info.monitorenter.unicode.decoder.html;
+package info.monitorenter.unicode.decoder;
 
 import info.monitorenter.unicode.decoder.DecodeUtil;
 
@@ -60,66 +60,87 @@ import antlr.TokenStreamException;
 import cpdetector.util.FileUtil;
 
 /**
- * Test for <code>{@link HtmlUtils}</code>.<p>
+ * Test for <code>{@link HtmlUtils}</code>.
+ * <p>
  * 
  * @author Achim Westermann
  * 
  * @version $Revision$
- *
+ * 
  */
-public class DecodeUtilTest extends TestCase {
+public class DecodeUtilTest
+    extends TestCase {
 
-    /**
-     * Creates a test case with the class name.<p>
-     */
-    public DecodeUtilTest() {
+  /**
+   * Creates a test case with the class name.
+   * <p>
+   */
+  public DecodeUtilTest() {
 
-        super();
+    super();
 
+  }
+
+  /**
+   * Creates a test case with the given name.
+   * <p>
+   * 
+   * @param testName
+   *          the name of the test case.
+   * 
+   */
+  public DecodeUtilTest(final String testName) {
+
+    super(testName);
+
+  }
+
+  /**
+   * Tests <code>{@link HtmlUtils#decodeHtmlEntities(String)}</code> with
+   * several files.
+   * <p>
+   * 
+   * @throws IOException
+   *           if sth goes wrong
+   * 
+   * @throws TokenStreamException
+   *           if the grammar is wrong (the programmer was wrong).
+   * 
+   * @throws RecognitionException
+   *           if data is corrupt.
+   * 
+   */
+  public void testDecodeHtmlEntities() throws IOException, RecognitionException,
+      TokenStreamException {
+
+    InputStream in = this.getClass().getClassLoader().getResourceAsStream(
+        "info/monitorenter/unicode/decoder/html/test1.txt");
+
+    byte[] contentBytes = FileUtil.readRAM(in);
+    String content = new String(contentBytes);
+    content = DecodeUtil.decodeHtmlEntities(content);
+    System.out.println(content);
+
+    in = this.getClass().getClassLoader().getResourceAsStream(
+        "info/monitorenter/unicode/decoder/html/ncr.txt");
+    contentBytes = FileUtil.readRAM(in);
+    content = new String(contentBytes);
+    content = DecodeUtil.decodeHtmlEntities(content);
+    System.out.println(content);
+
+    in = this.getClass().getClassLoader().getResourceAsStream(
+        "info/monitorenter/unicode/decoder/html/test2.html");
+    int x = 0;
+    while ((x = in.read()) > 0) {
+      System.out.print((char) x);
     }
+    in = this.getClass().getClassLoader().getResourceAsStream(
+        "info/monitorenter/unicode/decoder/html/test2.html");
+    contentBytes = FileUtil.readRAM(in);
+    content = new String(contentBytes);
+    content = DecodeUtil.decodeHtmlEntities(content);
+    System.out.println(content);
 
-    /**
-     * Creates a test case with the given name.<p>
-     * 
-     * @param testName the name of the test case.
-     * 
-     */
-    public DecodeUtilTest(final String testName) {
-
-        super(testName);
-
-    }
-
-    /**
-     * Tests <code>{@link HtmlUtils#decodeHtmlEntities(String)}</code> with several files.<p> 
-     * 
-     * @throws IOException if sth goes wrong 
-     * 
-     * @throws TokenStreamException if the grammar is wrong (the programmer was wrong).
-     * 
-     * @throws RecognitionException if data is corrupt.
-     *
-     */
-    public void testDecodeHtmlEntities() throws IOException, RecognitionException, TokenStreamException {
-
-        InputStream in = this.getClass().getClassLoader().getResourceAsStream("info/monitorenter/decoder/html/test1.txt");
-        byte[] contentBytes = FileUtil.readRAM(in, 500);
-        String content = new String(contentBytes);
-        content = DecodeUtil.decodeHtmlEntities(content);
-        System.out.println(content);
-
-        in = this.getClass().getClassLoader().getResourceAsStream("info/monitorenter/decoder/html/ncr.txt");
-        contentBytes = FileUtil.readRAM(in, 500);
-        content = new String(contentBytes);
-        content = DecodeUtil.decodeHtmlEntities(content);
-        System.out.println(content);
-
-        in = this.getClass().getClassLoader().getResourceAsStream("info/monitorenter/decoder/html/test2.html");
-        contentBytes = FileUtil.readRAM(in, 500);
-        content = new String(contentBytes);
-        content = DecodeUtil.decodeHtmlEntities(content);
-        System.out.println(content);
-
-    }
+  }
 
 }

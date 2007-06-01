@@ -46,7 +46,7 @@
  * Achim.Westermann@gmx.de
  *
  */
-package info.monitorenter.decoder.html;
+package info.monitorenter.unicode.decoder.html;
 
 import info.monitorenter.unicode.decoder.html.HtmlEntityDecoderReader;
 
