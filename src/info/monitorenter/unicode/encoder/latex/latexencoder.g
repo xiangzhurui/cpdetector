@@ -63,13 +63,18 @@ options{
 encodeNext []  returns [Token token] {token=null;}
 	: 
 		( 
-			token001 : QUOTATION_MAR  {
-				token001.setText("\'\'");
+			token000 : QUOTATION_MARK  {
+				token000.setText("\\'\\'"); 
+				token = token000;
+			}
+			|
+			token001 : NUMBER_SIGN {
+				token001.setText("\\#");
 				token = token001;
 			}
 			|
-			token002 : NUMBER_SIGN {
-				token002.setText("\\#");
+			token002 : DOLLAR_SIGN {
+				token002.setText("\\$");
 				token = token002;
 			}
 			|
@@ -478,7 +483,7 @@ encodeNext []  returns [Token token] {token=null;}
 			|
 			token083 : LATIN_SMALL_LETTER_Y_WITH_DIAERESIS {
 				token083.setText("\\\"y");
-				token = token083;
+				token = token083; 
 			}
 			|
 			// TODO: this is not supported by latex?
@@ -495,6 +500,10 @@ encodeNext []  returns [Token token] {token=null;}
 			tokenAnyChar : ANY_CHAR {
 				token = tokenAnyChar;
 			} 
+			|
+			tokenEOF : EOF {
+				token = tokenEOF;
+			}
 			
 		)
 	;
