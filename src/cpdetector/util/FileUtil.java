@@ -59,9 +59,6 @@ import java.io.InputStreamReader;
 import java.nio.charset.Charset;
 import java.util.Map;
 import java.util.StringTokenizer;
-import java.util.Vector;
-
-import antlr.ByteBuffer;
 
 /**
  * 
