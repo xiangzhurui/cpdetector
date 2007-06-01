@@ -49,8 +49,6 @@
 
 package info.monitorenter.unicode.decoder;
 
-import info.monitorenter.unicode.decoder.DecodeUtil;
-
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -130,14 +128,9 @@ public class DecodeUtilTest
 
     in = this.getClass().getClassLoader().getResourceAsStream(
         "info/monitorenter/unicode/decoder/html/test2.html");
-    int x = 0;
-    while ((x = in.read()) > 0) {
-      System.out.print((char) x);
-    }
-    in = this.getClass().getClassLoader().getResourceAsStream(
-        "info/monitorenter/unicode/decoder/html/test2.html");
     contentBytes = FileUtil.readRAM(in);
     content = new String(contentBytes);
+    System.out.println(content);
     content = DecodeUtil.decodeHtmlEntities(content);
     System.out.println(content);
 
