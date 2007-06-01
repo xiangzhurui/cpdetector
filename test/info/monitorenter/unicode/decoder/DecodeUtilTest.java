@@ -58,7 +58,7 @@ import antlr.TokenStreamException;
 import cpdetector.util.FileUtil;
 
 /**
- * Test for <code>{@link HtmlUtils}</code>.
+ * Test for <code>{@link DecodeUtil}</code>.
  * <p>
  * 
  * @author Achim Westermann
