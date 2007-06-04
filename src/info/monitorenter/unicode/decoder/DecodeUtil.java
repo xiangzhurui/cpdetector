@@ -65,7 +65,7 @@ import antlr.TokenStreamException;
  * <p>
  * 
  * Be careful with the methods that work on String data (vs. Streams): Large
- * documents will cause an <code>{@link OutOfMemoryError</code>.
+ * documents will cause an <code>{@link OutOfMemoryError}</code>.
  * <p>
  * 
  * @author <a href="mailto:Achim.Westermann@gmx.de">Achim Westermann</a>
