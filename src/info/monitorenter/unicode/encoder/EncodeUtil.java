@@ -46,16 +46,16 @@
  * Achim.Westermann@gmx.de
  *
  */
+
 package info.monitorenter.unicode.encoder;
-
-import info.monitorenter.unicode.encoder.latex.LatexEncoder;
-import info.monitorenter.unicode.encoder.latex.LatexEncoderLexer;
-
-import java.io.ByteArrayInputStream;
 
 import antlr.RecognitionException;
 import antlr.Token;
 import antlr.TokenStreamException;
+import info.monitorenter.unicode.encoder.latex.LatexEncoder;
+import info.monitorenter.unicode.encoder.latex.LatexEncoderLexer;
+
+import java.io.StringReader;
 
 /**
  * Utility class to encode unicode to various target formats.
@@ -72,46 +72,48 @@ import antlr.TokenStreamException;
  */
 public final class EncodeUtil {
 
-  /**
-   * Utility class ctor.
-   * <p>
-   */
-  private EncodeUtil() {
-    // nop
-  }
+    /**
+     * Utility class ctor.
+     * <p>
+     */
+    private EncodeUtil() {
 
-  /**
-   * Encodes the given unicode input <code>String</code> to latex - compliant
-   * input data.
-   * <p>
-   * 
-   * This covers special characters as german "Umlauts", French accented
-   * characters,... .
-   * <p>
-   * 
-   * 
-   * @param unicode
-   *          the unicode <code>String</code> to encode to latex format.
-   * 
-   * @return the latex - encoded version of the input <code>String</code>.
-   * 
-   * @throws TokenStreamException
-   *           if something goes wrong while lexing for the next token.
-   * 
-   * @throws RecognitionException
-   *           if something goes wrong while parsing the next token.
-   */
-  public static String encodeLatex(final String unicode) throws RecognitionException,
-      TokenStreamException {
-    StringBuffer result = new StringBuffer();
-    LatexEncoderLexer lexer = new LatexEncoderLexer(new ByteArrayInputStream(unicode.getBytes()));
-    LatexEncoder encoder = new LatexEncoder(lexer);
-    Token token = encoder.encodeNext();
-    while (token.getType() != Token.EOF_TYPE) {
-      result.append(token.getText());
-      token = encoder.encodeNext();
+        // nop
     }
-    return result.toString();
-  }
+
+    /**
+     * Encodes the given unicode input <code>String</code> to latex - compliant
+     * input data.
+     * <p>
+     * 
+     * This covers special characters as german "Umlauts", French accented
+     * characters,... .
+     * <p>
+     * 
+     * 
+     * @param unicode
+     *          the unicode <code>String</code> to encode to latex format.
+     * 
+     * @return the latex - encoded version of the input <code>String</code>.
+     * 
+     * @throws TokenStreamException
+     *           if something goes wrong while lexing for the next token.
+     * 
+     * @throws RecognitionException
+     *           if something goes wrong while parsing the next token.
+     */
+    public static String encodeLatex(final String unicode) throws RecognitionException, TokenStreamException {
+
+        StringBuffer result = new StringBuffer();
+      
+        LatexEncoderLexer lexer = new LatexEncoderLexer(new StringReader(unicode));
+        LatexEncoder encoder = new LatexEncoder(lexer);
+        Token token = encoder.encodeNext();
+        while (token.getType() != Token.EOF_TYPE) {
+            result.append(token.getText());
+            token = encoder.encodeNext();
+        }
+        return result.toString();
+    }
 
 }

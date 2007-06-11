@@ -49,16 +49,15 @@
 package info.monitorenter.unicode.decoder;
 
 
+import antlr.RecognitionException;
+import antlr.TokenStreamException;
 import info.monitorenter.unicode.decoder.html.HtmlEntityDecoder;
 import info.monitorenter.unicode.decoder.html.HtmlEntityLexer;
 
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
-
-import antlr.RecognitionException;
-import antlr.TokenStreamException;
+import java.io.StringReader;
 
 /**
  * Easy to use utility functions with scope on decoding to unicode.
@@ -123,7 +122,7 @@ public final class DecodeUtil {
    */
   public static String decodeHtmlEntities(final String html) throws RecognitionException,
       TokenStreamException, IOException {
-    HtmlEntityLexer lexer = new HtmlEntityLexer(new ByteArrayInputStream(html.getBytes()));
+    HtmlEntityLexer lexer = new HtmlEntityLexer(new StringReader(html));
     ByteArrayOutputStream bos = new ByteArrayOutputStream(html.length());
     OutputStreamWriter out = new OutputStreamWriter(bos);
     HtmlEntityDecoder decoder = new HtmlEntityDecoder(lexer);
