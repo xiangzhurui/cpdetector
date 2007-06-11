@@ -67,7 +67,7 @@
 		<available file="testdocuments">
 		</available>
 	</condition>
-    
+
 	<target name="jar.htmlentitydecoder" depends="jar.binaries">
 		<!-- 
            Shrink the jar file as external jars (e.g. infovis for range chooser panel) 
@@ -80,9 +80,9 @@
 				<pathelement path="${java.home}/lib/rt.jar" />
 			</libraryjar>
 			<!--
-                caution: The name attribut value has to be the same expression
-                        as the  destfile of the makejar- target [depend].
-                       -->
+             caution: The name attribut value has to be the same expression
+             as the  destfile of the makejar- target [depend].
+            -->
 			<injar name="${basedir}/${project.name}_${project.version}.jar" />
 			<outjar name="${basedir}/htmlentitydecoder.jar" />
 			<!-- Filter -->
@@ -94,39 +94,57 @@
 			</keep>
 			<!-- keep all Tokens they are moved outside -->
 			<keep name="antlr.**Token*" extends="antlr.Token">
+				<method name="**" />
 			</keep>
+			<!-- 
+			 If several jar files contain obfuscated antlr runtime 
+			 libraries, NoSuchMethodError may occur. 
+		    -->
+			<keepnames name="antlr.**">
+				<method name="**" />
+				<field name="**" />
+			</keepnames>
 		</proguard>
 	</target>
 
-    <target name="jar.latexencoder" depends="jar.binaries">
-    		<!-- 
-               Shrink the jar file as external jars (e.g. infovis for range chooser panel) 
-               contain many unused classes. 
-               Ignorewarnings is on as external jar infovis depends on further jars.
-               Tun this off is more jars have deps that may not be ignored.
-              -->
-    		<proguard obfuscate="true" shrink="true" overloadaggressively="false" warn="true" verbose="true" ignorewarnings="true" optimize="false" printmapping="true" allowaccessmodification="false">
-    			<libraryjar>
-    				<pathelement path="${java.home}/lib/rt.jar" />
-    			</libraryjar>
-    			<!--
-                    caution: The name attribut value has to be the same expression
-                            as the  destfile of the makejar- target [depend].
-                           -->
-    			<injar name="${basedir}/${project.name}_${project.version}.jar" />
-    			<outjar name="${basedir}/latexencoder.jar" />
-    			<!-- Filter -->
-    			<keep name="info.monitorenter.unicode.encoder.EncodeUtil">
-    				<method access="public static" />
-    			</keep>
-    			<!-- keep all Exceptions they are moved outside -->
-    			<keep name="antlr.**Exception*">
-    			</keep>
-    			<!-- keep all Tokens they are moved outside -->
-    			<keep name="antlr.**Token*" extends="antlr.Token">
-    			</keep>
-    		</proguard>
-    	</target>
+	<target name="jar.latexencoder" depends="jar.binaries">
+		<!-- 
+         Shrink the jar file as external jars (e.g. infovis for range chooser panel) 
+         contain many unused classes. 
+         Ignorewarnings is on as external jar infovis depends on further jars.
+         Tun this off is more jars have deps that may not be ignored.
+        -->
+		<proguard obfuscate="true" shrink="true" overloadaggressively="false" warn="true" verbose="true" ignorewarnings="true" optimize="false" printmapping="true" allowaccessmodification="false">
+			<libraryjar>
+				<pathelement path="${java.home}/lib/rt.jar" />
+			</libraryjar>
+			<!--
+             caution: The name attribut value has to be the same expression
+             as the  destfile of the makejar- target [depend].
+            -->
+			<injar name="${basedir}/${project.name}_${project.version}.jar" />
+			<outjar name="${basedir}/latexencoder.jar" />
+			<!-- Filter -->
+			<keep name="info.monitorenter.unicode.encoder.EncodeUtil">
+				<method access="public static" />
+			</keep>
+			<!-- keep all Exceptions they are moved outside -->
+			<keep name="antlr.**Exception*">
+			</keep>
+			<!-- keep all Tokens they are moved outside -->
+			<keep name="antlr.**Token*" extends="antlr.Token">
+				<method name="**" />
+			</keep>
+			<!-- 
+			 If several jar files contain obfuscated antlr runtime 
+			 libraries, NoSuchMethodError may occur. 
+    		-->
+			<keepnames name="antlr.**">
+				<method name="**" />
+				<field name="**" />
+			</keepnames>
+		</proguard>
+	</target>
 
 	<condition property="is.uptodate.externalJars">
 		<and>
@@ -199,7 +217,7 @@
 	</target>
 
 	<target name="build.parser.latexencoder" unless="is.uptodate.parsergrammar.latexencoder">
-		<antlr target="${sourcedir}/info/monitorenter/unicode/encoder/latex/latexencoder.g" traceLexer="yes" traceParser="no">
+		<antlr target="${sourcedir}/info/monitorenter/unicode/encoder/latex/latexencoder.g" traceLexer="no" traceParser="no">
 			<classpath refid="classpath" />
 		</antlr>
 	</target>
