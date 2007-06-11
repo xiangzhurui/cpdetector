@@ -62,7 +62,7 @@ options{
 
 encodeNext []  returns [Token token] {token=null;}
 	: 
-		( 
+		(  
 			token000 : QUOTATION_MARK  {
 				token000.setText("\\'\\'"); 
 				token = token000;
@@ -459,42 +459,33 @@ encodeNext []  returns [Token token] {token=null;}
 				token078.setText("\\\"u");
 				token = token078;
 			}
+			
 			|
-			token079 : LATIN_SMALL_LETTER_U_WITH_CIRCUMFLEX {
-				token079.setText("\\^u");
+			token079 : LATIN_SMALL_LETTER_Y_WITH_ACUTE {
+				token079.setText("\\'y");
 				token = token079;
 			}
 			|
-			token080 : LATIN_SMALL_LETTER_U_WITH_DIAERESIS {
-				token080.setText("\\\"u");
+			// TODO: this is not supported by latex?
+			token080 : LATIN_SMALL_LETTER_THORN {
+				//token082.setText("\\\"u");
 				token = token080;
 			}
 			|
-			token081 : LATIN_SMALL_LETTER_Y_WITH_ACUTE {
-				token080.setText("\\'y");
-				token = token080;
+			token081 : LATIN_SMALL_LETTER_Y_WITH_DIAERESIS {
+				token081.setText("\\\"y");
+				token = token081; 
 			}
 			|
 			// TODO: this is not supported by latex?
-			token082 : LATIN_SMALL_LETTER_THORN {
-				//token082.setText("\\\"u");
+			token082 : EURO_CURRENCY {
+				token082.setText("<Euro Currency Symbol>");
 				token = token082;
 			}
 			|
-			token083 : LATIN_SMALL_LETTER_Y_WITH_DIAERESIS {
-				token083.setText("\\\"y");
-				token = token083; 
-			}
-			|
-			// TODO: this is not supported by latex?
-			token084 : EURO_CURRENCY {
-				//token084.setText("\\\"u");
-				token = token084;
-			}
-			|
-			token085 : EURO_SIGN {
-				token085.setText("\\euro");
-				token = token085;
+			token083 : EURO_SIGN {
+				token083.setText("\\euro");
+				token = token083;
 			}
 			|
 			tokenAnyChar : ANY_CHAR {
