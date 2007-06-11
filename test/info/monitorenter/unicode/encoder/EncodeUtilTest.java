@@ -66,74 +66,70 @@ import cpdetector.util.FileUtil;
  * @version $Revision$
  * 
  */
-public class EncodeUtilTest
-    extends TestCase {
+public class EncodeUtilTest extends TestCase {
 
-  /**
-   * Creates a test case with the class name.
-   * <p>
-   */
-  public EncodeUtilTest() {
+    /**
+     * Creates a test case with the class name.
+     * <p>
+     */
+    public EncodeUtilTest() {
 
-    super();
+        super();
 
-  }
+    }
 
-  /**
-   * Creates a test case with the given name.
-   * <p>
-   * 
-   * @param testName
-   *          the name of the test case.
-   * 
-   */
-  public EncodeUtilTest(final String testName) {
+    /**
+     * Creates a test case with the given name.
+     * <p>
+     * 
+     * @param testName
+     *          the name of the test case.
+     * 
+     */
+    public EncodeUtilTest(final String testName) {
 
-    super(testName);
+        super(testName);
 
-  }
+    }
 
-  /**
-   * Tests <code>{@link HtmlUtils#decodeHtmlEntities(String)}</code> with
-   * several files.
-   * <p>
-   * 
-   * @throws IOException
-   *           if sth goes wrong
-   * 
-   * @throws TokenStreamException
-   *           if the grammar is wrong (the programmer was wrong).
-   * 
-   * @throws RecognitionException
-   *           if data is corrupt.
-   * 
-   */
-  public void testDecodeHtmlEntities() throws IOException, RecognitionException,
-      TokenStreamException {
+    /**
+     * Tests <code>{@link EncodeUtil#encodeLatex(String)}</code> with
+     * several files.
+     * <p>
+     * 
+     * @throws IOException
+     *           if sth goes wrong
+     * 
+     * @throws TokenStreamException
+     *           if the grammar is wrong (the programmer was wrong).
+     * 
+     * @throws RecognitionException
+     *           if data is corrupt.
+     * 
+     */
+    public void testEncodeLatex() throws IOException, RecognitionException, TokenStreamException {
 
-    InputStream in = this.getClass().getClassLoader().getResourceAsStream(
-        "info/monitorenter/unicode/decoder/html/test1.txt");
+        InputStream in = this.getClass().getResourceAsStream("test1.txt");
 
-    byte[] contentBytes = FileUtil.readRAM(in);
-    String content = new String(contentBytes);
-    content = EncodeUtil.encodeLatex(content);
-    System.out.println(content);
+        byte[] contentBytes = FileUtil.readRAM(in);
+        String content = new String(contentBytes, "utf-8");
+        System.out.println(content);
+        content = EncodeUtil.encodeLatex(content);
+        System.out.println(content);
+/*
+        in = this.getClass().getClassLoader().getResourceAsStream("info/monitorenter/unicode/decoder/html/ncr.txt");
+        contentBytes = FileUtil.readRAM(in);
+        content = new String(contentBytes, "utf-8");
+        content = EncodeUtil.encodeLatex(content);
+        System.out.println(content);
 
-    in = this.getClass().getClassLoader().getResourceAsStream(
-        "info/monitorenter/unicode/decoder/html/ncr.txt");
-    contentBytes = FileUtil.readRAM(in);
-    content = new String(contentBytes);
-    content = EncodeUtil.encodeLatex(content);
-    System.out.println(content);
+        in = this.getClass().getClassLoader().getResourceAsStream("info/monitorenter/unicode/decoder/html/test2.html");
+        contentBytes = FileUtil.readRAM(in);
+        content = new String(contentBytes, "utf-8");
+        content = EncodeUtil.encodeLatex(content);
+        System.out.println(content);
+        */
 
-    in = this.getClass().getClassLoader().getResourceAsStream(
-        "info/monitorenter/unicode/decoder/html/test2.html");
-    contentBytes = FileUtil.readRAM(in);
-    content = new String(contentBytes);
-    System.out.println(content);
-    content = EncodeUtil.encodeLatex(content);
-    System.out.println(content);
-
-  }
+    }
 
 }
