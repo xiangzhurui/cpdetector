@@ -588,10 +588,10 @@ decode [OutputStreamWriter out] throws IOException
 
 class HtmlEntityLexer extends Lexer;
 options{
-	codeGenDebug=false; 
-	k=7;
+	codeGenDebug=false;  
+	k=8;
 	charVocabulary='\u0000'..'\uFFFE';
-	genHashLines=true;
+	defaultErrorHandler=true;
 	caseSensitive= true;
 	filter = false;
 }
@@ -601,7 +601,7 @@ options{
  */
 // 24.2.1 The list of characters
 NBSP    : "&nbsp;";
-IEXCL   : "&iexcl;";
+IEXCL   : "&iexcl;"; 
 CENT    : "&cent;";
 POUND   : "&pound;";
 CURREN  : "&curren;";

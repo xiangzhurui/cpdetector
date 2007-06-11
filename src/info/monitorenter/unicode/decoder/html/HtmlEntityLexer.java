@@ -1084,7 +1084,8 @@ tryAgain:
 				return _returnToken;
 			}
 			catch (RecognitionException e) {
-				throw new TokenStreamRecognitionException(e);
+				reportError(e);
+				consume();
 			}
 		}
 		catch (CharStreamException cse) {
@@ -1103,7 +1104,14 @@ tryAgain:
 		_ttype = NBSP;
 		int _saveIndex;
 		
-		match("&nbsp;");
+		try {      // for error handling
+			match("&nbsp;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -1116,7 +1124,14 @@ tryAgain:
 		_ttype = IEXCL;
 		int _saveIndex;
 		
-		match("&iexcl;");
+		try {      // for error handling
+			match("&iexcl;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -1129,7 +1144,14 @@ tryAgain:
 		_ttype = CENT;
 		int _saveIndex;
 		
-		match("&cent;");
+		try {      // for error handling
+			match("&cent;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -1142,7 +1164,14 @@ tryAgain:
 		_ttype = POUND;
 		int _saveIndex;
 		
-		match("&pound;");
+		try {      // for error handling
+			match("&pound;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -1155,7 +1184,14 @@ tryAgain:
 		_ttype = CURREN;
 		int _saveIndex;
 		
-		match("&curren;");
+		try {      // for error handling
+			match("&curren;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -1168,7 +1204,14 @@ tryAgain:
 		_ttype = YEN;
 		int _saveIndex;
 		
-		match("&yen;");
+		try {      // for error handling
+			match("&yen;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -1181,7 +1224,14 @@ tryAgain:
 		_ttype = BRVBAR;
 		int _saveIndex;
 		
-		match("&brvbar;");
+		try {      // for error handling
+			match("&brvbar;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -1194,7 +1244,14 @@ tryAgain:
 		_ttype = SECT;
 		int _saveIndex;
 		
-		match("&sect;");
+		try {      // for error handling
+			match("&sect;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -1207,7 +1264,14 @@ tryAgain:
 		_ttype = UML;
 		int _saveIndex;
 		
-		match("&uml;");
+		try {      // for error handling
+			match("&uml;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -1220,7 +1284,14 @@ tryAgain:
 		_ttype = COPY;
 		int _saveIndex;
 		
-		match("&copy;");
+		try {      // for error handling
+			match("&copy;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -1233,7 +1304,14 @@ tryAgain:
 		_ttype = ORDF;
 		int _saveIndex;
 		
-		match("&ordf;");
+		try {      // for error handling
+			match("&ordf;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -1246,7 +1324,14 @@ tryAgain:
 		_ttype = LAQUO;
 		int _saveIndex;
 		
-		match("&laquo;");
+		try {      // for error handling
+			match("&laquo;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -1259,7 +1344,14 @@ tryAgain:
 		_ttype = NOT;
 		int _saveIndex;
 		
-		match("&not;");
+		try {      // for error handling
+			match("&not;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -1272,7 +1364,14 @@ tryAgain:
 		_ttype = SHY;
 		int _saveIndex;
 		
-		match("&shy;");
+		try {      // for error handling
+			match("&shy;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -1285,7 +1384,14 @@ tryAgain:
 		_ttype = REG;
 		int _saveIndex;
 		
-		match("&reg;");
+		try {      // for error handling
+			match("&reg;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -1298,7 +1404,14 @@ tryAgain:
 		_ttype = MACR;
 		int _saveIndex;
 		
-		match("&macr;");
+		try {      // for error handling
+			match("&macr;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -1311,7 +1424,14 @@ tryAgain:
 		_ttype = DEG;
 		int _saveIndex;
 		
-		match("&deg;");
+		try {      // for error handling
+			match("&deg;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -1324,7 +1444,14 @@ tryAgain:
 		_ttype = PLUSMN;
 		int _saveIndex;
 		
-		match("&plusmn;");
+		try {      // for error handling
+			match("&plusmn;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -1337,7 +1464,14 @@ tryAgain:
 		_ttype = SUP2;
 		int _saveIndex;
 		
-		match("&sup2;");
+		try {      // for error handling
+			match("&sup2;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -1350,7 +1484,14 @@ tryAgain:
 		_ttype = SUP3;
 		int _saveIndex;
 		
-		match("&sup3;");
+		try {      // for error handling
+			match("&sup3;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -1363,7 +1504,14 @@ tryAgain:
 		_ttype = ACUTE;
 		int _saveIndex;
 		
-		match("&acute;");
+		try {      // for error handling
+			match("&acute;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -1376,7 +1524,14 @@ tryAgain:
 		_ttype = MICRO;
 		int _saveIndex;
 		
-		match("&micro;");
+		try {      // for error handling
+			match("&micro;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -1389,7 +1544,14 @@ tryAgain:
 		_ttype = PARA;
 		int _saveIndex;
 		
-		match("&para;");
+		try {      // for error handling
+			match("&para;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -1402,7 +1564,14 @@ tryAgain:
 		_ttype = MIDDOT;
 		int _saveIndex;
 		
-		match("&middot");
+		try {      // for error handling
+			match("&middot");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -1415,7 +1584,14 @@ tryAgain:
 		_ttype = CEDIL;
 		int _saveIndex;
 		
-		match("&cedil;");
+		try {      // for error handling
+			match("&cedil;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -1428,7 +1604,14 @@ tryAgain:
 		_ttype = SUP1;
 		int _saveIndex;
 		
-		match("&sup1;");
+		try {      // for error handling
+			match("&sup1;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -1441,7 +1624,14 @@ tryAgain:
 		_ttype = ORDM;
 		int _saveIndex;
 		
-		match("&ordm;");
+		try {      // for error handling
+			match("&ordm;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -1454,7 +1644,14 @@ tryAgain:
 		_ttype = RAQUO;
 		int _saveIndex;
 		
-		match("&raquo;");
+		try {      // for error handling
+			match("&raquo;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -1467,7 +1664,14 @@ tryAgain:
 		_ttype = FRAC14;
 		int _saveIndex;
 		
-		match("&frac14;");
+		try {      // for error handling
+			match("&frac14;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -1480,7 +1684,14 @@ tryAgain:
 		_ttype = FRAC12;
 		int _saveIndex;
 		
-		match("&frac12;");
+		try {      // for error handling
+			match("&frac12;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -1493,7 +1704,14 @@ tryAgain:
 		_ttype = FRAC34;
 		int _saveIndex;
 		
-		match("&frac34;");
+		try {      // for error handling
+			match("&frac34;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -1506,7 +1724,14 @@ tryAgain:
 		_ttype = IQUEST;
 		int _saveIndex;
 		
-		match("&iquest;");
+		try {      // for error handling
+			match("&iquest;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -1519,7 +1744,14 @@ tryAgain:
 		_ttype = AGRAVE;
 		int _saveIndex;
 		
-		match("&Agrave;");
+		try {      // for error handling
+			match("&Agrave;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -1532,7 +1764,14 @@ tryAgain:
 		_ttype = AACUTE;
 		int _saveIndex;
 		
-		match("&Aacute;");
+		try {      // for error handling
+			match("&Aacute;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -1545,7 +1784,14 @@ tryAgain:
 		_ttype = ACIRC;
 		int _saveIndex;
 		
-		match("&Acirc;");
+		try {      // for error handling
+			match("&Acirc;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -1558,7 +1804,14 @@ tryAgain:
 		_ttype = ATILDE;
 		int _saveIndex;
 		
-		match("&Atilde;");
+		try {      // for error handling
+			match("&Atilde;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -1571,7 +1824,14 @@ tryAgain:
 		_ttype = AUML;
 		int _saveIndex;
 		
-		match("&Auml;");
+		try {      // for error handling
+			match("&Auml;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -1584,7 +1844,14 @@ tryAgain:
 		_ttype = ARING;
 		int _saveIndex;
 		
-		match("&Aring;");
+		try {      // for error handling
+			match("&Aring;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -1597,7 +1864,14 @@ tryAgain:
 		_ttype = AELIG;
 		int _saveIndex;
 		
-		match("&AElig;");
+		try {      // for error handling
+			match("&AElig;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -1610,7 +1884,14 @@ tryAgain:
 		_ttype = CCEDIL;
 		int _saveIndex;
 		
-		match("&Ccedil;");
+		try {      // for error handling
+			match("&Ccedil;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -1623,7 +1904,14 @@ tryAgain:
 		_ttype = EGRAVE;
 		int _saveIndex;
 		
-		match("&Egrave;");
+		try {      // for error handling
+			match("&Egrave;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -1636,7 +1924,14 @@ tryAgain:
 		_ttype = EACUTE;
 		int _saveIndex;
 		
-		match("&Eacute;");
+		try {      // for error handling
+			match("&Eacute;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -1649,7 +1944,14 @@ tryAgain:
 		_ttype = ECIRC;
 		int _saveIndex;
 		
-		match("&Ecirc;");
+		try {      // for error handling
+			match("&Ecirc;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -1662,7 +1964,14 @@ tryAgain:
 		_ttype = EUML;
 		int _saveIndex;
 		
-		match("&Euml;");
+		try {      // for error handling
+			match("&Euml;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -1675,7 +1984,14 @@ tryAgain:
 		_ttype = IGRAVE;
 		int _saveIndex;
 		
-		match("&Igrave;");
+		try {      // for error handling
+			match("&Igrave;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -1688,7 +2004,14 @@ tryAgain:
 		_ttype = IACUTE;
 		int _saveIndex;
 		
-		match("&Iacute;");
+		try {      // for error handling
+			match("&Iacute;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -1701,7 +2024,14 @@ tryAgain:
 		_ttype = ICIRC;
 		int _saveIndex;
 		
-		match("&Icirc;");
+		try {      // for error handling
+			match("&Icirc;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -1714,7 +2044,14 @@ tryAgain:
 		_ttype = IUML;
 		int _saveIndex;
 		
-		match("&Iuml;");
+		try {      // for error handling
+			match("&Iuml;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -1727,7 +2064,14 @@ tryAgain:
 		_ttype = ETH;
 		int _saveIndex;
 		
-		match("&ETH;");
+		try {      // for error handling
+			match("&ETH;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -1740,7 +2084,14 @@ tryAgain:
 		_ttype = NTILDE;
 		int _saveIndex;
 		
-		match("&Ntilde;");
+		try {      // for error handling
+			match("&Ntilde;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -1753,7 +2104,14 @@ tryAgain:
 		_ttype = OGRAVE;
 		int _saveIndex;
 		
-		match("&Ograve;");
+		try {      // for error handling
+			match("&Ograve;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -1766,7 +2124,14 @@ tryAgain:
 		_ttype = OACUTE;
 		int _saveIndex;
 		
-		match("&Oacute;");
+		try {      // for error handling
+			match("&Oacute;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -1779,7 +2144,14 @@ tryAgain:
 		_ttype = OCIRC;
 		int _saveIndex;
 		
-		match("&Ocirc;");
+		try {      // for error handling
+			match("&Ocirc;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -1792,7 +2164,14 @@ tryAgain:
 		_ttype = OTILDE;
 		int _saveIndex;
 		
-		match("&Otilde;");
+		try {      // for error handling
+			match("&Otilde;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -1805,7 +2184,14 @@ tryAgain:
 		_ttype = OUML;
 		int _saveIndex;
 		
-		match("&Ouml;");
+		try {      // for error handling
+			match("&Ouml;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -1818,7 +2204,14 @@ tryAgain:
 		_ttype = TIMES;
 		int _saveIndex;
 		
-		match("&times;");
+		try {      // for error handling
+			match("&times;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -1831,7 +2224,14 @@ tryAgain:
 		_ttype = OSLASH;
 		int _saveIndex;
 		
-		match("&Oslash;");
+		try {      // for error handling
+			match("&Oslash;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -1844,7 +2244,14 @@ tryAgain:
 		_ttype = UGRAVE;
 		int _saveIndex;
 		
-		match("&Ugrave;");
+		try {      // for error handling
+			match("&Ugrave;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -1857,7 +2264,14 @@ tryAgain:
 		_ttype = UACUTE;
 		int _saveIndex;
 		
-		match("&Uacute;");
+		try {      // for error handling
+			match("&Uacute;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -1870,7 +2284,14 @@ tryAgain:
 		_ttype = UCIRC;
 		int _saveIndex;
 		
-		match("&Ucirc;");
+		try {      // for error handling
+			match("&Ucirc;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -1883,7 +2304,14 @@ tryAgain:
 		_ttype = UUML;
 		int _saveIndex;
 		
-		match("&Uuml;");
+		try {      // for error handling
+			match("&Uuml;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -1896,7 +2324,14 @@ tryAgain:
 		_ttype = YACUTE;
 		int _saveIndex;
 		
-		match("&Yacute;");
+		try {      // for error handling
+			match("&Yacute;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -1909,7 +2344,14 @@ tryAgain:
 		_ttype = THORN;
 		int _saveIndex;
 		
-		match("&THORN;");
+		try {      // for error handling
+			match("&THORN;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -1922,7 +2364,14 @@ tryAgain:
 		_ttype = SZLIG;
 		int _saveIndex;
 		
-		match("&szlig;");
+		try {      // for error handling
+			match("&szlig;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -1935,7 +2384,14 @@ tryAgain:
 		_ttype = AGRAVE_LC;
 		int _saveIndex;
 		
-		match("&agrave;");
+		try {      // for error handling
+			match("&agrave;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -1948,7 +2404,14 @@ tryAgain:
 		_ttype = AACUTE_LC;
 		int _saveIndex;
 		
-		match("&aacute;");
+		try {      // for error handling
+			match("&aacute;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -1961,7 +2424,14 @@ tryAgain:
 		_ttype = ACIRC_LC;
 		int _saveIndex;
 		
-		match("&acirc;");
+		try {      // for error handling
+			match("&acirc;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -1974,7 +2444,14 @@ tryAgain:
 		_ttype = ATILDE_LC;
 		int _saveIndex;
 		
-		match("&atilde;");
+		try {      // for error handling
+			match("&atilde;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -1987,7 +2464,14 @@ tryAgain:
 		_ttype = AUML_LC;
 		int _saveIndex;
 		
-		match("&auml;");
+		try {      // for error handling
+			match("&auml;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -2000,7 +2484,14 @@ tryAgain:
 		_ttype = ARING_LC;
 		int _saveIndex;
 		
-		match("&aring;");
+		try {      // for error handling
+			match("&aring;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -2013,7 +2504,14 @@ tryAgain:
 		_ttype = AELIG_LC;
 		int _saveIndex;
 		
-		match("&aelig;");
+		try {      // for error handling
+			match("&aelig;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -2026,7 +2524,14 @@ tryAgain:
 		_ttype = CCEDIL_LC;
 		int _saveIndex;
 		
-		match("&ccedil;");
+		try {      // for error handling
+			match("&ccedil;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -2039,7 +2544,14 @@ tryAgain:
 		_ttype = EGRAVE_LC;
 		int _saveIndex;
 		
-		match("&egrave;");
+		try {      // for error handling
+			match("&egrave;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -2052,7 +2564,14 @@ tryAgain:
 		_ttype = EACUTE_LC;
 		int _saveIndex;
 		
-		match("&eacute;");
+		try {      // for error handling
+			match("&eacute;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -2065,7 +2584,14 @@ tryAgain:
 		_ttype = ECIRC_LC;
 		int _saveIndex;
 		
-		match("&ecirc;");
+		try {      // for error handling
+			match("&ecirc;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -2078,7 +2604,14 @@ tryAgain:
 		_ttype = EUML_LC;
 		int _saveIndex;
 		
-		match("&euml;");
+		try {      // for error handling
+			match("&euml;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -2091,7 +2624,14 @@ tryAgain:
 		_ttype = IGRAVE_LC;
 		int _saveIndex;
 		
-		match("&igrave;");
+		try {      // for error handling
+			match("&igrave;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -2104,7 +2644,14 @@ tryAgain:
 		_ttype = IACUTE_LC;
 		int _saveIndex;
 		
-		match("&iacute;");
+		try {      // for error handling
+			match("&iacute;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -2117,7 +2664,14 @@ tryAgain:
 		_ttype = ICIRC_LC;
 		int _saveIndex;
 		
-		match("&icirc;");
+		try {      // for error handling
+			match("&icirc;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -2130,7 +2684,14 @@ tryAgain:
 		_ttype = IUML_LC;
 		int _saveIndex;
 		
-		match("&iuml;");
+		try {      // for error handling
+			match("&iuml;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -2143,7 +2704,14 @@ tryAgain:
 		_ttype = ETH_LC;
 		int _saveIndex;
 		
-		match("&eth;");
+		try {      // for error handling
+			match("&eth;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -2156,7 +2724,14 @@ tryAgain:
 		_ttype = NTILDE_LC;
 		int _saveIndex;
 		
-		match("&ntilde;");
+		try {      // for error handling
+			match("&ntilde;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -2169,7 +2744,14 @@ tryAgain:
 		_ttype = OGRAVE_LC;
 		int _saveIndex;
 		
-		match("&ograve;");
+		try {      // for error handling
+			match("&ograve;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -2182,7 +2764,14 @@ tryAgain:
 		_ttype = OACUTE_LC;
 		int _saveIndex;
 		
-		match("&oacute;");
+		try {      // for error handling
+			match("&oacute;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -2195,7 +2784,14 @@ tryAgain:
 		_ttype = OCIRC_LC;
 		int _saveIndex;
 		
-		match("&ocirc;");
+		try {      // for error handling
+			match("&ocirc;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -2208,7 +2804,14 @@ tryAgain:
 		_ttype = OTILDE_LC;
 		int _saveIndex;
 		
-		match("&otilde;");
+		try {      // for error handling
+			match("&otilde;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -2221,7 +2824,14 @@ tryAgain:
 		_ttype = OUML_LC;
 		int _saveIndex;
 		
-		match("&ouml;");
+		try {      // for error handling
+			match("&ouml;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -2234,7 +2844,14 @@ tryAgain:
 		_ttype = DIVIDE;
 		int _saveIndex;
 		
-		match("&divide;");
+		try {      // for error handling
+			match("&divide;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -2247,7 +2864,14 @@ tryAgain:
 		_ttype = OSLASH_LC;
 		int _saveIndex;
 		
-		match("&oslash;");
+		try {      // for error handling
+			match("&oslash;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -2260,7 +2884,14 @@ tryAgain:
 		_ttype = UGRAVE_LC;
 		int _saveIndex;
 		
-		match("&ugrave;");
+		try {      // for error handling
+			match("&ugrave;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -2273,7 +2904,14 @@ tryAgain:
 		_ttype = UACUTE_LC;
 		int _saveIndex;
 		
-		match("&uacute;");
+		try {      // for error handling
+			match("&uacute;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -2286,7 +2924,14 @@ tryAgain:
 		_ttype = UCIRC_LC;
 		int _saveIndex;
 		
-		match("&ucirc;");
+		try {      // for error handling
+			match("&ucirc;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -2299,7 +2944,14 @@ tryAgain:
 		_ttype = UUML_LC;
 		int _saveIndex;
 		
-		match("&uuml;");
+		try {      // for error handling
+			match("&uuml;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -2312,7 +2964,14 @@ tryAgain:
 		_ttype = YACUTE_LC;
 		int _saveIndex;
 		
-		match("&yacute;");
+		try {      // for error handling
+			match("&yacute;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -2325,7 +2984,14 @@ tryAgain:
 		_ttype = THORN_LC;
 		int _saveIndex;
 		
-		match("&thorn;");
+		try {      // for error handling
+			match("&thorn;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -2338,7 +3004,14 @@ tryAgain:
 		_ttype = YUML_LC;
 		int _saveIndex;
 		
-		match("&yuml;");
+		try {      // for error handling
+			match("&yuml;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -2351,7 +3024,14 @@ tryAgain:
 		_ttype = ALPHA;
 		int _saveIndex;
 		
-		match("&Alpha;");
+		try {      // for error handling
+			match("&Alpha;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -2364,7 +3044,14 @@ tryAgain:
 		_ttype = BETA;
 		int _saveIndex;
 		
-		match("&Beta;");
+		try {      // for error handling
+			match("&Beta;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -2377,7 +3064,14 @@ tryAgain:
 		_ttype = GAMMA;
 		int _saveIndex;
 		
-		match("&Gamma;");
+		try {      // for error handling
+			match("&Gamma;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -2390,7 +3084,14 @@ tryAgain:
 		_ttype = DELTA;
 		int _saveIndex;
 		
-		match("&Delta;");
+		try {      // for error handling
+			match("&Delta;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -2403,7 +3104,14 @@ tryAgain:
 		_ttype = EPSILON;
 		int _saveIndex;
 		
-		match("&Epsilon;");
+		try {      // for error handling
+			match("&Epsilon;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -2416,7 +3124,14 @@ tryAgain:
 		_ttype = ZETA;
 		int _saveIndex;
 		
-		match("&Zeta;");
+		try {      // for error handling
+			match("&Zeta;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -2429,7 +3144,14 @@ tryAgain:
 		_ttype = ETA;
 		int _saveIndex;
 		
-		match("&Eta;");
+		try {      // for error handling
+			match("&Eta;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -2442,7 +3164,14 @@ tryAgain:
 		_ttype = THETA;
 		int _saveIndex;
 		
-		match("&Theta;");
+		try {      // for error handling
+			match("&Theta;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -2455,7 +3184,14 @@ tryAgain:
 		_ttype = IOTA;
 		int _saveIndex;
 		
-		match("&Iota;");
+		try {      // for error handling
+			match("&Iota;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -2468,7 +3204,14 @@ tryAgain:
 		_ttype = KAPPA;
 		int _saveIndex;
 		
-		match("&Kappa;");
+		try {      // for error handling
+			match("&Kappa;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -2481,7 +3224,14 @@ tryAgain:
 		_ttype = LAMBDA;
 		int _saveIndex;
 		
-		match("&Lambda;");
+		try {      // for error handling
+			match("&Lambda;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -2494,7 +3244,14 @@ tryAgain:
 		_ttype = MU;
 		int _saveIndex;
 		
-		match("&Mu;");
+		try {      // for error handling
+			match("&Mu;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -2507,7 +3264,14 @@ tryAgain:
 		_ttype = NU;
 		int _saveIndex;
 		
-		match("&Nu;");
+		try {      // for error handling
+			match("&Nu;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -2520,7 +3284,14 @@ tryAgain:
 		_ttype = XI;
 		int _saveIndex;
 		
-		match("&Xi;");
+		try {      // for error handling
+			match("&Xi;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -2533,7 +3304,14 @@ tryAgain:
 		_ttype = OMICRON;
 		int _saveIndex;
 		
-		match("&Omicron;");
+		try {      // for error handling
+			match("&Omicron;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -2546,7 +3324,14 @@ tryAgain:
 		_ttype = PI;
 		int _saveIndex;
 		
-		match("&Pi;");
+		try {      // for error handling
+			match("&Pi;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -2559,7 +3344,14 @@ tryAgain:
 		_ttype = RHO;
 		int _saveIndex;
 		
-		match("&Rho;");
+		try {      // for error handling
+			match("&Rho;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -2572,7 +3364,14 @@ tryAgain:
 		_ttype = SIGMA;
 		int _saveIndex;
 		
-		match("&Sigma;");
+		try {      // for error handling
+			match("&Sigma;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -2585,7 +3384,14 @@ tryAgain:
 		_ttype = TAU;
 		int _saveIndex;
 		
-		match("&Tau;");
+		try {      // for error handling
+			match("&Tau;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -2598,7 +3404,14 @@ tryAgain:
 		_ttype = UPSILON;
 		int _saveIndex;
 		
-		match("&Upsilon;");
+		try {      // for error handling
+			match("&Upsilon;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -2611,7 +3424,14 @@ tryAgain:
 		_ttype = PHI;
 		int _saveIndex;
 		
-		match("&Phi;");
+		try {      // for error handling
+			match("&Phi;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -2624,7 +3444,14 @@ tryAgain:
 		_ttype = CHI;
 		int _saveIndex;
 		
-		match("&Chi;");
+		try {      // for error handling
+			match("&Chi;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -2637,7 +3464,14 @@ tryAgain:
 		_ttype = PSI;
 		int _saveIndex;
 		
-		match("&Psi;");
+		try {      // for error handling
+			match("&Psi;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -2650,7 +3484,14 @@ tryAgain:
 		_ttype = OMEGA;
 		int _saveIndex;
 		
-		match("&Omega;");
+		try {      // for error handling
+			match("&Omega;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -2663,7 +3504,14 @@ tryAgain:
 		_ttype = ALPHA_LC;
 		int _saveIndex;
 		
-		match("&alpha;");
+		try {      // for error handling
+			match("&alpha;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -2676,7 +3524,14 @@ tryAgain:
 		_ttype = BETA_LC;
 		int _saveIndex;
 		
-		match("&beta;");
+		try {      // for error handling
+			match("&beta;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -2689,7 +3544,14 @@ tryAgain:
 		_ttype = GAMMA_LC;
 		int _saveIndex;
 		
-		match("&gamma;");
+		try {      // for error handling
+			match("&gamma;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -2702,7 +3564,14 @@ tryAgain:
 		_ttype = DELTA_LC;
 		int _saveIndex;
 		
-		match("&delta;");
+		try {      // for error handling
+			match("&delta;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -2715,7 +3584,14 @@ tryAgain:
 		_ttype = EPSILON_LC;
 		int _saveIndex;
 		
-		match("&epsilon;");
+		try {      // for error handling
+			match("&epsilon;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -2728,7 +3604,14 @@ tryAgain:
 		_ttype = ZETA_LC;
 		int _saveIndex;
 		
-		match("&zeta;");
+		try {      // for error handling
+			match("&zeta;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -2741,7 +3624,14 @@ tryAgain:
 		_ttype = ETA_LC;
 		int _saveIndex;
 		
-		match("&eta;");
+		try {      // for error handling
+			match("&eta;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -2754,7 +3644,14 @@ tryAgain:
 		_ttype = THETA_LC;
 		int _saveIndex;
 		
-		match("&theta;");
+		try {      // for error handling
+			match("&theta;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -2767,7 +3664,14 @@ tryAgain:
 		_ttype = IOTA_LC;
 		int _saveIndex;
 		
-		match("&iota;");
+		try {      // for error handling
+			match("&iota;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -2780,7 +3684,14 @@ tryAgain:
 		_ttype = KAPPA_LC;
 		int _saveIndex;
 		
-		match("&kappa;");
+		try {      // for error handling
+			match("&kappa;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -2793,7 +3704,14 @@ tryAgain:
 		_ttype = LAMBDA_LC;
 		int _saveIndex;
 		
-		match("&lambda;");
+		try {      // for error handling
+			match("&lambda;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -2806,7 +3724,14 @@ tryAgain:
 		_ttype = MU_LC;
 		int _saveIndex;
 		
-		match("&mu;");
+		try {      // for error handling
+			match("&mu;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -2819,7 +3744,14 @@ tryAgain:
 		_ttype = NU_LC;
 		int _saveIndex;
 		
-		match("&nu;");
+		try {      // for error handling
+			match("&nu;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -2832,7 +3764,14 @@ tryAgain:
 		_ttype = XI_LC;
 		int _saveIndex;
 		
-		match("&xi;");
+		try {      // for error handling
+			match("&xi;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -2845,7 +3784,14 @@ tryAgain:
 		_ttype = OMICRON_LC;
 		int _saveIndex;
 		
-		match("&omicron;");
+		try {      // for error handling
+			match("&omicron;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -2858,7 +3804,14 @@ tryAgain:
 		_ttype = PI_LC;
 		int _saveIndex;
 		
-		match("&pi;");
+		try {      // for error handling
+			match("&pi;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -2871,7 +3824,14 @@ tryAgain:
 		_ttype = RHO_LC;
 		int _saveIndex;
 		
-		match("&rho;");
+		try {      // for error handling
+			match("&rho;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -2884,7 +3844,14 @@ tryAgain:
 		_ttype = SIGMAF_LC;
 		int _saveIndex;
 		
-		match("&sigmaf;");
+		try {      // for error handling
+			match("&sigmaf;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -2897,7 +3864,14 @@ tryAgain:
 		_ttype = SIGMA_LC;
 		int _saveIndex;
 		
-		match("&sigma;");
+		try {      // for error handling
+			match("&sigma;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -2910,7 +3884,14 @@ tryAgain:
 		_ttype = TAU_LC;
 		int _saveIndex;
 		
-		match("&tau;");
+		try {      // for error handling
+			match("&tau;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -2923,7 +3904,14 @@ tryAgain:
 		_ttype = UPSILON_LC;
 		int _saveIndex;
 		
-		match("&upsilon;");
+		try {      // for error handling
+			match("&upsilon;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -2936,7 +3924,14 @@ tryAgain:
 		_ttype = PHI_LC;
 		int _saveIndex;
 		
-		match("&phi;");
+		try {      // for error handling
+			match("&phi;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -2949,7 +3944,14 @@ tryAgain:
 		_ttype = CHI_LC;
 		int _saveIndex;
 		
-		match("&chi;");
+		try {      // for error handling
+			match("&chi;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -2962,7 +3964,14 @@ tryAgain:
 		_ttype = PSI_LC;
 		int _saveIndex;
 		
-		match("&psi;");
+		try {      // for error handling
+			match("&psi;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -2975,7 +3984,14 @@ tryAgain:
 		_ttype = OMEGA_LC;
 		int _saveIndex;
 		
-		match("&omega;");
+		try {      // for error handling
+			match("&omega;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -2988,7 +4004,14 @@ tryAgain:
 		_ttype = THETASYM;
 		int _saveIndex;
 		
-		match("&thetasym;");
+		try {      // for error handling
+			match("&thetasym;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -3001,7 +4024,14 @@ tryAgain:
 		_ttype = UPSIH;
 		int _saveIndex;
 		
-		match("&upsih;");
+		try {      // for error handling
+			match("&upsih;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -3014,7 +4044,14 @@ tryAgain:
 		_ttype = PIV;
 		int _saveIndex;
 		
-		match("&piv;");
+		try {      // for error handling
+			match("&piv;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -3027,7 +4064,14 @@ tryAgain:
 		_ttype = BULL;
 		int _saveIndex;
 		
-		match("&bull;");
+		try {      // for error handling
+			match("&bull;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -3040,7 +4084,14 @@ tryAgain:
 		_ttype = HELLIP;
 		int _saveIndex;
 		
-		match("&hellip;");
+		try {      // for error handling
+			match("&hellip;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -3053,7 +4104,14 @@ tryAgain:
 		_ttype = PRIME_LC;
 		int _saveIndex;
 		
-		match("&prime;");
+		try {      // for error handling
+			match("&prime;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -3066,7 +4124,14 @@ tryAgain:
 		_ttype = PRIME;
 		int _saveIndex;
 		
-		match("&Prime;");
+		try {      // for error handling
+			match("&Prime;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -3079,7 +4144,14 @@ tryAgain:
 		_ttype = OLINE;
 		int _saveIndex;
 		
-		match("&oline;");
+		try {      // for error handling
+			match("&oline;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -3092,7 +4164,14 @@ tryAgain:
 		_ttype = FRASL;
 		int _saveIndex;
 		
-		match("&frasl;");
+		try {      // for error handling
+			match("&frasl;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -3105,7 +4184,14 @@ tryAgain:
 		_ttype = WEIERP;
 		int _saveIndex;
 		
-		match("&weierp;");
+		try {      // for error handling
+			match("&weierp;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -3118,7 +4204,14 @@ tryAgain:
 		_ttype = IMAGE;
 		int _saveIndex;
 		
-		match("&image;");
+		try {      // for error handling
+			match("&image;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -3131,7 +4224,14 @@ tryAgain:
 		_ttype = REAL;
 		int _saveIndex;
 		
-		match("&real;");
+		try {      // for error handling
+			match("&real;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -3144,7 +4244,14 @@ tryAgain:
 		_ttype = TRADE;
 		int _saveIndex;
 		
-		match("&trade;");
+		try {      // for error handling
+			match("&trade;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -3157,7 +4264,14 @@ tryAgain:
 		_ttype = ALEFSYM;
 		int _saveIndex;
 		
-		match("&alefsym;");
+		try {      // for error handling
+			match("&alefsym;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -3170,7 +4284,14 @@ tryAgain:
 		_ttype = LARR;
 		int _saveIndex;
 		
-		match("&larr;");
+		try {      // for error handling
+			match("&larr;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -3183,7 +4304,14 @@ tryAgain:
 		_ttype = UARR;
 		int _saveIndex;
 		
-		match("&uarr;");
+		try {      // for error handling
+			match("&uarr;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -3196,7 +4324,14 @@ tryAgain:
 		_ttype = RARR;
 		int _saveIndex;
 		
-		match("&rarr;");
+		try {      // for error handling
+			match("&rarr;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -3209,7 +4344,14 @@ tryAgain:
 		_ttype = DARR;
 		int _saveIndex;
 		
-		match("&darr;");
+		try {      // for error handling
+			match("&darr;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -3222,7 +4364,14 @@ tryAgain:
 		_ttype = HARR;
 		int _saveIndex;
 		
-		match("&harr;");
+		try {      // for error handling
+			match("&harr;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -3235,7 +4384,14 @@ tryAgain:
 		_ttype = CRARR;
 		int _saveIndex;
 		
-		match("&crarr;");
+		try {      // for error handling
+			match("&crarr;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -3248,7 +4404,14 @@ tryAgain:
 		_ttype = LARR_D;
 		int _saveIndex;
 		
-		match("&lArr;");
+		try {      // for error handling
+			match("&lArr;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -3261,7 +4424,14 @@ tryAgain:
 		_ttype = UARR_D;
 		int _saveIndex;
 		
-		match("&uArr;");
+		try {      // for error handling
+			match("&uArr;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -3274,7 +4444,14 @@ tryAgain:
 		_ttype = RARR_D;
 		int _saveIndex;
 		
-		match("&rArr;");
+		try {      // for error handling
+			match("&rArr;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -3287,7 +4464,14 @@ tryAgain:
 		_ttype = DARR_D;
 		int _saveIndex;
 		
-		match("&dArr;");
+		try {      // for error handling
+			match("&dArr;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -3300,7 +4484,14 @@ tryAgain:
 		_ttype = HARR_D;
 		int _saveIndex;
 		
-		match("&hArr;");
+		try {      // for error handling
+			match("&hArr;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -3313,7 +4504,14 @@ tryAgain:
 		_ttype = FORALL;
 		int _saveIndex;
 		
-		match("&forall;");
+		try {      // for error handling
+			match("&forall;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -3326,7 +4524,14 @@ tryAgain:
 		_ttype = PART;
 		int _saveIndex;
 		
-		match("&part;");
+		try {      // for error handling
+			match("&part;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -3339,7 +4544,14 @@ tryAgain:
 		_ttype = EXIST;
 		int _saveIndex;
 		
-		match("&exist;");
+		try {      // for error handling
+			match("&exist;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -3352,7 +4564,14 @@ tryAgain:
 		_ttype = EMPTY;
 		int _saveIndex;
 		
-		match("&empty;");
+		try {      // for error handling
+			match("&empty;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -3365,7 +4584,14 @@ tryAgain:
 		_ttype = NABLA;
 		int _saveIndex;
 		
-		match("&nabla;");
+		try {      // for error handling
+			match("&nabla;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -3378,7 +4604,14 @@ tryAgain:
 		_ttype = ISIN;
 		int _saveIndex;
 		
-		match("&isin;");
+		try {      // for error handling
+			match("&isin;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -3391,7 +4624,14 @@ tryAgain:
 		_ttype = NOTIN;
 		int _saveIndex;
 		
-		match("&notin;");
+		try {      // for error handling
+			match("&notin;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -3404,7 +4644,14 @@ tryAgain:
 		_ttype = NI;
 		int _saveIndex;
 		
-		match("&ni;");
+		try {      // for error handling
+			match("&ni;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -3417,7 +4664,14 @@ tryAgain:
 		_ttype = PROD;
 		int _saveIndex;
 		
-		match("&prod;");
+		try {      // for error handling
+			match("&prod;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -3430,7 +4684,14 @@ tryAgain:
 		_ttype = SUM;
 		int _saveIndex;
 		
-		match("&sum;");
+		try {      // for error handling
+			match("&sum;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -3443,7 +4704,14 @@ tryAgain:
 		_ttype = MINUS;
 		int _saveIndex;
 		
-		match("&minus;");
+		try {      // for error handling
+			match("&minus;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -3456,7 +4724,14 @@ tryAgain:
 		_ttype = LOWAST;
 		int _saveIndex;
 		
-		match("&lowast;");
+		try {      // for error handling
+			match("&lowast;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -3469,7 +4744,14 @@ tryAgain:
 		_ttype = RADIC;
 		int _saveIndex;
 		
-		match("&radic;");
+		try {      // for error handling
+			match("&radic;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -3482,7 +4764,14 @@ tryAgain:
 		_ttype = PROP;
 		int _saveIndex;
 		
-		match("&prop;");
+		try {      // for error handling
+			match("&prop;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -3495,7 +4784,14 @@ tryAgain:
 		_ttype = INFIN;
 		int _saveIndex;
 		
-		match("&infin;");
+		try {      // for error handling
+			match("&infin;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -3508,7 +4804,14 @@ tryAgain:
 		_ttype = ANG;
 		int _saveIndex;
 		
-		match("&ang;");
+		try {      // for error handling
+			match("&ang;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -3521,7 +4824,14 @@ tryAgain:
 		_ttype = AND;
 		int _saveIndex;
 		
-		match("&and;");
+		try {      // for error handling
+			match("&and;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -3534,7 +4844,14 @@ tryAgain:
 		_ttype = OR;
 		int _saveIndex;
 		
-		match("&or;");
+		try {      // for error handling
+			match("&or;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -3547,7 +4864,14 @@ tryAgain:
 		_ttype = CAP;
 		int _saveIndex;
 		
-		match("&cap;");
+		try {      // for error handling
+			match("&cap;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -3560,7 +4884,14 @@ tryAgain:
 		_ttype = CUP;
 		int _saveIndex;
 		
-		match("&cup;");
+		try {      // for error handling
+			match("&cup;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -3573,7 +4904,14 @@ tryAgain:
 		_ttype = INT;
 		int _saveIndex;
 		
-		match("&int;");
+		try {      // for error handling
+			match("&int;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -3586,7 +4924,14 @@ tryAgain:
 		_ttype = THERE4;
 		int _saveIndex;
 		
-		match("&there4;");
+		try {      // for error handling
+			match("&there4;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -3599,7 +4944,14 @@ tryAgain:
 		_ttype = SIM;
 		int _saveIndex;
 		
-		match("&sim;");
+		try {      // for error handling
+			match("&sim;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -3612,7 +4964,14 @@ tryAgain:
 		_ttype = CONG;
 		int _saveIndex;
 		
-		match("&cong;");
+		try {      // for error handling
+			match("&cong;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -3625,7 +4984,14 @@ tryAgain:
 		_ttype = ASYMP;
 		int _saveIndex;
 		
-		match("&asymp;");
+		try {      // for error handling
+			match("&asymp;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -3638,7 +5004,14 @@ tryAgain:
 		_ttype = NE;
 		int _saveIndex;
 		
-		match("&ne;");
+		try {      // for error handling
+			match("&ne;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -3651,7 +5024,14 @@ tryAgain:
 		_ttype = EQUIV;
 		int _saveIndex;
 		
-		match("&equiv;");
+		try {      // for error handling
+			match("&equiv;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -3664,7 +5044,14 @@ tryAgain:
 		_ttype = LE;
 		int _saveIndex;
 		
-		match("&le;");
+		try {      // for error handling
+			match("&le;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -3677,7 +5064,14 @@ tryAgain:
 		_ttype = GE;
 		int _saveIndex;
 		
-		match("&ge;");
+		try {      // for error handling
+			match("&ge;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -3690,7 +5084,14 @@ tryAgain:
 		_ttype = SUB;
 		int _saveIndex;
 		
-		match("&sub;");
+		try {      // for error handling
+			match("&sub;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -3703,7 +5104,14 @@ tryAgain:
 		_ttype = SUP;
 		int _saveIndex;
 		
-		match("&sup;");
+		try {      // for error handling
+			match("&sup;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -3716,7 +5124,14 @@ tryAgain:
 		_ttype = NSUB;
 		int _saveIndex;
 		
-		match("&nsub;");
+		try {      // for error handling
+			match("&nsub;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -3729,7 +5144,14 @@ tryAgain:
 		_ttype = SUBE;
 		int _saveIndex;
 		
-		match("&sube;");
+		try {      // for error handling
+			match("&sube;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -3742,7 +5164,14 @@ tryAgain:
 		_ttype = SUPE;
 		int _saveIndex;
 		
-		match("&supe;");
+		try {      // for error handling
+			match("&supe;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -3755,7 +5184,14 @@ tryAgain:
 		_ttype = OPLUS;
 		int _saveIndex;
 		
-		match("&oplus;");
+		try {      // for error handling
+			match("&oplus;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -3768,7 +5204,14 @@ tryAgain:
 		_ttype = OTIMES;
 		int _saveIndex;
 		
-		match("&otimes;");
+		try {      // for error handling
+			match("&otimes;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -3781,7 +5224,14 @@ tryAgain:
 		_ttype = PERP;
 		int _saveIndex;
 		
-		match("&perp;");
+		try {      // for error handling
+			match("&perp;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -3794,7 +5244,14 @@ tryAgain:
 		_ttype = SDOT;
 		int _saveIndex;
 		
-		match("&sdot;");
+		try {      // for error handling
+			match("&sdot;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -3807,7 +5264,14 @@ tryAgain:
 		_ttype = LCEIL;
 		int _saveIndex;
 		
-		match("&lceil;");
+		try {      // for error handling
+			match("&lceil;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -3820,7 +5284,14 @@ tryAgain:
 		_ttype = RCEIL;
 		int _saveIndex;
 		
-		match("&rceil;");
+		try {      // for error handling
+			match("&rceil;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -3833,7 +5304,14 @@ tryAgain:
 		_ttype = LFLOOR;
 		int _saveIndex;
 		
-		match("&lfloor;");
+		try {      // for error handling
+			match("&lfloor;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -3846,7 +5324,14 @@ tryAgain:
 		_ttype = RFLOOR;
 		int _saveIndex;
 		
-		match("&rfloor;");
+		try {      // for error handling
+			match("&rfloor;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -3859,7 +5344,14 @@ tryAgain:
 		_ttype = LANG;
 		int _saveIndex;
 		
-		match("&lang;");
+		try {      // for error handling
+			match("&lang;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -3872,7 +5364,14 @@ tryAgain:
 		_ttype = RANG;
 		int _saveIndex;
 		
-		match("&rang;");
+		try {      // for error handling
+			match("&rang;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -3885,7 +5384,14 @@ tryAgain:
 		_ttype = LOZ;
 		int _saveIndex;
 		
-		match("&loz;");
+		try {      // for error handling
+			match("&loz;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -3898,7 +5404,14 @@ tryAgain:
 		_ttype = SPADES;
 		int _saveIndex;
 		
-		match("&spades;");
+		try {      // for error handling
+			match("&spades;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -3911,7 +5424,14 @@ tryAgain:
 		_ttype = CLUBS;
 		int _saveIndex;
 		
-		match("&clubs;");
+		try {      // for error handling
+			match("&clubs;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -3924,7 +5444,14 @@ tryAgain:
 		_ttype = HEARTS;
 		int _saveIndex;
 		
-		match("&hearts;");
+		try {      // for error handling
+			match("&hearts;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -3937,7 +5464,14 @@ tryAgain:
 		_ttype = DIAMS;
 		int _saveIndex;
 		
-		match("&diams;");
+		try {      // for error handling
+			match("&diams;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -3950,7 +5484,14 @@ tryAgain:
 		_ttype = QUOT;
 		int _saveIndex;
 		
-		match("&quot;");
+		try {      // for error handling
+			match("&quot;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -3963,7 +5504,14 @@ tryAgain:
 		_ttype = AMP;
 		int _saveIndex;
 		
-		match("&amp;");
+		try {      // for error handling
+			match("&amp;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -3976,7 +5524,14 @@ tryAgain:
 		_ttype = LT;
 		int _saveIndex;
 		
-		match("&lt;");
+		try {      // for error handling
+			match("&lt;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -3989,7 +5544,14 @@ tryAgain:
 		_ttype = GT;
 		int _saveIndex;
 		
-		match("&gt;");
+		try {      // for error handling
+			match("&gt;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -4002,7 +5564,14 @@ tryAgain:
 		_ttype = OELIG;
 		int _saveIndex;
 		
-		match("&OElig;");
+		try {      // for error handling
+			match("&OElig;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -4015,7 +5584,14 @@ tryAgain:
 		_ttype = OELIG_LC;
 		int _saveIndex;
 		
-		match("&oelig;");
+		try {      // for error handling
+			match("&oelig;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -4028,7 +5604,14 @@ tryAgain:
 		_ttype = SCARON;
 		int _saveIndex;
 		
-		match("&Scaron;");
+		try {      // for error handling
+			match("&Scaron;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -4041,7 +5624,14 @@ tryAgain:
 		_ttype = SCARON_LC;
 		int _saveIndex;
 		
-		match("&scaron;");
+		try {      // for error handling
+			match("&scaron;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -4054,7 +5644,14 @@ tryAgain:
 		_ttype = YUML;
 		int _saveIndex;
 		
-		match("&Yuml;");
+		try {      // for error handling
+			match("&Yuml;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -4067,7 +5664,14 @@ tryAgain:
 		_ttype = CIRC;
 		int _saveIndex;
 		
-		match("&circ;");
+		try {      // for error handling
+			match("&circ;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -4080,7 +5684,14 @@ tryAgain:
 		_ttype = TILDE;
 		int _saveIndex;
 		
-		match("&tilde;");
+		try {      // for error handling
+			match("&tilde;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -4093,7 +5704,14 @@ tryAgain:
 		_ttype = ENSP;
 		int _saveIndex;
 		
-		match("&ensp;");
+		try {      // for error handling
+			match("&ensp;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -4106,7 +5724,14 @@ tryAgain:
 		_ttype = EMSP;
 		int _saveIndex;
 		
-		match("&emsp;");
+		try {      // for error handling
+			match("&emsp;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -4119,7 +5744,14 @@ tryAgain:
 		_ttype = THINSP;
 		int _saveIndex;
 		
-		match("&thinsp;");
+		try {      // for error handling
+			match("&thinsp;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -4132,7 +5764,14 @@ tryAgain:
 		_ttype = ZWNJ;
 		int _saveIndex;
 		
-		match("&zwnj;");
+		try {      // for error handling
+			match("&zwnj;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -4145,7 +5784,14 @@ tryAgain:
 		_ttype = ZWJ;
 		int _saveIndex;
 		
-		match("&zwj;");
+		try {      // for error handling
+			match("&zwj;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -4158,7 +5804,14 @@ tryAgain:
 		_ttype = LRM;
 		int _saveIndex;
 		
-		match("&lrm;");
+		try {      // for error handling
+			match("&lrm;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -4171,7 +5824,14 @@ tryAgain:
 		_ttype = RLM;
 		int _saveIndex;
 		
-		match("&rlm;");
+		try {      // for error handling
+			match("&rlm;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -4184,7 +5844,14 @@ tryAgain:
 		_ttype = NDASH;
 		int _saveIndex;
 		
-		match("&ndash;");
+		try {      // for error handling
+			match("&ndash;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -4197,7 +5864,14 @@ tryAgain:
 		_ttype = MDASH;
 		int _saveIndex;
 		
-		match("&mdash;");
+		try {      // for error handling
+			match("&mdash;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -4210,7 +5884,14 @@ tryAgain:
 		_ttype = LSQUO;
 		int _saveIndex;
 		
-		match("&lsquo;");
+		try {      // for error handling
+			match("&lsquo;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -4223,7 +5904,14 @@ tryAgain:
 		_ttype = RSQUO;
 		int _saveIndex;
 		
-		match("&rsquo;");
+		try {      // for error handling
+			match("&rsquo;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -4236,7 +5924,14 @@ tryAgain:
 		_ttype = SBQUO;
 		int _saveIndex;
 		
-		match("&sbquo;");
+		try {      // for error handling
+			match("&sbquo;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -4249,7 +5944,14 @@ tryAgain:
 		_ttype = LDQUO;
 		int _saveIndex;
 		
-		match("&ldquo;");
+		try {      // for error handling
+			match("&ldquo;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -4262,7 +5964,14 @@ tryAgain:
 		_ttype = RDQUO;
 		int _saveIndex;
 		
-		match("&rdquo;");
+		try {      // for error handling
+			match("&rdquo;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -4275,7 +5984,14 @@ tryAgain:
 		_ttype = BDQUO;
 		int _saveIndex;
 		
-		match("&bdquo;");
+		try {      // for error handling
+			match("&bdquo;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -4288,7 +6004,14 @@ tryAgain:
 		_ttype = DAGGER_LC;
 		int _saveIndex;
 		
-		match("&dagger;");
+		try {      // for error handling
+			match("&dagger;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -4301,7 +6024,14 @@ tryAgain:
 		_ttype = DAGGER;
 		int _saveIndex;
 		
-		match("&Dagger;");
+		try {      // for error handling
+			match("&Dagger;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -4314,7 +6044,14 @@ tryAgain:
 		_ttype = PERMIL;
 		int _saveIndex;
 		
-		match("&permil;");
+		try {      // for error handling
+			match("&permil;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -4327,7 +6064,14 @@ tryAgain:
 		_ttype = LSAQUO;
 		int _saveIndex;
 		
-		match("&lsaquo;");
+		try {      // for error handling
+			match("&lsaquo;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -4340,7 +6084,14 @@ tryAgain:
 		_ttype = RSAQUO;
 		int _saveIndex;
 		
-		match("&rsaquo;");
+		try {      // for error handling
+			match("&rsaquo;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -4353,7 +6104,14 @@ tryAgain:
 		_ttype = EURO;
 		int _saveIndex;
 		
-		match("&euro;");
+		try {      // for error handling
+			match("&euro;");
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -4366,60 +6124,67 @@ tryAgain:
 		_ttype = NCR_D;
 		int _saveIndex;
 		
-		_saveIndex=text.length();
-		match("&#");
-		text.setLength(_saveIndex);
-		{
-		if (((LA(1) >= '0' && LA(1) <= '9')) && ((LA(2) >= '0' && LA(2) <= '9')) && ((LA(3) >= '0' && LA(3) <= '9')) && ((LA(4) >= '0' && LA(4) <= '9')) && ((LA(5) >= '0' && LA(5) <= '9')) && ((LA(6) >= '0' && LA(6) <= '9')) && (LA(7)==';')) {
-			mDIGIT(false);
-			mDIGIT(false);
-			mDIGIT(false);
-			mDIGIT(false);
-			mDIGIT(false);
-			mDIGIT(false);
+		try {      // for error handling
+			_saveIndex=text.length();
+			match("&#");
+			text.setLength(_saveIndex);
+			{
+			if (((LA(1) >= '0' && LA(1) <= '9')) && ((LA(2) >= '0' && LA(2) <= '9')) && ((LA(3) >= '0' && LA(3) <= '9')) && ((LA(4) >= '0' && LA(4) <= '9')) && ((LA(5) >= '0' && LA(5) <= '9')) && ((LA(6) >= '0' && LA(6) <= '9')) && (LA(7)==';')) {
+				mDIGIT(false);
+				mDIGIT(false);
+				mDIGIT(false);
+				mDIGIT(false);
+				mDIGIT(false);
+				mDIGIT(false);
+			}
+			else if (((LA(1) >= '0' && LA(1) <= '9')) && ((LA(2) >= '0' && LA(2) <= '9')) && ((LA(3) >= '0' && LA(3) <= '9')) && ((LA(4) >= '0' && LA(4) <= '9')) && ((LA(5) >= '0' && LA(5) <= '9')) && ((LA(6) >= '0' && LA(6) <= '9')) && ((LA(7) >= '0' && LA(7) <= '9'))) {
+				mDIGIT(false);
+				mDIGIT(false);
+				mDIGIT(false);
+				mDIGIT(false);
+				mDIGIT(false);
+				mDIGIT(false);
+				mDIGIT(false);
+			}
+			else if (((LA(1) >= '0' && LA(1) <= '9')) && ((LA(2) >= '0' && LA(2) <= '9')) && ((LA(3) >= '0' && LA(3) <= '9')) && ((LA(4) >= '0' && LA(4) <= '9')) && ((LA(5) >= '0' && LA(5) <= '9')) && (LA(6)==';')) {
+				mDIGIT(false);
+				mDIGIT(false);
+				mDIGIT(false);
+				mDIGIT(false);
+				mDIGIT(false);
+			}
+			else if (((LA(1) >= '0' && LA(1) <= '9')) && ((LA(2) >= '0' && LA(2) <= '9')) && ((LA(3) >= '0' && LA(3) <= '9')) && ((LA(4) >= '0' && LA(4) <= '9')) && (LA(5)==';')) {
+				mDIGIT(false);
+				mDIGIT(false);
+				mDIGIT(false);
+				mDIGIT(false);
+			}
+			else if (((LA(1) >= '0' && LA(1) <= '9')) && ((LA(2) >= '0' && LA(2) <= '9')) && ((LA(3) >= '0' && LA(3) <= '9')) && (LA(4)==';')) {
+				mDIGIT(false);
+				mDIGIT(false);
+				mDIGIT(false);
+			}
+			else if (((LA(1) >= '0' && LA(1) <= '9')) && ((LA(2) >= '0' && LA(2) <= '9')) && (LA(3)==';')) {
+				mDIGIT(false);
+				mDIGIT(false);
+			}
+			else if (((LA(1) >= '0' && LA(1) <= '9')) && (LA(2)==';')) {
+				mDIGIT(false);
+			}
+			else {
+				throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());
+			}
+			
+			}
+			_saveIndex=text.length();
+			match(";");
+			text.setLength(_saveIndex);
 		}
-		else if (((LA(1) >= '0' && LA(1) <= '9')) && ((LA(2) >= '0' && LA(2) <= '9')) && ((LA(3) >= '0' && LA(3) <= '9')) && ((LA(4) >= '0' && LA(4) <= '9')) && ((LA(5) >= '0' && LA(5) <= '9')) && ((LA(6) >= '0' && LA(6) <= '9')) && ((LA(7) >= '0' && LA(7) <= '9'))) {
-			mDIGIT(false);
-			mDIGIT(false);
-			mDIGIT(false);
-			mDIGIT(false);
-			mDIGIT(false);
-			mDIGIT(false);
-			mDIGIT(false);
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
 		}
-		else if (((LA(1) >= '0' && LA(1) <= '9')) && ((LA(2) >= '0' && LA(2) <= '9')) && ((LA(3) >= '0' && LA(3) <= '9')) && ((LA(4) >= '0' && LA(4) <= '9')) && ((LA(5) >= '0' && LA(5) <= '9')) && (LA(6)==';')) {
-			mDIGIT(false);
-			mDIGIT(false);
-			mDIGIT(false);
-			mDIGIT(false);
-			mDIGIT(false);
-		}
-		else if (((LA(1) >= '0' && LA(1) <= '9')) && ((LA(2) >= '0' && LA(2) <= '9')) && ((LA(3) >= '0' && LA(3) <= '9')) && ((LA(4) >= '0' && LA(4) <= '9')) && (LA(5)==';')) {
-			mDIGIT(false);
-			mDIGIT(false);
-			mDIGIT(false);
-			mDIGIT(false);
-		}
-		else if (((LA(1) >= '0' && LA(1) <= '9')) && ((LA(2) >= '0' && LA(2) <= '9')) && ((LA(3) >= '0' && LA(3) <= '9')) && (LA(4)==';')) {
-			mDIGIT(false);
-			mDIGIT(false);
-			mDIGIT(false);
-		}
-		else if (((LA(1) >= '0' && LA(1) <= '9')) && ((LA(2) >= '0' && LA(2) <= '9')) && (LA(3)==';')) {
-			mDIGIT(false);
-			mDIGIT(false);
-		}
-		else if (((LA(1) >= '0' && LA(1) <= '9')) && (LA(2)==';')) {
-			mDIGIT(false);
-		}
-		else {
-			throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());
-		}
-		
-		}
-		_saveIndex=text.length();
-		match(";");
-		text.setLength(_saveIndex);
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -4432,7 +6197,14 @@ tryAgain:
 		_ttype = DIGIT;
 		int _saveIndex;
 		
-		matchRange('0','9');
+		try {      // for error handling
+			matchRange('0','9');
+		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_1);
+		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -4445,64 +6217,71 @@ tryAgain:
 		_ttype = NCR_H;
 		int _saveIndex;
 		
-		{
-		if ((LA(1)=='&') && (LA(2)=='#') && (LA(3)=='x')) {
+		try {      // for error handling
+			{
+			if ((LA(1)=='&') && (LA(2)=='#') && (LA(3)=='x')) {
+				_saveIndex=text.length();
+				match("&#x");
+				text.setLength(_saveIndex);
+			}
+			else if ((LA(1)=='&') && (LA(2)=='#') && (LA(3)=='X')) {
+				_saveIndex=text.length();
+				match("&#X");
+				text.setLength(_saveIndex);
+			}
+			else {
+				throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());
+			}
+			
+			}
+			{
+			if ((_tokenSet_2.member(LA(1))) && (_tokenSet_2.member(LA(2))) && (_tokenSet_2.member(LA(3))) && (_tokenSet_2.member(LA(4))) && (_tokenSet_2.member(LA(5))) && (LA(6)==';')) {
+				mHEXDIGIT(false);
+				mHEXDIGIT(false);
+				mHEXDIGIT(false);
+				mHEXDIGIT(false);
+				mHEXDIGIT(false);
+			}
+			else if ((_tokenSet_2.member(LA(1))) && (_tokenSet_2.member(LA(2))) && (_tokenSet_2.member(LA(3))) && (_tokenSet_2.member(LA(4))) && (_tokenSet_2.member(LA(5))) && (_tokenSet_2.member(LA(6)))) {
+				mHEXDIGIT(false);
+				mHEXDIGIT(false);
+				mHEXDIGIT(false);
+				mHEXDIGIT(false);
+				mHEXDIGIT(false);
+				mHEXDIGIT(false);
+			}
+			else if ((_tokenSet_2.member(LA(1))) && (_tokenSet_2.member(LA(2))) && (_tokenSet_2.member(LA(3))) && (_tokenSet_2.member(LA(4))) && (LA(5)==';')) {
+				mHEXDIGIT(false);
+				mHEXDIGIT(false);
+				mHEXDIGIT(false);
+				mHEXDIGIT(false);
+			}
+			else if ((_tokenSet_2.member(LA(1))) && (_tokenSet_2.member(LA(2))) && (_tokenSet_2.member(LA(3))) && (LA(4)==';')) {
+				mHEXDIGIT(false);
+				mHEXDIGIT(false);
+				mHEXDIGIT(false);
+			}
+			else if ((_tokenSet_2.member(LA(1))) && (_tokenSet_2.member(LA(2))) && (LA(3)==';')) {
+				mHEXDIGIT(false);
+				mHEXDIGIT(false);
+			}
+			else if ((_tokenSet_2.member(LA(1))) && (LA(2)==';')) {
+				mHEXDIGIT(false);
+			}
+			else {
+				throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());
+			}
+			
+			}
 			_saveIndex=text.length();
-			match("&#x");
+			match(";");
 			text.setLength(_saveIndex);
 		}
-		else if ((LA(1)=='&') && (LA(2)=='#') && (LA(3)=='X')) {
-			_saveIndex=text.length();
-			match("&#X");
-			text.setLength(_saveIndex);
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
 		}
-		else {
-			throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());
-		}
-		
-		}
-		{
-		if ((_tokenSet_0.member(LA(1))) && (_tokenSet_0.member(LA(2))) && (_tokenSet_0.member(LA(3))) && (_tokenSet_0.member(LA(4))) && (_tokenSet_0.member(LA(5))) && (LA(6)==';')) {
-			mHEXDIGIT(false);
-			mHEXDIGIT(false);
-			mHEXDIGIT(false);
-			mHEXDIGIT(false);
-			mHEXDIGIT(false);
-		}
-		else if ((_tokenSet_0.member(LA(1))) && (_tokenSet_0.member(LA(2))) && (_tokenSet_0.member(LA(3))) && (_tokenSet_0.member(LA(4))) && (_tokenSet_0.member(LA(5))) && (_tokenSet_0.member(LA(6)))) {
-			mHEXDIGIT(false);
-			mHEXDIGIT(false);
-			mHEXDIGIT(false);
-			mHEXDIGIT(false);
-			mHEXDIGIT(false);
-			mHEXDIGIT(false);
-		}
-		else if ((_tokenSet_0.member(LA(1))) && (_tokenSet_0.member(LA(2))) && (_tokenSet_0.member(LA(3))) && (_tokenSet_0.member(LA(4))) && (LA(5)==';')) {
-			mHEXDIGIT(false);
-			mHEXDIGIT(false);
-			mHEXDIGIT(false);
-			mHEXDIGIT(false);
-		}
-		else if ((_tokenSet_0.member(LA(1))) && (_tokenSet_0.member(LA(2))) && (_tokenSet_0.member(LA(3))) && (LA(4)==';')) {
-			mHEXDIGIT(false);
-			mHEXDIGIT(false);
-			mHEXDIGIT(false);
-		}
-		else if ((_tokenSet_0.member(LA(1))) && (_tokenSet_0.member(LA(2))) && (LA(3)==';')) {
-			mHEXDIGIT(false);
-			mHEXDIGIT(false);
-		}
-		else if ((_tokenSet_0.member(LA(1))) && (LA(2)==';')) {
-			mHEXDIGIT(false);
-		}
-		else {
-			throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());
-		}
-		
-		}
-		_saveIndex=text.length();
-		match(";");
-		text.setLength(_saveIndex);
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -4515,30 +6294,37 @@ tryAgain:
 		_ttype = HEXDIGIT;
 		int _saveIndex;
 		
-		switch ( LA(1)) {
-		case '0':  case '1':  case '2':  case '3':
-		case '4':  case '5':  case '6':  case '7':
-		case '8':  case '9':
-		{
-			matchRange('0','9');
-			break;
+		try {      // for error handling
+			switch ( LA(1)) {
+			case '0':  case '1':  case '2':  case '3':
+			case '4':  case '5':  case '6':  case '7':
+			case '8':  case '9':
+			{
+				matchRange('0','9');
+				break;
+			}
+			case 'a':  case 'b':  case 'c':  case 'd':
+			case 'e':  case 'f':
+			{
+				matchRange('a','f');
+				break;
+			}
+			case 'A':  case 'B':  case 'C':  case 'D':
+			case 'E':  case 'F':
+			{
+				matchRange('A','F');
+				break;
+			}
+			default:
+			{
+				throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());
+			}
+			}
 		}
-		case 'a':  case 'b':  case 'c':  case 'd':
-		case 'e':  case 'f':
-		{
-			matchRange('a','f');
-			break;
-		}
-		case 'A':  case 'B':  case 'C':  case 'D':
-		case 'E':  case 'F':
-		{
-			matchRange('A','F');
-			break;
-		}
-		default:
-		{
-			throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());
-		}
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_3);
 		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
@@ -4552,22 +6338,29 @@ tryAgain:
 		_ttype = ANY_CHAR;
 		int _saveIndex;
 		
-		if ((LA(1)=='\r') && (LA(2)=='\n')) {
-			match('\r');
-			match('\n');
-			newline();
+		try {      // for error handling
+			if ((LA(1)=='\r') && (LA(2)=='\n')) {
+				match('\r');
+				match('\n');
+				newline();
+			}
+			else if ((LA(1)=='\n') && (true) && (true) && (true) && (true) && (true) && (true) && (true)) {
+				match('\n');
+				newline();
+			}
+			else if (((LA(1) >= '\u0000' && LA(1) <= '\ufffe')) && (true) && (true) && (true) && (true) && (true) && (true) && (true)) {
+				matchNot(EOF_CHAR);
+			}
+			else {
+				throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());
+			}
+			
 		}
-		else if ((LA(1)=='\n') && (true) && (true) && (true) && (true) && (true) && (true)) {
-			match('\n');
-			newline();
+		catch (RecognitionException ex) {
+			reportError(ex);
+			consume();
+			consumeUntil(_tokenSet_0);
 		}
-		else if (((LA(1) >= '\u0000' && LA(1) <= '\ufffe')) && (true) && (true) && (true) && (true) && (true) && (true)) {
-			matchNot(EOF_CHAR);
-		}
-		else {
-			throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());
-		}
-		
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -4578,10 +6371,28 @@ tryAgain:
 	
 	private static final long[] mk_tokenSet_0() {
 		long[] data = new long[1025];
+		return data;
+	}
+	public static final BitSet _tokenSet_0 = new BitSet(mk_tokenSet_0());
+	private static final long[] mk_tokenSet_1() {
+		long[] data = new long[1025];
+		data[0]=864409653478424576L;
+		return data;
+	}
+	public static final BitSet _tokenSet_1 = new BitSet(mk_tokenSet_1());
+	private static final long[] mk_tokenSet_2() {
+		long[] data = new long[1025];
 		data[0]=287948901175001088L;
 		data[1]=541165879422L;
 		return data;
 	}
-	public static final BitSet _tokenSet_0 = new BitSet(mk_tokenSet_0());
+	public static final BitSet _tokenSet_2 = new BitSet(mk_tokenSet_2());
+	private static final long[] mk_tokenSet_3() {
+		long[] data = new long[1025];
+		data[0]=864409653478424576L;
+		data[1]=541165879422L;
+		return data;
+	}
+	public static final BitSet _tokenSet_3 = new BitSet(mk_tokenSet_3());
 	
 	}
