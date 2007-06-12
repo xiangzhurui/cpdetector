@@ -179,12 +179,12 @@ encodeNext []  returns [Token token] {token=null;}
 			}
 			|
 			token023 : LATIN_CAPITAL_LETTER_A_WITH_RING_ABOVE {
-				token023.setText("\\AA");
+				token023.setText("\\AA ");
 				token = token023;
 			}
 			|
 			token024 : LATIN_CAPITAL_LETTER_AE {
-				token024.setText("\\AE");
+				token024.setText("\\AE ");
 				token = token024;
 			}
 			|
@@ -275,7 +275,7 @@ encodeNext []  returns [Token token] {token=null;}
 			}
 			|
 			token042 : LATIN_CAPITAL_LETTER_O_WITH_STROKE {
-				token042.setText("\\O");
+				token042.setText("\\O ");
 				token = token042;
 			}
 			|
@@ -311,7 +311,7 @@ encodeNext []  returns [Token token] {token=null;}
 			}
 			|
 			token049 : LATIN_SMALL_LETTER_SHARP_S {
-				token049.setText("\\ss");
+				token049.setText("\\ss ");
 				token = token049;
 			}
 			|
@@ -341,12 +341,12 @@ encodeNext []  returns [Token token] {token=null;}
 			}
 			|
 			token055 : LATIN_SMALL_LETTER_A_WITH_RING_ABOVE {
-				token055.setText("\\aa");
+				token055.setText("\\aa ");
 				token = token055;
 			}
 			|
 			token056 : LATIN_SMALL_LETTER_AE {
-				token056.setText("\\ae");
+				token056.setText("\\ae ");
 				token = token056;
 			}
 			|
@@ -436,7 +436,7 @@ encodeNext []  returns [Token token] {token=null;}
 			}
 			|
 			token074 : LATIN_SMALL_LETTER_O_WITH_STROKE {
-				token074.setText("\\o");
+				token074.setText("\\o ");
 				token = token074;
 			}
 			|
@@ -484,7 +484,7 @@ encodeNext []  returns [Token token] {token=null;}
 			}
 			|
 			token083 : EURO_SIGN {
-				token083.setText("\\euro");
+				token083.setText("\\euro ");
 				token = token083;
 			}
 			|
