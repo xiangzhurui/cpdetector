@@ -104,6 +104,14 @@
 				<method name="**" />
 				<field name="**" />
 			</keepnames>
+			<!-- 
+			 Don't shrink Charscanner methods away, 
+			 another grammar might need them. 
+			-->
+			<keep name="antlr.CharScanner">
+				<method name="**" />
+				<field name="**" />
+			</keep>
 		</proguard>
 	</target>
 
@@ -143,6 +151,14 @@
 				<method name="**" />
 				<field name="**" />
 			</keepnames>
+			<!-- 
+			 Don't shrink Charscanner methods away, 
+			 another grammar might need them. 
+			-->
+			<keep name="antlr.CharScanner">
+				<method name="**" />
+				<field name="**" />
+			</keep>
 		</proguard>
 	</target>
 
