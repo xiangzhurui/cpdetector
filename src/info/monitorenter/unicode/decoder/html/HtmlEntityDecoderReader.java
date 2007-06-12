@@ -165,7 +165,7 @@ public class HtmlEntityDecoderReader
 
   /**
    * Returns the decoded unicode character for the text of the given token or
-   * the token text itself for the special ANY_CHAR token which matches non HTML
+   * the token text itself for the special WORD token which matches non HTML
    * Entity text.
    * <p>
    * 
@@ -173,7 +173,7 @@ public class HtmlEntityDecoderReader
    *          the token to decode.
    * 
    * @return the decoded unicode character for the text of the given token or
-   *         the token text itself for the special ANY_CHAR token which matches
+   *         the token text itself for the special WORD token which matches
    *         non HTML Entity text.
    */
   private static String getDecodedEntity(final Token token) {
@@ -937,7 +937,7 @@ public class HtmlEntityDecoderReader
       case HtmlEntityDecoderTokenTypes.NCR_D:
         result = new String(new char[] {(char) Integer.parseInt(token.getText(), 10) });
         break;
-      case HtmlEntityDecoderTokenTypes.ANY_CHAR:
+      case HtmlEntityDecoderTokenTypes.WORD:
       default:
         result = token.getText();
         break;

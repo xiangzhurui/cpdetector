@@ -258,7 +258,7 @@ public interface HtmlEntityDecoderTokenTypes {
 	int LSAQUO = 251;
 	int RSAQUO = 252;
 	int EURO = 253;
-	int ANY_CHAR = 254;
+	int WORD = 254;
 	int NCR_H = 255;
 	int NCR_D = 256;
 	int MICRO = 257;

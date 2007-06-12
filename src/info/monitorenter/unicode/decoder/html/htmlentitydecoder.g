@@ -571,7 +571,7 @@ decode [OutputStreamWriter out] throws IOException
 	|
 	EURO { out.write('\u20AC');}
 	|
-	token : ANY_CHAR { out.write(token.getText());}
+	token : WORD { out.write(token.getText());}
 	|
 	ncrhtoken : NCR_H
 	{
@@ -903,12 +903,16 @@ NCR_H :
 	;
 	
 // newline UNIX and Windows to have correct lexer line information
-ANY_CHAR   :
+WORD   :
 	'\n' { newline();} 
 	| 
 	'\r' '\n'{ newline(); } 
 	|
-    .;  
+	//	This rule is needed to enforce k=7: 
+	// if ommitted, antlr will match less characters and run in 
+	// recongnition exception for e.g. &section=...
+    (~(' ' | '\u000C'))+; 
+      
     
 protected
 DIGIT :

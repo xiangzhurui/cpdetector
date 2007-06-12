@@ -1558,10 +1558,10 @@ public HtmlEntityDecoder(ParserSharedInputState state) {
 					out.write('\u20AC');
 					break;
 				}
-				case ANY_CHAR:
+				case WORD:
 				{
 					token = LT(1);
-					match(ANY_CHAR);
+					match(WORD);
 					out.write(token.getText());
 					break;
 				}
@@ -1854,7 +1854,7 @@ public HtmlEntityDecoder(ParserSharedInputState state) {
 		"LSAQUO",
 		"RSAQUO",
 		"EURO",
-		"ANY_CHAR",
+		"WORD",
 		"NCR_H",
 		"NCR_D",
 		"MICRO",
