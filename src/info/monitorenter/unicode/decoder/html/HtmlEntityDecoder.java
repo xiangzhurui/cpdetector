@@ -61,7 +61,7 @@ public HtmlEntityDecoder(ParserSharedInputState state) {
 				case NBSP:
 				{
 					match(NBSP);
-					out.write('\u00A0');
+					out.write(' ');
 					break;
 				}
 				case IEXCL:

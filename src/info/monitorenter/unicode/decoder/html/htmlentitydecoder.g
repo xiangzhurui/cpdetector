@@ -71,7 +71,7 @@ options{
 decode [OutputStreamWriter out] throws IOException
 	: 
 	( 
-	NBSP { out.write('\u00A0');}
+	NBSP { out.write(' ');} // \u00A0
 	|
 	IEXCL { out.write('\u00A1');}
 	|
@@ -911,7 +911,7 @@ WORD   :
 	//	This rule is needed to enforce k=7: 
 	// if ommitted, antlr will match less characters and run in 
 	// recongnition exception for e.g. &section=...
-    (~(' ' | '\u000C'))+; 
+    (.)+; 
       
     
 protected
