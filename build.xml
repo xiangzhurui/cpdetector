@@ -42,11 +42,11 @@
 	</fileset>
 
 	<!--
- These files will be shipped in the package
- by extracting them to the project's builddir, befor the
- whole project is packed into a jar.
- See the rule integrateJars
--->
+     These files will be shipped in the package
+     by extracting them to the project's builddir, befor the
+     whole project is packed into a jar.
+     See the rule integrateJars
+    -->
 	<fileset dir="${basedir}" id="externalJars" description="External library jar files that will be shipped with this *.jar distribution.">
 		<include name="${libdir}/**/*.jar" />
 		<exclude name="${libdir}/test/**" />
