@@ -618,7 +618,7 @@ REG     : "&reg;";
 MACR    : "&macr;";
 DEG     : "&deg;";
 PLUSMN  : "&plusmn;";
-SUP2    : "&sup2;";
+SUP2    : "&sup2;"; 
 SUP3    : "&sup3;";
 ACUTE   : "&acute;";
 MICRO   : "&micro;";
@@ -911,7 +911,13 @@ WORD   :
 	//	This rule is needed to enforce k=7: 
 	// if ommitted, antlr will match less characters and run in 
 	// recongnition exception for e.g. &section=...
-    (.)+; 
+	// break loop if next ampersand comes
+    (~'&')+
+    |
+    // we have to allow a single ampersand that does not match any of 
+    // the other tokens:
+    '&'
+    ; 
       
     
 protected

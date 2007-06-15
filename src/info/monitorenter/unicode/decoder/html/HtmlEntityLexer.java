@@ -6348,13 +6348,13 @@ tryAgain:
 				match('\n');
 				newline();
 			}
-			else if (((LA(1) >= '\u0000' && LA(1) <= '\ufffe')) && (true) && (true) && (true) && (true) && (true) && (true) && (true)) {
+			else if ((_tokenSet_4.member(LA(1))) && (true) && (true) && (true) && (true) && (true) && (true) && (true)) {
 				{
 				int _cnt262=0;
 				_loop262:
 				do {
-					if (((LA(1) >= '\u0000' && LA(1) <= '\ufffe'))) {
-						matchNot(EOF_CHAR);
+					if ((_tokenSet_4.member(LA(1)))) {
+						matchNot('&');
 					}
 					else {
 						if ( _cnt262>=1 ) { break _loop262; } else {throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());}
@@ -6363,6 +6363,9 @@ tryAgain:
 					_cnt262++;
 				} while (true);
 				}
+			}
+			else if ((LA(1)=='&')) {
+				match('&');
 			}
 			else {
 				throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());
@@ -6407,5 +6410,13 @@ tryAgain:
 		return data;
 	}
 	public static final BitSet _tokenSet_3 = new BitSet(mk_tokenSet_3());
+	private static final long[] mk_tokenSet_4() {
+		long[] data = new long[2048];
+		data[0]=-274877906945L;
+		for (int i = 1; i<=1022; i++) { data[i]=-1L; }
+		data[1023]=9223372036854775807L;
+		return data;
+	}
+	public static final BitSet _tokenSet_4 = new BitSet(mk_tokenSet_4());
 	
 	}
