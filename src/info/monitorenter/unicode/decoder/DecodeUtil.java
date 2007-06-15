@@ -125,12 +125,12 @@ public final class DecodeUtil {
     public static String decodeHtmlEntities(final String html)
     throws RecognitionException, TokenStreamException, IOException {
 
-        String result;
+        String result = html;
         boolean again = false;
         do {
 
-            HtmlEntityLexer lexer = new HtmlEntityLexer(new StringReader(html));
-            ByteArrayOutputStream bos = new ByteArrayOutputStream(html.length());
+            HtmlEntityLexer lexer = new HtmlEntityLexer(new StringReader(result));
+            ByteArrayOutputStream bos = new ByteArrayOutputStream(result.length());
             OutputStreamWriter out = new OutputStreamWriter(bos);
             HtmlEntityDecoder decoder = new HtmlEntityDecoder(lexer);
             again = decoder.decode(out);
@@ -160,7 +160,7 @@ public final class DecodeUtil {
      */
     public static void main(final String[] args) throws RecognitionException, TokenStreamException, IOException {
 
-        String decode = "&euro; Halllllo &nbsp;  K&ouml;rpert&auml;towierung.\n";
+        String decode = "&amp;copy; &euro;  Halllllo &nbsp;  K&ouml;rpert&auml;towierung.\n";
         decode = DecodeUtil.decodeHtmlEntities(decode);
         System.out.println(decode);
     }
