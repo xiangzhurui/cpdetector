@@ -104,9 +104,15 @@ public final class DecodeUtil {
      * 
      * @param html
      *          the html data to decode <tt>HTML Entities</tt> in.
+     *          
+     * @param recursive 
+     *          if true the input will be processed until there are no character 
+     *          entity references contained any more 
+     *          (decoding &amp;ouml; will produce &ouml;).
      * 
      * @return a new String with the unicode representation of the HTML Entities
      *         in the input html.
+     *         
      * 
      * @throws IOException
      *           if sth. goes wrong.
@@ -119,10 +125,10 @@ public final class DecodeUtil {
      *           if invalid format was found in the given html. This is unlikely
      *           to happen as the grammar accepts any tokens , but if it should
      *           happen (ANTLR error?) this method cannot deal with the problem
-     *           and does not catch the exception.
+     *           and does not catch the exception. 
      * 
      */
-    public static String decodeHtmlEntities(final String html)
+    public static String decodeHtmlEntities(final String html, final boolean recursive)
     throws RecognitionException, TokenStreamException, IOException {
 
         String result = html;
@@ -138,7 +144,7 @@ public final class DecodeUtil {
             out.close();
             result = bos.toString();
 
-        } while (again);
+        } while (again && recursive);
         return result;
     }
 
@@ -161,7 +167,7 @@ public final class DecodeUtil {
     public static void main(final String[] args) throws RecognitionException, TokenStreamException, IOException {
 
         String decode = "&amp;copy; &euro;  Halllllo &nbsp;  K&ouml;rpert&auml;towierung.\n";
-        decode = DecodeUtil.decodeHtmlEntities(decode);
+        decode = DecodeUtil.decodeHtmlEntities(decode, true);
         System.out.println(decode);
     }
 }
