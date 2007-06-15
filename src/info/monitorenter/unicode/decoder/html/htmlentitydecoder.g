@@ -524,7 +524,7 @@ decode [OutputStreamWriter out] returns[boolean again] throws IOException {
 	|
 	AMP { 
 		out.write('\u0026');
-		again=false;
+		again=true;
 	}
 	|
 	LT { out.write('\u003C');}
