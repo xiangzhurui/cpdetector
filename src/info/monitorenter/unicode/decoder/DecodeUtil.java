@@ -46,8 +46,8 @@
  * Achim.Westermann@gmx.de
  *
  */
-package info.monitorenter.unicode.decoder;
 
+package info.monitorenter.unicode.decoder;
 
 import antlr.RecognitionException;
 import antlr.TokenStreamException;
@@ -73,85 +73,95 @@ import java.io.StringReader;
  * @version $Revision$
  */
 public final class DecodeUtil {
-  /**
-   * Utility class construtor.
-   * <p>
-   * 
-   */
-  private DecodeUtil() {
-    // nop as stateless
-  }
 
-  /**
-   * Decodes <tt>HTML Entities</tt>(e.g. &amp;nbsp;) in the given String into
-   * the unicode representation.
-   * <p>
-   * 
-   * This method should perform quick as an <a href="http://www.antlr.org"
-   * target="_blank">ANTLR</a> generated parser is used.
-   * <p>
-   * 
-   * HTML entities are described in <a
-   * href="http://www.w3.org/TR/html401/sgml/entities.html">
-   * http://www.w3.org/TR/html401/sgml/entities.html</a>
-   * <p>
-   * 
-   * For enterprise support of arbitrary large files prefer the approach of
-   * <code>{@link info.monitorenter.unicode.decoder.html.HtmlEntityDecoderReader}</code>.
-   * <p>
-   * 
-   * @param html
-   *          the html data to decode <tt>HTML Entities</tt> in.
-   * 
-   * @return a new String with the unicode representation of the HTML Entities
-   *         in the input html.
-   * 
-   * @throws IOException
-   *           if sth. goes wrong.
-   * @throws TokenStreamException
-   *           if invalid character data was found in the underlying stream.
-   *           This is unlikely to happen as the lexer covers all characters,
-   *           but if it should happen (ANTLR error?) this method cannot deal
-   *           with the problem and does not catch the exception.
-   * @throws RecognitionException
-   *           if invalid format was found in the given html. This is unlikely
-   *           to happen as the grammar accepts any tokens , but if it should
-   *           happen (ANTLR error?) this method cannot deal with the problem
-   *           and does not catch the exception.
-   * 
-   */
-  public static String decodeHtmlEntities(final String html) throws RecognitionException,
-      TokenStreamException, IOException {
-    HtmlEntityLexer lexer = new HtmlEntityLexer(new StringReader(html));
-    ByteArrayOutputStream bos = new ByteArrayOutputStream(html.length());
-    OutputStreamWriter out = new OutputStreamWriter(bos);
-    HtmlEntityDecoder decoder = new HtmlEntityDecoder(lexer);
-    decoder.decode(out);
-    out.flush();
-    out.close();
-    return bos.toString();
-  }
+    /**
+     * Utility class construtor.
+     * <p>
+     * 
+     */
+    private DecodeUtil() {
 
-  /**
-   * Main hook used for short test.
-   * <p>
-   * 
-   * @param args
-   *          ignored.
-   * 
-   * @throws RecognitionException
-   *           if sth. in the parser goes wrong.
-   * 
-   * @throws TokenStreamException
-   *           if sth. in the lexer goes wrong.
-   * 
-   * @throws IOException
-   *           if sth. in io goes wrong.
-   */
-  public static void main(final String[] args) throws RecognitionException, TokenStreamException,
-      IOException {
-    String decode = "Halllllo &nbsp;  K&ouml;rpert&auml;towierung.\n";
-    decode = DecodeUtil.decodeHtmlEntities(decode);
-    System.out.println(decode);
-  }
+        // nop as stateless
+    }
+
+    /**
+     * Decodes <tt>HTML Entities</tt>(e.g. &amp;nbsp;) in the given String into
+     * the unicode representation.
+     * <p>
+     * 
+     * This method should perform quick as an <a href="http://www.antlr.org"
+     * target="_blank">ANTLR</a> generated parser is used.
+     * <p>
+     * 
+     * HTML entities are described in <a
+     * href="http://www.w3.org/TR/html401/sgml/entities.html">
+     * http://www.w3.org/TR/html401/sgml/entities.html</a>
+     * <p>
+     * 
+     * For enterprise support of arbitrary large files prefer the approach of
+     * <code>{@link info.monitorenter.unicode.decoder.html.HtmlEntityDecoderReader}</code>.
+     * <p>
+     * 
+     * @param html
+     *          the html data to decode <tt>HTML Entities</tt> in.
+     * 
+     * @return a new String with the unicode representation of the HTML Entities
+     *         in the input html.
+     * 
+     * @throws IOException
+     *           if sth. goes wrong.
+     * @throws TokenStreamException
+     *           if invalid character data was found in the underlying stream.
+     *           This is unlikely to happen as the lexer covers all characters,
+     *           but if it should happen (ANTLR error?) this method cannot deal
+     *           with the problem and does not catch the exception.
+     * @throws RecognitionException
+     *           if invalid format was found in the given html. This is unlikely
+     *           to happen as the grammar accepts any tokens , but if it should
+     *           happen (ANTLR error?) this method cannot deal with the problem
+     *           and does not catch the exception.
+     * 
+     */
+    public static String decodeHtmlEntities(final String html)
+    throws RecognitionException, TokenStreamException, IOException {
+
+        String result;
+        boolean again = false;
+        do {
+
+            HtmlEntityLexer lexer = new HtmlEntityLexer(new StringReader(html));
+            ByteArrayOutputStream bos = new ByteArrayOutputStream(html.length());
+            OutputStreamWriter out = new OutputStreamWriter(bos);
+            HtmlEntityDecoder decoder = new HtmlEntityDecoder(lexer);
+            again = decoder.decode(out);
+            out.flush();
+            out.close();
+            result = bos.toString();
+
+        } while (again);
+        return result;
+    }
+
+    /**
+     * Main hook used for short test.
+     * <p>
+     * 
+     * @param args
+     *          ignored.
+     * 
+     * @throws RecognitionException
+     *           if sth. in the parser goes wrong.
+     * 
+     * @throws TokenStreamException
+     *           if sth. in the lexer goes wrong.
+     * 
+     * @throws IOException
+     *           if sth. in io goes wrong.
+     */
+    public static void main(final String[] args) throws RecognitionException, TokenStreamException, IOException {
+
+        String decode = "&euro; Halllllo &nbsp;  K&ouml;rpert&auml;towierung.\n";
+        decode = DecodeUtil.decodeHtmlEntities(decode);
+        System.out.println(decode);
+    }
 }

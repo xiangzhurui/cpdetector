@@ -67,8 +67,21 @@ options{
 		defaultErrorHandler=true;
 		
 }
-
-decode [OutputStreamWriter out] throws IOException
+/**
+ * Decodes the given html input by replacing the character  
+ * entity references (named and numeric) by the unicode character 
+ * codes.
+ * <p>
+ * The result is written to the output stream.
+ * If &amp;amp; was found true is returned because the decoded 
+ * output then could contain a new character entity reference.
+ *
+ * @return true if &amp;amp; was found thus the result could 
+ *              contain a new character entity reference. 
+ */
+decode [OutputStreamWriter out] returns[boolean again] throws IOException {
+	again = false;
+}
 	: 
 	( 
 	NBSP { out.write(' ');} // \u00A0
@@ -509,7 +522,10 @@ decode [OutputStreamWriter out] throws IOException
 	|
 	QUOT { out.write('\u0022');}
 	|
-	AMP { out.write('\u0026');}
+	AMP { 
+		out.write('\u0026');
+		again=false;
+	}
 	|
 	LT { out.write('\u003C');}
 	|
