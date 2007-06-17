@@ -49,15 +49,15 @@
 
 package info.monitorenter.unicode.decoder;
 
-import antlr.RecognitionException;
-import antlr.TokenStreamException;
 import info.monitorenter.unicode.decoder.html.HtmlEntityDecoder;
 import info.monitorenter.unicode.decoder.html.HtmlEntityLexer;
 
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.OutputStreamWriter;
 import java.io.StringReader;
+
+import antlr.RecognitionException;
+import antlr.Token;
+import antlr.TokenStreamException;
 
 /**
  * Easy to use utility functions with scope on decoding to unicode.
@@ -74,100 +74,103 @@ import java.io.StringReader;
  */
 public final class DecodeUtil {
 
-    /**
-     * Utility class construtor.
-     * <p>
-     * 
-     */
-    private DecodeUtil() {
+  /**
+   * Utility class construtor.
+   * <p>
+   * 
+   */
+  private DecodeUtil() {
 
-        // nop as stateless
-    }
+    // nop as stateless
+  }
 
-    /**
-     * Decodes <tt>HTML Entities</tt>(e.g. &amp;nbsp;) in the given String into
-     * the unicode representation.
-     * <p>
-     * 
-     * This method should perform quick as an <a href="http://www.antlr.org"
-     * target="_blank">ANTLR</a> generated parser is used.
-     * <p>
-     * 
-     * HTML entities are described in <a
-     * href="http://www.w3.org/TR/html401/sgml/entities.html">
-     * http://www.w3.org/TR/html401/sgml/entities.html</a>
-     * <p>
-     * 
-     * For enterprise support of arbitrary large files prefer the approach of
-     * <code>{@link info.monitorenter.unicode.decoder.html.HtmlEntityDecoderReader}</code>.
-     * <p>
-     * 
-     * @param html
-     *          the html data to decode <tt>HTML Entities</tt> in.
-     *          
-     * @param recursive 
-     *          if true the input will be processed until there are no character 
-     *          entity references contained any more 
-     *          (decoding &amp;ouml; will produce &ouml;).
-     * 
-     * @return a new String with the unicode representation of the HTML Entities
-     *         in the input html.
-     *         
-     * 
-     * @throws IOException
-     *           if sth. goes wrong.
-     * @throws TokenStreamException
-     *           if invalid character data was found in the underlying stream.
-     *           This is unlikely to happen as the lexer covers all characters,
-     *           but if it should happen (ANTLR error?) this method cannot deal
-     *           with the problem and does not catch the exception.
-     * @throws RecognitionException
-     *           if invalid format was found in the given html. This is unlikely
-     *           to happen as the grammar accepts any tokens , but if it should
-     *           happen (ANTLR error?) this method cannot deal with the problem
-     *           and does not catch the exception. 
-     * 
-     */
-    public static String decodeHtmlEntities(final String html, final boolean recursive)
-    throws RecognitionException, TokenStreamException, IOException {
+  /**
+   * Decodes <tt>HTML Entities</tt>(e.g. &amp;nbsp;) in the given String into
+   * the unicode representation.
+   * <p>
+   * 
+   * This method should perform quick as an <a href="http://www.antlr.org"
+   * target="_blank">ANTLR</a> generated parser is used.
+   * <p>
+   * 
+   * HTML entities are described in <a
+   * href="http://www.w3.org/TR/html401/sgml/entities.html">
+   * http://www.w3.org/TR/html401/sgml/entities.html</a>
+   * <p>
+   * 
+   * For enterprise support of arbitrary large files prefer the approach of
+   * <code>{@link info.monitorenter.unicode.decoder.html.HtmlEntityDecoderReader}</code>.
+   * <p>
+   * 
+   * @param html
+   *          the html data to decode <tt>HTML Entities</tt> in.
+   * 
+   * @param recursive
+   *          if true the input will be processed until there are no character
+   *          entity references contained any more (decoding &amp;ouml; will
+   *          produce &ouml;).
+   * 
+   * @return a new String with the unicode representation of the HTML Entities
+   *         in the input html.
+   * 
+   * 
+   * @throws IOException
+   *           if sth. goes wrong.
+   * @throws TokenStreamException
+   *           if invalid character data was found in the underlying stream.
+   *           This is unlikely to happen as the lexer covers all characters,
+   *           but if it should happen (ANTLR error?) this method cannot deal
+   *           with the problem and does not catch the exception.
+   * @throws RecognitionException
+   *           if invalid format was found in the given html. This is unlikely
+   *           to happen as the grammar accepts any tokens , but if it should
+   *           happen (ANTLR error?) this method cannot deal with the problem
+   *           and does not catch the exception.
+   * 
+   */
+  public static String decodeHtmlEntities(final String html, final boolean recursive)
+      throws RecognitionException, TokenStreamException, IOException {
 
-        String result = html;
-        boolean again = false;
-        do {
+    String result = html;
+    boolean again = false;
+    do {
 
-            HtmlEntityLexer lexer = new HtmlEntityLexer(new StringReader(result));
-            ByteArrayOutputStream bos = new ByteArrayOutputStream(result.length());
-            OutputStreamWriter out = new OutputStreamWriter(bos);
-            HtmlEntityDecoder decoder = new HtmlEntityDecoder(lexer);
-            again = decoder.decode(out);
-            out.flush();
-            out.close();
-            result = bos.toString();
+      StringBuffer resultBuffer = new StringBuffer();
+      HtmlEntityLexer lexer = new HtmlEntityLexer(new StringReader(result));
+      HtmlEntityDecoder decoder = new HtmlEntityDecoder(lexer);
+      Token token = decoder.decodeNext();
+      while (token.getType() != Token.EOF_TYPE) {
+        resultBuffer.append(token.getText());
+        token = decoder.decodeNext();
+      }
+      result = resultBuffer.toString();
+      again = decoder.isPotentialRemainingEntity();
 
-        } while (again && recursive);
-        return result;
-    }
+    } while (again && recursive);
+    return result;
+  }
 
-    /**
-     * Main hook used for short test.
-     * <p>
-     * 
-     * @param args
-     *          ignored.
-     * 
-     * @throws RecognitionException
-     *           if sth. in the parser goes wrong.
-     * 
-     * @throws TokenStreamException
-     *           if sth. in the lexer goes wrong.
-     * 
-     * @throws IOException
-     *           if sth. in io goes wrong.
-     */
-    public static void main(final String[] args) throws RecognitionException, TokenStreamException, IOException {
+  /**
+   * Main hook used for short test.
+   * <p>
+   * 
+   * @param args
+   *          ignored.
+   * 
+   * @throws RecognitionException
+   *           if sth. in the parser goes wrong.
+   * 
+   * @throws TokenStreamException
+   *           if sth. in the lexer goes wrong.
+   * 
+   * @throws IOException
+   *           if sth. in io goes wrong.
+   */
+  public static void main(final String[] args) throws RecognitionException, TokenStreamException,
+      IOException {
 
-        String decode = "&amp;copy; &euro;  Halllllo &nbsp;  K&ouml;rpert&auml;towierung.\n";
-        decode = DecodeUtil.decodeHtmlEntities(decode, true);
-        System.out.println(decode);
-    }
+    String decode = "&amp;copy; &euro;  Halllllo &nbsp;  K&ouml;rpert&auml;towierung.\n";
+    decode = DecodeUtil.decodeHtmlEntities(decode, true);
+    System.out.println(decode);
+  }
 }

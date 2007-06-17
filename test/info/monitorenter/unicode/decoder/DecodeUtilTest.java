@@ -116,14 +116,14 @@ public class DecodeUtilTest
 
     byte[] contentBytes = FileUtil.readRAM(in);
     String content = new String(contentBytes);
-    content = DecodeUtil.decodeHtmlEntities(content);
+    content = DecodeUtil.decodeHtmlEntities(content, true);
     System.out.println(content);
 
     in = this.getClass().getClassLoader().getResourceAsStream(
         "info/monitorenter/unicode/decoder/html/ncr.txt");
     contentBytes = FileUtil.readRAM(in);
     content = new String(contentBytes);
-    content = DecodeUtil.decodeHtmlEntities(content);
+    content = DecodeUtil.decodeHtmlEntities(content, true);
     System.out.println(content);
 
     in = this.getClass().getClassLoader().getResourceAsStream(
@@ -131,7 +131,7 @@ public class DecodeUtilTest
     contentBytes = FileUtil.readRAM(in);
     content = new String(contentBytes);
     System.out.println(content);
-    content = DecodeUtil.decodeHtmlEntities(content);
+    content = DecodeUtil.decodeHtmlEntities(content, true);
     System.out.println(content);
 
   }

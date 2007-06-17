@@ -48,8 +48,6 @@
  */
 package info.monitorenter.unicode.decoder.html;
 
-import info.monitorenter.unicode.decoder.html.HtmlEntityDecoderReader;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -84,7 +82,7 @@ public class HtmlEntityDecoderReaderTest
    * @param arg0
    *          the name of the test case.
    */
-  public HtmlEntityDecoderReaderTest(String arg0) {
+  public HtmlEntityDecoderReaderTest(final String arg0) {
     super(arg0);
   }
 
@@ -100,6 +98,7 @@ public class HtmlEntityDecoderReaderTest
 
     // raw output:
     InputStream in = this.getClass().getResourceAsStream("test1.txt");
+    assertNotNull("Input test file not found (rebuild project to copy it to bin location))", in);
     Reader reader = new InputStreamReader(in);
     int read = 1;
     char[] cbuf = new char[10];

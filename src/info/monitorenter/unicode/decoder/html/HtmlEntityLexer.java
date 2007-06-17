@@ -6350,17 +6350,17 @@ tryAgain:
 			}
 			else if ((_tokenSet_4.member(LA(1))) && (true) && (true) && (true) && (true) && (true) && (true) && (true)) {
 				{
-				int _cnt262=0;
-				_loop262:
+				int _cnt260=0;
+				_loop260:
 				do {
 					if ((_tokenSet_4.member(LA(1)))) {
 						matchNot('&');
 					}
 					else {
-						if ( _cnt262>=1 ) { break _loop262; } else {throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());}
+						if ( _cnt260>=1 ) { break _loop260; } else {throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());}
 					}
 					
-					_cnt262++;
+					_cnt260++;
 				} while (true);
 				}
 			}
