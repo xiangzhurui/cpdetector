@@ -127,7 +127,7 @@ import cpdetector.util.FileUtil;
  * 
  * @author <a href="mailto:Achim.Westermann@gmx.de">Achim Westermann </a>
  */
-public class CodepageProcessor extends CmdLineArgsInheritor {
+public class CodepageProcessor extends ACmdLineArgsInheritor {
 
     /**
      * The root folder (directory) under which all files for the collection are found.

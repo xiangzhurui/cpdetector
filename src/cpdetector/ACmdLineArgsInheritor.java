@@ -51,7 +51,7 @@ import java.util.Map;
  * @author <a href="mailto:awester@de.ibm.com">Achim Westermann </a>
  * 
  */
-public abstract class CmdLineArgsInheritor {
+public abstract class ACmdLineArgsInheritor {
 
     private CmdLineParser cmdLineParser;
 
@@ -69,7 +69,7 @@ public abstract class CmdLineArgsInheritor {
     /**
      * 
      */
-    public CmdLineArgsInheritor() {
+    public ACmdLineArgsInheritor() {
         this.cmdLineOptions = new HashMap();
         this.cmdLineParser = new CmdLineParser();
     }
