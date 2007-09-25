@@ -1,6 +1,6 @@
 /*
  *  StreamTableRenderer.java  
- *  Copyright (C) 2004 Achim Westermann, created on 21.10.2004, 23:22:23  
+ *  Copyright (c) 2007 Achim Westermann, created on 21.10.2004, 23:22:23  
  *
  * ***** BEGIN LICENSE BLOCK *****
  * Version: MPL 1.1/GPL 2.0/LGPL 2.1
@@ -21,7 +21,7 @@
  * The Initial Developer of the Original Code is
  * Achim Westermann <achim.westermann@gmx.de>.
  * 
- * Portions created by the Initial Developer are Copyright (C) 2006 
+ * Portions created by the Initial Developer are Copyright (c) 2007 
  * the Initial Developer. All Rights Reserved.
  * 
  * Contributor(s):

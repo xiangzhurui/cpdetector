@@ -23,7 +23,7 @@
  * The Initial Developer of the Original Code is
  * Achim Westermann <achim.westermann@gmx.de>.
  * 
- * Portions created by the Initial Developer are Copyright (C) 2006 
+ * Portions created by the Initial Developer are Copyright (c) 2007 
  * the Initial Developer. All Rights Reserved.
  * 
  * Contributor(s):
@@ -62,13 +62,9 @@
  *  Achim.Westermann@gmx.de
  *
  */
-
 package cpdetector;
 
 import jargs.gnu.CmdLineParser;
-import jargs.gnu.CmdLineParser.IllegalOptionValueException;
-import jargs.gnu.CmdLineParser.Option;
-import jargs.gnu.CmdLineParser.UnknownOptionException;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -194,14 +190,15 @@ public class CodepageProcessor extends ACmdLineArgsInheritor {
     private static byte[] rawtransportBuffer = new byte[1024];
 
     public CodepageProcessor() {
-
         super();
         this.detector = CodepageDetectorProxy.getInstance();
         // adding the options:
         this.addCmdLineOption("documents", new CmdLineParser.Option.StringOption('r', "documents"));
-        this.addCmdLineOption("extensions", new CmdLineParser.Option.StringOption('e', "extensions"));
+        this.addCmdLineOption("extensions",
+                new CmdLineParser.Option.StringOption('e', "extensions"));
         this.addCmdLineOption("outputDir", new CmdLineParser.Option.StringOption('o', "outputDir"));
-        this.addCmdLineOption("moveUnknown", new CmdLineParser.Option.BooleanOption('m', "moveUnknown"));
+        this.addCmdLineOption("moveUnknown", new CmdLineParser.Option.BooleanOption('m',
+                "moveUnknown"));
         this.addCmdLineOption("verbose", new CmdLineParser.Option.BooleanOption('v', "verbose"));
         this.addCmdLineOption("wait", new CmdLineParser.Option.IntegerOption('w', "wait"));
         this.addCmdLineOption("transform", new CmdLineParser.Option.StringOption('t', "transform"));
@@ -209,10 +206,7 @@ public class CodepageProcessor extends ACmdLineArgsInheritor {
         this.addCmdLineOption("charsets", new CmdLineParser.Option.BooleanOption('c', "charsets"));
     }
 
-  
-
     public void parseArgs(String[] cmdLineArgs) throws Exception {
-
         // Has to be first call!!
         super.parseArgs(cmdLineArgs);
         Object collectionOption = this.getParsedCmdLineOption("documents");
@@ -232,24 +226,22 @@ public class CodepageProcessor extends ACmdLineArgsInheritor {
             if (collectionOption == null) {
                 usage();
                 throw new MissingResourceException(
-                    "Parameter for collection root directory is missing.",
-                    "String",
-                    "-r");
+                        "Parameter for collection root directory is missing.", "String", "-r");
             }
             this.collectionRoot = new File(collectionOption.toString());
             if (outputDirOption == null) {
                 usage();
-                throw new MissingResourceException("Parameter for output directory is missing.", "String", "-o");
+                throw new MissingResourceException("Parameter for output directory is missing.",
+                        "String", "-o");
             }
             this.outputDir = new File(outputDirOption.toString());
             if (extensionsOption != null) {
-                this.extensionFilter = new FileFilterExtensions(this.parseCSVList(extensionsOption.toString()));
+                this.extensionFilter = new FileFilterExtensions(this.parseCSVList(extensionsOption
+                        .toString()));
             } else {
                 // Anonymous dummy:
                 this.extensionFilter = new FileFilter() {
-
                     public boolean accept(File f) {
-
                         return true;
                     }
                 };
@@ -290,7 +282,8 @@ public class CodepageProcessor extends ACmdLineArgsInheritor {
                 String[] detectors = this.parseCSVList((String)detectorOption);
                 if (detectors.length == 0) {
                     StringBuffer msg = new StringBuffer();
-                    msg.append("You specified the codepage detector argument \"-d\" but ommited any comma-separated fully qualified class-name.");
+                    msg
+                            .append("You specified the codepage detector argument \"-d\" but ommited any comma-separated fully qualified class-name.");
                     throw new IllegalArgumentException(msg.toString());
                 }
 
@@ -298,15 +291,14 @@ public class CodepageProcessor extends ACmdLineArgsInheritor {
                 ICodepageDetector cpDetector = null;
                 for (int i = 0; i < detectors.length; i++) {
                     try {
-                        cpDetector = (ICodepageDetector)SingletonLoader.getInstance().newInstance(detectors[i]);
+                        cpDetector = (ICodepageDetector)SingletonLoader.getInstance().newInstance(
+                                detectors[i]);
                         if (cpDetector != null) {
                             this.detector.add(cpDetector);
                         }
                     } catch (InstantiationException ie) {
                         System.err.println("Could not instantiate custom ICodepageDetector: "
-                            + detectors[i]
-                            + " (argument \"-c\"): "
-                            + ie.getMessage());
+                                + detectors[i] + " (argument \"-c\"): " + ie.getMessage());
                     }
 
                 }
@@ -321,7 +313,6 @@ public class CodepageProcessor extends ACmdLineArgsInheritor {
     }
 
     private void printCharsets() {
-
         if (this.parseCodepages == null || this.parseCodepages.length == 0) {
             this.loadCodepages();
         }
@@ -338,7 +329,6 @@ public class CodepageProcessor extends ACmdLineArgsInheritor {
     }
 
     private final String[] parseCSVList(String listLiteral) {
-
         if (listLiteral == null)
             return null; // bounce bad callee.
         List tmpList = new LinkedList();
@@ -365,7 +355,6 @@ public class CodepageProcessor extends ACmdLineArgsInheritor {
      *            The current directory or file (if we visit a leaf).
      */
     private void processRecursive(File f) throws Exception {
-
         if (f == null) {
             throw new IllegalArgumentException("File argument is null!");
         }
@@ -383,7 +372,6 @@ public class CodepageProcessor extends ACmdLineArgsInheritor {
     }
 
     public final void process() throws Exception {
-
         if (this.printCharsets) {
             this.printCharsets();
         } else {
@@ -401,7 +389,6 @@ public class CodepageProcessor extends ACmdLineArgsInheritor {
      *             Sth. does not seem to be valid.
      */
     protected void verifyFiles() throws IllegalArgumentException {
-
         StringBuffer msg = new StringBuffer();
         /*
          * Manual copy and paste for two file members. Not beautiful but formal correctness (all cases);
@@ -437,7 +424,6 @@ public class CodepageProcessor extends ACmdLineArgsInheritor {
      * @param files
      */
     private void process(File document) throws Exception {
-
         Charset charset = null;
         try {
             Thread.sleep(this.wait);
@@ -481,14 +467,11 @@ public class CodepageProcessor extends ACmdLineArgsInheritor {
 
             // transform it:
             if (prefix.length() > 0) {
-                target = new File(this.outputDir.getAbsolutePath()
-                    + "/"
-                    + this.targetCodepage.name()
-                    + "/"
-                    + prefix
-                    + "/");
+                target = new File(this.outputDir.getAbsolutePath() + "/"
+                        + this.targetCodepage.name() + "/" + prefix + "/");
             } else {
-                target = new File(this.outputDir.getAbsolutePath() + "/" + this.targetCodepage.name() + "/");
+                target = new File(this.outputDir.getAbsolutePath() + "/"
+                        + this.targetCodepage.name() + "/");
             }
             if (target.mkdirs()) {
                 if (this.verbose) {
@@ -505,10 +488,10 @@ public class CodepageProcessor extends ACmdLineArgsInheritor {
                 }
             } else {
                 target.createNewFile();
-                Reader in = new BufferedReader(new InputStreamReader(new FileInputStream(document), charset));
+                Reader in = new BufferedReader(new InputStreamReader(new FileInputStream(document),
+                        charset));
                 Writer out = new BufferedWriter(new OutputStreamWriter(
-                    new FileOutputStream(target),
-                    this.targetCodepage));
+                        new FileOutputStream(target), this.targetCodepage));
 
                 // da flow
                 int toRead = transcodeBuffer.length;
@@ -521,14 +504,11 @@ public class CodepageProcessor extends ACmdLineArgsInheritor {
             }
         } else {
             if (prefix.length() > 0) {
-                target = new File(this.outputDir.getAbsolutePath()
-                    + "/"
-                    + charset.name().toLowerCase()
-                    + "/"
-                    + prefix
-                    + "/");
+                target = new File(this.outputDir.getAbsolutePath() + "/"
+                        + charset.name().toLowerCase() + "/" + prefix + "/");
             } else {
-                target = new File(this.outputDir.getAbsolutePath() + "/" + charset.name().toLowerCase() + "/");
+                target = new File(this.outputDir.getAbsolutePath() + "/"
+                        + charset.name().toLowerCase() + "/");
             }
             if (target.mkdirs()) {
                 if (this.verbose) {
@@ -545,7 +525,6 @@ public class CodepageProcessor extends ACmdLineArgsInheritor {
     }
 
     private void rawCopy(File from, File to) throws IOException {
-
         if (to.exists()) {
             if (from.length() == to.length()) {
                 return;
@@ -571,7 +550,6 @@ public class CodepageProcessor extends ACmdLineArgsInheritor {
     }
 
     protected void describe() {
-
         StringBuffer msg = new StringBuffer();
         msg.append("Setup:\n");
         msg.append("  Collection-Root        : ");
@@ -606,25 +584,33 @@ public class CodepageProcessor extends ACmdLineArgsInheritor {
      * @see com.ibm.es.qa.tests.tokenizer.CmdLineArgsInheritor#usage()
      */
     protected void usage() {
-
         StringBuffer tmp = new StringBuffer();
         tmp.append("usage: java -jar codepageProcessor.jar [options]");
         tmp.append("\n");
         tmp.append("options: \n");
         tmp.append("\n  Optional:\n");
         tmp.append("  -c              : Only print available charsets on this system.\n");
-        tmp.append("  -e <extensions> : A comma- or semicolon- separated string for document extensions like \"-e txt,dat\" (without dot or space!).\n");
-        tmp.append("  -m              : Move files with unknown charset to directory \"unknown\".\n");
+        tmp
+                .append("  -e <extensions> : A comma- or semicolon- separated string for document extensions like \"-e txt,dat\" (without dot or space!).\n");
+        tmp
+                .append("  -m              : Move files with unknown charset to directory \"unknown\".\n");
         tmp.append("  -v              : Verbose output.\n");
-        tmp.append("  -w <int>        : Wait <int> seconds before trying next document (good, if you want to work on the very same machine).\n");
-        tmp.append("  -t <charset>    : Try to transform the document to given charset (codepage) name. \n");
-        tmp.append("                    This is only possible for documents that are detected to have a  \n");
-        tmp.append("                    codepage that is supported by the current java VM. If not possible \n");
+        tmp
+                .append("  -w <int>        : Wait <int> seconds before trying next document (good, if you want to work on the very same machine).\n");
+        tmp
+                .append("  -t <charset>    : Try to transform the document to given charset (codepage) name. \n");
+        tmp
+                .append("                    This is only possible for documents that are detected to have a  \n");
+        tmp
+                .append("                    codepage that is supported by the current java VM. If not possible \n");
         tmp.append("                    sorting will be done as normal. \n");
-        tmp.append("  -d              : Semicolon-separated list of fully qualified classnames. \n");
-        tmp.append("                    These classes will be casted to ICodepageDetector instances \n");
+        tmp
+                .append("  -d              : Semicolon-separated list of fully qualified classnames. \n");
+        tmp
+                .append("                    These classes will be casted to ICodepageDetector instances \n");
         tmp.append("                    and used in the order specified.\n");
-        tmp.append("                    If this argument is ommited, a HTMLCodepageDetector followed by .\n");
+        tmp
+                .append("                    If this argument is ommited, a HTMLCodepageDetector followed by .\n");
         tmp.append("                    a JChardetFacade is used by default.\n");
         tmp.append("  Mandatory (if no -c option given) :\n");
         tmp.append("  -r            : Root directory containing the collection (recursive).\n");
@@ -633,7 +619,6 @@ public class CodepageProcessor extends ACmdLineArgsInheritor {
     }
 
     void loadCodepages() {
-
         SortedMap charSets = Charset.availableCharsets();
         Iterator csIt = charSets.entrySet().iterator();
         Map.Entry entry;
@@ -663,7 +648,6 @@ public class CodepageProcessor extends ACmdLineArgsInheritor {
     }
 
     public static void main(String[] args) {
-
         CodepageProcessor sorter = new CodepageProcessor();
         try {
             sorter.parseArgs(args);
