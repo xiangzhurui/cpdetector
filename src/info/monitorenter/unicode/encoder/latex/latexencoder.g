@@ -173,11 +173,6 @@ encodeNext []  returns [Token token] {token=null;}
 				token = token021;
 			}
 			|
-			token022 : LATIN_CAPITAL_LETTER_A_WITH_DIAERESIS {
-				token022.setText("\\\"A");
-				token = token022;
-			}
-			|
 			token023 : LATIN_CAPITAL_LETTER_A_WITH_RING_ABOVE {
 				token023.setText("\\AA ");
 				token = token023;
@@ -208,11 +203,6 @@ encodeNext []  returns [Token token] {token=null;}
 				token = token028;
 			}
 			|
-			token029 : LATIN_CAPITAL_LETTER_E_WITH_DIAERESIS {
-				token029.setText("\\\"E");
-				token = token029;
-			}
-			|
 			token030 : LATIN_CAPITAL_LETTER_I_WITH_GRAVE {
 				token030.setText("\\`I");
 				token = token030;
@@ -226,11 +216,6 @@ encodeNext []  returns [Token token] {token=null;}
 			token032 : LATIN_CAPITAL_LETTER_I_WITH_CIRCUMFLEX {
 				token032.setText("\\^I");
 				token = token032;
-			}
-			|
-			token033 : LATIN_CAPITAL_LETTER_I_WITH_DIAERESIS {
-				token033.setText("\\\"I");
-				token033 = token002;
 			}
 			|
 			// TODO: search for an upper case ETH in latex! 
@@ -264,11 +249,6 @@ encodeNext []  returns [Token token] {token=null;}
 				token = token039;
 			}
 			|
-			token040 : LATIN_CAPITAL_LETTER_O_WITH_DIAERESIS {
-				token040.setText("\\\"O");
-				token = token040;
-			}
-			|
 			token041 : MULTIPLICATION_SIGN {
 				token041.setText("$*$");
 				token = token041;
@@ -292,11 +272,6 @@ encodeNext []  returns [Token token] {token=null;}
 			token045 : LATIN_CAPITAL_LETTER_U_WITH_CIRCUMFLEX {
 				token045.setText("\\^U");
 				token = token045;
-			}
-			|
-			token046 : LATIN_CAPITAL_LETTER_U_WITH_DIAERESIS {
-				token046.setText("\\\"U");
-				token = token046;
 			}
 			|
 			token047 : LATIN_CAPITAL_LETTER_Y_WITH_ACUTE {
@@ -335,11 +310,6 @@ encodeNext []  returns [Token token] {token=null;}
 				token = token053;
 			}
 			|
-			token054 : LATIN_SMALL_LETTER_A_WITH_DIAERESIS {
-				token054.setText("\\\"a");
-				token = token054;
-			}
-			|
 			token055 : LATIN_SMALL_LETTER_A_WITH_RING_ABOVE {
 				token055.setText("\\aa ");
 				token = token055;
@@ -370,11 +340,6 @@ encodeNext []  returns [Token token] {token=null;}
 				token = token060;
 			}
 			|
-			token061 : LATIN_SMALL_LETTER_E_WITH_DIAERESIS {
-				token061.setText("\\\"e");
-				token = token061;
-			}
-			|
 			token062 : LATIN_SMALL_LETTER_I_WITH_GRAVE {
 				token062.setText("\\`i");
 				token = token062;
@@ -388,11 +353,6 @@ encodeNext []  returns [Token token] {token=null;}
 			token064 : LATIN_SMALL_LETTER_I_WITH_CIRCUMFLEX {
 				token064.setText("\\^i");
 				token = token064;
-			}
-			|
-			token065 : LATIN_SMALL_LETTER_I_WITH_DIAERESIS {
-				token065.setText("\\\"i");
-				token = token065;
 			}
 			|
 			token066 : LATIN_SMALL_LETTER_ETH {
@@ -425,11 +385,6 @@ encodeNext []  returns [Token token] {token=null;}
 				token = token071;
 			}
 			|
-			token072 : LATIN_SMALL_LETTER_O_WITH_DIAERESIS {
-				token072.setText("\\\"o");
-				token = token072;
-			}
-			|
 			token073 : DIVISION_SIGN {
 				token073.setText("$\\div$");
 				token = token073;
@@ -455,12 +410,6 @@ encodeNext []  returns [Token token] {token=null;}
 				token = token077;
 			}
 			|
-			token078 : LATIN_SMALL_LETTER_U_WITH_DIAERESIS {
-				token078.setText("\\\"u");
-				token = token078;
-			}
-			
-			|
 			token079 : LATIN_SMALL_LETTER_Y_WITH_ACUTE {
 				token079.setText("\\'y");
 				token = token079;
@@ -470,11 +419,6 @@ encodeNext []  returns [Token token] {token=null;}
 			token080 : LATIN_SMALL_LETTER_THORN {
 				//token082.setText("\\\"u");
 				token = token080;
-			}
-			|
-			token081 : LATIN_SMALL_LETTER_Y_WITH_DIAERESIS {
-				token081.setText("\\\"y");
-				token = token081; 
 			}
 			|
 			// TODO: this is not supported by latex?
@@ -534,31 +478,26 @@ LATIN_CAPITAL_LETTER_A_WITH_GRAVE      : '\u00C0'; // A\�
 LATIN_CAPITAL_LETTER_A_WITH_ACUTE      : '\u00C1'; // A\`
 LATIN_CAPITAL_LETTER_A_WITH_CIRCUMFLEX : '\u00C2';
 LATIN_CAPITAL_LETTER_A_WITH_TILDE      : '\u00C3';
-LATIN_CAPITAL_LETTER_A_WITH_DIAERESIS  : '\u00C4';
 LATIN_CAPITAL_LETTER_A_WITH_RING_ABOVE : '\u00C5';
 LATIN_CAPITAL_LETTER_AE                : '\u00C6';
 LATIN_CAPITAL_LETTER_C_WITH_CEDILLA    : '\u00C7';
 LATIN_CAPITAL_LETTER_E_WITH_GRAVE      : '\u00C8';
 LATIN_CAPITAL_LETTER_E_WITH_ACUTE      : '\u00C9';
 LATIN_CAPITAL_LETTER_E_WITH_CIRCUMFLEX : '\u00CA';
-LATIN_CAPITAL_LETTER_E_WITH_DIAERESIS  : '\u00CB';
 LATIN_CAPITAL_LETTER_I_WITH_GRAVE      : '\u00CC';
 LATIN_CAPITAL_LETTER_I_WITH_ACUTE      : '\u00CD';
 LATIN_CAPITAL_LETTER_I_WITH_CIRCUMFLEX : '\u00CE';
-LATIN_CAPITAL_LETTER_I_WITH_DIAERESIS  : '\u00CD';
 LATIN_CAPITAL_LETTER_ETH               : '\u00D0';
 LATIN_CAPITAL_LETTER_N_WITH_TILDE      : '\u00D1';
 LATIN_CAPITAL_LETTER_O_WITH_GRAVE      : '\u00D2';
 LATIN_CAPITAL_LETTER_O_WITH_ACUTE      : '\u00D3';
 LATIN_CAPITAL_LETTER_O_WITH_CIRCUMFLEX : '\u00D4';
 LATIN_CAPITAL_LETTER_O_WITH_TILDE      : '\u00D5';
-LATIN_CAPITAL_LETTER_O_WITH_DIAERESIS  : '\u00D6';
 MULTIPLICATION_SIGN                    : '\u00D7'; // $*$
 LATIN_CAPITAL_LETTER_O_WITH_STROKE     : '\u00D8';
 LATIN_CAPITAL_LETTER_U_WITH_GRAVE      : '\u00D9';
 LATIN_CAPITAL_LETTER_U_WITH_ACUTE      : '\u00DA';
 LATIN_CAPITAL_LETTER_U_WITH_CIRCUMFLEX : '\u00DB';
-LATIN_CAPITAL_LETTER_U_WITH_DIAERESIS  : '\u00DC';
 LATIN_CAPITAL_LETTER_Y_WITH_ACUTE      : '\u00DD';
 LATIN_CAPITAL_LETTER_THORN             : '\u00DE';
 LATIN_SMALL_LETTER_SHARP_S             : '\u00DF';
@@ -566,37 +505,30 @@ LATIN_SMALL_LETTER_A_WITH_GRAVE        : '\u00E0';
 LATIN_SMALL_LETTER_A_WITH_ACUTE        : '\u00E1';
 LATIN_SMALL_LETTER_A_WITH_CIRCUMFLEX   : '\u00E2';
 LATIN_SMALL_LETTER_A_WITH_TILDE        : '\u00E3';
-LATIN_SMALL_LETTER_A_WITH_DIAERESIS    : '\u00E4';
 LATIN_SMALL_LETTER_A_WITH_RING_ABOVE   : '\u00E5';
 LATIN_SMALL_LETTER_AE                  : '\u00E6';
 LATIN_SMALL_LETTER_C_WITH_CEDILLA      : '\u00E7';
 LATIN_SMALL_LETTER_E_WITH_GRAVE        : '\u00E8';
 LATIN_SMALL_LETTER_E_WITH_ACUTE        : '\u00E9';
 LATIN_SMALL_LETTER_E_WITH_CIRCUMFLEX   : '\u00EA';
-LATIN_SMALL_LETTER_E_WITH_DIAERESIS    : '\u00EB';
 LATIN_SMALL_LETTER_I_WITH_GRAVE        : '\u00EC';
 LATIN_SMALL_LETTER_I_WITH_ACUTE        : '\u00ED';
 LATIN_SMALL_LETTER_I_WITH_CIRCUMFLEX   : '\u00EE';
-LATIN_SMALL_LETTER_I_WITH_DIAERESIS    : '\u00EF'; 
 LATIN_SMALL_LETTER_ETH                 : '\u00F0';
 LATIN_SMALL_LETTER_N_WITH_TILDE        : '\u00F1';
 LATIN_SMALL_LETTER_O_WITH_GRAVE        : '\u00F2';
 LATIN_SMALL_LETTER_O_WITH_ACUTE        : '\u00F3';
 LATIN_SMALL_LETTER_O_WITH_CIRCUMFLEX   : '\u00F4';
 LATIN_SMALL_LETTER_O_WITH_TILDE        : '\u00F5';
-LATIN_SMALL_LETTER_O_WITH_DIAERESIS    : '\u00F6';
 DIVISION_SIGN                          : '\u00F7'; // $/$
 LATIN_SMALL_LETTER_O_WITH_STROKE       : '\u00F8';
 LATIN_SMALL_LETTER_U_WITH_GRAVE        : '\u00F9';
 LATIN_SMALL_LETTER_U_WITH_ACUTE        : '\u00FA';
 LATIN_SMALL_LETTER_U_WITH_CIRCUMFLEX   : '\u00FB';
-LATIN_SMALL_LETTER_U_WITH_DIAERESIS    : '\u00FC';
 LATIN_SMALL_LETTER_Y_WITH_ACUTE        : '\u00FD';
 LATIN_SMALL_LETTER_THORN               : '\u00FE';
-LATIN_SMALL_LETTER_Y_WITH_DIAERESIS    : '\u00FF';
 
 EURO_CURRENCY                          : '\u20A0';
-EURO_SIGN                              : '\u20AC';
 
 
 
