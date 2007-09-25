@@ -69,6 +69,11 @@
 	</condition>
 
 	<target name="jar.htmlentitydecoder" depends="jar.binaries">
+		
+		<!-- replace the manifest.mf with a different one for the main class attribute. -->
+		<jar destfile="${basedir}/${project.name}_${project.version}.jar" manifest="manifest-decoder.mf" update="true">
+		</jar>
+		
 		<!-- 
            Shrink the jar file as external jars (e.g. infovis for range chooser panel) 
            contain many unused classes. 
