@@ -42,6 +42,12 @@
  */
 package cpdetector.io;
 
+import info.monitorenter.cpdetector.io.ASCIIDetector;
+import info.monitorenter.cpdetector.io.CodepageDetectorProxy;
+import info.monitorenter.cpdetector.io.JChardetFacade;
+import info.monitorenter.cpdetector.io.ParsingDetector;
+import info.monitorenter.cpdetector.util.FileUtil;
+
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -53,10 +59,9 @@ import java.net.URL;
 import java.nio.charset.Charset;
 
 import junit.framework.TestCase;
-import cpdetector.util.FileUtil;
 
 /**
- * Test case for <code>{@link cpdetector.io.CodepageDetectorProxy}</code>.
+ * Test case for <code>{@link info.monitorenter.cpdetector.io.CodepageDetectorProxy}</code>.
  * <p>
  * 
  * @author <a href="mailto:Achim.Westermann@gmx.de">Achim Westermann</a>

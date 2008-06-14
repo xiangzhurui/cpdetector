@@ -1,11 +1,12 @@
 package cpdetector.test;
+import info.monitorenter.cpdetector.io.ASCIIDetector;
+import info.monitorenter.cpdetector.io.CodepageDetectorProxy;
+import info.monitorenter.cpdetector.io.JChardetFacade;
+import info.monitorenter.cpdetector.io.ParsingDetector;
+
 import java.io.File;
 import java.net.URL;
 
-import cpdetector.io.ASCIIDetector;
-import cpdetector.io.CodepageDetectorProxy;
-import cpdetector.io.JChardetFacade;
-import cpdetector.io.ParsingDetector;
 import fit.ColumnFixture;
 
 public class DetectURLFixture extends ColumnFixture{

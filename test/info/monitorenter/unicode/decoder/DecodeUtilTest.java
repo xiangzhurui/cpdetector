@@ -49,13 +49,14 @@
 
 package info.monitorenter.unicode.decoder;
 
+import info.monitorenter.cpdetector.util.FileUtil;
+
 import java.io.IOException;
 import java.io.InputStream;
 
 import junit.framework.TestCase;
 import antlr.RecognitionException;
 import antlr.TokenStreamException;
-import cpdetector.util.FileUtil;
 
 /**
  * Test for <code>{@link DecodeUtil}</code>.

@@ -20,6 +20,12 @@ Legend:
 - General comment
 o API change that requires refactoring.
 
+cpdetector- 1.1.0 - month, day, 2008
+
+! Started to use proguard shrinker: cpdetector jar is now more than ten times smaller. 
+* Fixed issue #1989692:  Do not use System.out for logging in JChardetFacade. 
+o Renamed all packages with prefix: info.monitorenter.
+
 cpdetector- 1.0.5 - 04, 21, 2007
 
 * Fixed issue with infinite loop for exhausted input stream in jchardet facade.

@@ -52,6 +52,7 @@ package info.monitorenter.unicode.decoder;
 import antlr.RecognitionException;
 import antlr.Token;
 import antlr.TokenStreamException;
+import info.monitorenter.cpdetector.util.FileUtil;
 import info.monitorenter.unicode.decoder.html.HtmlEntityDecoder;
 import info.monitorenter.unicode.decoder.html.HtmlEntityLexer;
 import jargs.gnu.CmdLineParser;
@@ -65,7 +66,6 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.StringReader;
 
-import cpdetector.util.FileUtil;
 
 /**
  * Easy to use utility functions with scope on decoding to unicode.

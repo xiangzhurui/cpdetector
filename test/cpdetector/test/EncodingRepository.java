@@ -25,6 +25,10 @@
  */
 package cpdetector.test;
 
+import info.monitorenter.cpdetector.io.UnknownCharset;
+import info.monitorenter.cpdetector.io.UnsupportedCharset;
+import info.monitorenter.cpdetector.util.FileUtil;
+
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -37,9 +41,6 @@ import java.util.Properties;
 import java.util.Set;
 import java.util.TreeSet;
 
-import cpdetector.io.UnknownCharset;
-import cpdetector.io.UnsupportedCharset;
-import cpdetector.util.FileUtil;
 
 /**
  * <p>

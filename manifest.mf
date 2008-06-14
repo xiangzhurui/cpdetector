@@ -1,2 +1,2 @@
 Manifest-Version: 1.0
-Main-Class: cpdetector.CodepageProcessor
+Main-Class: info.monitorenter.cpdetector.CodepageProcessor

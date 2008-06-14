@@ -23,6 +23,17 @@
  */
 package cpdetector.test;
 
+import info.monitorenter.cpdetector.ACmdLineArgsInheritor;
+import info.monitorenter.cpdetector.io.ASCIIDetector;
+import info.monitorenter.cpdetector.io.CodepageDetectorProxy;
+import info.monitorenter.cpdetector.io.FileFilterExtensions;
+import info.monitorenter.cpdetector.io.ICodepageDetector;
+import info.monitorenter.cpdetector.io.JChardetFacade;
+import info.monitorenter.cpdetector.io.ParsingDetector;
+import info.monitorenter.cpdetector.io.UnknownCharset;
+import info.monitorenter.cpdetector.io.UnsupportedCharset;
+import info.monitorenter.cpdetector.reflect.SingletonLoader;
+import info.monitorenter.cpdetector.util.FileUtil;
 import jargs.gnu.CmdLineParser;
 
 import java.io.File;
@@ -38,17 +49,6 @@ import java.util.MissingResourceException;
 import java.util.SortedMap;
 import java.util.StringTokenizer;
 
-import cpdetector.ACmdLineArgsInheritor;
-import cpdetector.io.ASCIIDetector;
-import cpdetector.io.CodepageDetectorProxy;
-import cpdetector.io.FileFilterExtensions;
-import cpdetector.io.ICodepageDetector;
-import cpdetector.io.JChardetFacade;
-import cpdetector.io.ParsingDetector;
-import cpdetector.io.UnknownCharset;
-import cpdetector.io.UnsupportedCharset;
-import cpdetector.reflect.SingletonLoader;
-import cpdetector.util.FileUtil;
 
 /**
  * @author <a href="mailto:Achim.Westermann@gmx.de">Achim Westermann </a>

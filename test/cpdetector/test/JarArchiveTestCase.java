@@ -1,8 +1,8 @@
 package cpdetector.test;
 
+import info.monitorenter.cpdetector.io.*;
 import junit.framework.*;
 import java.io.*;
-import cpdetector.io.*;
 
 /*
  * 

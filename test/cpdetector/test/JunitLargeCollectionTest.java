@@ -23,6 +23,17 @@
  */
 package cpdetector.test;
 
+import info.monitorenter.cpdetector.io.ASCIIDetector;
+import info.monitorenter.cpdetector.io.CodepageDetectorProxy;
+import info.monitorenter.cpdetector.io.FileFilterExtensions;
+import info.monitorenter.cpdetector.io.ICodepageDetector;
+import info.monitorenter.cpdetector.io.JChardetFacade;
+import info.monitorenter.cpdetector.io.ParsingDetector;
+import info.monitorenter.cpdetector.io.UnknownCharset;
+import info.monitorenter.cpdetector.io.UnsupportedCharset;
+import info.monitorenter.cpdetector.reflect.SingletonLoader;
+import info.monitorenter.cpdetector.util.FileUtil;
+
 import java.io.File;
 import java.io.FileFilter;
 import java.io.IOException;
@@ -39,16 +50,6 @@ import java.util.StringTokenizer;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
-import cpdetector.io.ASCIIDetector;
-import cpdetector.io.CodepageDetectorProxy;
-import cpdetector.io.FileFilterExtensions;
-import cpdetector.io.ICodepageDetector;
-import cpdetector.io.JChardetFacade;
-import cpdetector.io.ParsingDetector;
-import cpdetector.io.UnknownCharset;
-import cpdetector.io.UnsupportedCharset;
-import cpdetector.reflect.SingletonLoader;
-import cpdetector.util.FileUtil;
 
 /**
  * @author <a href="mailto:Achim.Westermann@gmx.de">Achim Westermann </a>
