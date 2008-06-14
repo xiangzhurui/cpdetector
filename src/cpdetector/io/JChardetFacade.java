@@ -148,12 +148,7 @@ public final class JChardetFacade
    */
   private Charset guess() {
     Charset ret = null;
-    // TODO: remove output.
     String[] possibilities = det.getProbableCharsets();
-    System.out.println("Possible Charsets: ");
-    for (int i = 0; i < possibilities.length; i++) {
-      System.out.println(possibilities[i]);
-    }
     /*
      * Detect US-ASCII by the fact, that no exclusion of any Charset was
      * possible.
