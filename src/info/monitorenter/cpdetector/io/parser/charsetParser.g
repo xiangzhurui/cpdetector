@@ -45,7 +45,7 @@
  * Achim.Westermann@gmx.de
  */
 header{
-package cpdetector.io.parser;
+package info.monitorenter.cpdetector.io.parser;
 }
 options{
 //		language="java";	 
