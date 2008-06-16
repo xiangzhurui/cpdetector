@@ -265,7 +265,7 @@
 
     <target name="build.parser.charset"
             unless="is.uptodate.parsergrammar.charset">
-        <antlr target="${sourcedir}/inf0/monitorenter/cpdetector/io/parser/charsetParser.g"
+        <antlr target="${sourcedir}/info/monitorenter/cpdetector/io/parser/charsetParser.g"
                traceLexer="no">
             <classpath refid="classpath" />
         </antlr>
@@ -316,7 +316,7 @@
         <!-- 
 	         Shrink the jar file.
 	        -->
-        <proguard obfuscate="true"
+        <proguard obfuscate="false"
                   shrink="true"
                   overloadaggressively="false"
                   warn="true"
