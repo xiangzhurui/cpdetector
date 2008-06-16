@@ -19,7 +19,7 @@
     <property name="builddir" value="bin/" />
     <property name="sourcedir" value="src/" />
     <property name="testsourcedir" value="test/" />
-    <property name="project.version" value="1.0.6" />
+    <property name="project.version" value="1.1.0" />
     <!-- for ant fit testing integration -->
     <property name="fit.results.dir" value="${basedir}/test/fit/out/" />
 
@@ -57,7 +57,7 @@
     <fileset dir="${basedir}"
              id="externalJars"
              description="External library jar files that will be shipped with this *.jar distribution.">
-        <include name="${libdir}/**/*.jar" />
+        <include name="${libdir}/*.jar" />
         <exclude name="${libdir}/test/**" />
     </fileset>
 
@@ -246,7 +246,7 @@
 
 
     <target name="build"
-            depends="build.parser.charset,build.parser.htmlentities,build.parser.latexencoder,integrate.jars">
+            depends="build.parser.charset,build.parser.htmlentities,build.parser.latexencoder">
         <mkdir dir="${builddir}" />
         <echo>Compiling 1.4 core code.</echo>
         <javac fork="true"
@@ -288,18 +288,13 @@
             <classpath refid="classpath" />
         </antlr>
     </target>
-
-    <target name="integrate.jars" unless="is.uptodate.externalJars">
-        <copy file="${basedir}/MPL-1.1.txt" toDir="${builddir}" />
-        <unjar dest="${builddir}">
+    <target name="zip.binaries" depends="jar.binaries">
+        <delete file="${project.name}_${project.version}_binary.zip" />
+        <zip destfile="${project.name}_${project.version}_binary.zip">
             <fileset refid="externalJars" />
-        </unjar>
-        <!-- remove potentially contained sourcefiles -->
-        <delete includeEmptyDirs="true">
-            <fileset dir="${builddir}">
-                <exclude name="**/*.class" />
-            </fileset>
-        </delete>
+            <file file="${project.name}_${project.version}.jar" />
+            <file file="binary-release.txt" />
+        </zip>
     </target>
 
     <!-- Create the jar file for command line parsing support -->

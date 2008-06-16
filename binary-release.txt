@@ -1,0 +1,13 @@
+This zipfile contains the java libaries needed to run cpdetector. 
+
+If you want to use the command line tool info.monitorenter.cpdetector.CodepageProcessor 
+(java -jar cpdetector_version.jar) you have to use jargs.jar. 
+
+If you integrate cpdetector in your java application you just need 
+to use: 
+- chardet.jar
+- antlr.jar
+
+antlr.jar is version 2.7.4. Porting to version 3 has been stopped after 
+encountering some problems with packages an required import for lexer 
+to specify lexer options. 
