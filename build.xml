@@ -10,8 +10,7 @@
     <!--
           Shrinking for jarfiles
      -->
-    <taskdef resource="proguard/ant/task.properties"
-             classpath="${libdir}/build/proguard.jar" />
+    <taskdef name="proguard" classname="proguard.ant.ProGuardTask" />
     <!-- General Properties -->
 
     <property name="project.name" value="cpdetector" />
@@ -19,7 +18,7 @@
     <property name="builddir" value="bin/" />
     <property name="sourcedir" value="src/" />
     <property name="testsourcedir" value="test/" />
-    <property name="project.version" value="1.1.0" />
+    <property name="project.version" value="1.0.7" />
     <!-- for ant fit testing integration -->
     <property name="fit.results.dir" value="${basedir}/test/fit/out/" />
 
@@ -104,6 +103,9 @@
                   allowaccessmodification="false">
             <libraryjar>
                 <pathelement path="${java.home}/lib/rt.jar" />
+                <pathelement path="${basedir}/ext/chardet.jar" />
+                <pathelement path="${basedir}/ext/jargs.jar" />
+                <pathelement path="${basedir}/ext/antlr.jar" />
             </libraryjar>
             <!--
              caution: The name attribut value has to be the same expression
@@ -322,6 +324,9 @@
                   allowaccessmodification="false">
             <libraryjar>
                 <pathelement path="${java.home}/lib/rt.jar" />
+                <pathelement path="${basedir}/ext/chardet.jar" />
+                <pathelement path="${basedir}/ext/antlr.jar" />
+                <pathelement path="${basedir}/ext/jargs.jar" />
             </libraryjar>
             <!--
 	             caution: The name attribut value has to be the same expression
@@ -331,11 +336,14 @@
             <outjar name="${basedir}/${project.name}_${project.version}_min.jar" />
             <!-- Filter -->
             <keep name="info.monitorenter.cpdetector.*">
-                <method access="public static" />
+                <method name="*" />
             </keep>
-            <keep name="info.monitorenter.cpdetector.io.*">
+            <keep name="info.monitorenter.cpdetector.io.**">
+                <method name="*" />
+
             </keep>
             <keep name="util*">
+                <method name="*" />
             </keep>
             <!-- keep all Exceptions they are moved outside -->
             <keep name="antlr.**Exception*">
@@ -361,6 +369,12 @@
                 <field name="**" />
             </keep>
         </proguard>
+        <!-- Rename the shrinked version to the original name. -->
+
+        <delete file="${basedir}/${project.name}_${project.version}.jar" />
+        <move file="${basedir}/${project.name}_${project.version}_min.jar"
+              tofile="${basedir}/${project.name}_${project.version}.jar" />
+
     </target>
 
     <!-- Dependency only for ensuring validity -->

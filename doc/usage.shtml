@@ -1,7 +1,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
  <!--#include virtual="./head.shtml" -->
  <script language="javascript">
-  var update="15/06/2008";
+  var update="17/06/2008";
  </script>
  <body id="usage">
   <div id="wrapper">
@@ -63,11 +63,11 @@
      </p>
      <h3>Taxonomy sorting</h3>
      <p>
-      cpdetector.jar - which may be <a href="download.shtml">downloaded</a> from the binary release at 
+      cpdetector.jar along with the 3rd party libraries - which may be <a href="download.shtml">downloaded</a> from the binary release at 
       sourceforge - may be used to sort documents by their detected codepage. Simply invoke the following 
       command:
       <pre>
- java -jar cpdetector.jar 
+java -cp jargs.jar;cpdetector_1.0.7.jar;antlr.jar;chardet.jar info.monitorenter.cpdetector.CodepageProcessor 
       </pre>
       As you did not specify mandatory arguments you will see a usage output: 
       <pre>
@@ -102,9 +102,9 @@ options:
      <h3>Application integration</h3>
      <p>
       The following demo - code shows, how to configure the proxy for code page detection and how to 
-      use it. The example is kept simple. If you want to reuse the proxy, just keep it as a m
+      use it. The example is kept simple. If you want to reuse the proxy, just keep it as a 
       member of a class that provides a service that involves code page - detection.
-      
+      Please add the 3rd party libraries of the binary download to the classpath of your IDE.      
       <pre>
 import info.monitorenter.cpdetector.io.*;
 

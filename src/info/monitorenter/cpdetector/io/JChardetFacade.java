@@ -174,12 +174,11 @@ public final class JChardetFacade
 
   }
 
-  /*
-   * (non-Javadoc)
-   * 
-   * @see org.mozilla.intl.chardet.nsICharsetDetectionObserver#Notify(java.lang.String)
-   */
-  public void Notify(String charset) {
+ /**
+  * 
+  * @see org.mozilla.intl.chardet.nsICharsetDetectionObserver#Notify(java.lang.String)
+  */
+  public void Notify(final String charset) {
     this.codpage = Charset.forName(charset);
   }
 

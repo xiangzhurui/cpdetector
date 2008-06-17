@@ -585,7 +585,7 @@ public class CodepageProcessor extends ACmdLineArgsInheritor {
      */
     protected void usage() {
         StringBuffer tmp = new StringBuffer();
-        tmp.append("usage: java -jar codepageProcessor.jar [options]");
+        tmp.append("usage: java -cp jargs.jar;cpdetector_1.0.7.jar;antlr.jar;chardet.jar info.monitorenter.cpdetector.CodepageProcessor -r <testdocumentdir> -o <testoutputdir> [options]");
         tmp.append("\n");
         tmp.append("options: \n");
         tmp.append("\n  Optional:\n");

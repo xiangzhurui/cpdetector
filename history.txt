@@ -20,7 +20,13 @@ Legend:
 - General comment
 o API change that requires refactoring.
 
-cpdetector- 1.1.0 - June, 14th, 2008
+cpdetector- 1.0.7 - June, 17th, 2008
+
+! Upgraded proguard shrinker from version 3.8 to 4.2.
+* Changed release structure: cpdetetor.jar does not contain 3rd party library files any more.  
+* Fixed issue #1995828: Missing public functions. 
+
+cpdetector- 1.0.6 - June, 14th, 2008
 
 ! Started to use proguard shrinker: cpdetector jar is now more than ten times smaller. 
 * Fixed issue #1989692:  Do not use System.out for logging in JChardetFacade. 

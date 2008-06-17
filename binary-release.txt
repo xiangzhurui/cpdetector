@@ -10,4 +10,4 @@ to use:
 
 antlr.jar is version 2.7.4. Porting to version 3 has been stopped after 
 encountering some problems with packages an required import for lexer 
-to specify lexer options. 
+to specify lexer options in combination with non-unamed package. 
