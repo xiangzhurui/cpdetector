@@ -6,7 +6,7 @@
  * This file is part of cpdetector -
  * the Open Source code page detection library.
  *
- * Copyright (c) 2007 Achim Westermann
+ * Copyright (c) 2008 Achim Westermann
  */
 
 History of changes for the cpdetector project.
@@ -19,6 +19,10 @@ Legend:
 * Bug fixed
 - General comment
 o API change that requires refactoring.
+
+cpdetector- 1.0.8 - month, day, 2008
+
+! Feature request #1997513:  add the version number to the 3rd party jars.
 
 cpdetector- 1.0.7 - June, 17th, 2008
 
