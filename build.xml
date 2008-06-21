@@ -324,9 +324,9 @@
                   allowaccessmodification="false">
             <libraryjar>
                 <pathelement path="${java.home}/lib/rt.jar" />
-                <pathelement path="${basedir}/ext/chardet.jar" />
-                <pathelement path="${basedir}/ext/antlr.jar" />
-                <pathelement path="${basedir}/ext/jargs.jar" />
+                <fileset dir="${basedir}/ext/">
+                    <include name="*.jar" />
+                </fileset>
             </libraryjar>
             <!--
 	             caution: The name attribut value has to be the same expression
