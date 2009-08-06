@@ -22,7 +22,8 @@ o API change that requires refactoring.
 
 cpdetector- 1.0.8 - month, day, 2008
 
-! Feature request #1997513:  add the version number to the 3rd party jars.
+! Feature request #1997513:  add the version number to the 3rd party jars. 
+* Fixed bug #2833073: Some cpDetector methods do not work with OpenJDK, contributed by Tarjei Huse.
 
 cpdetector- 1.0.7 - June, 17th, 2008
 
