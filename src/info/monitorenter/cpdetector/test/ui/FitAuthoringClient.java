@@ -46,7 +46,6 @@
  */package info.monitorenter.cpdetector.test.ui;
 
 import info.monitorenter.cpdetector.io.ClassFileFilterIsA;
-import info.monitorenter.cpdetector.io.IClassFileFilter;
 import info.monitorenter.cpdetector.test.ui.ClassFileChooser.URLFileSystemView;
 
 import java.awt.Dimension;
@@ -62,8 +61,6 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.KeyStroke;
-
-import fit.ColumnFixture;
 
 public class FitAuthoringClient extends JFrame implements ActionListener{
 
