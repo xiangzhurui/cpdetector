@@ -71,8 +71,6 @@ import javax.swing.JList;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileSystemView;
 
-import sun.awt.shell.ShellFolder;
-
 /**
  * @author <a href="mailto:Achim.Westermann@gmx.de">Achim Westermann </a>
  *  
@@ -412,16 +410,6 @@ public class ClassFileChooser extends JFileChooser {
             return super.getSystemTypeDescription(f);
         }
 
-        /*
-         * (non-Javadoc)
-         * 
-         * @see javax.swing.filechooser.FileSystemView#getShellFolder(java.io.File)
-         */
-        ShellFolder getShellFolder(File f) {
-
-            // TODO Auto-generated method stub
-            return null;
-        }
 
         /*
          * (non-Javadoc)
