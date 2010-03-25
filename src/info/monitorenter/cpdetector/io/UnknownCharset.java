@@ -104,12 +104,4 @@ public class UnknownCharset extends Charset {
         throw new UnsupportedOperationException(
                 "This is no real Charset but a flag you should test for!");
     }
-
-    /**
-     * @see java.lang.Comparable#compareTo(java.lang.Object)
-     */
-    public int compareTo(Object arg0) {
-        return new Integer(this.hashCode()).compareTo(new Integer(arg0.hashCode()));
-    }
-
 }
