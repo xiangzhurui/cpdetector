@@ -24,6 +24,7 @@ cpdetector- 1.0.8 - month, day, 2008
 
 ! Feature request #1997513:  add the version number to the 3rd party jars. 
 * Fixed bug #2833073: Some cpDetector methods do not work with OpenJDK, contributed by Tarjei Huse.
+* Fixed bug #2976347: The implementation of the ByteOrderMarkDetector seems wrong.
 
 cpdetector- 1.0.7 - June, 17th, 2008
 
