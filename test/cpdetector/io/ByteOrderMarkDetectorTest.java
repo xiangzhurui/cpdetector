@@ -30,7 +30,7 @@
  */
 package cpdetector.io;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertEquals; 
 import static org.junit.Assert.fail;
 import info.monitorenter.cpdetector.io.ByteOrderMarkDetector;
 import info.monitorenter.cpdetector.io.ICodepageDetector;

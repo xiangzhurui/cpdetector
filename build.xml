@@ -75,109 +75,7 @@
 		</available>
 	</condition>
 
-	<target name="jar.htmlentitydecoder" depends="jar.binaries">
-
-		<!-- replace the manifest.mf with a different one for the main class attribute. -->
-		<jar destfile="${basedir}/${project.name}_${project.version}.jar" manifest="manifest-decoder.mf" update="true">
-		</jar>
-
-		<!-- 
-           Shrink the jar file as external jars (e.g. infovis for range chooser panel) 
-           contain many unused classes. 
-           Ignorewarnings is on as external jar infovis depends on further jars.
-           Tun this off is more jars have deps that may not be ignored.
-          -->
-		<proguard obfuscate="true" shrink="true" overloadaggressively="false" warn="true" verbose="true" ignorewarnings="true" optimize="false" printmapping="true" allowaccessmodification="false">
-			<libraryjar>
-				<pathelement path="${java.home}/lib/rt.jar" />
-				<pathelement path="${basedir}/ext/chardet.jar" />
-				<pathelement path="${basedir}/ext/jargs.jar" />
-				<pathelement path="${basedir}/ext/antlr.jar" />
-			</libraryjar>
-			<!--
-             caution: The name attribut value has to be the same expression
-             as the  destfile of the makejar- target [depend].
-            -->
-			<injar name="${basedir}/${project.name}_${project.version}.jar" />
-			<outjar name="${basedir}/htmlentitydecoder.jar" />
-			<!-- Filter -->
-			<keep name="info.monitorenter.unicode.decoder.DecodeUtil">
-				<method access="public static" />
-			</keep>
-			<!-- keep all Exceptions they are moved outside -->
-			<keep name="antlr.**Exception*">
-			</keep>
-			<!-- keep all Tokens they are moved outside -->
-			<keep name="antlr.**Token*" extends="antlr.Token">
-				<method name="**" />
-			</keep>
-			<!-- 
-			 If several jar files contain obfuscated antlr runtime 
-			 libraries, NoSuchMethodError may occur. 
-		    -->
-			<keepnames name="antlr.**">
-				<method name="**" />
-				<field name="**" />
-			</keepnames>
-			<!-- 
-			 Don't shrink Charscanner methods away, 
-			 another grammar might need them. 
-			-->
-			<keep name="antlr.CharScanner">
-				<method name="**" />
-				<field name="**" />
-			</keep>
-		</proguard>
-	</target>
-
-	<target name="jar.latexencoder" depends="jar.binaries">
-		<!-- 
-         Shrink the jar file as external jars (e.g. infovis for range chooser panel) 
-         contain many unused classes. 
-         Ignorewarnings is on as external jar infovis depends on further jars.
-         Tun this off is more jars have deps that may not be ignored.
-        -->
-		<proguard obfuscate="true" shrink="true" overloadaggressively="false" warn="true" verbose="true" ignorewarnings="true" optimize="false" printmapping="true" allowaccessmodification="false">
-			<libraryjar>
-				<pathelement path="${java.home}/lib/rt.jar" />
-			</libraryjar>
-			<!--
-             caution: The name attribut value has to be the same expression
-             as the  destfile of the makejar- target [depend].
-            -->
-			<injar name="${basedir}/${project.name}_${project.version}.jar" />
-			<outjar name="${basedir}/latexencoder.jar" />
-			<!-- Filter -->
-			<keep name="info.monitorenter.unicode.encoder.EncodeUtil">
-				<method access="public static" />
-			</keep>
-			<!-- keep all Exceptions they are moved outside -->
-			<keep name="antlr.**Exception*">
-			</keep>
-			<!-- keep all Tokens they are moved outside -->
-			<keep name="antlr.**Token*" extends="antlr.Token">
-				<method name="**" />
-			</keep>
-			<!-- 
-			 If several jar files contain obfuscated antlr runtime 
-			 libraries, NoSuchMethodError may occur. 
-    		-->
-			<keepnames name="antlr.**">
-				<method name="**" />
-				<field name="**" />
-			</keepnames>
-			<!-- 
-			 Don't shrink Charscanner methods away, 
-			 another grammar might need them. 
-			-->
-			<keep name="antlr.CharScanner">
-				<method name="**" />
-				<field name="**" />
-			</keep>
-		</proguard>
-	</target>
-
-	<condition property="is.uptodate.externalJars">
+		<condition property="is.uptodate.externalJars">
 		<and>
 			<available file="${builddir}/antlr/" />
 			<available file="${builddir}/jargs/" />
@@ -203,16 +101,7 @@
 		</uptodate>
 	</condition>
 
-	<condition property="is.uptodate.parsergrammar.htmlentities">
-		<uptodate srcfile="${sourcedir}/info/monitorenter/unicode/decoder.html/htmlentitydecoder.g" targetfile="${sourcedir}/info/monitorenter/unicode/decoder/html/HtmlEntityParser.java">
-		</uptodate>
-	</condition>
-
-	<condition property="is.uptodate.parsergrammar.latexencoder">
-		<uptodate srcfile="${sourcedir}/info/monitorenter/unicode/encoder/latex/latexencoder.g" targetfile="${sourcedir}/info/monitorenter/unicode/encoder/latex/LatexEncoder.java">
-		</uptodate>
-	</condition>
-
+	
 	<!-- Report conditions -->
 	<target name="report.testdocuments" unless="is.testdocuments">
 		<echo message="Cannot find testdocuments." />
@@ -223,7 +112,7 @@
 	<!-- compile the java sources -->
 
 
-	<target name="build" depends="build.parser.charset,build.parser.htmlentities,build.parser.latexencoder">
+	<target name="build" depends="build.parser.charset">
 		<mkdir dir="${builddir}" />
 		<echo>Compiling 1.4 core code.</echo>
 		<javac fork="true" debug="true" target="1.4" source="1.4" verbose="false" destdir="${builddir}">
@@ -241,17 +130,6 @@
 		</antlr>
 	</target>
 
-	<target name="build.parser.htmlentities" unless="is.uptodate.parsergrammar.htmlentities">
-		<antlr target="${sourcedir}/info/monitorenter/unicode/decoder/html/htmlentitydecoder.g" traceLexer="no" traceParser="no">
-			<classpath refid="classpath" />
-		</antlr>
-	</target>
-
-	<target name="build.parser.latexencoder" unless="is.uptodate.parsergrammar.latexencoder">
-		<antlr target="${sourcedir}/info/monitorenter/unicode/encoder/latex/latexencoder.g" traceLexer="no" traceParser="no">
-			<classpath refid="classpath" />
-		</antlr>
-	</target>
 	<target name="zip.binaries" depends="jar.binaries">
 		<delete file="${project.name}_${project.version}_binary.zip" />
 		<zip destfile="${project.name}_${project.version}_binary.zip">
@@ -340,7 +218,7 @@
 			<include name="${project.name}/.project" />
 			<include name="${project.name}/build.xml" />
 			<include name="${project.name}/manifest.mf" />
-			<include name="${project.name}/doc/cpdetector.css" />
+			<include name="${project.name}/doc/javadoc/cpdetector.css" />
 			<include name="${project.name}/test/fit/*" />
 			<!-- Works when  defaultexcludes="no" is set -->
 			<include name="${project.name}/.cvsignore" />

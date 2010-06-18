@@ -27,7 +27,7 @@ package cpdetector.test;
 
 import info.monitorenter.cpdetector.io.UnknownCharset;
 import info.monitorenter.cpdetector.io.UnsupportedCharset;
-import info.monitorenter.cpdetector.util.FileUtil;
+import info.monitorenter.util.FileUtil;
 
 import java.io.IOException;
 import java.net.MalformedURLException;

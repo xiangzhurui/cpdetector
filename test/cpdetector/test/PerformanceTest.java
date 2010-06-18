@@ -33,7 +33,7 @@ import info.monitorenter.cpdetector.io.ParsingDetector;
 import info.monitorenter.cpdetector.io.UnknownCharset;
 import info.monitorenter.cpdetector.io.UnsupportedCharset;
 import info.monitorenter.cpdetector.reflect.SingletonLoader;
-import info.monitorenter.cpdetector.util.FileUtil;
+import info.monitorenter.util.FileUtil;
 import jargs.gnu.CmdLineParser;
 
 import java.io.File;

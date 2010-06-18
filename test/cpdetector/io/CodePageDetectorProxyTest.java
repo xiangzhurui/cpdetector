@@ -46,7 +46,7 @@ import info.monitorenter.cpdetector.io.ASCIIDetector;
 import info.monitorenter.cpdetector.io.CodepageDetectorProxy;
 import info.monitorenter.cpdetector.io.JChardetFacade;
 import info.monitorenter.cpdetector.io.ParsingDetector;
-import info.monitorenter.cpdetector.util.FileUtil;
+import info.monitorenter.util.FileUtil;
 
 import java.io.BufferedInputStream;
 import java.io.File;
