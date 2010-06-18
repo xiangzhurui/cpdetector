@@ -42,9 +42,9 @@
  */ 
  package info.monitorenter.cpdetector.io;
 
-import info.monitorenter.cpdetector.util.Entry;
-import info.monitorenter.cpdetector.util.FileUtil;
-import info.monitorenter.cpdetector.util.StringUtil;
+import info.monitorenter.util.Entry;
+import info.monitorenter.util.FileUtil;
+import info.monitorenter.util.StringUtil;
 
 import java.io.File;
 import java.io.FileFilter;

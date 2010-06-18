@@ -44,7 +44,7 @@
  * Achim.Westermann@gmx.de
  */
 
-package info.monitorenter.cpdetector.util;
+package info.monitorenter.util;
 
 import java.io.BufferedInputStream;
 import java.io.ByteArrayInputStream;
@@ -435,7 +435,7 @@ public class FileUtil
    *          the input stream to read.
    * 
    * @throws IOException
-   *           if sth goes wrong.
+   *           if something goes wrong.
    * 
    * @see #readRAM(InputStream, int)
    * 

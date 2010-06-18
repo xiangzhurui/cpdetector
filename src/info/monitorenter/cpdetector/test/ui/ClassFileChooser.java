@@ -49,7 +49,7 @@ package info.monitorenter.cpdetector.test.ui;
 
 import info.monitorenter.cpdetector.io.IClassFileFilter;
 import info.monitorenter.cpdetector.io.JarArchive;
-import info.monitorenter.cpdetector.util.FileUtil;
+import info.monitorenter.util.FileUtil;
 
 import java.awt.Component;
 import java.awt.Container;

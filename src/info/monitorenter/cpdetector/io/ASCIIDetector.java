@@ -47,7 +47,7 @@
  */
 package info.monitorenter.cpdetector.io;
 
-import info.monitorenter.cpdetector.util.FileUtil;
+import info.monitorenter.util.FileUtil;
 
 import java.io.BufferedInputStream;
 import java.io.IOException;

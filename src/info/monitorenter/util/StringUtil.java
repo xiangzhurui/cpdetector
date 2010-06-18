@@ -42,7 +42,7 @@
  *  
  * If you modify or optimize the code in a useful way please let me know.
  * Achim.Westermann@gmx.de * 
- */package info.monitorenter.cpdetector.util;
+ */package info.monitorenter.util;
 
 import java.lang.reflect.Array;
 import java.util.List;
