@@ -69,9 +69,8 @@ import java.util.jar.JarFile;
 
 
 /**
- * <p>
  * A jar file that pretends to be a simple file by extending {@link java.io.File}.
- * </p>
+ * <p>
  * 
  * @author <a href="mailto:Achim.Westermann@gmx.de">Achim Westermann </a>
  * 

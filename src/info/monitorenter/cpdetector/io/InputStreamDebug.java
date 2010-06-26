@@ -1,6 +1,5 @@
 /*
- * 
- *  ByteArrayInputStreamDebug.java  cpdetector
+ *  InputStreamDebug.java  of project cpdetector. Prints out every character read. 
  *  Copyright (C) Achim Westermann, created on 19.10.2004, 22:04:36  
  *
  * ***** BEGIN LICENSE BLOCK *****

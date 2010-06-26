@@ -1,5 +1,5 @@
 /*
- *  ${file_name} of project cpdetector, <purpose>
+ *  ACmdLineArgsInheritor of project cpdetector, base class for inheritance of command line arguments.
  *  Copyright ${year} (C) Achim Westermann, created on 11.04.2004.
  *  
  * ***** BEGIN LICENSE BLOCK *****
@@ -48,6 +48,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * Base class for inheritance of command line arguments.<p>
+ * 
  * @author <a href="mailto:awester@de.ibm.com">Achim Westermann </a>
  * 
  */
