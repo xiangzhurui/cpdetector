@@ -20,11 +20,11 @@ Legend:
 - General comment
 o API change that requires refactoring.
 
-cpdetector- 1.0.8 - month, day, 2008
+cpdetector- 1.0.8 - June, 26th, 2010
 
 ! Feature request #1997513:  add the version number to the 3rd party jars. 
 * Fixed bug #2833073: Some cpDetector methods do not work with OpenJDK, contributed by Tarjei Huse.
-* Fixed bug #2976347: The implementation of the ByteOrderMarkDetector seems wrong.
+* Fixed bug #2976347: The implementation of the ByteOrderMarkDetector was wrong.
 - Moved htmlentitydecoder and latexencoder to separate project (JuniCoder, see at sourceforge).
 o Renamed package info.monitorenter.cpdetector.util to info.monitorenter.util.
 
