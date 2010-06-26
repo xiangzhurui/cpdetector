@@ -6,7 +6,7 @@
  * This file is part of cpdetector -
  * the Open Source code page detection library.
  *
- * Copyright (c) 2008 Achim Westermann
+ * Copyright (c) 2008 - 2010 Achim Westermann
  */
 
 History of changes for the cpdetector project.
@@ -23,10 +23,12 @@ o API change that requires refactoring.
 cpdetector- 1.0.8 - June, 26th, 2010
 
 ! Feature request #1997513:  add the version number to the 3rd party jars. 
+! A bit more documentation (in binary-release.txt).
 * Fixed bug #2833073: Some cpDetector methods do not work with OpenJDK, contributed by Tarjei Huse.
 * Fixed bug #2976347: The implementation of the ByteOrderMarkDetector was wrong.
 - Moved htmlentitydecoder and latexencoder to separate project (JuniCoder, see at sourceforge).
 o Renamed package info.monitorenter.cpdetector.util to info.monitorenter.util.
+o This version requires java 1.5. For older java versions please use the preceeding releas. 
 
 cpdetector- 1.0.7 - June, 17th, 2008
 
