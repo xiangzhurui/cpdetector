@@ -584,7 +584,7 @@ public class CodepageProcessor
     StringBuffer tmp = new StringBuffer();
 
     tmp
-        .append("usage: java -cp jargs.jar;cpdetector_1.0.8.jar")
+        .append("usage: java -cp jargs-1.0.jar").append(File.separatorChar).append("cpdetector_1.0.8.jar")
         .append(File.pathSeparatorChar)
         .append("antlr-2.7.4.jar")
         .append(File.pathSeparatorChar)
