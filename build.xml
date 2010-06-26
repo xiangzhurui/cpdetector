@@ -136,6 +136,8 @@
 			<fileset refid="externalJars" />
 			<file file="${project.name}_${project.version}.jar" />
 			<file file="binary-release.txt" />
+			<file file="MPL-1.1.txt" />
+			<file file="history.txt" />
 		</zip>
 	</target>
 
@@ -222,6 +224,7 @@
 			<include name="${project.name}/test/fit/*" />
 			<!-- Works when  defaultexcludes="no" is set -->
 			<include name="${project.name}/.cvsignore" />
+			<file file="history.txt" />
 
 			<!-- The eclipse builders -->
 			<include name="${project.name}/.externalToolBuilders/**/*" />
@@ -251,7 +254,7 @@
 	<description>
    Zip the javadoc API documentation to a zip named after the property project.name.
   </description>
-	<zip basedir="${basedir}/doc" destfile="${basedir}/${project.name}doc_${project.version}.zip" includes="**/*.html,**/*.css,package-list" />
+	<zip basedir="${basedir}/doc" destfile="${basedir}/${project.name}-javadoc_${project.version}.zip" includes="**/*.html,**/*.css,package-list" />
 </target>
 
 <!-- remove all classfiles (except antlr sources) and the jar file-->
