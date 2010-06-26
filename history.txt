@@ -28,7 +28,7 @@ cpdetector- 1.0.8 - June, 26th, 2010
 * Fixed bug #2976347: The implementation of the ByteOrderMarkDetector was wrong.
 - Moved htmlentitydecoder and latexencoder to separate project (JuniCoder, see at sourceforge).
 o Renamed package info.monitorenter.cpdetector.util to info.monitorenter.util.
-o This version requires java 1.5. For older java versions please use the preceeding releas. 
+o This version requires java 1.5. For older java versions please use the preceding release. 
 
 cpdetector- 1.0.7 - June, 17th, 2008
 
