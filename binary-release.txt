@@ -8,7 +8,7 @@ windows: unix: java -classpath ./ext/jargs-1.0.jar;cpdetector_1.0.8.jar;./ext/an
 
 Output then is: 
 
-usage: java -cp jargs.jar;cpdetector_1.0.8.jar:antlr-2.7.4.jar:chardet.jar info.monitorenter.cpdetector.CodepageProcessor -r <testdocumentdir> -o <testoutputdir> [options]
+usage: java -cp jargs-1.0.jar;cpdetector_1.0.8.jar:antlr-2.7.4.jar:chardet.jar info.monitorenter.cpdetector.CodepageProcessor -r <testdocumentdir> -o <testoutputdir> [options]
 options: 
 
   Optional:
