@@ -106,6 +106,11 @@ import java.nio.charset.Charset;
  * F.1 Detection Without External Encoding Information </a>.
  * </p>
  * 
+ * This implementation does the same as <code>{@link ByteOrderMarkDetector}</code> but with a different
+ * read strategy (read 4 bytes at once) and elseif blocks. Would
+ * be great to have a performance comparison. Maybe the read of 4 bytes in a row combined with the
+ * switch could make that other implementation the winner.
+ * <p>
  * 
  * @author <a href="mailto:Achim.Westermann@gmx.de">Achim Westermann </a>
  * 
