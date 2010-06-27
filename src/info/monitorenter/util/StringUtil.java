@@ -78,7 +78,8 @@ public class StringUtil {
    *          the desired length of the String to be returned.
    * @return A String that represents the content of the old String including extra whitespaces.
    */
-  public static final String setSize(String s, int length) {
+  public static final String setSize(final String s, int length) {
+    String result;
     int oldlen = s.length();
     if (oldlen > length) {
       System.err.println("greenpeace.util.setSize(String s,int length): length (" + length
@@ -86,8 +87,8 @@ public class StringUtil {
       return s;
     }
     int tofill = length - oldlen;
-    s = appendSpaces(s, tofill);
-    return s;
+    result = appendSpaces(s, tofill);
+    return result;
   }
 
   /**
@@ -162,7 +163,7 @@ public class StringUtil {
    * better: the given List is only thread - safe if the list is synchronized.<br>
    * A clever VM (hotspot) will be able to inline this function because of void return.
    **/
-  public static final void ArraysToString(List objects) {
+  public static final void ArraysToString(List<Object> objects) {
     if (objects == null)
       return;
     int stop = objects.size();
@@ -193,7 +194,7 @@ public class StringUtil {
    * want to print the data to System.out or to save it to a file, but do not know, if Arrays are
    * contained. You want the output to be formatted (each line). </i>
    **/
-  public static final void toLongestString(List objects) {
+  public static final void toLongestString(List<Object> objects) {
     if (objects == null)
       return;
     int maxsize = 0, tint = 0;
@@ -226,7 +227,7 @@ public class StringUtil {
    * @return The length of the longest String - representation of an Object in the List <b>or 0 if
    *         objects was null or of size 0.</b>
    **/
-  public static final int longestStringRepresentation(List objects) {
+  public static final int longestStringRepresentation(List<Object> objects) {
     if (objects == null)
       return 0;
     int maxsize = 0, tint = 0;
@@ -294,8 +295,8 @@ public class StringUtil {
    * Note that the prefix is not searched within the strings. Both strings have to have a common
    * prefix (no skipping until identical parts are found).
    */
-  public static Map.Entry prefixIntersection(String a, String b) {
-    Map.Entry ret = null;
+  public static Map.Entry<String, String> prefixIntersection(String a, String b) {
+    Map.Entry<String,String> ret = null;
     String key;
     String value;
     int index = b.indexOf(a);
@@ -306,7 +307,7 @@ public class StringUtil {
       key = "";
       value = "";
     }
-    ret = new Entry(key, value);
+    ret = new Entry<String,String>(key, value);
     return ret;
   }
 }
