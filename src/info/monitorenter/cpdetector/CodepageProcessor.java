@@ -69,7 +69,7 @@ import info.monitorenter.cpdetector.io.FileFilterExtensions;
 import info.monitorenter.cpdetector.io.ICodepageDetector;
 import info.monitorenter.cpdetector.io.JChardetFacade;
 import info.monitorenter.cpdetector.io.ParsingDetector;
-import info.monitorenter.cpdetector.io.UnsupportedCharset;
+import info.monitorenter.cpdetector.io.UnknownCharset;
 import info.monitorenter.cpdetector.reflect.SingletonLoader;
 import info.monitorenter.util.FileUtil;
 import jargs.gnu.CmdLineParser;
@@ -195,8 +195,7 @@ public class CodepageProcessor
     this.addCmdLineOption("documents", new CmdLineParser.Option.StringOption('r', "documents"));
     this.addCmdLineOption("extensions", new CmdLineParser.Option.StringOption('e', "extensions"));
     this.addCmdLineOption("outputDir", new CmdLineParser.Option.StringOption('o', "outputDir"));
-    this
-        .addCmdLineOption("moveUnknown", new CmdLineParser.Option.BooleanOption('m', "moveUnknown"));
+    this.addCmdLineOption("moveUnknown", new CmdLineParser.Option.BooleanOption('m', "moveUnknown"));
     this.addCmdLineOption("verbose", new CmdLineParser.Option.BooleanOption('v', "verbose"));
     this.addCmdLineOption("wait", new CmdLineParser.Option.IntegerOption('w', "wait"));
     this.addCmdLineOption("transform", new CmdLineParser.Option.StringOption('t', "transform"));
@@ -280,8 +279,7 @@ public class CodepageProcessor
         String[] detectors = this.parseCSVList((String) detectorOption);
         if (detectors.length == 0) {
           StringBuffer msg = new StringBuffer();
-          msg
-              .append("You specified the codepage detector argument \"-d\" but ommited any comma-separated fully qualified class-name.");
+          msg.append("You specified the codepage detector argument \"-d\" but ommited any comma-separated fully qualified class-name.");
           throw new IllegalArgumentException(msg.toString());
         }
 
@@ -318,10 +316,10 @@ public class CodepageProcessor
     for (int i = 0; i < this.parseCodepages.length; i++) {
       cs = this.parseCodepages[i];
       System.out.println("  " + cs.name() + ":");
-      Set aliases = cs.aliases();
-      Iterator itAliases = aliases.iterator();
+      Set<String> aliases = cs.aliases();
+      Iterator<String> itAliases = aliases.iterator();
       while (itAliases.hasNext()) {
-        System.out.println("    " + itAliases.next().toString());
+        System.out.println("    " + itAliases.next());
       }
     }
   }
@@ -347,7 +345,7 @@ public class CodepageProcessor
    * directory subtree of the argument f.
    * </p>
    * <p>
-   * No check for null or existance of f is made here, so keep it private.
+   * No check for null or existence of f is made here, so keep it private.
    * </p>
    * 
    * @param f
@@ -447,7 +445,7 @@ public class CodepageProcessor
     }
     charset = this.detector.detectCodepage(document.toURL());
 
-    if (charset == null) {
+    if ((charset == null) || (charset == UnknownCharset.getInstance())) {
       if (this.verbose) {
         System.out.println("  Charset not detected.");
       }
@@ -458,11 +456,12 @@ public class CodepageProcessor
         return;
       } else {
         // fake charset for name construction:
-        charset = UnsupportedCharset.forName("unknown");
+        charset = UnknownCharset.getInstance();
       }
     }
 
-    if (this.targetCodepage != null) {
+    if ((this.targetCodepage != null) && (charset != null)
+        && (UnknownCharset.getInstance() != charset)) {
 
       // transform it:
       if (prefix.length() > 0) {
@@ -501,6 +500,10 @@ public class CodepageProcessor
         out.close();
       }
     } else {
+      if (this.targetCodepage != null) {
+        System.out.println("Skipping transformation of document " + document.getAbsolutePath()
+            + " because it's charset could not be detected.");
+      }
       if (prefix.length() > 0) {
         target = new File(this.outputDir.getAbsolutePath() + "/" + charset.name().toLowerCase()
             + "/" + prefix + "/");
@@ -583,8 +586,9 @@ public class CodepageProcessor
   protected void usage() {
     StringBuffer tmp = new StringBuffer();
 
-    tmp
-        .append("usage: java -cp jargs-1.0.jar").append(File.separatorChar).append("cpdetector_1.0.8.jar")
+    tmp.append("usage: java -cp jargs-1.0.jar")
+        .append(File.separatorChar)
+        .append("cpdetector_1.0.9.jar")
         .append(File.pathSeparatorChar)
         .append("antlr-2.7.4.jar")
         .append(File.pathSeparatorChar)
@@ -594,25 +598,18 @@ public class CodepageProcessor
     tmp.append("options: \n");
     tmp.append("\n  Optional:\n");
     tmp.append("  -c              : Only print available charsets on this system.\n");
-    tmp
-        .append("  -e <extensions> : A comma- or semicolon- separated string for document extensions like \"-e txt,dat\" (without dot or space!).\n");
+    tmp.append("  -e <extensions> : A comma- or semicolon- separated string for document extensions like \"-e txt,dat\" (without dot or space!).\n");
     tmp.append("  -m              : Move files with unknown charset to directory \"unknown\".\n");
     tmp.append("  -v              : Verbose output.\n");
-    tmp
-        .append("  -w <int>        : Wait <int> seconds before trying next document (good, if you want to work on the very same machine).\n");
-    tmp
-        .append("  -t <charset>    : Try to transform the document to given charset (codepage) name. \n");
-    tmp
-        .append("                    This is only possible for documents that are detected to have a  \n");
-    tmp
-        .append("                    codepage that is supported by the current java VM. If not possible \n");
+    tmp.append("  -w <int>        : Wait <int> seconds before trying next document (good, if you want to work on the very same machine).\n");
+    tmp.append("  -t <charset>    : Try to transform the document to given charset (codepage) name. \n");
+    tmp.append("                    This is only possible for documents that are detected to have a  \n");
+    tmp.append("                    codepage that is supported by the current java VM. If not possible \n");
     tmp.append("                    sorting will be done as normal. \n");
     tmp.append("  -d              : Semicolon-separated list of fully qualified classnames. \n");
-    tmp
-        .append("                    These classes will be casted to ICodepageDetector instances \n");
+    tmp.append("                    These classes will be casted to ICodepageDetector instances \n");
     tmp.append("                    and used in the order specified.\n");
-    tmp
-        .append("                    If this argument is ommited, a HTMLCodepageDetector followed by .\n");
+    tmp.append("                    If this argument is ommited, a HTMLCodepageDetector followed by .\n");
     tmp.append("                    a JChardetFacade is used by default.\n");
     tmp.append("  Mandatory (if no -c option given) :\n");
     tmp.append("  -r            : Root directory containing the collection (recursive).\n");

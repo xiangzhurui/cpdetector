@@ -20,6 +20,12 @@ Legend:
 - General comment
 o API change that requires refactoring.
 
+cpdetector - 1.0.9 - November, 16th, 2011
+
+* Fixed bug #3426791: -m switch to skip moving documents with undetectable codepage was not working. 
+* Fixed bug #3426791 (that was two bugs): Do not try to transcode documents with undetected codepage. 
+
+
 cpdetector- 1.0.8 - June, 26th, 2010
 
 ! Feature request #1997513:  add the version number to the 3rd party jars. 
