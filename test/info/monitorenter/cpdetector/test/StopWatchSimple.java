@@ -42,7 +42,7 @@
  * ***** END LICENSE BLOCK ***** * 
  */
 
-package cpdetector.test;
+package info.monitorenter.cpdetector.test;
 
 /**
  *  A very simple implementation of the IStopWatch that does nothing more

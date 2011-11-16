@@ -28,7 +28,7 @@
  * 
  * If you modify or optimize the code in a useful way please let me know. Achim.Westermann@gmx.de
  */
-package cpdetector.io;
+package info.monitorenter.cpdetector.io;
 
 import static org.junit.Assert.assertEquals; 
 import static org.junit.Assert.fail;

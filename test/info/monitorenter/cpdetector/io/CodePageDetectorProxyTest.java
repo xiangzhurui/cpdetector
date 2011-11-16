@@ -40,7 +40,7 @@
  * 
  * ***** END LICENSE BLOCK ***** * 
  */
-package cpdetector.io;
+package info.monitorenter.cpdetector.io;
 
 import info.monitorenter.cpdetector.io.ASCIIDetector;
 import info.monitorenter.cpdetector.io.CodepageDetectorProxy;

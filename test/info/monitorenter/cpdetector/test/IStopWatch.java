@@ -20,7 +20,7 @@
  *  Achim.Westermann@gmx.de
  */
 
-package cpdetector.test;
+package info.monitorenter.cpdetector.test;
 
 /**
  *

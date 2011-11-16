@@ -21,7 +21,7 @@
  *  Achim.Westermann@gmx.de
  *	
  */
-package cpdetector.test;
+package info.monitorenter.cpdetector.test;
 
 import info.monitorenter.cpdetector.io.ASCIIDetector;
 import info.monitorenter.cpdetector.io.CodepageDetectorProxy;
