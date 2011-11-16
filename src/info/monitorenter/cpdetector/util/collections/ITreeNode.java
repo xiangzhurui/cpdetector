@@ -423,7 +423,7 @@ public interface ITreeNode {
    * 
    * @author <a href="mailto:Achim.Westermann@gmx.de>Achim Westermann </a>
    */
-  public static class DefaultTreeNode implements ITreeNode, Comparable {
+  public static class DefaultTreeNode implements ITreeNode, Comparable<ITreeNode> {
     /**
      * Flag for saving the marking-state. False by default.
      */
@@ -922,7 +922,7 @@ public interface ITreeNode {
       }
     }
 
-    public int compareTo(final Object o) throws ClassCastException {
+    public int compareTo(final ITreeNode o) throws ClassCastException {
       ITreeNode other = (ITreeNode) o;
       return ((Comparable) this.m_userObject).compareTo(other.getUserObject());
     }
