@@ -45,8 +45,6 @@
  */
 package info.monitorenter.cpdetector.util.collections.ui;
 
-import java.io.IOException;
-
 import javax.swing.table.TableModel;
 
 /**
