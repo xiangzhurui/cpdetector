@@ -90,6 +90,7 @@ public interface ICodepageDetector extends Serializable, Comparable {
    * @exception IOException
    *              thrown to indicate that it is was not possible to open the
    *              document specified by the given URL.
+   *              
    * @return null, if the codepage of the document specified by the given URL
    *         was not detected or the {@link java.io.Charset}that represents the
    *         document's codepage.

@@ -164,6 +164,7 @@ public final class CodepageDetectorProxy
    * @param in
    *          An InputStream for the document, that supports mark and a
    *          readlimit of argument length.
+   *          
    * @param length
    *          The amount of bytes to take into account. This number shouls not
    *          be longer than the amount of bytes retrievable from the
