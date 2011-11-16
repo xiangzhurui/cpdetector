@@ -1,7 +1,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
  <!--#include virtual="./head.shtml" -->
  <script language="javascript">
-  var update="17/06/2008";
+  var update="16/11/2011";
  </script>
  <body id="usage">
   <div id="wrapper">
@@ -67,7 +67,7 @@
       sourceforge - may be used to sort documents by their detected codepage. Simply invoke the following 
       command:
       <pre>
-java -cp jargs.jar;cpdetector_1.0.7.jar;antlr.jar;chardet.jar info.monitorenter.cpdetector.CodepageProcessor 
+java -cp jargs.jar;cpdetector_1.0.9.jar;antlr.jar;chardet.jar info.monitorenter.cpdetector.CodepageProcessor 
       </pre>
       As you did not specify mandatory arguments you will see a usage output: 
       <pre>

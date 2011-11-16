@@ -3,12 +3,12 @@ This zipfile contains the java libaries needed to run cpdetector.
 If you want to use the command line tool info.monitorenter.cpdetector.CodepageProcessor 
 you have to use jargs.jar in the classpath too: 
 
-unix: java -classpath ./ext/jargs-1.0.jar:cpdetector_1.0.8.jar:./ext/antlr-2.7.4.jar info.monitorenter.cpdetector.CodepageProcessor 
-windows: unix: java -classpath ./ext/jargs-1.0.jar;cpdetector_1.0.8.jar;./ext/antlr-2.7.4.jar info.monitorenter.cpdetector.CodepageProcessor 
+unix: java -classpath ./ext/jargs-1.0.jar:cpdetector_1.0.9.jar:./ext/antlr-2.7.4.jar info.monitorenter.cpdetector.CodepageProcessor 
+windows: unix: java -classpath ./ext/jargs-1.0.jar;cpdetector_1.0.9.jar;./ext/antlr-2.7.4.jar info.monitorenter.cpdetector.CodepageProcessor 
 
 Output then is: 
 
-usage: java -cp jargs-1.0.jar;cpdetector_1.0.8.jar:antlr-2.7.4.jar:chardet.jar info.monitorenter.cpdetector.CodepageProcessor -r <testdocumentdir> -o <testoutputdir> [options]
+usage: java -cp jargs-1.0.jar;cpdetector_1.0.9.jar:antlr-2.7.4.jar:chardet.jar info.monitorenter.cpdetector.CodepageProcessor -r <testdocumentdir> -o <testoutputdir> [options]
 options: 
 
   Optional:
