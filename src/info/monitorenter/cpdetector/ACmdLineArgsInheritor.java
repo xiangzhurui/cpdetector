@@ -58,21 +58,19 @@ public abstract class ACmdLineArgsInheritor {
     private CmdLineParser cmdLineParser;
 
     /**
-     * <p>
      * All {@link jargs.gnu.CommandLineParser.Option}s.
-     * </p>
      * <p>
      * Subclasses may specify more options in their constructor by invoking the protected method
      * #addOption(String,CmdLineParser.Option).
-     * </p>
+     * <p>
      */
-    private Map cmdLineOptions;
+    private Map<String,CmdLineParser.Option> cmdLineOptions;
 
     /**
      * 
      */
     public ACmdLineArgsInheritor() {
-        this.cmdLineOptions = new HashMap();
+        this.cmdLineOptions = new HashMap<String,CmdLineParser.Option>();
         this.cmdLineParser = new CmdLineParser();
     }
 
@@ -121,8 +119,7 @@ public abstract class ACmdLineArgsInheritor {
      * @param cmdLineArgs
      */
     public void parseArgs(String[] cmdLineArgs) throws Exception {
-        // The Exception is not caught: Testbucket is greedy for any type of
-        // output (piped back to it).
+      
         this.cmdLineParser.parse(cmdLineArgs);
 
     }
