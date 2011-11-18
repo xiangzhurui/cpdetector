@@ -1,7 +1,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
  <!--#include virtual="./head.shtml" -->
  <script language="javascript">
-  var update="09/24/2004";
+  var update="18/11/2011";
  </script>
  <body id="home">
   <div id="wrapper">
@@ -54,8 +54,8 @@
       by the correct character encoding table (code page).
      </p>
      <p>
-      A further definition is given on  
-      <a href="http://www.webster-dictionary.org/definition/code%20page" target="_blank" >http://www.webster-dictionary.org</a>.
+      A further definition is given here  
+      <a href="http://en.wikipedia.org/wiki/Code_page" target="_blank" >http://en.wikipedia.org/wiki/Code_page</a>.
      </p>
      <p>
       <b>Codepage-detection is needed in:</b>
