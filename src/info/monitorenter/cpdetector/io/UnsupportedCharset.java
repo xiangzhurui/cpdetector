@@ -57,49 +57,56 @@ import java.util.Map;
 
 /**
  * <p>
- * A dummy charset that indicates an unknown charset. Nevertheless some
- * indication of a encoding definition has been found that is contained here.
- * The system just does not support that codepage.
+ * A dummy charset that indicates an unknown charset. Nevertheless some indication of a encoding
+ * definition has been found that is contained here. The system just does not support that codepage.
  * </p>
  * <p>
- * These instances are obtained by the static singleton retrieval call
- * {@link #forName(String)} which allows unique instances for a detected string.
+ * These instances are obtained by the static singleton retrieval call {@link #forName(String)}
+ * which allows unique instances for a detected string.
  * </p>
  * 
  * @author <a href="mailto:Achim.Westermann@gmx.de">Achim Westermann</a>
- * 
  */
 public class UnsupportedCharset
     extends Charset {
 
-  private static Map singletons = new HashMap();
+  /** The name of this unsupported charset. */
+  private String m_name;
 
+  /**
+   * Singleton cache for the unsupported charsets (no need to instanciate the same unsupported
+   * charset again and again).
+   */
+  private static Map<String, Charset> singletons = new HashMap<String, Charset>();
+
+  /**
+   * Singleton constructor.
+   * <p>
+   * 
+   * @param name
+   *          the detected name of the charset.
+   */
   private UnsupportedCharset(String name) {
-    super(name, null);
-
+    super("unsupported", null);
   }
 
   public static Charset forName(String name) {
     Charset ret = (Charset) singletons.get(name);
     if (ret == null) {
       ret = new UnsupportedCharset(name);
-      singletons.put(name, ret);
+      UnsupportedCharset.singletons.put(name, ret);
     }
     return ret;
   }
 
-  /*
-   * (non-Javadoc)
-   * 
+  /**
    * @see java.nio.charset.Charset#contains(java.nio.charset.Charset)
    */
   public boolean contains(Charset cs) {
     return false;
   }
 
-  /*
-   * (non-Javadoc)
-   * 
+  /**
    * @see java.nio.charset.Charset#newDecoder()
    */
   public CharsetDecoder newDecoder() {
@@ -107,9 +114,7 @@ public class UnsupportedCharset
         "This is no real Charset but a flag you should test for!");
   }
 
-  /*
-   * (non-Javadoc)
-   * 
+  /**
    * @see java.nio.charset.Charset#newEncoder()
    */
   public CharsetEncoder newEncoder() {
@@ -117,23 +122,19 @@ public class UnsupportedCharset
         "This is no real Charset but a flag you should test for!");
   }
 
-  /*
-   * (non-Javadoc)
-   * 
+  /**
    * @see java.nio.charset.Charset#displayName()
    */
   public String displayName() {
-    return super.displayName();
+    return this.m_name;
   }
 
-  /*
-   * (non-Javadoc)
-   * 
+  /**
    * @see java.nio.charset.Charset#displayName(java.util.Locale)
    */
   public String displayName(Locale locale) {
-    return super.displayName(locale);
-  }
+    return this.m_name;
 
+  }
 
 }
