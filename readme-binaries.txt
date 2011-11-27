@@ -24,7 +24,8 @@ cpdetector - 1.0.9 - November, 16th, 2011
 
 * Fixed bug #3426791: -m switch to skip moving documents with undetectable codepage was not working. 
 * Fixed bug #3426791 (that was two bugs): Do not try to transcode documents with undetected codepage. 
-
+* Fixed bug #3440658: Crash at invalid declared charset (the "" charset). 
+! Added end to end test cases for command line tool. 
 
 cpdetector- 1.0.8 - June, 26th, 2010
 
