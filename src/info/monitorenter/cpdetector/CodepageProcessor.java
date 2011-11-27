@@ -646,19 +646,17 @@ public class CodepageProcessor
     }
   }
 
-  public static void main(String[] args) {
+  /**
+   * Main hook. 
+   * <p> 
+   * 
+   * @param args see {@link #usage()}
+   * 
+   * @throws Exception if program terminated unsuccessful.
+   */
+  public static void main(String[] args) throws Exception {
     CodepageProcessor sorter = new CodepageProcessor();
-    try {
       sorter.parseArgs(args);
-      try {
-        sorter.process();
-      } catch (Exception e) {
-        e.printStackTrace(System.err);
-      }
-    } catch (Exception e) {
-
-      System.err.println("\nError: " + e.getMessage());
-      e.printStackTrace(System.err);
-    }
+      sorter.process();
   }
 }
