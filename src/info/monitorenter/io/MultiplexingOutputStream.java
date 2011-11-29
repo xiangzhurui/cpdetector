@@ -54,22 +54,23 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * An <code>{@link OutputStream}</code> that allows to multiplex everything that is written to it to
- * all contained output streams (multiplexing).
+ * An <code>{@link OutputStream}</code> that allows to multiplex everything that
+ * is written to it to all contained output streams (multiplexing).
  * <p>
- * This is not optimized for performance (by supporting batch writes) but just minimal code by now.
+ * This is not optimized for performance (by supporting batch writes) but just
+ * minimal code by now.
  * <p>
  * 
  * @author <a href="mailto:Achim.Westermann@gmx.de">Achim Westermann</a>
  * @version $Revision$
  */
-public class MultiplexingOutputStream
-    extends OutputStream {
+public class MultiplexingOutputStream extends OutputStream {
   /** The multiplex sources. */
   private List<OutputStream> m_delegates;
 
   /**
-   * Constructor ensuring that at least two targets are needed (thus use of this class makes sense).
+   * Constructor ensuring that at least two targets are needed (thus use of this
+   * class makes sense).
    * <p>
    * 
    * @param streamOne
@@ -87,7 +88,8 @@ public class MultiplexingOutputStream
    * Adds the given output stream to the list of delegates multiplexed to.
    * 
    * @param delegate
-   *          another stream that will receive any write that is done on this instance.
+   *          another stream that will receive any write that is done on this
+   *          instance.
    */
   public void addOutputStream(final OutputStream delegate) {
     this.m_delegates.add(delegate);
@@ -97,9 +99,10 @@ public class MultiplexingOutputStream
    * Removes the given output stream from the list of delegates multiplexed to.
    * 
    * @param delegate
-   *          a stream that should not receive any write that is done on this instance any more.
-   * @return true if remove was successful, false if remove failed or - more likely - the given
-   *         stream was not on the list of delegates before.
+   *          a stream that should not receive any write that is done on this
+   *          instance any more.
+   * @return true if remove was successful, false if remove failed or - more
+   *         likely - the given stream was not on the list of delegates before.
    */
   public boolean removeOutputStream(final OutputStream delegate) {
     boolean result = this.m_delegates.remove(delegate);
