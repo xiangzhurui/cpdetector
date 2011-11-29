@@ -49,11 +49,6 @@
 package info.monitorenter.cpdetector;
 
 import info.monitorenter.util.ExceptionUtil;
-
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-
 import junit.framework.Assert;
 
 import org.junit.Test;
