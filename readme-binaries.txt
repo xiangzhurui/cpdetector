@@ -20,17 +20,17 @@ Legend:
 - General comment
 o API change that requires refactoring.
 
-cpdetector - 1.0.10 - month, day, year
+cpdetector - 1.0.10 - December, 4th, 2011
 
 * Fixed bug #3440658: Crash at invalid declared charset (the "" charset). 
 * Fixed return code of command line tool (CodepageProcessor) always being 0 even if there was an error. 
+* Fixed bug #1997607: ParsingDetector.detectCodepage does not  use limit parameter. 
 ! Added end to end test cases for command line tool. 
 
 cpdetector - 1.0.9 - November, 16th, 2011
 
 * Fixed bug #3426791: -m switch to skip moving documents with undetectable codepage was not working. 
 * Fixed bug #3426791 (that was two bugs): Do not try to transcode documents with undetected codepage. 
-* Fixed bug #1997607: ParsingDetector.detectCodepage does not  use limit parameter. 
 
 cpdetector- 1.0.8 - June, 26th, 2010
 
