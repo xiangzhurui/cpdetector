@@ -26,6 +26,7 @@ cpdetector - 1.0.10 - December, 4th, 2011
 * Fixed return code of command line tool (CodepageProcessor) always being 0 even if there was an error. 
 * Fixed bug #1997607: ParsingDetector.detectCodepage does not  use limit parameter. 
 ! Added end to end test cases for command line tool. 
+o Now Java 1.5 at least is required. 
 
 cpdetector - 1.0.9 - November, 16th, 2011
 
