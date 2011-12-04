@@ -30,6 +30,7 @@ cpdetector - 1.0.9 - November, 16th, 2011
 
 * Fixed bug #3426791: -m switch to skip moving documents with undetectable codepage was not working. 
 * Fixed bug #3426791 (that was two bugs): Do not try to transcode documents with undetected codepage. 
+* Fixed bug #1997607: ParsingDetector.detectCodepage does not  use limit parameter. 
 
 cpdetector- 1.0.8 - June, 26th, 2010
 

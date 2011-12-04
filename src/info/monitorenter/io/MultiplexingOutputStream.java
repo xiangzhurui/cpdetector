@@ -1,5 +1,6 @@
 /*
- * MultiplexingOutputStream.java, <purpose>
+ * MultiplexingOutputStream.java, an OutputStream that allows to multiplex everything that
+ * is written to it to all contained output streams (multiplexing).
  *
  * Copyright 2011 (C) Achim Westermann, 
  * created on Nov 27, 2011 6:07:13 PM.

@@ -42,10 +42,6 @@
  */
 package info.monitorenter.cpdetector.io;
 
-import info.monitorenter.cpdetector.io.ASCIIDetector;
-import info.monitorenter.cpdetector.io.CodepageDetectorProxy;
-import info.monitorenter.cpdetector.io.JChardetFacade;
-import info.monitorenter.cpdetector.io.ParsingDetector;
 import info.monitorenter.util.FileUtil;
 
 import java.io.BufferedInputStream;
@@ -55,7 +51,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.Charset;
 
@@ -63,8 +58,6 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
-import junit.framework.TestCase;
 
 /**
  * Test case for
@@ -107,7 +100,7 @@ public class CodePageDetectorProxyTest {
    * <p>
    * 
    * @throws IOException
-   *           if sth. goes wrong.
+   *           if something goes wrong.
    */
   @Test
   public void testDetectCodePageInputStream() throws IOException {

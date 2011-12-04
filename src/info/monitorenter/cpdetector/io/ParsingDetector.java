@@ -49,6 +49,7 @@ package info.monitorenter.cpdetector.io;
 
 import info.monitorenter.cpdetector.io.parser.EncodingLexer;
 import info.monitorenter.cpdetector.io.parser.EncodingParser;
+import info.monitorenter.io.LimitedInputStream;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -125,17 +126,18 @@ public class ParsingDetector
    * 
    * @see cpdetector.io.ICodepageDetector#detectCodepage(java.io.InputStream)
    */
-  public Charset detectCodepage(InputStream in, int length) throws IOException {
+  public Charset detectCodepage(final InputStream in, final int length) throws IOException {
     EncodingLexer lexer;
     EncodingParser parser;
     Charset charset = null;
     String csName = null;
+    InputStream limitedInputStream = new LimitedInputStream(in, length);
     if (this.m_verbose) {
       System.out
           .println("  parsing for html-charset/xml-encoding attribute with codepage: US-ASCII");
     }
     try {
-      lexer = new EncodingLexer(new InputStreamReader(in, "US-ASCII"));
+      lexer = new EncodingLexer(new InputStreamReader(limitedInputStream, "US-ASCII"));
       parser = new EncodingParser(lexer);
       csName = parser.htmlDocument();
       if (csName != null) {

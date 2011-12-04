@@ -54,8 +54,8 @@ import java.util.Set;
  * <p>
  * A proxy that delegate the codepage detection to all it's delegates. The first
  * one (added in code-order) that does not return a null {@link Charset}from
- * it's delegate method {@link #detectCodepage(URL)}wins the race and
- * determines the codpage of the document specified by the given URL.
+ * it's delegate method {@link #detectCodepage(URL)}wins the race and determines
+ * the codpage of the document specified by the given URL.
  * </p>
  * <p>
  * If an underlying {@link ICodepageDetector}throws an
@@ -66,21 +66,24 @@ import java.util.Set;
  * @author <a href="mailto:Achim.Westermann@gmx.de">Achim Westermann </a>
  * 
  */
-public final class CodepageDetectorProxy
-    extends AbstractCodepageDetector {
+public final class CodepageDetectorProxy extends AbstractCodepageDetector {
+
+  /** serialVersionUID */
+  private static final long serialVersionUID = -7389424614984024701L;
+
   /**
    * Singleton instance.
    */
   private static CodepageDetectorProxy instance = null;
 
   /**
-   * The set of {@link ICodepageDetector}instances that this proxy will
-   * delegate to. These instances will be invoked in order to find the codepage
-   * until the first instance returns a valid codepage. If an
-   * {@link IOException}is thrown the search will terminate early (assuming
-   * that the execption is related to a general problem with the given URL.
+   * The set of {@link ICodepageDetector}instances that this proxy will delegate
+   * to. These instances will be invoked in order to find the codepage until the
+   * first instance returns a valid codepage. If an {@link IOException}is thrown
+   * the search will terminate early (assuming that the execption is related to
+   * a general problem with the given URL.
    */
-  private Set detectors = new LinkedHashSet();
+  private Set<ICodepageDetector> detectors = new LinkedHashSet<ICodepageDetector>();
 
   /**
    * Singleton constructor. For internal use only.
@@ -127,9 +130,9 @@ public final class CodepageDetectorProxy
    */
   public Charset detectCodepage(final URL url) throws IOException {
     Charset ret = null;
-    Iterator detectorIt = this.detectors.iterator();
+    Iterator<ICodepageDetector> detectorIt = this.detectors.iterator();
     while (detectorIt.hasNext()) {
-      ret = ((ICodepageDetector) detectorIt.next()).detectCodepage(url);
+      ret = detectorIt.next().detectCodepage(url);
       if (ret != null) {
         if (ret != UnknownCharset.getInstance()) {
           if (ret instanceof UnsupportedCharset) {
@@ -164,7 +167,7 @@ public final class CodepageDetectorProxy
    * @param in
    *          An InputStream for the document, that supports mark and a
    *          readlimit of argument length.
-   *          
+   * 
    * @param length
    *          The amount of bytes to take into account. This number shouls not
    *          be longer than the amount of bytes retrievable from the
@@ -178,26 +181,26 @@ public final class CodepageDetectorProxy
    *           if more bytes had to be read from the input stream than param
    *           length or the given input stream does not support marking.
    */
-  public Charset detectCodepage(final InputStream in, final int length) throws IOException,
-      IllegalArgumentException {
+  public Charset detectCodepage(final InputStream in, final int length) throws IOException, IllegalArgumentException {
 
     if (!in.markSupported()) {
-      throw new IllegalArgumentException("The given input stream (" + in.getClass().getName()
-          + ") has to support marking.");
+      throw new IllegalArgumentException("The given input stream (" + in.getClass().getName() + ") has to support for marking.");
     }
     Charset ret = null;
     int markLimit = length;
-    Iterator detectorIt = this.detectors.iterator();
+    Iterator<ICodepageDetector> detectorIt = this.detectors.iterator();
     while (detectorIt.hasNext()) {
       in.mark(markLimit);
-      ret = ((ICodepageDetector) detectorIt.next()).detectCodepage(in, length);
+      ret = detectorIt.next().detectCodepage(in, length);
       // if more bytes have been read than marked (length) this will throw an
       // exception:
       try {
         in.reset();
       } catch (IOException ioex) {
-        throw new IllegalArgumentException(
+        IllegalStateException ise = new IllegalStateException(
             "More than the given length had to be read and the given stream could not be reset. Undetermined state for this detection.");
+        ise.initCause(ioex);
+        throw ise;
 
       }
       if (ret != null) {
@@ -219,7 +222,7 @@ public final class CodepageDetectorProxy
    */
   public String toString() {
     StringBuffer ret = new StringBuffer();
-    Iterator it = this.detectors.iterator();
+    Iterator<ICodepageDetector> it = this.detectors.iterator();
     int i = 1;
     while (it.hasNext()) {
       ret.append(i);
