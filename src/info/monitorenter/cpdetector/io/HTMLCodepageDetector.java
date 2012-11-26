@@ -53,91 +53,105 @@ import java.nio.charset.Charset;
 /**
  * 
  * <p>
- * <b> This class has been replaced by {@link info.monitorenter.cpdetector.io.ParsingDetector} and only exists for backward-compatibility.
- * </b> The name simply would not match any more, as parsing is not limited to html (1.1 includes xml as well). New code
- * should stick to the replacement. This class has been modified with version 1.1 and now is delegating all calls to an
- * instance of the replacement class (5 minutes with eclipse and a common interface), which introduces a small overhead
- * (minimal, as one invokevirtual is nothing compared to codepage detection by parsing).
+ * <b> This class has been replaced by
+ * {@link info.monitorenter.cpdetector.io.ParsingDetector} and only exists for
+ * backward-compatibility. </b> The name simply would not match any more, as
+ * parsing is not limited to html (1.1 includes xml as well). New code should
+ * stick to the replacement. This class has been modified with version 1.1 and
+ * now is delegating all calls to an instance of the replacement class (5
+ * minutes with eclipse and a common interface), which introduces a small
+ * overhead (minimal, as one invokevirtual is nothing compared to codepage
+ * detection by parsing).
  * </p>
  * 
  * <p>
- * Documentation may be found in the class {@link info.monitorenter.cpdetector.io.ParsingDetector}. It is valid for this class.
+ * Documentation may be found in the class
+ * {@link info.monitorenter.cpdetector.io.ParsingDetector}. It is valid for this
+ * class.
  * </p>
  * 
  * @version 1.1
- * @deprecated This class should not be used in new code. It has been replaced by {@link info.monitorenter.cpdetector.io.ParsingDetector}.
+ * @deprecated This class should not be used in new code. It has been replaced
+ *             by {@link info.monitorenter.cpdetector.io.ParsingDetector}.
  *             Future versions may drop this class.
  * @see ParsingDetector
  * @author <a href="mailto:Achim.Westermann@gmx.de">Achim Westermann </a>
  * 
  */
 public class HTMLCodepageDetector extends AbstractCodepageDetector {
-    /**
-     * Generated <code>serialVersionUID</code>.
-     */
-    private static final long serialVersionUID = 3258135756131022643L;
+  /**
+   * Generated <code>serialVersionUID</code>.
+   */
+  private static final long serialVersionUID = 3258135756131022643L;
 
-    /**
-     * Deprecation support. Instances of this class stick to the replacement.
-     */
-    private ParsingDetector delegate;
+  /**
+   * Deprecation support. Instances of this class stick to the replacement.
+   */
+  private ParsingDetector delegate;
 
-    public HTMLCodepageDetector() {
-        this(false);
-    }
+  public HTMLCodepageDetector() {
+    this(false);
+  }
 
-    public HTMLCodepageDetector(boolean verbose) {
-        super();
-        this.delegate = new ParsingDetector(verbose);
-    }
+  public HTMLCodepageDetector(boolean verbose) {
+    super();
+    this.delegate = new ParsingDetector(verbose);
+  }
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see cpdetector.io.AbstractCodepageDetector#compareTo(java.lang.Object)
-     */
-    public int compareTo(Object o) {
-        return delegate.compareTo(o);
-    }
+  /*
+   * (non-Javadoc)
+   * 
+   * @see cpdetector.io.AbstractCodepageDetector#compareTo(java.lang.Object)
+   */
+  public int compareTo(Object o) {
+    return delegate.compareTo(o);
+  }
 
-    /**
-     * 
-     */
-    public Charset detectCodepage(InputStream in, int length) throws IOException {
-        return delegate.detectCodepage(in, length);
-    }
-
-    /**
+  /**
      * 
      */
-    public Charset detectCodepage(final URL url) throws IOException {
-        return delegate.detectCodepage(url);
-    }
+  public Charset detectCodepage(InputStream in, int length) throws IOException {
+    return delegate.detectCodepage(in, length);
+  }
 
-    /*
-     * (non-Javadoc)
+  /**
      * 
-     * @see java.lang.Object#equals(java.lang.Object)
      */
-    public boolean equals(Object obj) {
-        return delegate.equals(obj);
-    }
+  public Charset detectCodepage(final URL url) throws IOException {
+    return delegate.detectCodepage(url);
+  }
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see java.lang.Object#hashCode()
-     */
-    public int hashCode() {
-        return delegate.hashCode();
-    }
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.lang.Object#equals(java.lang.Object)
+   */
+  public boolean equals(Object obj) {
+    return delegate.equals(obj);
+  }
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see java.lang.Object#toString()
-     */
-    public String toString() {
-        return delegate.toString();
-    }
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.lang.Object#hashCode()
+   */
+  public int hashCode() {
+    return delegate.hashCode();
+  }
+
+  /**
+   * @see info.monitorenter.cpdetector.io.ICodepageDetector#isExcludingCharsets()
+   */
+  public boolean isExcludingCharsets() {
+    return false;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.lang.Object#toString()
+   */
+  public String toString() {
+    return delegate.toString();
+  }
 }

@@ -46,6 +46,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.nio.charset.Charset;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -68,29 +69,13 @@ import java.util.Set;
  */
 public final class CodepageDetectorProxy extends AbstractCodepageDetector {
 
-  /** serialVersionUID */
-  private static final long serialVersionUID = -7389424614984024701L;
-
   /**
    * Singleton instance.
    */
   private static CodepageDetectorProxy instance = null;
 
-  /**
-   * The set of {@link ICodepageDetector}instances that this proxy will delegate
-   * to. These instances will be invoked in order to find the codepage until the
-   * first instance returns a valid codepage. If an {@link IOException}is thrown
-   * the search will terminate early (assuming that the execption is related to
-   * a general problem with the given URL.
-   */
-  private Set<ICodepageDetector> detectors = new LinkedHashSet<ICodepageDetector>();
-
-  /**
-   * Singleton constructor. For internal use only.
-   */
-  private CodepageDetectorProxy() {
-    super();
-  }
+  /** serialVersionUID */
+  private static final long serialVersionUID = -7389424614984024701L;
 
   /**
    * Singleton retrieval method.
@@ -109,6 +94,22 @@ public final class CodepageDetectorProxy extends AbstractCodepageDetector {
   }
 
   /**
+   * The set of {@link ICodepageDetector}instances that this proxy will delegate
+   * to. These instances will be invoked in order to find the codepage until the
+   * first instance returns a valid codepage. If an {@link IOException}is thrown
+   * the search will terminate early (assuming that the execption is related to
+   * a general problem with the given URL.
+   */
+  private Set<ICodepageDetector> detectors = new LinkedHashSet<ICodepageDetector>();
+
+  /**
+   * Singleton constructor. For internal use only.
+   */
+  private CodepageDetectorProxy() {
+    super();
+  }
+
+  /**
    * Adds the given instance to this proxie's detection capability.
    * <p>
    * 
@@ -122,29 +123,11 @@ public final class CodepageDetectorProxy extends AbstractCodepageDetector {
   }
 
   /**
-   * @param url
-   *          Should link to a file containing textual document. No check for
-   *          images or other resources is made.
-   * @throws IOException
-   *           If a problem with the url - handling occurs.
+   * @see info.monitorenter.cpdetector.io.AbstractCodepageDetector#setCharsetCandidates(java.util.Set)
    */
-  public Charset detectCodepage(final URL url) throws IOException {
-    Charset ret = null;
-    Iterator<ICodepageDetector> detectorIt = this.detectors.iterator();
-    while (detectorIt.hasNext()) {
-      ret = detectorIt.next().detectCodepage(url);
-      if (ret != null) {
-        if (ret != UnknownCharset.getInstance()) {
-          if (ret instanceof UnsupportedCharset) {
-            // TODO: Debug logging: found illegal charset tag or encoding
-            // declaration.
-          } else {
-            break;
-          }
-        }
-      }
-    }
-    return ret;
+  @Override
+  public void setCharsetCandidates(Set<Charset> candidates) {
+    this.m_charsetCandidates = candidates;
   }
 
   /**
@@ -189,9 +172,12 @@ public final class CodepageDetectorProxy extends AbstractCodepageDetector {
     Charset ret = null;
     int markLimit = length;
     Iterator<ICodepageDetector> detectorIt = this.detectors.iterator();
+    ICodepageDetector detector;
     while (detectorIt.hasNext()) {
       in.mark(markLimit);
-      ret = detectorIt.next().detectCodepage(in, length);
+      detector = detectorIt.next();
+      detector.setCharsetCandidates(this.m_charsetCandidates);
+      ret = detector.detectCodepage(in, length);
       // if more bytes have been read than marked (length) this will throw an
       // exception:
       try {
@@ -203,18 +189,63 @@ public final class CodepageDetectorProxy extends AbstractCodepageDetector {
         throw ise;
 
       }
-      if (ret != null) {
-        if (ret != UnknownCharset.getInstance()) {
-          if (ret instanceof UnsupportedCharset) {
-            // TODO: Debug logging: found illegal charset tag or encoding
-            // declaration.
-          } else {
-            break;
-          }
+      if (ret == null || ret == UnknownCharset.getInstance() || ret instanceof UnsupportedCharset) {
+        if (detector.isExcludingCharsets()) {
+          /*
+           * Remove those.
+           */
+          Set<Charset> excludes = detector.getExcludedCharsets();
+          this.m_charsetCandidates.removeAll(excludes);
         }
+      } else {
+        break;
       }
     }
     return ret;
+  }
+  
+  /**
+   * The set of charset candidates. Others should be ignored. 
+   */
+  private Set<Charset> m_charsetCandidates = new LinkedHashSet<Charset>(Charset.availableCharsets().values());
+
+  /**
+   * @param url
+   *          Should link to a file containing textual document. No check for
+   *          images or other resources is made.
+   * @throws IOException
+   *           If a problem with the url - handling occurs.
+   */
+  public Charset detectCodepage(final URL url) throws IOException {
+    Charset ret = null;
+    Iterator<ICodepageDetector> detectorIt = this.detectors.iterator();
+    ICodepageDetector detector;
+    while (detectorIt.hasNext()) {
+      detector = detectorIt.next();
+      detector.setCharsetCandidates(this.m_charsetCandidates);
+      ret = detector.detectCodepage(url);
+      if (ret == null || ret == UnknownCharset.getInstance() || ret instanceof UnsupportedCharset) {
+        if (detector.isExcludingCharsets()) {
+          /*
+           * Remove those.
+           */
+          Set<Charset> excludes = detector.getExcludedCharsets();
+          this.m_charsetCandidates.removeAll(excludes);
+        }
+      } else {
+        break;
+      }
+    }
+    return ret;
+  }
+
+  /**
+   * @see info.monitorenter.cpdetector.io.ICodepageDetector#isExcludingCharsets()
+   */
+  public boolean isExcludingCharsets() {
+    // TODO: Maybe scan all contained instances and return true in case any one
+    // does?
+    return true;
   }
 
   /**

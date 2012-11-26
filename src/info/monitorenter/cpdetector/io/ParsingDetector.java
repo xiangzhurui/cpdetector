@@ -69,9 +69,10 @@ import antlr.ANTLRException;
  * <p>
  * The underlying lexer is more a filter: It does not verify lexical correctness
  * by the means of matching a defined order of tokens, but just filters m_out
- * certain tokens. By now the following tokens are filtered: <table border="0"
- * id="userstyle"> <colgroup> <col width="20%"/> <col width="30%"/> <col
- * width="8%"/> <col width="42%"/> </colgroup>
+ * certain tokens. By now the following tokens are filtered:
+ * <table border="0" * id="userstyle">
+ * <colgroup> <col width="20%"/> <col width="30%"/> <col width="8%"/> <col
+ * width="42%"/> </colgroup>
  * <tr>
  * <th>Token Name</th>
  * <th>Match</th>
@@ -84,18 +85,17 @@ import antlr.ANTLRException;
  * <tt>"meta" "http-equiv" "=" '"Content-Type"' "content" "=" '"' IDENTIFIER "charset" "=" <b>&lt;EncName&gt;</b> '"'></tt>
  * </td>
  * <td>HTML</td>
- * <td> <a
+ * <td><a
  * href="http://www.w3.org/TR/1999/REC-html401-19991224/charset.html#h-5.2.2"
- * target="_blank"> W3C HTML 4.01 Specification </a> Chapter 5.2.2 </td>
+ * target="_blank"> W3C HTML 4.01 Specification </a> Chapter 5.2.2</td>
  * </tr>
  * <tr>
- * <td> <em>XML_ENCODING_DECL</em> </td>
- * <td> <tt>"&lt;?xml" VersionInfo  "encoding" "=" <b>&lt;EncName&gt;</b></tt>
- * </td>
- * <td> XML </td>
- * <td> <a target="_blank"
+ * <td> <em>XML_ENCODING_DECL</em></td>
+ * <td> <tt>"&lt;?xml" VersionInfo  "encoding" "=" <b>&lt;EncName&gt;</b></tt></td>
+ * <td>XML</td>
+ * <td><a target="_blank"
  * href="http://www.w3.org/TR/2004/REC-xml-20040204/#sec-prolog-dtd"> Extensible
- * Markup Language (XML) 1.0 (Third Edition)</a> Chapter 2.8 </td>
+ * Markup Language (XML) 1.0 (Third Edition)</a> Chapter 2.8</td>
  * </tr>
  * </table>
  * </p>
@@ -103,8 +103,7 @@ import antlr.ANTLRException;
  * @author <a href="mailto:Achim.Westermann@gmx.de">Achim Westermann </a>
  * 
  */
-public class ParsingDetector
-    extends AbstractCodepageDetector {
+public class ParsingDetector extends AbstractCodepageDetector {
   /**
    * Generated <code>serialVersionUID</code>.
    */
@@ -121,9 +120,7 @@ public class ParsingDetector
     this.m_verbose = verbose;
   }
 
-  /*
-   * (non-Javadoc)
-   * 
+  /**
    * @see cpdetector.io.ICodepageDetector#detectCodepage(java.io.InputStream)
    */
   public Charset detectCodepage(final InputStream in, final int length) throws IOException {
@@ -133,8 +130,7 @@ public class ParsingDetector
     String csName = null;
     InputStream limitedInputStream = new LimitedInputStream(in, length);
     if (this.m_verbose) {
-      System.out
-          .println("  parsing for html-charset/xml-encoding attribute with codepage: US-ASCII");
+      System.out.println("  parsing for html-charset/xml-encoding attribute with codepage: US-ASCII");
     }
     try {
       lexer = new EncodingLexer(new InputStreamReader(limitedInputStream, "US-ASCII"));
@@ -158,8 +154,7 @@ public class ParsingDetector
       }
     } catch (Exception deepdown) {
       if (this.m_verbose) {
-        System.out.println("  Decoding Exception: " + deepdown.getMessage()
-            + " (unsupported java charset).");
+        System.out.println("  Decoding Exception: " + deepdown.getMessage() + " (unsupported java charset).");
       }
       if (charset == null) {
         if (csName != null) {
@@ -170,6 +165,13 @@ public class ParsingDetector
       }
     }
     return charset;
+  }
+
+  /**
+   * @see info.monitorenter.cpdetector.io.ICodepageDetector#isExcludingCharsets()
+   */
+  public boolean isExcludingCharsets() {
+    return false;
   }
 
 }

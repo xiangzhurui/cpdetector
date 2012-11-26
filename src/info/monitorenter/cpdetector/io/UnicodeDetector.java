@@ -45,21 +45,17 @@
  */
 package info.monitorenter.cpdetector.io;
 
-import info.monitorenter.cpdetector.io.AbstractCodepageDetector;
-import info.monitorenter.cpdetector.io.ICodepageDetector;
-import info.monitorenter.cpdetector.io.UnknownCharset;
-
 import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.nio.charset.Charset;
-
+import java.util.Set;
 
 /**
  * <p>
- * This detector identifies byte order marks of the following codepages to give a 100 % deterministic result in case of
- * detection.
+ * This detector identifies byte order marks of the following codepages to give
+ * a 100 % deterministic result in case of detection.
  * </p>
  * 
  * <p>
@@ -91,24 +87,35 @@ import java.nio.charset.Charset;
  * <td>EF BB BF</td>
  * <td>UTF-8</td>
  * </tr>
+ * <tr>
+ * <td>00 00 FE FF</td>
+ * <td>UTF-32BE</td>
+ * </tr>
+ * <tr>
+ * <td>FF FE 00 00</td>
+ * <td>UTF-32LE</td>
+ * </tr>
  * </table>
  * </p>
  * <p>
- * Note that this detector is very fast as it only has to read a maximum of 8 bytes to provide a result. Nevertheless it
- * is senseless to add it to the configuration if the documents to detect will have a low rate of documents in the
- * codepages that will be detected. If added to the configuration of {@link info.monitorenter.cpdetector.io.CodepageDetectorProxy}it
- * should be at front position to save computations of the following detection processses.
+ * Note that this detector is very fast as it only has to read a maximum of 8
+ * bytes to provide a result. Nevertheless it is senseless to add it to the
+ * configuration if the documents to detect will have a low rate of documents in
+ * the codepages that will be detected. If added to the configuration of
+ * {@link info.monitorenter.cpdetector.io.CodepageDetectorProxy}it should be at
+ * front position to save computations of the following detection processses.
  * <p>
  * <p>
  * This implementation is based on: <br>
- * <a target="_blank" title="http://www.w3.org/TR/2004/REC-xml-20040204/#sec-guessing-no-ext-info"
- * href="http://www.w3.org/TR/2004/REC-xml-20040204/#sec-guessing-no-ext-info">W3C XML Specification 1.0 3rd Edition,
- * F.1 Detection Without External Encoding Information </a>.
+ * <a target="_blank" title= "http://unicode.org/faq/utf_bom.html#bom4"
+ * href="http://unicode.org/faq/utf_bom.html#bom4"
+ * >http://unicode.org/faq/utf_bom.html#bom4</a>.
  * </p>
  * 
- * This implementation does the same as <code>{@link ByteOrderMarkDetector}</code> but with a different
- * read strategy (read 4 bytes at once) and elseif blocks. Would
- * be great to have a performance comparison. Maybe the read of 4 bytes in a row combined with the
+ * This implementation does the same (not excatly: this one also covers utf-32)
+ * as <code>{@link ByteOrderMarkDetector}</code> but with a different read
+ * strategy (read 4 bytes at once) and elseif blocks. Would be great to have a
+ * performance comparison. Maybe the read of 4 bytes in a row combined with the
  * switch could make that other implementation the winner.
  * <p>
  * 
@@ -117,60 +124,83 @@ import java.nio.charset.Charset;
  * @version $Revision$
  */
 public class UnicodeDetector extends AbstractCodepageDetector {
-    private static ICodepageDetector instance;
+  private static ICodepageDetector instance;
 
-    /**
-     * Singleton constructor
-     */
-    private UnicodeDetector() {
-        super();
+  public static ICodepageDetector getInstance() {
+    if (instance == null) {
+      instance = new UnicodeDetector();
     }
+    return instance;
+  }
 
-    public static ICodepageDetector getInstance() {
-        if (instance == null) {
-            instance = new UnicodeDetector();
-        }
-        return instance;
-    }
+  /**
+   * Singleton constructor
+   */
+  private UnicodeDetector() {
+    super();
+  }
 
-    /*
-     * (non-Javadoc) It is assumed that the inputstream is at the start of the file or String (in order to read the
-     * BOM).
-     * 
-     * @see cpdetector.io.ICodepageDetector#detectCodepage(java.io.InputStream, int)
-     * 
-     */
-    public Charset detectCodepage(InputStream in, int length) throws IOException {
-        byte[] bom = new byte[4]; // Get the byte-order mark, if there is one
-        in.read(bom, 0, 4);
-        // Unicode formats => read BOM
-        byte b = (byte)0xEF;
-        if (bom[0] == (byte)0x00 && bom[1] == (byte)0x00 && bom[2] == (byte)0xFE
-                && bom[2] == (byte)0xFF) // utf-32BE
-            return Charset.forName("UTF-32BE");
-        if (bom[0] == (byte)0xFF && bom[1] == (byte)0xFE && bom[2] == (byte)0x00
-                && bom[2] == (byte)0x00) // utf-32BE
-            return Charset.forName("UTF-32LE");
-        if (bom[0] == (byte)0xEF && bom[1] == (byte)0xBB && bom[2] == (byte)0xBF) // utf-8
-            return Charset.forName("UTF-8");
-        if (bom[0] == (byte)0xff && bom[1] == (byte)0xfe) // ucs-2le, ucs-4le, and ucs-16le
-            return Charset.forName("UTF-16LE");
-        if (bom[0] == (byte)0xfe && bom[1] == (byte)0xff) // utf-16 and ucs-2
-            return Charset.forName("UTF-16BE");
-        if (bom[0] == (byte)0 && bom[1] == (byte)0 && bom[2] == (byte)0xfe && bom[3] == (byte)0xff) // ucs-4
-            return Charset.forName("UCS-4");
-        return UnknownCharset.getInstance();
+  /**
+   * It is assumed that the inputstream is at the start of the file or String
+   * (in order to read the BOM).
+   * 
+   * @see cpdetector.io.ICodepageDetector#detectCodepage(java.io.InputStream,
+   *      int)
+   * 
+   */
+  public Charset detectCodepage(InputStream in, int length) throws IOException {
+    Charset result = null;
+    byte[] bom = new byte[4]; // Get the byte-order mark, if there is one
+    in.read(bom, 0, 4);
+    // Unicode formats => read BOM
+    byte b = (byte) 0xEF;
+    if (bom[0] == (byte) 0x00 && bom[1] == (byte) 0x00 && bom[2] == (byte) 0xFE && bom[2] == (byte) 0xFF) {
+      // utf-32BE
+      result = Charset.forName("UTF-32BE");
+    } else if (bom[0] == (byte) 0xFF && bom[1] == (byte) 0xFE && bom[2] == (byte) 0x00 && bom[2] == (byte) 0x00) {
+      // utf-32BE
+      result = Charset.forName("UTF-32LE");
+    } else if (bom[0] == (byte) 0xEF && bom[1] == (byte) 0xBB && bom[2] == (byte) 0xBF) {
+      // utf-8
+      result = Charset.forName("UTF-8");
+    } else if (bom[0] == (byte) 0xff && bom[1] == (byte) 0xfe) {
+      // ucs-2le, ucs-4le, anducs-16le
+      result = Charset.forName("UTF-16LE");
+    } else if (bom[0] == (byte) 0xfe && bom[1] == (byte) 0xff) {
+      // utf-16 and ucs-2
+      result = Charset.forName("UTF-16BE");
+    } else if (bom[0] == (byte) 0 && bom[1] == (byte) 0 && bom[2] == (byte) 0xfe && bom[3] == (byte) 0xff) {
+      // ucs-4
+      return Charset.forName("UCS-4");
+    } else {
+      result = UnknownCharset.getInstance();
+      Set<Charset> excludes = this.getExcludedCharsets();
+      excludes.add(Charset.forName("UTF-32BE"));
+      excludes.add(Charset.forName("UTF-32LE"));
+      excludes.add(Charset.forName("UTF-8"));
+      excludes.add(Charset.forName("UTF-16LE"));
+      excludes.add(Charset.forName("UTF-16BE"));
+      excludes.add(Charset.forName("UCS-4"));
     }
+    return result;
+  }
 
-    /**
-     * @see info.monitorenter.cpdetector.io.ICodepageDetector#detectCodepage(java.net.URL)
-     */
-    public Charset detectCodepage(final URL url) throws IOException {
-        Charset result;
-        BufferedInputStream in = new BufferedInputStream(url.openStream());
-        result = this.detectCodepage(in, Integer.MAX_VALUE);
-        in.close();
-        return result;
-    }
+  /**
+   * @see info.monitorenter.cpdetector.io.ICodepageDetector#detectCodepage(java.net.URL)
+   */
+  public Charset detectCodepage(final URL url) throws IOException {
+    Charset result;
+    BufferedInputStream in = new BufferedInputStream(url.openStream());
+    result = this.detectCodepage(in, Integer.MAX_VALUE);
+    in.close();
+    return result;
+  }
+
+  /**
+   * @see info.monitorenter.cpdetector.io.ICodepageDetector#isExcludingCharsets()
+   */
+  public boolean isExcludingCharsets() {
+    return true;
+  }
 
 }

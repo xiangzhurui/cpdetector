@@ -20,6 +20,17 @@ Legend:
 - General comment
 o API change that requires refactoring.
 
+
+cpdetector - 1.1.0 - <month>, <day>, <year>
+
+! Added the possibility that each single detector may exclude charsets from being candidates. 
+  This works by returning the charsets to exclude from method ICodepageDetector.getExcludedCharsets(). 
+  Every detector may use the exclusions (of previous detectors that were invoked) by taking them via 
+  ICodepageDetector.setCharsetCandidates(Set<Charset> candidates). From the proxy implementation this 
+  works as well: 
+  myCodepageDetectorProxy.setCharsetCandidates(myReducedSet). 
+  This may help with files that have problems to be detected properly. 
+  
 cpdetector - 1.0.10 - December, 4th, 2011
 
 * Fixed bug #3440658: Crash at invalid declared charset (the "" charset). 

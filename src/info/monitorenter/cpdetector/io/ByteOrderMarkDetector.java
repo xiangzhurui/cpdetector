@@ -36,11 +36,12 @@ import java.io.InputStream;
 import java.net.URL;
 import java.nio.charset.Charset;
 import java.nio.charset.UnsupportedCharsetException;
+import java.util.Set;
 
 /**
  * <p>
- * This detector identifies byte order marks of the following codepages to give a 100 %
- * deterministic result in case of detection.
+ * This detector identifies byte order marks of the following codepages to give
+ * a 100 % deterministic result in case of detection.
  * </p>
  * <p>
  * <table border="1">
@@ -75,29 +76,36 @@ import java.nio.charset.UnsupportedCharsetException;
  * </table>
  * </p>
  * <p>
- * Note that this detector is very fast as it only has to read a maximum of 8 bytes to provide a
- * result. Nevertheless it is senseless to add it to the configuration if the documents to detect
- * will have a low rate of documents in the codepages that will be detected. If added to the
- * configuration of {@link info.monitorenter.cpdetector.io.CodepageDetectorProxy} it should be at
+ * Note that this detector is very fast as it only has to read a maximum of 8
+ * bytes to provide a result. Nevertheless it is senseless to add it to the
+ * configuration if the documents to detect will have a low rate of documents in
+ * the codepages that will be detected. If added to the configuration of
+ * {@link info.monitorenter.cpdetector.io.CodepageDetectorProxy} it should be at
  * front position to save computations of the following detection processses.
  * <p>
  * <p>
  * This implementation is based on: <br>
- * <a target="_blank" title="http://www.w3.org/TR/2004/REC-xml-20040204/#sec-guessing-no-ext-info"
- * href="http://www.w3.org/TR/2004/REC-xml-20040204/#sec-guessing-no-ext-info">W3C XML Specification
- * 1.0 3rd Edition, F.1 Detection Without External Encoding Information </a>.
+ * <a target="_blank" title=
+ * "http://www.w3.org/TR/2004/REC-xml-20040204/#sec-guessing-no-ext-info"
+ * href="http://www.w3.org/TR/2004/REC-xml-20040204/#sec-guessing-no-ext-info"
+ * >W3C XML Specification 1.0 3rd Edition, F.1 Detection Without External
+ * Encoding Information </a>.
  * </p>
- * This implementation does the same as <code>{@link UnicodeDetector}</code> but with a different
- * read strategy (read each byte separately) and a switch case tree (-> bytecode tableswitch). Would
- * be great to have a performance comparison. Maybe the read of 4 bytes in a row combined with the
- * switch could make this implementation the winner.
+ * This implementation does the same as <code>{@link UnicodeDetector}</code> but
+ * with a different read strategy (read each byte separately) and a switch case
+ * tree (-> bytecode tableswitch). Would be great to have a performance
+ * comparison. Maybe the read of 4 bytes in a row combined with the switch could
+ * make this implementation the winner.
  * <p>
+ * FIXME: UTF-32LE and UTF-32BE are not supported, prefer using
+ * {@link UnicodeDetector}!
+ * <p>
+ * 
  * 
  * @author <a href="mailto:Achim.Westermann@gmx.de">Achim Westermann </a>
  * @version $Revision$
  */
-public class ByteOrderMarkDetector
-    extends AbstractCodepageDetector implements ICodepageDetector {
+public class ByteOrderMarkDetector extends AbstractCodepageDetector implements ICodepageDetector {
 
   /**
    * Generated <code>serialVersionUID</code>.
@@ -105,12 +113,13 @@ public class ByteOrderMarkDetector
   private static final long serialVersionUID = 3618977875919778866L;
 
   /**
-   * @see info.monitorenter.cpdetector.io.ICodepageDetector#detectCodepage(java.io.InputStream, int)
+   * @see info.monitorenter.cpdetector.io.ICodepageDetector#detectCodepage(java.io.InputStream,
+   *      int)
    */
   public Charset detectCodepage(final InputStream in, final int length) throws IOException {
     // dumbest pragmatic code ever written (nearly a code generator would have
     // been faster). But it's proven fast.
-    Charset result = UnknownCharset.getInstance();
+    Charset result = null;
     int readByte = 0;
     readByte = in.read();
     switch (readByte) {
@@ -130,7 +139,7 @@ public class ByteOrderMarkDetector
                 } catch (UnsupportedCharsetException uce) {
                   result = UnsupportedCharset.forName("UCS-4BE");
                 }
-                return result;
+                // return result;
 
               }
               case (0xFF): {
@@ -141,16 +150,16 @@ public class ByteOrderMarkDetector
                 } catch (UnsupportedCharsetException uce) {
                   result = UnsupportedCharset.forName("UCS-4");
                 }
-                return result;
+                // return result;
 
               }
               default:
-                return result;
+                // return result;
             }
 
           }
           default:
-            return result;
+            // return result;
         }
       }
       case (0xFE): {
@@ -174,7 +183,7 @@ public class ByteOrderMarkDetector
                     } catch (UnsupportedCharsetException uce) {
                       result = UnsupportedCharset.forName("UCS-4");
                     }
-                    return result;
+                    // return result;
                   }
                   default: {
                     try {
@@ -182,7 +191,7 @@ public class ByteOrderMarkDetector
                     } catch (UnsupportedCharsetException uce) {
                       result = UnsupportedCharset.forName("UTF-16BE");
                     }
-                    return result;
+                    // return result;
                   }
                 }
 
@@ -193,14 +202,14 @@ public class ByteOrderMarkDetector
                 } catch (UnsupportedCharsetException uce) {
                   result = UnsupportedCharset.forName("UTF-16BE");
                 }
-                return result;
+                // return result;
               }
 
             }
 
           }
           default: {
-            return result;
+            // return result;
           }
         }
       }
@@ -226,7 +235,7 @@ public class ByteOrderMarkDetector
                     } catch (UnsupportedCharsetException uce) {
                       result = UnsupportedCharset.forName("UCS-4LE");
                     }
-                    return result;
+                    // return result;
 
                   }
                   default: {
@@ -235,7 +244,7 @@ public class ByteOrderMarkDetector
                     } catch (UnsupportedCharsetException uce) {
                       result = UnsupportedCharset.forName("UTF-16LE");
                     }
-                    return result;
+                    // return result;
                   }
                 }
               }
@@ -245,12 +254,12 @@ public class ByteOrderMarkDetector
                 } catch (UnsupportedCharsetException uce) {
                   result = UnsupportedCharset.forName("UTF-16LE");
                 }
-                return result;
+                // return result;
               }
             }
           }
           default: {
-            return result;
+            // return result;
           }
         }
       }
@@ -268,31 +277,65 @@ public class ByteOrderMarkDetector
                 } catch (UnsupportedCharsetException uce) {
                   result = UnsupportedCharset.forName("utf-8");
                 }
-                return result;
+                // return result;
 
               }
               default: {
-                return result;
+                // return result;
               }
             }
 
           }
           default: {
-            return result;
+            // return result;
           }
         }
 
       }
       default:
-        return result;
+        // return result;
 
     }
+    if (result == null || result instanceof UnsupportedCharset) {
+      Set<Charset> excludes = this.getExcludedCharsets();
+      try {
+        excludes.add(Charset.forName("UCS-4BE"));
+      } catch (UnsupportedCharsetException usce) {
+        // nop
+      }
+      try {
+        excludes.add(Charset.forName("UCS-4"));
+      } catch (UnsupportedCharsetException usce) {
+//        usce.printStackTrace(System.err);
+      }
+      try {
+        excludes.add(Charset.forName("UTF-16BE"));
+      } catch (UnsupportedCharsetException usce) {
+//        usce.printStackTrace(System.err);
+      }
+      try {
+        excludes.add(Charset.forName("UCS-4LE"));
+      } catch (UnsupportedCharsetException usce) {
+//        usce.printStackTrace(System.err);
+      }
+      try {
+        excludes.add(Charset.forName("UTF-16LE"));
+      } catch (UnsupportedCharsetException usce) {
+//        usce.printStackTrace(System.err);
+      }
+      try {
+        excludes.add(Charset.forName("utf-8"));
+      } catch (UnsupportedCharsetException usce) {
+//        usce.printStackTrace(System.err);
+      }
+    }
+    return result;
   }
 
   /**
    * <p>
-   * Delegates to {@link #detectCodepage(InputStream, int)}with a buffered input stream of size 10
-   * (8 needed as maximum).
+   * Delegates to {@link #detectCodepage(InputStream, int)}with a buffered input
+   * stream of size 10 (8 needed as maximum).
    * </p>
    * 
    * @see info.monitorenter.cpdetector.io.ICodepageDetector#detectCodepage(java.net.URL)
@@ -303,5 +346,12 @@ public class ByteOrderMarkDetector
     result = this.detectCodepage(in, Integer.MAX_VALUE);
     in.close();
     return result;
+  }
+
+  /**
+   * @see info.monitorenter.cpdetector.io.ICodepageDetector#isExcludingCharsets()
+   */
+  public boolean isExcludingCharsets() {
+    return true;
   }
 }

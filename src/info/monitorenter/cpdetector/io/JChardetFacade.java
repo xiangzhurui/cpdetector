@@ -45,16 +45,41 @@
  */
 package info.monitorenter.cpdetector.io;
 
-import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.reflect.Field;
 import java.net.URL;
 import java.nio.charset.Charset;
 import java.nio.charset.UnsupportedCharsetException;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Set;
 
+import org.mozilla.intl.chardet.Big5Statistics;
+import org.mozilla.intl.chardet.EUCJPStatistics;
+import org.mozilla.intl.chardet.EUCKRStatistics;
+import org.mozilla.intl.chardet.EUCTWStatistics;
+import org.mozilla.intl.chardet.GB2312Statistics;
+import org.mozilla.intl.chardet.nsBIG5Verifier;
+import org.mozilla.intl.chardet.nsCP1252Verifier;
 import org.mozilla.intl.chardet.nsDetector;
+import org.mozilla.intl.chardet.nsEUCJPVerifier;
+import org.mozilla.intl.chardet.nsEUCKRVerifier;
+import org.mozilla.intl.chardet.nsEUCStatistics;
+import org.mozilla.intl.chardet.nsEUCTWVerifier;
+import org.mozilla.intl.chardet.nsGB18030Verifier;
+import org.mozilla.intl.chardet.nsGB2312Verifier;
+import org.mozilla.intl.chardet.nsHZVerifier;
 import org.mozilla.intl.chardet.nsICharsetDetectionObserver;
+import org.mozilla.intl.chardet.nsISO2022CNVerifier;
+import org.mozilla.intl.chardet.nsISO2022JPVerifier;
+import org.mozilla.intl.chardet.nsISO2022KRVerifier;
 import org.mozilla.intl.chardet.nsPSMDetector;
+import org.mozilla.intl.chardet.nsSJISVerifier;
+import org.mozilla.intl.chardet.nsUCS2BEVerifier;
+import org.mozilla.intl.chardet.nsUCS2LEVerifier;
+import org.mozilla.intl.chardet.nsUTF8Verifier;
+import org.mozilla.intl.chardet.nsVerifier;
 
 /**
  * A fac�ade for jchardet codepage detection. <a href="http://www.i18nfaq.com/"
@@ -78,29 +103,13 @@ import org.mozilla.intl.chardet.nsPSMDetector;
  * @author <a href="mailto:Achim.Westermann@gmx.de">Achim Westermann </a>
  * 
  */
-public final class JChardetFacade
-    extends AbstractCodepageDetector implements nsICharsetDetectionObserver {
+public final class JChardetFacade extends AbstractCodepageDetector implements nsICharsetDetectionObserver {
+
+  /** Internal jchardet detector. */
+  private nsDetector det;
+
+  /** Singleton instance. */
   private static JChardetFacade instance = null;
-
-  private static nsDetector det;
-
-  private byte[] buf = new byte[4096];
-
-  private Charset codpage = null;
-
-  private boolean m_guessing = true;
-
-  private int amountOfVerifiers = 0;
-
-  /**
-   * 
-   */
-  private JChardetFacade() {
-    super();
-    det = new nsDetector(nsPSMDetector.ALL);
-    det.Init(this);
-    this.amountOfVerifiers = det.getProbableCharsets().length;
-  }
 
   public static JChardetFacade getInstance() {
     if (instance == null) {
@@ -109,9 +118,26 @@ public final class JChardetFacade
     return instance;
   }
 
-  /*
-   * (non-Javadoc)
-   * 
+  private int amountOfVerifiers = 0;
+
+  private byte[] buf = new byte[4096];
+
+  private Charset codpage = null;
+
+  private boolean m_guessing = true;
+
+  /**
+   * Defcon.
+   * <p>
+   */
+  private JChardetFacade() {
+    super();
+    det = new nsDetector(nsPSMDetector.ALL);
+    det.Init(this);
+    this.amountOfVerifiers = det.getProbableCharsets().length;
+  }
+
+  /**
    * @see cpdetector.io.ICodepageDetector#detectCodepage(java.io.InputStream)
    */
   public synchronized Charset detectCodepage(InputStream in, int length) throws IOException {
@@ -174,12 +200,33 @@ public final class JChardetFacade
 
   }
 
- /**
-  * 
-  * @see org.mozilla.intl.chardet.nsICharsetDetectionObserver#Notify(java.lang.String)
-  */
+  /**
+   * @see info.monitorenter.cpdetector.io.ICodepageDetector#isExcludingCharsets()
+   */
+  public boolean isExcludingCharsets() {
+    return false;
+  }
+
+  /**
+   * @return Returns the m_guessing.
+   */
+  public boolean isGuessing() {
+    return m_guessing;
+  }
+
+  /**
+   * 
+   * @see org.mozilla.intl.chardet.nsICharsetDetectionObserver#Notify(java.lang.String)
+   */
   public void Notify(final String charset) {
-    this.codpage = Charset.forName(charset);
+    /*
+     * special case (found via sourcecode lookup):
+     */
+    if ("HZ-GB-2312".equals(charset)) {
+      this.codpage = Charset.forName("EUC-CN");
+    } else {
+      this.codpage = Charset.forName(charset);
+    }
   }
 
   public void Reset() {
@@ -188,10 +235,158 @@ public final class JChardetFacade
   }
 
   /**
-   * @return Returns the m_guessing.
+   * @see info.monitorenter.cpdetector.io.AbstractCodepageDetector#setCharsetCandidates(java.util.Set)
    */
-  public boolean isGuessing() {
-    return m_guessing;
+  @Override
+  public void setCharsetCandidates(Set<Charset> candidates) {
+    super.setCharsetCandidates(candidates);
+
+    /*
+     * Dynamically fill the list of candidates and then spit them out as arrays
+     * for the low-level configuration of jchardet:
+     */
+    List<nsVerifier> verifierList = new LinkedList<nsVerifier>();
+    List<nsEUCStatistics> statisticsList = new LinkedList<nsEUCStatistics>();
+    Charset cs;
+    cs = Charset.forName("utf-8");
+    if (candidates.contains(cs)) {
+      verifierList.add(new nsUTF8Verifier());
+      statisticsList.add(null);
+    }
+    cs = Charset.forName("Shift_JIS");
+    if (candidates.contains(cs)) {
+      verifierList.add(new nsSJISVerifier());
+      statisticsList.add(null);
+    }
+    cs = Charset.forName("EUC-JP");
+    if (candidates.contains(cs)) {
+      verifierList.add(new nsEUCJPVerifier());
+      statisticsList.add(new EUCJPStatistics());
+    }
+    cs = Charset.forName("ISO-2022-JP");
+    if (candidates.contains(cs)) {
+      verifierList.add(new nsISO2022JPVerifier());
+      statisticsList.add(null);
+    }
+    cs = Charset.forName("EUC-KR");
+    if (candidates.contains(cs)) {
+      verifierList.add(new nsEUCKRVerifier());
+      statisticsList.add(new EUCKRStatistics());
+    }
+    cs = Charset.forName("ISO-2022-KR");
+    if (candidates.contains(cs)) {
+      verifierList.add(new nsISO2022KRVerifier());
+      statisticsList.add(null);
+    }
+    cs = Charset.forName("Big5");
+    if (candidates.contains(cs)) {
+      verifierList.add(new nsBIG5Verifier());
+      statisticsList.add(new Big5Statistics());
+    }
+    cs = Charset.forName("x-EUC-TW");
+    if (candidates.contains(cs)) {
+      verifierList.add(new nsEUCTWVerifier());
+      statisticsList.add(new EUCTWStatistics());
+    }
+    cs = Charset.forName("GB2312");
+    if (candidates.contains(cs)) {
+      verifierList.add(new nsGB2312Verifier());
+      statisticsList.add(new GB2312Statistics());
+    }
+    cs = Charset.forName("GB2312");
+    if (candidates.contains(cs)) {
+      verifierList.add(new nsGB2312Verifier());
+      statisticsList.add(new GB2312Statistics());
+    }
+    cs = Charset.forName("GB18030");
+    if (candidates.contains(cs)) {
+      verifierList.add(new nsGB18030Verifier());
+      statisticsList.add(null);
+    }
+    cs = Charset.forName("ISO-2022-CN");
+    if (candidates.contains(cs)) {
+      verifierList.add(new nsGB18030Verifier());
+      statisticsList.add(null);
+    }
+    cs = Charset.forName("EUC-CN");
+    if (candidates.contains(cs)) {
+      verifierList.add(new nsHZVerifier());
+      statisticsList.add(null);
+    }
+    cs = Charset.forName("ISO-8859-1");
+    if (candidates.contains(cs)) {
+      verifierList.add(new nsCP1252Verifier());
+      statisticsList.add(null);
+    }
+    cs = Charset.forName("UTF-16BE");
+    if (candidates.contains(cs)) {
+      verifierList.add(new nsUCS2BEVerifier());
+      statisticsList.add(null);
+    }
+    cs = Charset.forName("UTF-16LE");
+    if (candidates.contains(cs)) {
+      verifierList.add(new nsUCS2LEVerifier());
+      statisticsList.add(null);
+    }
+    /*
+     * No more implemented in jchardet.
+     */
+    nsVerifier[] verifierArr = verifierList.toArray(new nsVerifier[verifierList.size()]);
+    nsEUCStatistics[] statisticsArr = statisticsList.toArray(new nsEUCStatistics[statisticsList.size()]);
+    /*
+     * Oh no: No constructor chaining from nsDetector to nsPSMDetector. Dirty
+     * hacking which will fail in case a security manager is configured.
+     */
+    Field mVerifier;
+    try {
+      mVerifier = nsPSMDetector.class.getDeclaredField("mVerifier");
+      mVerifier.setAccessible(true);
+      try {
+        mVerifier.set(this.det, verifierArr);
+      } catch (IllegalArgumentException e) {
+        e.printStackTrace();
+      } catch (IllegalAccessException e) {
+        e.printStackTrace();
+      }
+    } catch (SecurityException e) {
+      e.printStackTrace();
+    } catch (NoSuchFieldException e) {
+      e.printStackTrace();
+    }
+    Field mStatisticsData;
+    try {
+      mStatisticsData = nsPSMDetector.class.getDeclaredField("mStatisticsData");
+      mStatisticsData.setAccessible(true);
+      try {
+        mStatisticsData.set(this.det, statisticsArr);
+      } catch (IllegalArgumentException e) {
+        e.printStackTrace();
+      } catch (IllegalAccessException e) {
+        e.printStackTrace();
+      }
+    } catch (SecurityException e) {
+      e.printStackTrace();
+    } catch (NoSuchFieldException e) {
+      e.printStackTrace();
+    }
+    Field mItems;
+    try {
+      mStatisticsData = nsPSMDetector.class.getDeclaredField("mClassItems");
+      mStatisticsData.setAccessible(true);
+      try {
+        mStatisticsData.set(this.det, Integer.valueOf(statisticsArr.length));
+      } catch (IllegalArgumentException e) {
+        e.printStackTrace();
+      } catch (IllegalAccessException e) {
+        e.printStackTrace();
+      }
+    } catch (SecurityException e) {
+      e.printStackTrace();
+    } catch (NoSuchFieldException e) {
+      e.printStackTrace();
+    }
+    
+    
   }
 
   /**
@@ -205,8 +400,8 @@ public final class JChardetFacade
    * Currently the following precedence is implemented to choose the possible
    * Charset:
    * <ol>
-   * <li> If US-ASCII is possible, it is chosen.
-   * <li> If US-ASCII is not possible, the first supported one in the set of
+   * <li>If US-ASCII is possible, it is chosen.
+   * <li>If US-ASCII is not possible, the first supported one in the set of
    * possible charsets is returned. No information about the semantics of the
    * order in that list is available. If no possibility is supported, an
    * instance of {@link UnsupportedCharset} is returned.

@@ -55,65 +55,105 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 import java.net.URL;
 import java.nio.charset.Charset;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 /**
  * <p>
- * This implementation provides the default implementation for the high-level codepage detection method
- * {@link #open(URL)}of the implemented interface ICodepageProcessor.
+ * This implementation provides the default implementation for the high-level
+ * codepage detection method {@link #open(URL)}of the implemented interface
+ * ICodepageProcessor.
  * </p>
  * <p>
- * Also the Comparable interface implementation is provided here by comparing the class-name strings of the
- * implementations.
+ * Also the Comparable interface implementation is provided here by comparing
+ * the class-name strings of the implementations.
  * </p>
  * 
  * @author <a href="mailto:Achim.Westermann@gmx.de">Achim Westermann </a>
  * 
  */
 public abstract class AbstractCodepageDetector implements ICodepageDetector {
-    /**
+
+  /** Generated <code>serialVersionUID</code>. */
+  private static final long serialVersionUID = 7155011248154735346L;
+
+  /**
+   * Internal list of charsets that have been excluded in the previous run.
+   * <p>
+   */
+  private Set<Charset> m_excludedCharsets = new LinkedHashSet<Charset>();
+
+  /**
      * 
      */
-    public AbstractCodepageDetector() {
-        super();
-    }
+  public AbstractCodepageDetector() {
+    super();
+  }
 
-    /**
-     * Delegates to {@link #detectCodepage(java.io.InputStream, int)} with a buffered input stream.
-     * <p>
-     * 
-     * @see ICodepageDetector#detectCodepage(URL)
-     */
-    public Charset detectCodepage(final URL url) throws IOException {
-        Charset result;
-        BufferedInputStream in = new BufferedInputStream(url.openStream());
-        result = this.detectCodepage(in, Integer.MAX_VALUE);
-        in.close();
-        return result;
+  /**
+   * NOP implementation. Please override in subclasses in case you may use the
+   * given information.
+   * <p>
+   * 
+   * @see info.monitorenter.cpdetector.io.ICodepageDetector#setCharsetCandidates(java.util.Set)
+   */
+  public void setCharsetCandidates(Set<Charset> candidates) {
+    // nop
+  }
 
-    }
+  /**
+   * @see java.lang.Comparable#compareTo(java.lang.Object)
+   */
+  public int compareTo(final Object o) {
+    String other = o.getClass().getName();
+    String mine = this.getClass().getName();
+    return mine.compareTo(other);
+  }
 
-    /**
-     * A default delegation to {@link #detectCodepage(URL)}that opens the document specified by the given URL with the
-     * detected codepage.
-     * <p>
-     * 
-     * @see info.monitorenter.cpdetector.io.ICodepageDetector#open(java.net.URL)
-     */
-    public final Reader open(final URL url) throws IOException {
-        Reader ret = null;
-        Charset cs = this.detectCodepage(url);
-        if (cs != null) {
-            ret = new InputStreamReader(new BufferedInputStream(url.openStream()), cs);
-        }
-        return ret;
-    }
+  /**
+   * Delegates to {@link #detectCodepage(java.io.InputStream, int)} with a
+   * buffered input stream.
+   * <p>
+   * 
+   * @see ICodepageDetector#detectCodepage(URL)
+   */
+  public Charset detectCodepage(final URL url) throws IOException {
+    Charset result;
+    BufferedInputStream in = new BufferedInputStream(url.openStream());
+    result = this.detectCodepage(in, Integer.MAX_VALUE);
+    in.close();
+    return result;
 
-    /**
-     * @see java.lang.Comparable#compareTo(java.lang.Object)
-     */
-    public int compareTo(final Object o) {
-        String other = o.getClass().getName();
-        String mine = this.getClass().getName();
-        return mine.compareTo(other);
+  }
+
+  /**
+   * @see info.monitorenter.cpdetector.io.ICodepageDetector#getExcludedCharsets()
+   */
+  public final Set<Charset> getExcludedCharsets() {
+    return this.m_excludedCharsets;
+  }
+
+  /**
+   * A default delegation to {@link #detectCodepage(URL)}that opens the document
+   * specified by the given URL with the detected codepage.
+   * <p>
+   * 
+   * @see info.monitorenter.cpdetector.io.ICodepageDetector#open(java.net.URL)
+   */
+  public final Reader open(final URL url) throws IOException {
+    Reader ret = null;
+    Charset cs = this.detectCodepage(url);
+    if (cs != null) {
+      ret = new InputStreamReader(new BufferedInputStream(url.openStream()), cs);
     }
+    return ret;
+  }
+
+  /**
+   * @see info.monitorenter.cpdetector.io.ICodepageDetector#resetExcludedCharsets()
+   */
+  public final void resetExcludedCharsets() {
+    this.m_excludedCharsets.clear();
+  }
+
 }

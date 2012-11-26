@@ -52,6 +52,7 @@ import java.io.Reader;
 import java.io.Serializable;
 import java.net.URL;
 import java.nio.charset.Charset;
+import java.util.Set;
 
 /**
  * @author <a href="mailto:Achim.Westermann@gmx.de">Achim Westermann </a>
@@ -90,7 +91,7 @@ public interface ICodepageDetector extends Serializable, Comparable {
    * @exception IOException
    *              thrown to indicate that it is was not possible to open the
    *              document specified by the given URL.
-   *              
+   * 
    * @return null, if the codepage of the document specified by the given URL
    *         was not detected or the {@link java.io.Charset}that represents the
    *         document's codepage.
@@ -104,9 +105,10 @@ public interface ICodepageDetector extends Serializable, Comparable {
    * String, which an URL does not decorate!).
    * </p>
    * <p>
-   * Note that you cannot reuse the given InputStream unless it supports marking ({@link InputStream#markSupported()} ==
-   * true), you mark the initial position with a sufficient readlimit and invoke
-   * reset afterwards (without getting any exception).
+   * Note that you cannot reuse the given InputStream unless it supports marking
+   * ({@link InputStream#markSupported()} == true), you mark the initial
+   * position with a sufficient readlimit and invoke reset afterwards (without
+   * getting any exception).
    * </p>
    * 
    * @param in
@@ -117,7 +119,52 @@ public interface ICodepageDetector extends Serializable, Comparable {
    *          The amount of bytes to take into account. This number should not
    *          be longer than the amount of bytes retrievable from the
    *          InputStream but should be as long as possible to give the fallback
-   *          detection (chardet) more hints to guess. 
+   *          detection (chardet) more hints to guess.
    */
   public Charset detectCodepage(InputStream in, int length) throws IOException;
+
+  /**
+   * Some detectors might not know which is the correct charset but know which
+   * are not.
+   * <p>
+   * Return true in case your detector is able to exclude charsets. This will be
+   * used to give possible next detectors a hint.
+   * <p>
+   * 
+   * @return true in case your detector is able to exclude charsets.
+   */
+  public boolean isExcludingCharsets();
+
+  /**
+   * Some detectors might not know which is the correct charset but know which
+   * are not.
+   * <p>
+   * Return the list of charsets that may be excluded as candidates for the
+   * document previously processed via a detection method.
+   * <p>
+   * 
+   * @see ICodepageDetector#isExcludingCharsets()
+   * 
+   * @return the list of charsets that may be excluded as candidates for the
+   *         document previously processed via a detection method.
+   */
+  public Set<Charset> getExcludedCharsets();
+
+  /**
+   * Clean the internal list of excluded charsets from the previoius detection
+   * run.
+   * <p>
+   */
+  public void resetExcludedCharsets();
+
+  /**
+   * Optional method that informs your implementation about the possible
+   * candidates. This is done by using the excluded charsets from detections of
+   * previous instances.
+   * <p>
+   * 
+   * @param candidates
+   *          All other charsets are wrong.
+   */
+  public void setCharsetCandidates(Set<Charset> candidates);
 }

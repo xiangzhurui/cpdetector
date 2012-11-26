@@ -54,22 +54,21 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
 
-
 /**
  * <p>
  * A simple detector that may be used to detect plain ASCII. This instance
  * should never be used as the first strategy of the
- * {@link info.monitorenter.cpdetector.io.CodepageDetectorProxy}: Many different encodings are
- * multi-byte and may be verified to be ASCII by this instance, because all
- * their bytes are in the range from 0x00 to 0x7F.
+ * {@link info.monitorenter.cpdetector.io.CodepageDetectorProxy}: Many different
+ * encodings are multi-byte and may be verified to be ASCII by this instance,
+ * because all their bytes are in the range from 0x00 to 0x7F.
  * </p>
  * <p>
  * It is recommended to use this as a fall-back, if all different strategies
  * (e.g. {@link info.monitorenter.cpdetector.io.JChardetFacade},
- * {@link info.monitorenter.cpdetector.io.ParsingDetector}) fail. This is most often the case for
- * ASCII data, as guessing and exclusion based on the content is especially hard
- * for ASCII: almost all character sets define the ASCII range (compatibility).
- * Therefore this is a good fall-back.
+ * {@link info.monitorenter.cpdetector.io.ParsingDetector}) fail. This is most
+ * often the case for ASCII data, as guessing and exclusion based on the content
+ * is especially hard for ASCII: almost all character sets define the ASCII
+ * range (compatibility). Therefore this is a good fall-back.
  * </p>
  * <p>
  * It is a singleton for performance-reasons: The constructor is private. Use
@@ -84,8 +83,7 @@ import java.nio.charset.Charset;
  * @author <a href="mailto:Achim.Westermann@gmx.de">Achim Westermann </a>
  * 
  */
-public final class ASCIIDetector
-    extends AbstractCodepageDetector {
+public final class ASCIIDetector extends AbstractCodepageDetector {
   /**
    * Generated <code>serialVersionUID</code>.
    */
@@ -98,7 +96,6 @@ public final class ASCIIDetector
    */
   private ASCIIDetector() {
     super();
-    // TODO Auto-generated constructor stub
   }
 
   public static ICodepageDetector getInstance() {
@@ -122,9 +119,17 @@ public final class ASCIIDetector
     }
     if (FileUtil.isAllASCII(localin)) {
       ret = Charset.forName("US-ASCII");
+    } else {
+      this.getExcludedCharsets().add(Charset.forName("US-ASCII"));
     }
     return ret;
+  }
 
+  /**
+   * @see info.monitorenter.cpdetector.io.ICodepageDetector#isExcludingCharsets()
+   */
+  public boolean isExcludingCharsets() {
+    return true;
   }
 
 }
