@@ -105,6 +105,9 @@ import org.mozilla.intl.chardet.nsVerifier;
  */
 public final class JChardetFacade extends AbstractCodepageDetector implements nsICharsetDetectionObserver {
 
+  /** Generated <code>serialVersionUID</code>. */
+  private static final long serialVersionUID = -8974495197628119823L;
+
   /** Internal jchardet detector. */
   private nsDetector det;
 
