@@ -122,8 +122,6 @@ public class ExcludeLimitedCharsetsDetector extends AbstractCodepageDetector imp
           read = reader.readLine();
         }
       } catch (Throwable f) {
-        System.err.println("Failed " + entry.getValue());
-//        f.printStackTrace();
         this.getExcludedCharsets().add(entry.getValue());
       }
     }

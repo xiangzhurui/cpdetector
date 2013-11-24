@@ -30,6 +30,9 @@ cpdetector - 1.1.0 - <month>, <day>, <year>
   works as well: 
   myCodepageDetectorProxy.setCharsetCandidates(myReducedSet). 
   This may help with files that have problems to be detected properly. 
+* Fixed issue #15: Wrong detection result (UnknownCharset) in heavily multithreaded environment possible. All singleton 
+  retrieval methods synchronized now. 
+
   
 cpdetector - 1.0.10 - December, 4th, 2011
 

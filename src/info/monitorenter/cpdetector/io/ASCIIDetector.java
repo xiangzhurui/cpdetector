@@ -100,7 +100,9 @@ public final class ASCIIDetector extends AbstractCodepageDetector {
 
   public static ICodepageDetector getInstance() {
     if (instance == null) {
-      instance = new ASCIIDetector();
+      synchronized (ASCIIDetector.class) {
+        instance = new ASCIIDetector();
+      }
     }
     return instance;
   }

@@ -88,7 +88,9 @@ public final class CodepageDetectorProxy extends AbstractCodepageDetector {
    */
   public static CodepageDetectorProxy getInstance() {
     if (CodepageDetectorProxy.instance == null) {
-      CodepageDetectorProxy.instance = new CodepageDetectorProxy();
+      synchronized (CodepageDetectorProxy.class) {
+        CodepageDetectorProxy.instance = new CodepageDetectorProxy();
+      }
     }
     return CodepageDetectorProxy.instance;
   }
@@ -203,9 +205,9 @@ public final class CodepageDetectorProxy extends AbstractCodepageDetector {
     }
     return ret;
   }
-  
+
   /**
-   * The set of charset candidates. Others should be ignored. 
+   * The set of charset candidates. Others should be ignored.
    */
   private Set<Charset> m_charsetCandidates = new LinkedHashSet<Charset>(Charset.availableCharsets().values());
 

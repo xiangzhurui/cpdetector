@@ -21,8 +21,6 @@
  */
 package info.monitorenter.util;
 
-
-
 import java.io.BufferedInputStream;
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -285,7 +283,9 @@ public final class FileUtil extends Object {
    */
   public static FileUtil getInstance() {
     if (FileUtil.instance == null) {
-      FileUtil.instance = new FileUtil();
+      synchronized (FileUtil.class) {
+        FileUtil.instance = new FileUtil();
+      }
     }
     return FileUtil.instance;
   }
@@ -367,8 +367,7 @@ public final class FileUtil extends Object {
    *         as character data in both given encodings (they may differ at
    *         binary level if both charsets are different).
    */
-  public static boolean isEqual(final File document, final Charset a, final Charset b)
-      throws IOException {
+  public static boolean isEqual(final File document, final Charset a, final Charset b) throws IOException {
     boolean ret = true;
     FileInputStream aIn = null;
     FileInputStream bIn = null;
@@ -474,12 +473,10 @@ public final class FileUtil extends Object {
   public static void removeDuplicateLineBreaks(final File f) {
     final String sep = StringUtil.getNewLine();
     if (!f.exists()) {
-      System.err.println("FileUtil.removeDuplicateLineBreak(File f): " + f.getAbsolutePath()
-          + " does not exist!");
+      System.err.println("FileUtil.removeDuplicateLineBreak(File f): " + f.getAbsolutePath() + " does not exist!");
     } else {
       if (f.isDirectory()) {
-        System.err.println("FileUtil.removeDuplicateLineBreak(File f): " + f.getAbsolutePath()
-            + " is a directory!");
+        System.err.println("FileUtil.removeDuplicateLineBreak(File f): " + f.getAbsolutePath() + " is a directory!");
       } else {
         // real file
         FileInputStream inStream = null;
@@ -598,19 +595,18 @@ public final class FileUtil extends Object {
     final long filesizeNormal = Math.abs(filesize);
 
     if (Math.abs(filesize) < 1024) {
-      result = MessageFormat.format(this.m_bundle.getString("GUI_FILEUTIL_FILESIZE_BYTES_1"),
-          new Object[] {new Long(filesizeNormal) });
+      result = MessageFormat.format(this.m_bundle.getString("GUI_FILEUTIL_FILESIZE_BYTES_1"), new Object[] {new Long(filesizeNormal) });
     } else if (filesizeNormal < 1048576) {
       // 1048576 = 1024.0 * 1024.0
-      result = MessageFormat.format(this.m_bundle.getString("GUI_FILEUTIL_FILESIZE_KBYTES_1"),
-          new Object[] {new Double(filesizeNormal / 1024.0) });
+      result = MessageFormat.format(this.m_bundle.getString("GUI_FILEUTIL_FILESIZE_KBYTES_1"), new Object[] {new Double(
+          filesizeNormal / 1024.0) });
     } else if (filesizeNormal < 1073741824) {
       // 1024.0^3 = 1073741824
-      result = MessageFormat.format(this.m_bundle.getString("GUI_FILEUTIL_FILESIZE_MBYTES_1"),
-          new Object[] {new Double(filesize / 1048576.0) });
+      result = MessageFormat.format(this.m_bundle.getString("GUI_FILEUTIL_FILESIZE_MBYTES_1"), new Object[] {new Double(
+          filesize / 1048576.0) });
     } else {
-      result = MessageFormat.format(this.m_bundle.getString("GUI_FILEUTIL_FILESIZE_GBYTES_1"),
-          new Object[] {new Double(filesizeNormal / 1073741824.0) });
+      result = MessageFormat.format(this.m_bundle.getString("GUI_FILEUTIL_FILESIZE_GBYTES_1"), new Object[] {new Double(
+          filesizeNormal / 1073741824.0) });
     }
     return result;
   }

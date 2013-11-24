@@ -116,7 +116,9 @@ public final class JChardetFacade extends AbstractCodepageDetector implements ns
 
   public static JChardetFacade getInstance() {
     if (instance == null) {
-      instance = new JChardetFacade();
+      synchronized (JChardetFacade.class) {
+        instance = new JChardetFacade();
+      }
     }
     return instance;
   }
@@ -388,8 +390,7 @@ public final class JChardetFacade extends AbstractCodepageDetector implements ns
     } catch (NoSuchFieldException e) {
       e.printStackTrace();
     }
-    
-    
+
   }
 
   /**

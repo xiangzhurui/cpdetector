@@ -124,11 +124,16 @@ import java.util.Set;
  * @version $Revision$
  */
 public class UnicodeDetector extends AbstractCodepageDetector {
+  /** Generated <code>serialVersionUID</code>. */
+  private static final long serialVersionUID = -9058599320424166405L;
+
   private static ICodepageDetector instance;
 
   public static ICodepageDetector getInstance() {
     if (instance == null) {
-      instance = new UnicodeDetector();
+      synchronized (UnicodeDetector.class) {
+        instance = new UnicodeDetector();
+      }
     }
     return instance;
   }

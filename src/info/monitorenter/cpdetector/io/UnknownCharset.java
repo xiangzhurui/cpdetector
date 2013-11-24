@@ -71,7 +71,9 @@ public class UnknownCharset extends Charset {
 
     public static Charset getInstance() {
         if (instance == null) {
+          synchronized(UnknownCharset.class) {
             instance = new UnknownCharset();
+          }
         }
         return instance;
     }
