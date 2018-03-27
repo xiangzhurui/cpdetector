@@ -139,8 +139,8 @@
 	<!-- compile the java sources -->
 	<target name="build" depends="init,build.parser.charset">
 		<mkdir dir="${builddir}" />
-		<echo>Compiling 1.8 core code.</echo>
-		<javac fork="true" debug="true" target="1.8" source="1.8" verbose="false" destdir="${builddir}">
+		<echo>Compiling 1.7 core code.</echo>
+		<javac fork="true" debug="true" target="1.7" source="1.7" verbose="false" destdir="${builddir}">
 			<classpath refid="classpath" />
 			<src>
 				<pathelement location="${sourcedir}" />
@@ -180,7 +180,7 @@
 	    -->
 		<echo>java.home:${java.home}</echo>
 		
-		<taskdef name="proguard" classname="proguard.ant.ProGuardTask" classpathref="dependent.jars"/>
+		<taskdef name="proguard" classname="proguard.ant.ProGuardTask" classpathref="build.jars"/>
 
 		
 		<proguard obfuscate="false" shrink="true" overloadaggressively="false" warn="true" verbose="true" ignorewarnings="false" optimize="false" printmapping="true" allowaccessmodification="false">
@@ -230,7 +230,9 @@
 			</keepnames>
 -->
 			<!-- debug NPE -->
-			<keepnames name="**/*.class" />
+			<keepnames name="**/*" >
+					<field name="*"/>
+			</keepnames>
 			<!-- 
 				 Don't shrink Charscanner methods away, 
 				 another grammar might need them. 
