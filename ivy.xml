@@ -1,0 +1,11 @@
+<ivy-module version="2.0">
+	<info organisation="info.monitorenter" module="cpdetector" />
+	<dependencies>
+		<!-- <dependency org="commons-lang" name="commons-lang" rev="2.0" /> <dependency 
+			org="commons-cli" name="commons-cli" rev="1.0" /> -->
+		<dependency org="org.antlr" name="antlr4" rev="4.7.1" />
+		<dependency org="net.sf.proguard" name="proguard" rev="4.4">
+			<exclude module="kenv"/>
+		</dependency>
+	</dependencies>
+</ivy-module>
