@@ -50,6 +50,8 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * <p>
@@ -69,6 +71,7 @@ import java.util.Set;
  */
 public final class CodepageDetectorProxy extends AbstractCodepageDetector {
 
+	private static final Logger log = Logger.getLogger(CodepageDetectorProxy.class.getName());
   /**
    * Singleton instance.
    */
@@ -198,6 +201,16 @@ public final class CodepageDetectorProxy extends AbstractCodepageDetector {
            */
           Set<Charset> excludes = detector.getExcludedCharsets();
           this.m_charsetCandidates.removeAll(excludes);
+          if(this.m_charsetCandidates.size() == 1)
+          {
+        	  ret = this.m_charsetCandidates.iterator().next();
+			  log.info("Only one possible charset remains after " + detector.getClass().getSimpleName() + " excluded " + excludes + " : " + ret);
+			  break;
+		   }
+          else if (this.m_charsetCandidates.size() == 0)
+          {
+        	  log.warning("No more possible charset remain after " + detector.getClass().getSimpleName() + " excluded " + excludes);
+          }
         }
       } else {
         break;

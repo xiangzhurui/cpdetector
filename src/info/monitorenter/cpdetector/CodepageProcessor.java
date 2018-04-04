@@ -64,16 +64,6 @@
  */
 package info.monitorenter.cpdetector;
 
-import info.monitorenter.cpdetector.io.CodepageDetectorProxy;
-import info.monitorenter.cpdetector.io.FileFilterExtensions;
-import info.monitorenter.cpdetector.io.ICodepageDetector;
-import info.monitorenter.cpdetector.io.JChardetFacade;
-import info.monitorenter.cpdetector.io.ParsingDetector;
-import info.monitorenter.cpdetector.io.UnknownCharset;
-import info.monitorenter.cpdetector.reflect.SingletonLoader;
-import info.monitorenter.util.FileUtil;
-import jargs.gnu.CmdLineParser;
-
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
@@ -98,6 +88,17 @@ import java.util.MissingResourceException;
 import java.util.Set;
 import java.util.SortedMap;
 import java.util.StringTokenizer;
+
+import info.monitorenter.cpdetector.io.ASCIIDetector;
+import info.monitorenter.cpdetector.io.CodepageDetectorProxy;
+import info.monitorenter.cpdetector.io.FileFilterExtensions;
+import info.monitorenter.cpdetector.io.ICodepageDetector;
+import info.monitorenter.cpdetector.io.JChardetFacade;
+import info.monitorenter.cpdetector.io.ParsingDetector;
+import info.monitorenter.cpdetector.io.UnknownCharset;
+import info.monitorenter.cpdetector.reflect.SingletonLoader;
+import info.monitorenter.util.FileUtil;
+import jargs.gnu.CmdLineParser;
 
 /**
  * An executable command line interface for batch processing files with cpdetector.
@@ -140,6 +141,12 @@ public class CodepageProcessor
   protected CodepageDetectorProxy detector;
 
   /**
+   * Set by the "-i" flag (--inputencoding). If set all documents will be loaded in this codepage. 
+   * <p>
+   */
+  private Charset inputCodepage;
+  
+  /**
    * A list of all Charset implementations of this java version. Used for debug output.
    */
   private Charset[] parseCodepages;
@@ -161,9 +168,14 @@ public class CodepageProcessor
    */
   private boolean moveUnknown = false;
 
-  /** Flag to detect the -c option: only print an return. * */
+  /** Flag to detect the -c option: only print an return.  */
   private boolean printCharsets = false;
 
+  /** Flag to detect the -s option: only simulate (no saving of documents.  */
+  private boolean simulate = false;
+  
+
+  /** Be verbose. */
   private boolean verbose = false;
 
   /**
@@ -200,10 +212,13 @@ public class CodepageProcessor
     this.addCmdLineOption("wait", new CmdLineParser.Option.IntegerOption('w', "wait"));
     this.addCmdLineOption("transform", new CmdLineParser.Option.StringOption('t', "transform"));
     this.addCmdLineOption("detectors", new CmdLineParser.Option.StringOption('d', "detectors"));
+    this.addCmdLineOption("inputencoding", new CmdLineParser.Option.StringOption('i', "inputencoding"));
     this.addCmdLineOption("charsets", new CmdLineParser.Option.BooleanOption('c', "charsets"));
+    this.addCmdLineOption("simulate", new CmdLineParser.Option.BooleanOption('s', "simulate"));
   }
 
-  public void parseArgs(String[] cmdLineArgs) throws Exception {
+  @Override
+  protected final void parseArgs(String[] cmdLineArgs) throws Exception {
     // Has to be first call!!
     super.parseArgs(cmdLineArgs);
     Object collectionOption = this.getParsedCmdLineOption("documents");
@@ -214,24 +229,41 @@ public class CodepageProcessor
     Object waitOption = this.getParsedCmdLineOption("wait");
     Object transformOption = this.getParsedCmdLineOption("transform");
     Object detectorOption = this.getParsedCmdLineOption("detectors");
+    Object inputEncodingOption = this.getParsedCmdLineOption("inputencoding");
     Object charsetsOption = this.getParsedCmdLineOption("charsets");
+    Object simulateOption = this.getParsedCmdLineOption("simulate");
+    
+//    CmdLineParser.Option ioption = this.getOption("inputencoding");
+//    this.cmdLineParser.
+//    System.out.println("i-option: "+ ioption.longForm());
+//    
+    
 
     if (charsetsOption != null) {
       this.printCharsets = ((Boolean) charsetsOption).booleanValue();
-    } else {
-
+    }
+    else 
+    {
+    	// needed also for console output. 
+        this.loadCodepages();
+        
+    	if(simulateOption != null)
+        {
+        	this.simulate = ((Boolean) simulateOption).booleanValue();
+        }
+    	
       if (collectionOption == null) {
-        usage();
         throw new MissingResourceException("Parameter for collection root directory is missing.",
             "String", "-r");
       }
       this.collectionRoot = new File(collectionOption.toString());
-      if (outputDirOption == null) {
-        usage();
+
+      if (!this.simulate && outputDirOption == null) {
         throw new MissingResourceException("Parameter for output directory is missing.", "String",
-            "-o");
+            "-r");
       }
       this.outputDir = new File(outputDirOption.toString());
+      
       if (extensionsOption != null) {
         this.extensionFilter = new FileFilterExtensions(this.parseCSVList(extensionsOption
             .toString()));
@@ -246,10 +278,9 @@ public class CodepageProcessor
       if (moveUnknownOption != null) {
         this.moveUnknown = true;
       }
-      if (verboseOption != null) {
-        if (((Boolean) verboseOption).booleanValue()) {
-          this.verbose = true;
-        }
+      if (verboseOption != null && ((Boolean) verboseOption).booleanValue())
+      {
+        this.verbose = true;
       }
       if (waitOption != null) {
         this.wait = ((Integer) waitOption).intValue() * 1000;
@@ -259,7 +290,7 @@ public class CodepageProcessor
         try {
           this.targetCodepage = Charset.forName(charset);
         } catch (Exception e) {
-          StringBuffer msg = new StringBuffer();
+          StringBuilder msg = new StringBuilder();
           msg.append("Given charset name: \"");
           msg.append(charset);
           msg.append("\" for option -t is illegal: \n");
@@ -275,10 +306,40 @@ public class CodepageProcessor
           throw new IllegalArgumentException(msg.toString());
         }
       }
+      if( inputEncodingOption != null )
+      {
+    	  // makes no sense: 
+    	  if(detectorOption != null)
+    	  {
+    		  System.err.println("Input encoding option specified (-i). Therefore the -d option makes no sense any more and will be ignored. ");	
+    	  }
+          String charset = (String) inputEncodingOption;
+          try {
+            this.inputCodepage = Charset.forName(charset);
+          } catch (Exception e) {
+            StringBuilder msg = new StringBuilder();
+            msg.append("Given charset name: \"");
+            msg.append(charset);
+            msg.append("\" for option -i is illegal: \n");
+            msg.append("  ");
+            msg.append(e.getMessage());
+            msg.append("\n");
+            msg.append("   Legal values are: \n");
+            for (int i = 0; i < parseCodepages.length; i++) {
+              msg.append("    ");
+              msg.append(parseCodepages[i].name());
+              msg.append("\n");
+            }
+            throw new IllegalArgumentException(msg.toString());
+          }
+      }
+      else
+      {
+    	  
       if (detectorOption != null) {
         String[] detectors = this.parseCSVList((String) detectorOption);
         if (detectors.length == 0) {
-          StringBuffer msg = new StringBuffer();
+        	StringBuilder msg = new StringBuilder();
           msg.append("You specified the codepage detector argument \"-d\" but ommited any comma-separated fully qualified class-name.");
           throw new IllegalArgumentException(msg.toString());
         }
@@ -304,7 +365,7 @@ public class CodepageProcessor
         this.detector.add(new ParsingDetector(this.verbose));
         this.detector.add(JChardetFacade.getInstance());
       }
-      this.loadCodepages();
+      }
     }
   }
 
@@ -380,13 +441,13 @@ public class CodepageProcessor
   }
 
   /**
-   * All three Files are validated if null, existant and the right type (directory vs. file).
+   * All three Files are validated if null, existent and the right type (directory vs. file).
    * 
    * @throws Exception
    *           Sth. does not seem to be valid.
    */
   protected void verifyFiles() throws IllegalArgumentException {
-    StringBuffer msg = new StringBuffer();
+    StringBuilder msg = new StringBuilder();
     /*
      * Manual copy and paste for two file members. Not beautiful but formal correctness (all cases);
      */
@@ -401,9 +462,9 @@ public class CodepageProcessor
         msg.append("\" does not exist!\n");
       }
     }
-    if (this.outputDir == null) {
+    if ((!this.simulate) && this.outputDir == null) {
       msg.append("-> Output directory is null!\n");
-    } else {
+    } else if (!this.simulate) {
       this.outputDir.mkdirs();
       if (!this.outputDir.isDirectory()) {
         msg.append("-> Output directory has to be a directory, no File!\n");
@@ -427,7 +488,7 @@ public class CodepageProcessor
     } catch (InterruptedException e) {
       // nop
     }
-    Map.Entry filenameFinder;
+    Map.Entry<String, String> filenameFinder;
     String prefix; // the path between this.collectionRoot and the file.
     File target;
 
@@ -443,8 +504,23 @@ public class CodepageProcessor
     if (this.verbose) {
       System.out.println("Processing document: " + prefix + "/" + filenameFinder.getValue());
     }
-    charset = this.detector.detectCodepage(document.toURL());
-
+    if( this.inputCodepage == null )
+    {
+    	charset = this.detector.detectCodepage(document.toURL());
+        if ((charset == null) || (charset == UnknownCharset.getInstance())) {
+            if (this.verbose) {
+              System.out.println("  Charset not detected.");
+            }
+        }
+    }
+    else 
+    {
+    	charset = this.inputCodepage;
+        if (this.verbose) {
+            System.out.println("  Using charset "+charset.name()+" for loading document (-i switch). ");
+          }
+    }
+    
     if ((charset == null) || (charset == UnknownCharset.getInstance())) {
       if (this.verbose) {
         System.out.println("  Charset not detected.");
@@ -459,10 +535,15 @@ public class CodepageProcessor
         charset = UnknownCharset.getInstance();
       }
     }
+  
+    if (((charset != null) && (UnknownCharset.getInstance() != charset)) && this.targetCodepage != null) {
+        /*
+         * Also output potential targets in simulation mode if output dir is given. 
+         */
+        if(! this.simulate || this.outputDir != null)
+        {
 
-    if ((this.targetCodepage != null) && (charset != null)
-        && (UnknownCharset.getInstance() != charset)) {
-
+    	
       // transform it:
       if (prefix.length() > 0) {
         target = new File(this.outputDir.getAbsolutePath() + "/" + this.targetCodepage.name() + "/"
@@ -477,8 +558,17 @@ public class CodepageProcessor
       }
       target = new File(target.getAbsolutePath() + "/" + filenameFinder.getValue());
       if (this.verbose) {
-        System.out.println("  Moving to \"" + target.getAbsolutePath() + "\".");
+    	  if(this.simulate)
+    	  {
+    	        System.out.println("  Simulated move to \"" + target.getAbsolutePath() + "\".");
+    	  }
+    	  else
+    	  {
+    	        System.out.println("  Moving to \"" + target.getAbsolutePath() + "\".");
+    	  }
       }
+      if(!this.simulate)
+      {
       if (target.exists() && target.length() == document.length()) {
         if (this.verbose) {
           System.out.println("  File already exists and has same size. Skipping move.");
@@ -499,11 +589,20 @@ public class CodepageProcessor
         in.close();
         out.close();
       }
+      }
+        }
     } else {
       if (this.targetCodepage != null) {
         System.out.println("Skipping transformation of document " + document.getAbsolutePath()
             + " because it's charset could not be detected.");
       }
+
+      // Moving unknown code. Clean this up, see the early return above!
+      /*
+       * Also output potential targets in simulation mode if output dir is given. 
+       */
+      if(! this.simulate || this.outputDir != null)
+      {
       if (prefix.length() > 0) {
         target = new File(this.outputDir.getAbsolutePath() + "/" + charset.name().toLowerCase()
             + "/" + prefix + "/");
@@ -511,17 +610,30 @@ public class CodepageProcessor
         target = new File(this.outputDir.getAbsolutePath() + "/" + charset.name().toLowerCase()
             + "/");
       }
+      if(!this.simulate)
+      {
       if (target.mkdirs()) {
         if (this.verbose) {
           System.out.println("Created directory : " + target.getAbsolutePath());
         }
       }
+      }
       target = new File(target.getAbsolutePath() + "/" + filenameFinder.getValue());
       if (this.verbose) {
 
-        System.out.println("  Moving to \"" + target.getAbsolutePath() + "\".");
+    	  if(this.simulate)
+    	  {
+    	        System.out.println("  Simulating move to \"" + target.getAbsolutePath() + "\".");
+
+    	  }
+    	  else 
+    	  {
+    	        System.out.println("  Moving to \"" + target.getAbsolutePath() + "\".");
+    	        this.rawCopy(document, target);
+    	  }
       }
-      this.rawCopy(document, target);
+      
+      }
     }
   }
 
@@ -556,9 +668,12 @@ public class CodepageProcessor
     msg.append("  Collection-Root        : ");
     msg.append(this.collectionRoot.getAbsolutePath());
     msg.append("\n");
+    if(!this.simulate && this.outputDir != null)
+    {
     msg.append("  Output-Dir             : ");
     msg.append(this.outputDir.getAbsolutePath());
     msg.append("\n");
+    }
     msg.append("  Move unknown           : ");
     msg.append(this.moveUnknown);
     msg.append("\n");
@@ -584,11 +699,11 @@ public class CodepageProcessor
    * <p>
    */
   protected void usage() {
-    StringBuffer tmp = new StringBuffer();
+    StringBuilder tmp = new StringBuilder();
 
     tmp.append("usage: java -cp jargs-1.0.jar")
         .append(File.separatorChar)
-        .append("cpdetector_1.0.9.jar")
+        .append("cpdetector_1.1.0.jar")
         .append(File.pathSeparatorChar)
         .append("antlr-2.7.4.jar")
         .append(File.pathSeparatorChar)
@@ -597,7 +712,8 @@ public class CodepageProcessor
     tmp.append("\n");
     tmp.append("options: \n");
     tmp.append("\n  Optional:\n");
-    tmp.append("  -c              : Only print available charsets on this system.\n");
+    tmp.append("  -c              : Only print available charsets on this system. If set any other option is ignored. \n");
+    tmp.append("  -s              : Only simulate operation. Do not write any file. \n");
     tmp.append("  -e <extensions> : A comma- or semicolon- separated string for document extensions like \"-e txt,dat\" (without dot or space!).\n");
     tmp.append("  -m              : Move files with unknown charset to directory \"unknown\".\n");
     tmp.append("  -v              : Verbose output.\n");
@@ -609,11 +725,15 @@ public class CodepageProcessor
     tmp.append("  -d              : Semicolon-separated list of fully qualified classnames. \n");
     tmp.append("                    These classes will be casted to ICodepageDetector instances \n");
     tmp.append("                    and used in the order specified.\n");
-    tmp.append("                    If this argument is ommited, a HTMLCodepageDetector followed by .\n");
-    tmp.append("                    a JChardetFacade is used by default.\n");
-    tmp.append("  Mandatory (if no -c option given) :\n");
+    tmp.append("                    If this argument is ommited, a HTMLCodepageDetector followed by \n");
+    tmp.append("                    a JChardetFacade is used by default. \n");
+    tmp.append("                    Example: -d "+ ASCIIDetector.class.getName() + "\n");
+    tmp.append("                    If option -i (--inputencoding) is given this will be ignored and no detection will take place. \n");
+    tmp.append("  -i              : Inputencoding (--inputencoding). If this is given all documents will be loaded using this encoding. \n");
+    tmp.append("                    The -d option then is useless. \n ");
+    tmp.append("\n  Mandatory (if no -c or -s option given) :\n");
     tmp.append("  -r            : Root directory containing the collection (recursive).\n");
-    tmp.append("  -o            : Output directory containing the sorted collection.\n");
+    tmp.append("  -o            : Output directory containing the sorted collection. Nothing will be written if option -s is given. \n");
     System.out.print(tmp.toString());
   }
 
@@ -655,8 +775,18 @@ public class CodepageProcessor
    * @throws Exception if program terminated unsuccessful.
    */
   public static void main(String[] args) throws Exception {
-    CodepageProcessor sorter = new CodepageProcessor();
-      sorter.parseArgs(args);
-      sorter.process();
-  }
+		CodepageProcessor sorter = new CodepageProcessor();
+		try
+		{
+			sorter.parseArgs(args);
+			sorter.process();
+		}
+		catch (final Exception mre)
+		{
+			// TODO: think of just logging the message of MissingResourException and IllegalArgumentException along with usage and don't print usage for other exceptions.-
+			mre.printStackTrace(System.err);
+			sorter.usage();
+			
+		}
+	}
 }

@@ -55,7 +55,7 @@ import java.util.Map;
  */
 public abstract class ACmdLineArgsInheritor {
 
-    private CmdLineParser cmdLineParser;
+    protected CmdLineParser cmdLineParser;
 
     /**
      * All {@link jargs.gnu.CommandLineParser.Option}s.
@@ -99,12 +99,27 @@ public abstract class ACmdLineArgsInheritor {
      * Returns the option <b>value </b> of a parsed command line option.
      */
     protected final Object getParsedCmdLineOption(String key) throws IllegalArgumentException {
-        Object ret = this.cmdLineOptions.get(key);
+    	CmdLineParser.Option ret = this.cmdLineOptions.get(key);
         if (key == null) {
             throw new IllegalArgumentException("Option with key: \"" + String.valueOf(key)
                     + "\" has not been set in constructor.");
         }
-        return this.cmdLineParser.getOptionValue((CmdLineParser.Option)ret);
+        return this.cmdLineParser.getOptionValue(ret);
+    }
+    
+
+	/**
+	 * Returns the option with the "key" name of this parser.
+	 * <p>
+	 * 
+	 * @param key
+	 *            the key of the option.
+	 * 
+	 * @return the option with the "key" name of this parser.
+	 */
+    protected final CmdLineParser.Option getOption(final String key)
+    {
+    	return this.cmdLineOptions.get(key);
     }
 
     /**
@@ -118,7 +133,7 @@ public abstract class ACmdLineArgsInheritor {
      * 
      * @param cmdLineArgs
      */
-    public void parseArgs(String[] cmdLineArgs) throws Exception {
+    protected void parseArgs(String[] cmdLineArgs) throws Exception {
       
         this.cmdLineParser.parse(cmdLineArgs);
 

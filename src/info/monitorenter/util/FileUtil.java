@@ -98,7 +98,7 @@ public final class FileUtil extends Object {
       suf = pre;
       pre = tmp.toString();
     }
-    ret = new Entry<String, String>(pre, suf);
+    ret = new Entry(pre, suf);
     return ret;
   }
 
@@ -172,7 +172,7 @@ public final class FileUtil extends Object {
         }
     }
 
-    return new Entry<String, String>(dir.toString(), file);
+    return new Entry(dir.toString(), file);
   }
 
   /**
@@ -227,7 +227,7 @@ public final class FileUtil extends Object {
       prefix = filename;
       suffix = "";
     }
-    return new Entry<String, String>(prefix, suffix);
+    return new Entry(prefix, suffix);
   }
 
   /**
@@ -334,7 +334,8 @@ public final class FileUtil extends Object {
       read = in.read();
       if (read > 0x7F) {
         ret = false;
-        break;
+        throw new RuntimeException("Found non ASCII: "+StringUtil.bytesToHex(new byte[]{(byte)read}));
+//        break;
       }
 
     } while (read != -1);

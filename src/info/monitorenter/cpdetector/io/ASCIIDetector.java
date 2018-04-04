@@ -53,6 +53,7 @@ import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
+import java.util.logging.Logger;
 
 /**
  * <p>
@@ -84,6 +85,7 @@ import java.nio.charset.Charset;
  * 
  */
 public final class ASCIIDetector extends AbstractCodepageDetector {
+	private static final Logger log = Logger.getLogger(ASCIIDetector.class.getName());
   /**
    * Generated <code>serialVersionUID</code>.
    */
@@ -121,7 +123,9 @@ public final class ASCIIDetector extends AbstractCodepageDetector {
     }
     if (FileUtil.isAllASCII(localin)) {
       ret = Charset.forName("US-ASCII");
+      log.warning("Found ASCII");
     } else {
+        log.warning("Non ASCII");
       this.getExcludedCharsets().add(Charset.forName("US-ASCII"));
     }
     return ret;
