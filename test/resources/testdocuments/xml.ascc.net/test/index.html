@@ -1,0 +1,2334 @@
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/WD-html-in-xml/DTD/xhtml1-transitional.dtd"
+>
+<html xmlns="http://www.w3.org/Profiles/xhtml1-transitional">
+  <head>
+    <title>
+      Tests
+    </title>
+<style type="text/css">
+ DIV.c4 {font-weight: bold; text-align: center}
+ SPAN.c3 {font-family: Courier New}
+ DIV.c2 {text-align: center}
+ P.c1 {font-size: larger}
+</style>
+  </head>
+  <body bgcolor="#FFFFFF" lang="en">
+    <div class="c2">
+      <img src="../graphics/xml.gif" alt="The XML Logo (from the XML 
+      FAQ)" /> 
+      <h1>Chinese XML Now! Test Files</h1>
+      <p class="c1">1999-04-26</p>
+    </div>
+    <p>The test files are all small XML files for testing purposes.
+    Each file establishes a single useful fact about the software you
+    are testing. The files are available with a <span class="c3">
+    .xml</span> or a <span class="c3">.txt</span> extension. <a href= 
+    "note.html">[Note]</a></p>
+    <p>There is also a <a href="#combined">combined test file</a>,
+    with all the tests in a single resource. This is good for a quick
+    overview. All the files are also available in a single <a href= 
+    "#tar">tar distribution</a>.</p>
+    <p>If you are accessing these files from an XML Web-browser, do
+    not panic if the browser cannot accept some of the documents.
+    Some browsers may not have a "default style" defined; XML
+    documents may appear strange or mangled. Other browsers may only
+    accept XML documents which have a stylesheet. Furthermore, if
+    your browser uses a font which does not have Han ideograms, then
+    the characters will appear as a white box or a space. These are
+    all legitimate behaviours.</p>
+    <p>However, if the browser interprets the XML markup incorrectly,
+    or does not accept Han ideograms in element names, or does not
+    treat numeric character references as ISO 10646 characters, these
+    are signs of a bug. If you are using <i>beta</i> code, please do
+    not be too frustrated: the vendor is trying to find out these
+    kind of problems.</p>
+    <p>The files are sent out from our web server with the MIME
+    content-type</p>
+    <ul>
+      <li><tt>application/xml (.xml)</tt>,</li>
+      <li><tt>text/xml (.xml)</tt>, or</li>
+      <li><tt>text/plain (.txt)</tt></li>
+    </ul>
+    <p>(Our web server does not send MIME charset information, as far
+    as we know.)</p>
+    <!-- =============================================-->
+    <h2>Well-formed XML, No Stylesheet, No DOCTYPE Declaration, No
+    Namespace</h2>
+    <table border="0">
+      <tr>
+        <td bgcolor="#00FF00" bordercolor="#FF0000">
+          <div class="c4">
+            Test
+          </div>
+        </td>
+        <td bgcolor="#00FF00" bordercolor="#FF0000">
+          <div class="c4">
+            UTF-8
+          </div>
+        </td>
+        <td bgcolor="#00FF00" bordercolor="#FF0000">
+          <div class="c4">
+            Big5
+          </div>
+        </td>
+        <td bgcolor="#00FF00" bordercolor="#FF0000">
+          <div class="c4">
+            GB2312
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            0) ASCII-codes-only WF file with encoding name in all
+            uppercase or lowercase.
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wf/utf-8/application_xml/zh-utf8-0.xml">
+            application/xml</a><br />
+            <a href=
+            "wf/utf-8/text_xml/zh-utf8-0.xml">text/xml</a><br />
+            <a href=
+            "wf/utf-8/text_plain/zh-utf8-0.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wf/big5/application_xml/zh-big5-0.xml">
+            application/xml</a><br />
+            <a href=
+            "wf/big5/text_xml/zh-big5-0.xml">text/xml</a><br />
+            <a href="wf/big5/text_plain/zh-big5-0.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wf/gb/application_xml/zh-gb2312-0.xml">
+            application/xml</a><br />
+            <a href=
+            "wf/gb/text_xml/zh-gb2312-0.xml">text/xml</a><br />
+            <a href="wf/gb/text_plain/zh-gb2312-0.txt">text/plain</a>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            1) ASCII-codes-only WF file with encoding name using
+            recommended form.
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wf/utf-8/application_xml/zh-utf8-1.xml">
+            application/xml</a><br />
+            <a href=
+            "wf/utf-8/text_xml/zh-utf8-1.xml">text/xml</a><br />
+            <a href=
+            "wf/utf-8/text_plain/zh-utf8-1.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wf/big5/application_xml/zh-big5-1.xml">
+            application/xml</a><br />
+            <a href=
+            "wf/big5/text_xml/zh-big5-1.xml">text/xml</a><br />
+            <a href="wf/big5/text_plain/zh-big5-1.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wf/gb/application_xml/zh-gb2312-1.xml">
+            application/xml</a><br />
+            <a href=
+            "wf/gb/text_xml/zh-gb2312-1.xml">text/xml</a><br />
+            <a href="wf/gb/text_plain/zh-gb2312-1.txt">text/plain</a>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            2) ASCII-codes-only WF file with decimal NCR in data.
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wf/utf-8/application_xml/zh-utf8-2.xml">
+            application/xml</a><br />
+            <a href=
+            "wf/utf-8/text_xml/zh-utf8-2.xml">text/xml</a><br />
+            <a href=
+            "wf/utf-8/text_plain/zh-utf8-2.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wf/big5/application_xml/zh-big5-2.xml">
+            application/xml</a><br />
+            <a href=
+            "wf/big5/text_xml/zh-big5-2.xml">text/xml</a><br />
+            <a href="wf/big5/text_plain/zh-big5-2.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wf/gb/application_xml/zh-gb2312-2.xml">
+            application/xml</a><br />
+            <a href=
+            "wf/gb/text_xml/zh-gb2312-2.xml">text/xml</a><br />
+            <a href="wf/gb/text_plain/zh-gb2312-2.txt">text/plain</a>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            3) ASCII-codes-only WF file with hexadecimal NCR in data.
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wf/utf-8/application_xml/zh-utf8-3.xml">
+            application/xml</a><br />
+            <a href=
+            "wf/utf-8/text_xml/zh-utf8-3.xml">text/xml</a><br />
+            <a href=
+            "wf/utf-8/text_plain/zh-utf8-3.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wf/big5/application_xml/zh-big5-3.xml">
+            application/xml</a><br />
+            <a href=
+            "wf/big5/text_xml/zh-big5-3.xml">text/xml</a><br />
+            <a href="wf/big5/text_plain/zh-big5-3.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wf/gb/application_xml/zh-gb2312-3.xml">
+            application/xml</a><br />
+            <a href=
+            "wf/gb/text_xml/zh-gb2312-3.xml">text/xml</a><br />
+            <a href="wf/gb/text_plain/zh-gb2312-3.txt">text/plain</a>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            4) ASCII-codes-only WF file with decimal NCR in attribute
+            value.
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wf/utf-8/application_xml/zh-utf8-4.xml">
+            application/xml</a><br />
+            <a href=
+            "wf/utf-8/text_xml/zh-utf8-4.xml">text/xml</a><br />
+            <a href=
+            "wf/utf-8/text_plain/zh-utf8-4.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wf/big5/application_xml/zh-big5-4.xml">
+            application/xml</a><br />
+            <a href=
+            "wf/big5/text_xml/zh-big5-4.xml">text/xml</a><br />
+            <a href="wf/big5/text_plain/zh-big5-4.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wf/gb/application_xml/zh-gb2312-4.xml">
+            application/xml</a><br />
+            <a href=
+            "wf/gb/text_xml/zh-gb2312-4.xml">text/xml</a><br />
+            <a href="wf/gb/text_plain/zh-gb2312-4.txt">text/plain</a>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            5) ASCII-codes-only WF file with hexadecimal NCR in
+            attribute value.
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wf/utf-8/application_xml/zh-utf8-5.xml">
+            application/xml</a><br />
+            <a href=
+            "wf/utf-8/text_xml/zh-utf8-5.xml">text/xml</a><br />
+            <a href=
+            "wf/utf-8/text_plain/zh-utf8-5.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wf/big5/application_xml/zh-big5-5.xml">
+            application/xml</a><br />
+            <a href=
+            "wf/big5/text_xml/zh-big5-5.xml">text/xml</a><br />
+            <a href="wf/big5/text_plain/zh-big5-5.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wf/gb/application_xml/zh-gb2312-5.xml">
+            application/xml</a><br />
+            <a href=
+            "wf/gb/text_xml/zh-gb2312-5.xml">text/xml</a><br />
+            <a href="wf/gb/text_plain/zh-gb2312-5.txt">text/plain</a>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            6) ASCII-codes-only WF file with decimal NCR in CDATA
+            section.
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wf/utf-8/application_xml/zh-utf8-6.xml">
+            application/xml</a><br />
+            <a href=
+            "wf/utf-8/text_xml/zh-utf8-6.xml">text/xml</a><br />
+            <a href=
+            "wf/utf-8/text_plain/zh-utf8-6.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wf/big5/application_xml/zh-big5-6.xml">
+            application/xml</a><br />
+            <a href=
+            "wf/big5/text_xml/zh-big5-6.xml">text/xml</a><br />
+            <a href="wf/big5/text_plain/zh-big5-6.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wf/gb/application_xml/zh-gb2312-6.xml">
+            application/xml</a><br />
+            <a href=
+            "wf/gb/text_xml/zh-gb2312-6.xml">text/xml</a><br />
+            <a href="wf/gb/text_plain/zh-gb2312-6.txt">text/plain</a>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            7) ASCII-codes-only WF file with hexadecimal NCR in CDATA
+            section.
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wf/utf-8/application_xml/zh-utf8-7.xml">
+            application/xml</a><br />
+            <a href=
+            "wf/utf-8/text_xml/zh-utf8-7.xml">text/xml</a><br />
+            <a href=
+            "wf/utf-8/text_plain/zh-utf8-7.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wf/big5/application_xml/zh-big5-7.xml">
+            application/xml</a><br />
+            <a href=
+            "wf/big5/text_xml/zh-big5-7.xml">text/xml</a><br />
+            <a href="wf/big5/text_plain/zh-big5-7.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wf/gb/application_xml/zh-gb2312-7.xml">
+            application/xml</a><br />
+            <a href=
+            "wf/gb/text_xml/zh-gb2312-7.xml">text/xml</a><br />
+            <a href="wf/gb/text_plain/zh-gb2312-7.txt">text/plain</a>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            8) The file includes one ideographic character encoded
+            directly in data.
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wf/utf-8/application_xml/zh-utf8-8.xml">
+            application/xml</a><br />
+            <a href=
+            "wf/utf-8/text_xml/zh-utf8-8.xml">text/xml</a><br />
+            <a href=
+            "wf/utf-8/text_plain/zh-utf8-8.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wf/big5/application_xml/zh-big5-8.xml">
+            application/xml</a><br />
+            <a href=
+            "wf/big5/text_xml/zh-big5-8.xml">text/xml</a><br />
+            <a href="wf/big5/text_plain/zh-big5-8.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wf/gb/application_xml/zh-gb2312-8.xml">
+            application/xml</a><br />
+            <a href=
+            "wf/gb/text_xml/zh-gb2312-8.xml">text/xml</a><br />
+            <a href="wf/gb/text_plain/zh-gb2312-8.txt">text/plain</a>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            9) The file includes a more troublesome ideographic
+            character encoded directly in data.
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wf/utf-8/application_xml/zh-utf8-9.xml">
+            application/xml</a><br />
+            <a href=
+            "wf/utf-8/text_xml/zh-utf8-9.xml">text/xml</a><br />
+            <a href=
+            "wf/utf-8/text_plain/zh-utf8-9.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wf/big5/application_xml/zh-big5-9.xml">
+            application/xml</a><br />
+            <a href=
+            "wf/big5/text_xml/zh-big5-9.xml">text/xml</a><br />
+            <a href="wf/big5/text_plain/zh-big5-9.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wf/gb/application_xml/zh-gb2312-9.xml">
+            application/xml</a><br />
+            <a href=
+            "wf/gb/text_xml/zh-gb2312-9.xml">text/xml</a><br />
+            <a href="wf/gb/text_plain/zh-gb2312-9.txt">text/plain</a>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            10) The file includes one ideographic character encoded
+            directly in an attribute.
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wf/utf-8/application_xml/zh-utf8-10.xml">
+            application/xml</a><br />
+            <a href=
+            "wf/utf-8/text_xml/zh-utf8-10.xml">text/xml</a><br />
+            <a href=
+            "wf/utf-8/text_plain/zh-utf8-10.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wf/big5/application_xml/zh-big5-10.xml">
+            application/xml</a><br />
+            <a href=
+            "wf/big5/text_xml/zh-big5-10.xml">text/xml</a><br />
+            <a href=
+            "wf/big5/text_plain/zh-big5-10.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wf/gb/application_xml/zh-gb2312-10.xml">
+            application/xml</a><br />
+            <a href=
+            "wf/gb/text_xml/zh-gb2312-10.xml">text/xml</a><br />
+            <a href=
+            "wf/gb/text_plain/zh-gb2312-10.txt">text/plain</a>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            11) The file includes one ideographic character encoded
+            directly in an element type name.
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wf/utf-8/application_xml/zh-utf8-11.xml">
+            application/xml</a><br />
+            <a href=
+            "wf/utf-8/text_xml/zh-utf8-11.xml">text/xml</a><br />
+            <a href=
+            "wf/utf-8/text_plain/zh-utf8-11.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wf/big5/application_xml/zh-big5-11.xml">
+            application/xml</a><br />
+            <a href=
+            "wf/big5/text_xml/zh-big5-11.xml">text/xml</a><br />
+            <a href=
+            "wf/big5/text_plain/zh-big5-11.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wf/gb/application_xml/zh-gb2312-11.xml">
+            application/xml</a><br />
+            <a href=
+            "wf/gb/text_xml/zh-gb2312-11.xml">text/xml</a><br />
+            <a href=
+            "wf/gb/text_plain/zh-gb2312-11.txt">text/plain</a>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            12) The file includes one ideographic character encoded
+            directly in an ID attribute and later in an IDREF
+            attribute.
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wf/utf-8/application_xml/zh-utf8-12.xml">
+            application/xml</a><br />
+            <a href=
+            "wf/utf-8/text_xml/zh-utf8-12.xml">text/xml</a><br />
+            <a href=
+            "wf/utf-8/text_plain/zh-utf8-12.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wf/big5/application_xml/zh-big5-12.xml">
+            application/xml</a><br />
+            <a href=
+            "wf/big5/text_xml/zh-big5-12.xml">text/xml</a><br />
+            <a href=
+            "wf/big5/text_plain/zh-big5-12.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wf/gb/application_xml/zh-gb2312-12.xml">
+            application/xml</a><br />
+            <a href=
+            "wf/gb/text_xml/zh-gb2312-12.xml">text/xml</a><br />
+            <a href=
+            "wf/gb/text_plain/zh-gb2312-12.txt">text/plain</a>
+          </div>
+        </td>
+      </tr>
+    </table>
+    <div class="c2">
+      <p>(Note there is no test for XML PIs and Comments)</p>
+    </div>
+    <!-- =============================================-->
+    <h2>Well-formed XML, Stylesheet, No DOCTYPE Declaration, No
+    Namespace</h2>
+    <p>The following tests all invoke a <a href="style.html">CSS
+    Style Sheet</a> This style sheet has styles for elements using
+    Han ideograms (hanzi, kanji) as its Element Type Name (GI). Thus,
+    this is test is really a test of whether the CSS implementation
+    supports Native Language Markup. Note that the CSS Style Sheet is
+    just plain ASCII; the Big5, Gb2312 and UTF-8 test documents all
+    use this entity.</p>
+    <table border="0">
+      <tr>
+        <td bgcolor="#00FF00" bordercolor="#FF0000">
+          <div class="c4">
+            Test
+          </div>
+        </td>
+        <td bgcolor="#00FF00" bordercolor="#FF0000">
+          <div class="c4">
+            UTF-8
+          </div>
+        </td>
+        <td bgcolor="#00FF00" bordercolor="#FF0000">
+          <div class="c4">
+            Big5
+          </div>
+        </td>
+        <td bgcolor="#00FF00" bordercolor="#FF0000">
+          <div class="c4">
+            GB2312
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            0) ASCII-codes-only WF file with encoding name in all
+            uppercase or lowercase.
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfss/utf-8/application_xml/zh-utf8-0.xml">
+            application/xml</a><br />
+            <a href=
+            "wfss/utf-8/text_xml/zh-utf8-0.xml">text/xml</a><br />
+            <a href=
+            "wfss/utf-8/text_plain/zh-utf8-0.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfss/big5/application_xml/zh-big5-0.xml">
+            application/xml</a><br />
+            <a href=
+            "wfss/big5/text_xml/zh-big5-0.xml">text/xml</a><br />
+            <a href=
+            "wfss/big5/text_plain/zh-big5-0.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfss/gb/application_xml/zh-gb2312-0.xml">
+            application/xml</a><br />
+            <a href=
+            "wfss/gb/text_xml/zh-gb2312-0.xml">text/xml</a><br />
+            <a href=
+            "wfss/gb/text_plain/zh-gb2312-0.txt">text/plain</a>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            1) ASCII-codes-only WF file with encoding name using
+            recommended form.
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfss/utf-8/application_xml/zh-utf8-1.xml">
+            application/xml</a><br />
+            <a href=
+            "wfss/utf-8/text_xml/zh-utf8-1.xml">text/xml</a><br />
+            <a href=
+            "wfss/utf-8/text_plain/zh-utf8-1.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfss/big5/application_xml/zh-big5-1.xml">
+            application/xml</a><br />
+            <a href=
+            "wfss/big5/text_xml/zh-big5-1.xml">text/xml</a><br />
+            <a href=
+            "wfss/big5/text_plain/zh-big5-1.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfss/gb/application_xml/zh-gb2312-1.xml">
+            application/xml</a><br />
+            <a href=
+            "wfss/gb/text_xml/zh-gb2312-1.xml">text/xml</a><br />
+            <a href=
+            "wfss/gb/text_plain/zh-gb2312-1.txt">text/plain</a>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            2) ASCII-codes-only WF file with decimal NCR in data.
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfss/utf-8/application_xml/zh-utf8-2.xml">
+            application/xml</a><br />
+            <a href=
+            "wfss/utf-8/text_xml/zh-utf8-2.xml">text/xml</a><br />
+            <a href=
+            "wfss/utf-8/text_plain/zh-utf8-2.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfss/big5/application_xml/zh-big5-2.xml">
+            application/xml</a><br />
+            <a href=
+            "wfss/big5/text_xml/zh-big5-2.xml">text/xml</a><br />
+            <a href=
+            "wfss/big5/text_plain/zh-big5-2.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfss/gb/application_xml/zh-gb2312-2.xml">
+            application/xml</a><br />
+            <a href=
+            "wfss/gb/text_xml/zh-gb2312-2.xml">text/xml</a><br />
+            <a href=
+            "wfss/gb/text_plain/zh-gb2312-2.txt">text/plain</a>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            3) ASCII-codes-only WF file with hexadecimal NCR in data.
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfss/utf-8/application_xml/zh-utf8-3.xml">
+            application/xml</a><br />
+            <a href=
+            "wfss/utf-8/text_xml/zh-utf8-3.xml">text/xml</a><br />
+            <a href=
+            "wfss/utf-8/text_plain/zh-utf8-3.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfss/big5/application_xml/zh-big5-3.xml">
+            application/xml</a><br />
+            <a href=
+            "wfss/big5/text_xml/zh-big5-3.xml">text/xml</a><br />
+            <a href=
+            "wfss/big5/text_plain/zh-big5-3.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfss/gb/application_xml/zh-gb2312-3.xml">
+            application/xml</a><br />
+            <a href=
+            "wfss/gb/text_xml/zh-gb2312-3.xml">text/xml</a><br />
+            <a href=
+            "wfss/gb/text_plain/zh-gb2312-3.txt">text/plain</a>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            4) ASCII-codes-only WF file with decimal NCR in attribute
+            value.
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfss/utf-8/application_xml/zh-utf8-4.xml">
+            application/xml</a><br />
+            <a href=
+            "wfss/utf-8/text_xml/zh-utf8-4.xml">text/xml</a><br />
+            <a href=
+            "wfss/utf-8/text_plain/zh-utf8-4.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfss/big5/application_xml/zh-big5-4.xml">
+            application/xml</a><br />
+            <a href=
+            "wfss/big5/text_xml/zh-big5-4.xml">text/xml</a><br />
+            <a href=
+            "wfss/big5/text_plain/zh-big5-4.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfss/gb/application_xml/zh-gb2312-4.xml">
+            application/xml</a><br />
+            <a href=
+            "wfss/gb/text_xml/zh-gb2312-4.xml">text/xml</a><br />
+            <a href=
+            "wfss/gb/text_plain/zh-gb2312-4.txt">text/plain</a>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            5) ASCII-codes-only WF file with hexadecimal NCR in
+            attribute value.
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfss/utf-8/application_xml/zh-utf8-5.xml">
+            application/xml</a><br />
+            <a href=
+            "wfss/utf-8/text_xml/zh-utf8-5.xml">text/xml</a><br />
+            <a href=
+            "wfss/utf-8/text_plain/zh-utf8-5.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfss/big5/application_xml/zh-big5-5.xml">
+            application/xml</a><br />
+            <a href=
+            "wfss/big5/text_xml/zh-big5-5.xml">text/xml</a><br />
+            <a href=
+            "wfss/big5/text_plain/zh-big5-5.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfss/gb/application_xml/zh-gb2312-5.xml">
+            application/xml</a><br />
+            <a href=
+            "wfss/gb/text_xml/zh-gb2312-5.xml">text/xml</a><br />
+            <a href=
+            "wfss/gb/text_plain/zh-gb2312-5.txt">text/plain</a>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            6) ASCII-codes-only WF file with decimal NCR in CDATA
+            section.
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfss/utf-8/application_xml/zh-utf8-6.xml">
+            application/xml</a><br />
+            <a href=
+            "wfss/utf-8/text_xml/zh-utf8-6.xml">text/xml</a><br />
+            <a href=
+            "wfss/utf-8/text_plain/zh-utf8-6.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfss/big5/application_xml/zh-big5-6.xml">
+            application/xml</a><br />
+            <a href=
+            "wfss/big5/text_xml/zh-big5-6.xml">text/xml</a><br />
+            <a href=
+            "wfss/big5/text_plain/zh-big5-6.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfss/gb/application_xml/zh-gb2312-6.xml">
+            application/xml</a><br />
+            <a href=
+            "wfss/gb/text_xml/zh-gb2312-6.xml">text/xml</a><br />
+            <a href=
+            "wfss/gb/text_plain/zh-gb2312-6.txt">text/plain</a>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            7) ASCII-codes-only WF file with hexadecimal NCR in CDATA
+            section.
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfss/utf-8/application_xml/zh-utf8-7.xml">
+            application/xml</a><br />
+            <a href=
+            "wfss/utf-8/text_xml/zh-utf8-7.xml">text/xml</a><br />
+            <a href=
+            "wfss/utf-8/text_plain/zh-utf8-7.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfss/big5/application_xml/zh-big5-7.xml">
+            application/xml</a><br />
+            <a href=
+            "wfss/big5/text_xml/zh-big5-7.xml">text/xml</a><br />
+            <a href=
+            "wfss/big5/text_plain/zh-big5-7.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfss/gb/application_xml/zh-gb2312-7.xml">
+            application/xml</a><br />
+            <a href=
+            "wfss/gb/text_xml/zh-gb2312-7.xml">text/xml</a><br />
+            <a href=
+            "wfss/gb/text_plain/zh-gb2312-7.txt">text/plain</a>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            8) The file includes one ideographic character encoded
+            directly in data.
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfss/utf-8/application_xml/zh-utf8-8.xml">
+            application/xml</a><br />
+            <a href=
+            "wfss/utf-8/text_xml/zh-utf8-8.xml">text/xml</a><br />
+            <a href=
+            "wfss/utf-8/text_plain/zh-utf8-8.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfss/big5/application_xml/zh-big5-8.xml">
+            application/xml</a><br />
+            <a href=
+            "wfss/big5/text_xml/zh-big5-8.xml">text/xml</a><br />
+            <a href=
+            "wfss/big5/text_plain/zh-big5-8.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfss/gb/application_xml/zh-gb2312-8.xml">
+            application/xml</a><br />
+            <a href=
+            "wfss/gb/text_xml/zh-gb2312-8.xml">text/xml</a><br />
+            <a href=
+            "wfss/gb/text_plain/zh-gb2312-8.txt">text/plain</a>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            9) The file includes a more troublesome ideographic
+            character encoded directly in data.
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfss/utf-8/application_xml/zh-utf8-9.xml">
+            application/xml</a><br />
+            <a href=
+            "wfss/utf-8/text_xml/zh-utf8-9.xml">text/xml</a><br />
+            <a href=
+            "wfss/utf-8/text_plain/zh-utf8-9.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfss/big5/application_xml/zh-big5-9.xml">
+            application/xml</a><br />
+            <a href=
+            "wfss/big5/text_xml/zh-big5-9.xml">text/xml</a><br />
+            <a href=
+            "wfss/big5/text_plain/zh-big5-9.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfss/gb/application_xml/zh-gb2312-9.xml">
+            application/xml</a><br />
+            <a href=
+            "wfss/gb/text_xml/zh-gb2312-9.xml">text/xml</a><br />
+            <a href=
+            "wfss/gb/text_plain/zh-gb2312-9.txt">text/plain</a>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            10) The file includes one ideographic character encoded
+            directly in an attribute.
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfss/utf-8/application_xml/zh-utf8-10.xml">
+            application/xml</a><br />
+            <a href=
+            "wfss/utf-8/text_xml/zh-utf8-10.xml">text/xml</a><br />
+            <a href=
+            "wfss/utf-8/text_plain/zh-utf8-10.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfss/big5/application_xml/zh-big5-10.xml">
+            application/xml</a><br />
+            <a href=
+            "wfss/big5/text_xml/zh-big5-10.xml">text/xml</a><br />
+            <a href=
+            "wfss/big5/text_plain/zh-big5-10.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfss/gb/application_xml/zh-gb2312-10.xml">
+            application/xml</a><br />
+            <a href=
+            "wfss/gb/text_xml/zh-gb2312-10.xml">text/xml</a><br />
+            <a href=
+            "wfss/gb/text_plain/zh-gb2312-10.txt">text/plain</a>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            11) The file includes one ideographic character encoded
+            directly in an element type name.
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfss/utf-8/application_xml/zh-utf8-11.xml">
+            application/xml</a><br />
+            <a href=
+            "wfss/utf-8/text_xml/zh-utf8-11.xml">text/xml</a><br />
+            <a href=
+            "wfss/utf-8/text_plain/zh-utf8-11.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfss/big5/application_xml/zh-big5-11.xml">
+            application/xml</a><br />
+            <a href=
+            "wfss/big5/text_xml/zh-big5-11.xml">text/xml</a><br />
+            <a href=
+            "wfss/big5/text_plain/zh-big5-11.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfss/gb/application_xml/zh-gb2312-11.xml">
+            application/xml</a><br />
+            <a href=
+            "wfss/gb/text_xml/zh-gb2312-11.xml">text/xml</a><br />
+            <a href=
+            "wfss/gb/text_plain/zh-gb2312-11.txt">text/plain</a>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            12) The file includes one ideographic character encoded
+            directly in an ID attribute and later in an IDREF
+            attribute.
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfss/utf-8/application_xml/zh-utf8-12.xml">
+            application/xml</a><br />
+            <a href=
+            "wfss/utf-8/text_xml/zh-utf8-12.xml">text/xml</a><br />
+            <a href=
+            "wfss/utf-8/text_plain/zh-utf8-12.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfss/big5/application_xml/zh-big5-12.xml">
+            application/xml</a><br />
+            <a href=
+            "wfss/big5/text_xml/zh-big5-12.xml">text/xml</a><br />
+            <a href=
+            "wfss/big5/text_plain/zh-big5-12.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfss/gb/application_xml/zh-gb2312-12.xml">
+            application/xml</a><br />
+            <a href=
+            "wfss/gb/text_xml/zh-gb2312-12.xml">text/xml</a><br />
+            <a href=
+            "wfss/gb/text_plain/zh-gb2312-12.txt">text/plain</a>
+          </div>
+        </td>
+      </tr>
+    </table>
+    <div class="c2">
+      <p>(Note there is no test for XML PIs and Comments)</p>
+    </div>
+    <!-- =============================================-->
+    <h2>Well-formed XML, No Stylesheet, DOCTYPE Declaration, No
+    Namespace</h2>
+    <p>The following tests all include a DOCTYPE declaration. The <a
+    href="test-dtd.html">markup declarations</a> referenced by the
+    SYSTEM identifier in that DOCTYPE declaration contains, among
+    other things, an element type declaration for an element with a
+    Han ideogram (hanzi, kanji) as its Element Type Name (GI). Note
+    that the entity containing the markup declaration is itself
+    encoded in UTF-8 only; the Big5, Gb2312 and UTF-8 test documents
+    all use this entity.</p>
+    <table border="0">
+      <tr>
+        <td bgcolor="#00FF00" bordercolor="#FF0000">
+          <div class="c4">
+            Test
+          </div>
+        </td>
+        <td bgcolor="#00FF00" bordercolor="#FF0000">
+          <div class="c4">
+            UTF-8
+          </div>
+        </td>
+        <td bgcolor="#00FF00" bordercolor="#FF0000">
+          <div class="c4">
+            Big5
+          </div>
+        </td>
+        <td bgcolor="#00FF00" bordercolor="#FF0000">
+          <div class="c4">
+            GB2312
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            0) ASCII-codes-only WF file with encoding name in all
+            uppercase or lowercase.
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfdtd/utf-8/application_xml/zh-utf8-0.xml">
+            application/xml</a><br />
+            <a href=
+            "wfdtd/utf-8/text_xml/zh-utf8-0.xml">text/xml</a><br />
+            <a href=
+            "wfdtd/utf-8/text_plain/zh-utf8-0.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfdtd/big5/application_xml/zh-big5-0.xml">
+            application/xml</a><br />
+            <a href=
+            "wfdtd/big5/text_xml/zh-big5-0.xml">text/xml</a><br />
+            <a href=
+            "wfdtd/big5/text_plain/zh-big5-0.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfdtd/gb/application_xml/zh-gb2312-0.xml">
+            application/xml</a><br />
+            <a href=
+            "wfdtd/gb/text_xml/zh-gb2312-0.xml">text/xml</a><br />
+            <a href=
+            "wfdtd/gb/text_plain/zh-gb2312-0.txt">text/plain</a>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            1) ASCII-codes-only WF file with encoding name using
+            recommended form.
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfdtd/utf-8/application_xml/zh-utf8-1.xml">
+            application/xml</a><br />
+            <a href=
+            "wfdtd/utf-8/text_xml/zh-utf8-1.xml">text/xml</a><br />
+            <a href=
+            "wfdtd/utf-8/text_plain/zh-utf8-1.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfdtd/big5/application_xml/zh-big5-1.xml">
+            application/xml</a><br />
+            <a href=
+            "wfdtd/big5/text_xml/zh-big5-1.xml">text/xml</a><br />
+            <a href=
+            "wfdtd/big5/text_plain/zh-big5-1.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfdtd/gb/application_xml/zh-gb2312-1.xml">
+            application/xml</a><br />
+            <a href=
+            "wfdtd/gb/text_xml/zh-gb2312-1.xml">text/xml</a><br />
+            <a href=
+            "wfdtd/gb/text_plain/zh-gb2312-1.txt">text/plain</a>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            2) ASCII-codes-only WF file with decimal NCR in data.
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfdtd/utf-8/application_xml/zh-utf8-2.xml">
+            application/xml</a><br />
+            <a href=
+            "wfdtd/utf-8/text_xml/zh-utf8-2.xml">text/xml</a><br />
+            <a href=
+            "wfdtd/utf-8/text_plain/zh-utf8-2.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfdtd/big5/application_xml/zh-big5-2.xml">
+            application/xml</a><br />
+            <a href=
+            "wfdtd/big5/text_xml/zh-big5-2.xml">text/xml</a><br />
+            <a href=
+            "wfdtd/big5/text_plain/zh-big5-2.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfdtd/gb/application_xml/zh-gb2312-2.xml">
+            application/xml</a><br />
+            <a href=
+            "wfdtd/gb/text_xml/zh-gb2312-2.xml">text/xml</a><br />
+            <a href=
+            "wfdtd/gb/text_plain/zh-gb2312-2.txt">text/plain</a>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            3) ASCII-codes-only WF file with hexadecimal NCR in data.
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfdtd/utf-8/application_xml/zh-utf8-3.xml">
+            application/xml</a><br />
+            <a href=
+            "wfdtd/utf-8/text_xml/zh-utf8-3.xml">text/xml</a><br />
+            <a href=
+            "wfdtd/utf-8/text_plain/zh-utf8-3.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfdtd/big5/application_xml/zh-big5-3.xml">
+            application/xml</a><br />
+            <a href=
+            "wfdtd/big5/text_xml/zh-big5-3.xml">text/xml</a><br />
+            <a href=
+            "wfdtd/big5/text_plain/zh-big5-3.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfdtd/gb/application_xml/zh-gb2312-3.xml">
+            application/xml</a><br />
+            <a href=
+            "wfdtd/gb/text_xml/zh-gb2312-3.xml">text/xml</a><br />
+            <a href=
+            "wfdtd/gb/text_plain/zh-gb2312-3.txt">text/plain</a>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            4) ASCII-codes-only WF file with decimal NCR in attribute
+            value.
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfdtd/utf-8/application_xml/zh-utf8-4.xml">
+            application/xml</a><br />
+            <a href=
+            "wfdtd/utf-8/text_xml/zh-utf8-4.xml">text/xml</a><br />
+            <a href=
+            "wfdtd/utf-8/text_plain/zh-utf8-4.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfdtd/big5/application_xml/zh-big5-4.xml">
+            application/xml</a><br />
+            <a href=
+            "wfdtd/big5/text_xml/zh-big5-4.xml">text/xml</a><br />
+            <a href=
+            "wfdtd/big5/text_plain/zh-big5-4.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfdtd/gb/application_xml/zh-gb2312-4.xml">
+            application/xml</a><br />
+            <a href=
+            "wfdtd/gb/text_xml/zh-gb2312-4.xml">text/xml</a><br />
+            <a href=
+            "wfdtd/gb/text_plain/zh-gb2312-4.txt">text/plain</a>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            5) ASCII-codes-only WF file with hexadecimal NCR in
+            attribute value.
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfdtd/utf-8/application_xml/zh-utf8-5.xml">
+            application/xml</a><br />
+            <a href=
+            "wfdtd/utf-8/text_xml/zh-utf8-5.xml">text/xml</a><br />
+            <a href=
+            "wfdtd/utf-8/text_plain/zh-utf8-5.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfdtd/big5/application_xml/zh-big5-5.xml">
+            application/xml</a><br />
+            <a href=
+            "wfdtd/big5/text_xml/zh-big5-5.xml">text/xml</a><br />
+            <a href=
+            "wfdtd/big5/text_plain/zh-big5-5.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfdtd/gb/application_xml/zh-gb2312-5.xml">
+            application/xml</a><br />
+            <a href=
+            "wfdtd/gb/text_xml/zh-gb2312-5.xml">text/xml</a><br />
+            <a href=
+            "wfdtd/gb/text_plain/zh-gb2312-5.txt">text/plain</a>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            6) ASCII-codes-only WF file with decimal NCR in CDATA
+            section.
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfdtd/utf-8/application_xml/zh-utf8-6.xml">
+            application/xml</a><br />
+            <a href=
+            "wfdtd/utf-8/text_xml/zh-utf8-6.xml">text/xml</a><br />
+            <a href=
+            "wfdtd/utf-8/text_plain/zh-utf8-6.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfdtd/big5/application_xml/zh-big5-6.xml">
+            application/xml</a><br />
+            <a href=
+            "wfdtd/big5/text_xml/zh-big5-6.xml">text/xml</a><br />
+            <a href=
+            "wfdtd/big5/text_plain/zh-big5-6.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfdtd/gb/application_xml/zh-gb2312-6.xml">
+            application/xml</a><br />
+            <a href=
+            "wfdtd/gb/text_xml/zh-gb2312-6.xml">text/xml</a><br />
+            <a href=
+            "wfdtd/gb/text_plain/zh-gb2312-6.txt">text/plain</a>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            7) ASCII-codes-only WF file with hexadecimal NCR in CDATA
+            section.
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfdtd/utf-8/application_xml/zh-utf8-7.xml">
+            application/xml</a><br />
+            <a href=
+            "wfdtd/utf-8/text_xml/zh-utf8-7.xml">text/xml</a><br />
+            <a href=
+            "wfdtd/utf-8/text_plain/zh-utf8-7.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfdtd/big5/application_xml/zh-big5-7.xml">
+            application/xml</a><br />
+            <a href=
+            "wfdtd/big5/text_xml/zh-big5-7.xml">text/xml</a><br />
+            <a href=
+            "wfdtd/big5/text_plain/zh-big5-7.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfdtd/gb/application_xml/zh-gb2312-7.xml">
+            application/xml</a><br />
+            <a href=
+            "wfdtd/gb/text_xml/zh-gb2312-7.xml">text/xml</a><br />
+            <a href=
+            "wfdtd/gb/text_plain/zh-gb2312-7.txt">text/plain</a>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            8) The file includes one ideographic character encoded
+            directly in data.
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfdtd/utf-8/application_xml/zh-utf8-8.xml">
+            application/xml</a><br />
+            <a href=
+            "wfdtd/utf-8/text_xml/zh-utf8-8.xml">text/xml</a><br />
+            <a href=
+            "wfdtd/utf-8/text_plain/zh-utf8-8.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfdtd/big5/application_xml/zh-big5-8.xml">
+            application/xml</a><br />
+            <a href=
+            "wfdtd/big5/text_xml/zh-big5-8.xml">text/xml</a><br />
+            <a href=
+            "wfdtd/big5/text_plain/zh-big5-8.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfdtd/gb/application_xml/zh-gb2312-8.xml">
+            application/xml</a><br />
+            <a href=
+            "wfdtd/gb/text_xml/zh-gb2312-8.xml">text/xml</a><br />
+            <a href=
+            "wfdtd/gb/text_plain/zh-gb2312-8.txt">text/plain</a>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            9) The file includes a more troublesome ideographic
+            character encoded directly in data.
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfdtd/utf-8/application_xml/zh-utf8-9.xml">
+            application/xml</a><br />
+            <a href=
+            "wfdtd/utf-8/text_xml/zh-utf8-9.xml">text/xml</a><br />
+            <a href=
+            "wfdtd/utf-8/text_plain/zh-utf8-9.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfdtd/big5/application_xml/zh-big5-9.xml">
+            application/xml</a><br />
+            <a href=
+            "wfdtd/big5/text_xml/zh-big5-9.xml">text/xml</a><br />
+            <a href=
+            "wfdtd/big5/text_plain/zh-big5-9.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfdtd/gb/application_xml/zh-gb2312-9.xml">
+            application/xml</a><br />
+            <a href=
+            "wfdtd/gb/text_xml/zh-gb2312-9.xml">text/xml</a><br />
+            <a href=
+            "wfdtd/gb/text_plain/zh-gb2312-9.txt">text/plain</a>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            10) The file includes one ideographic character encoded
+            directly in an attribute.
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfdtd/utf-8/application_xml/zh-utf8-10.xml">
+            application/xml</a><br />
+            <a href=
+            "wfdtd/utf-8/text_xml/zh-utf8-10.xml">text/xml</a><br />
+            <a href=
+            "wfdtd/utf-8/text_plain/zh-utf8-10.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfdtd/big5/application_xml/zh-big5-10.xml">
+            application/xml</a><br />
+            <a href=
+            "wfdtd/big5/text_xml/zh-big5-10.xml">text/xml</a><br />
+            <a href=
+            "wfdtd/big5/text_plain/zh-big5-10.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfdtd/gb/application_xml/zh-gb2312-10.xml">
+            application/xml</a><br />
+            <a href=
+            "wfdtd/gb/text_xml/zh-gb2312-10.xml">text/xml</a><br />
+            <a href=
+            "wfdtd/gb/text_plain/zh-gb2312-10.txt">text/plain</a>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            11) The file includes one ideographic character encoded
+            directly in an element type name.
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfdtd/utf-8/application_xml/zh-utf8-11.xml">
+            application/xml</a><br />
+            <a href=
+            "wfdtd/utf-8/text_xml/zh-utf8-11.xml">text/xml</a><br />
+            <a href=
+            "wfdtd/utf-8/text_plain/zh-utf8-11.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfdtd/big5/application_xml/zh-big5-11.xml">
+            application/xml</a><br />
+            <a href=
+            "wfdtd/big5/text_xml/zh-big5-11.xml">text/xml</a><br />
+            <a href=
+            "wfdtd/big5/text_plain/zh-big5-11.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfdtd/gb/application_xml/zh-gb2312-11.xml">
+            application/xml</a><br />
+            <a href=
+            "wfdtd/gb/text_xml/zh-gb2312-11.xml">text/xml</a><br />
+            <a href=
+            "wfdtd/gb/text_plain/zh-gb2312-11.txt">text/plain</a>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            12) The file includes one ideographic character encoded
+            directly in an ID attribute and later in an IDREF
+            attribute.
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfdtd/utf-8/application_xml/zh-utf8-12.xml">
+            application/xml</a><br />
+            <a href=
+            "wfdtd/utf-8/text_xml/zh-utf8-12.xml">text/xml</a><br />
+            <a href=
+            "wfdtd/utf-8/text_plain/zh-utf8-12.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfdtd/big5/application_xml/zh-big5-12.xml">
+            application/xml</a><br />
+            <a href=
+            "wfdtd/big5/text_xml/zh-big5-12.xml">text/xml</a><br />
+            <a href=
+            "wfdtd/big5/text_plain/zh-big5-12.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfdtd/gb/application_xml/zh-gb2312-12.xml">
+            application/xml</a><br />
+            <a href=
+            "wfdtd/gb/text_xml/zh-gb2312-12.xml">text/xml</a><br />
+            <a href=
+            "wfdtd/gb/text_plain/zh-gb2312-12.txt">text/plain</a>
+          </div>
+        </td>
+      </tr>
+    </table>
+    <div class="c2">
+      <p>(Note there is no test for XML PIs and Comments)</p>
+    </div>
+    <!-- =============================================-->
+    <h2>Well-formed XML, No Stylesheet, No DOCTYPE Declaration,
+    Namespace</h2>
+    <p>The namespace referenced by the xmlns attribute in these tests
+    is just a name. It does not resolve to a schema definition
+    file.</p>
+    <table border="0">
+      <tr>
+        <td bgcolor="#00FF00" bordercolor="#FF0000">
+          <div class="c4">
+            Test
+          </div>
+        </td>
+        <td bgcolor="#00FF00" bordercolor="#FF0000">
+          <div class="c4">
+            UTF-8
+          </div>
+        </td>
+        <td bgcolor="#00FF00" bordercolor="#FF0000">
+          <div class="c4">
+            Big5
+          </div>
+        </td>
+        <td bgcolor="#00FF00" bordercolor="#FF0000">
+          <div class="c4">
+            GB2312
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            0) ASCII-codes-only WF file with encoding name in all
+            uppercase or lowercase.
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfns/utf-8/application_xml/zh-utf8-0.xml">
+            application/xml</a><br />
+            <a href=
+            "wfns/utf-8/text_xml/zh-utf8-0.xml">text/xml</a><br />
+            <a href=
+            "wfns/utf-8/text_plain/zh-utf8-0.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfns/big5/application_xml/zh-big5-0.xml">
+            application/xml</a><br />
+            <a href=
+            "wfns/big5/text_xml/zh-big5-0.xml">text/xml</a><br />
+            <a href=
+            "wfns/big5/text_plain/zh-big5-0.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfns/gb/application_xml/zh-gb2312-0.xml">
+            application/xml</a><br />
+            <a href=
+            "wfns/gb/text_xml/zh-gb2312-0.xml">text/xml</a><br />
+            <a href=
+            "wfns/gb/text_plain/zh-gb2312-0.txt">text/plain</a>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            1) ASCII-codes-only WF file with encoding name using
+            recommended form.
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfns/utf-8/application_xml/zh-utf8-1.xml">
+            application/xml</a><br />
+            <a href=
+            "wfns/utf-8/text_xml/zh-utf8-1.xml">text/xml</a><br />
+            <a href=
+            "wfns/utf-8/text_plain/zh-utf8-1.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfns/big5/application_xml/zh-big5-1.xml">
+            application/xml</a><br />
+            <a href=
+            "wfns/big5/text_xml/zh-big5-1.xml">text/xml</a><br />
+            <a href=
+            "wfns/big5/text_plain/zh-big5-1.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfns/gb/application_xml/zh-gb2312-1.xml">
+            application/xml</a><br />
+            <a href=
+            "wfns/gb/text_xml/zh-gb2312-1.xml">text/xml</a><br />
+            <a href=
+            "wfns/gb/text_plain/zh-gb2312-1.txt">text/plain</a>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            2) ASCII-codes-only WF file with decimal NCR in data.
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfns/utf-8/application_xml/zh-utf8-2.xml">
+            application/xml</a><br />
+            <a href=
+            "wfns/utf-8/text_xml/zh-utf8-2.xml">text/xml</a><br />
+            <a href=
+            "wfns/utf-8/text_plain/zh-utf8-2.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfns/big5/application_xml/zh-big5-2.xml">
+            application/xml</a><br />
+            <a href=
+            "wfns/big5/text_xml/zh-big5-2.xml">text/xml</a><br />
+            <a href=
+            "wfns/big5/text_plain/zh-big5-2.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfns/gb/application_xml/zh-gb2312-2.xml">
+            application/xml</a><br />
+            <a href=
+            "wfns/gb/text_xml/zh-gb2312-2.xml">text/xml</a><br />
+            <a href=
+            "wfns/gb/text_plain/zh-gb2312-2.txt">text/plain</a>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            3) ASCII-codes-only WF file with hexadecimal NCR in data.
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfns/utf-8/application_xml/zh-utf8-3.xml">
+            application/xml</a><br />
+            <a href=
+            "wfns/utf-8/text_xml/zh-utf8-3.xml">text/xml</a><br />
+            <a href=
+            "wfns/utf-8/text_plain/zh-utf8-3.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfns/big5/application_xml/zh-big5-3.xml">
+            application/xml</a><br />
+            <a href=
+            "wfns/big5/text_xml/zh-big5-3.xml">text/xml</a><br />
+            <a href=
+            "wfns/big5/text_plain/zh-big5-3.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfns/gb/application_xml/zh-gb2312-3.xml">
+            application/xml</a><br />
+            <a href=
+            "wfns/gb/text_xml/zh-gb2312-3.xml">text/xml</a><br />
+            <a href=
+            "wfns/gb/text_plain/zh-gb2312-3.txt">text/plain</a>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            4) ASCII-codes-only WF file with decimal NCR in attribute
+            value.
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfns/utf-8/application_xml/zh-utf8-4.xml">
+            application/xml</a><br />
+            <a href=
+            "wfns/utf-8/text_xml/zh-utf8-4.xml">text/xml</a><br />
+            <a href=
+            "wfns/utf-8/text_plain/zh-utf8-4.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfns/big5/application_xml/zh-big5-4.xml">
+            application/xml</a><br />
+            <a href=
+            "wfns/big5/text_xml/zh-big5-4.xml">text/xml</a><br />
+            <a href=
+            "wfns/big5/text_plain/zh-big5-4.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfns/gb/application_xml/zh-gb2312-4.xml">
+            application/xml</a><br />
+            <a href=
+            "wfns/gb/text_xml/zh-gb2312-4.xml">text/xml</a><br />
+            <a href=
+            "wfns/gb/text_plain/zh-gb2312-4.txt">text/plain</a>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            5) ASCII-codes-only WF file with hexadecimal NCR in
+            attribute value.
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfns/utf-8/application_xml/zh-utf8-5.xml">
+            application/xml</a><br />
+            <a href=
+            "wfns/utf-8/text_xml/zh-utf8-5.xml">text/xml</a><br />
+            <a href=
+            "wfns/utf-8/text_plain/zh-utf8-5.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfns/big5/application_xml/zh-big5-5.xml">
+            application/xml</a><br />
+            <a href=
+            "wfns/big5/text_xml/zh-big5-5.xml">text/xml</a><br />
+            <a href=
+            "wfns/big5/text_plain/zh-big5-5.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfns/gb/application_xml/zh-gb2312-5.xml">
+            application/xml</a><br />
+            <a href=
+            "wfns/gb/text_xml/zh-gb2312-5.xml">text/xml</a><br />
+            <a href=
+            "wfns/gb/text_plain/zh-gb2312-5.txt">text/plain</a>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            6) ASCII-codes-only WF file with decimal NCR in CDATA
+            section.
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfns/utf-8/application_xml/zh-utf8-6.xml">
+            application/xml</a><br />
+            <a href=
+            "wfns/utf-8/text_xml/zh-utf8-6.xml">text/xml</a><br />
+            <a href=
+            "wfns/utf-8/text_plain/zh-utf8-6.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfns/big5/application_xml/zh-big5-6.xml">
+            application/xml</a><br />
+            <a href=
+            "wfns/big5/text_xml/zh-big5-6.xml">text/xml</a><br />
+            <a href=
+            "wfns/big5/text_plain/zh-big5-6.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfns/gb/application_xml/zh-gb2312-6.xml">
+            application/xml</a><br />
+            <a href=
+            "wfns/gb/text_xml/zh-gb2312-6.xml">text/xml</a><br />
+            <a href=
+            "wfns/gb/text_plain/zh-gb2312-6.txt">text/plain</a>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            7) ASCII-codes-only WF file with hexadecimal NCR in CDATA
+            section.
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfns/utf-8/application_xml/zh-utf8-7.xml">
+            application/xml</a><br />
+            <a href=
+            "wfns/utf-8/text_xml/zh-utf8-7.xml">text/xml</a><br />
+            <a href=
+            "wfns/utf-8/text_plain/zh-utf8-7.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfns/big5/application_xml/zh-big5-7.xml">
+            application/xml</a><br />
+            <a href=
+            "wfns/big5/text_xml/zh-big5-7.xml">text/xml</a><br />
+            <a href=
+            "wfns/big5/text_plain/zh-big5-7.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfns/gb/application_xml/zh-gb2312-7.xml">
+            application/xml</a><br />
+            <a href=
+            "wfns/gb/text_xml/zh-gb2312-7.xml">text/xml</a><br />
+            <a href=
+            "wfns/gb/text_plain/zh-gb2312-7.txt">text/plain</a>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            8) The file includes one ideographic character encoded
+            directly in data.
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfns/utf-8/application_xml/zh-utf8-8.xml">
+            application/xml</a><br />
+            <a href=
+            "wfns/utf-8/text_xml/zh-utf8-8.xml">text/xml</a><br />
+            <a href=
+            "wfns/utf-8/text_plain/zh-utf8-8.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfns/big5/application_xml/zh-big5-8.xml">
+            application/xml</a><br />
+            <a href=
+            "wfns/big5/text_xml/zh-big5-8.xml">text/xml</a><br />
+            <a href=
+            "wfns/big5/text_plain/zh-big5-8.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfns/gb/application_xml/zh-gb2312-8.xml">
+            application/xml</a><br />
+            <a href=
+            "wfns/gb/text_xml/zh-gb2312-8.xml">text/xml</a><br />
+            <a href=
+            "wfns/gb/text_plain/zh-gb2312-8.txt">text/plain</a>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            9) The file includes a more troublesome ideographic
+            character encoded directly in data.
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfns/utf-8/application_xml/zh-utf8-9.xml">
+            application/xml</a><br />
+            <a href=
+            "wfns/utf-8/text_xml/zh-utf8-9.xml">text/xml</a><br />
+            <a href=
+            "wfns/utf-8/text_plain/zh-utf8-9.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfns/big5/application_xml/zh-big5-9.xml">
+            application/xml</a><br />
+            <a href=
+            "wfns/big5/text_xml/zh-big5-9.xml">text/xml</a><br />
+            <a href=
+            "wfns/big5/text_plain/zh-big5-9.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfns/gb/application_xml/zh-gb2312-9.xml">
+            application/xml</a><br />
+            <a href=
+            "wfns/gb/text_xml/zh-gb2312-9.xml">text/xml</a><br />
+            <a href=
+            "wfns/gb/text_plain/zh-gb2312-9.txt">text/plain</a>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            10) The file includes one ideographic character encoded
+            directly in an attribute.
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfns/utf-8/application_xml/zh-utf8-10.xml">
+            application/xml</a><br />
+            <a href=
+            "wfns/utf-8/text_xml/zh-utf8-10.xml">text/xml</a><br />
+            <a href=
+            "wfns/utf-8/text_plain/zh-utf8-10.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfns/big5/application_xml/zh-big5-10.xml">
+            application/xml</a><br />
+            <a href=
+            "wfns/big5/text_xml/zh-big5-10.xml">text/xml</a><br />
+            <a href=
+            "wfns/big5/text_plain/zh-big5-10.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfns/gb/application_xml/zh-gb2312-10.xml">
+            application/xml</a><br />
+            <a href=
+            "wfns/gb/text_xml/zh-gb2312-10.xml">text/xml</a><br />
+            <a href=
+            "wfns/gb/text_plain/zh-gb2312-10.txt">text/plain</a>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            11) The file includes one ideographic character encoded
+            directly in an element type name.
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfns/utf-8/application_xml/zh-utf8-11.xml">
+            application/xml</a><br />
+            <a href=
+            "wfns/utf-8/text_xml/zh-utf8-11.xml">text/xml</a><br />
+            <a href=
+            "wfns/utf-8/text_plain/zh-utf8-11.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfns/big5/application_xml/zh-big5-11.xml">
+            application/xml</a><br />
+            <a href=
+            "wfns/big5/text_xml/zh-big5-11.xml">text/xml</a><br />
+            <a href=
+            "wfns/big5/text_plain/zh-big5-11.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfns/gb/application_xml/zh-gb2312-11.xml">
+            application/xml</a><br />
+            <a href=
+            "wfns/gb/text_xml/zh-gb2312-11.xml">text/xml</a><br />
+            <a href=
+            "wfns/gb/text_plain/zh-gb2312-11.txt">text/plain</a>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            12) The file includes one ideographic character encoded
+            directly in an ID attribute and later in an IDREF
+            attribute.
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfns/utf-8/application_xml/zh-utf8-12.xml">
+            application/xml</a><br />
+            <a href=
+            "wfns/utf-8/text_xml/zh-utf8-12.xml">text/xml</a><br />
+            <a href=
+            "wfns/utf-8/text_plain/zh-utf8-12.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfns/big5/application_xml/zh-big5-12.xml">
+            application/xml</a><br />
+            <a href=
+            "wfns/big5/text_xml/zh-big5-12.xml">text/xml</a><br />
+            <a href=
+            "wfns/big5/text_plain/zh-big5-12.txt">text/plain</a>
+          </div>
+        </td>
+        <td bgcolor="#FFFF00">
+          <div class="c2">
+            <a href="wfns/gb/application_xml/zh-gb2312-12.xml">
+            application/xml</a><br />
+            <a href=
+            "wfns/gb/text_xml/zh-gb2312-12.xml">text/xml</a><br />
+            <a href=
+            "wfns/gb/text_plain/zh-gb2312-12.txt">text/plain</a>
+          </div>
+        </td>
+      </tr>
+    </table>
+    <div class="c2">
+      <p>(Note there is no test for XML PIs and Comments)</p>
+      <!-- =============================================--><a name= 
+      "combined" id="combined" /> 
+      <h2>Combined Tests.</h2>
+      <h3>Well-formed XML, Stylesheet, DOCTYPE Declaration, No
+      Namespace Declarations, xml:lang attributes, standalone.</h3>
+      <p>This test includes all the previous tests cases. It is a
+      good quick test of the most important basic requirements for
+      Chinese documents.</p>
+      <table border="0">
+        <tr>
+          <td bgcolor="#00FF00" bordercolor="#FF0000">
+            <div class="c4">
+              Test
+            </div>
+          </td>
+          <td bgcolor="#00FF00" bordercolor="#FF0000">
+            <div class="c4">
+              UTF-8
+            </div>
+          </td>
+          <td bgcolor="#00FF00" bordercolor="#FF0000">
+            <div class="c4">
+              Big5
+            </div>
+          </td>
+          <td bgcolor="#00FF00" bordercolor="#FF0000">
+            <div class="c4">
+              GB2312
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td bgcolor="#FFFF00">
+            <div class="c2">
+              13) This file has all the test cases of test files 1 to
+              12.
+            </div>
+          </td>
+          <td bgcolor="#FFFF00">
+            <div class="c2">
+              <a href="wfall/utf-8/test13.xml">UTF-8</a>
+            </div>
+          </td>
+          <td bgcolor="#FFFF00">
+            <div class="c2">
+              <a href="wfall/big5/test13.xml">Big5</a>
+            </div>
+          </td>
+          <td bgcolor="#FFFF00">
+            <div class="c2">
+              <a href="wfall/gb/test13.xml">GB2312</a>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <!-- =============================================-->
+      <h2>Related Test Files</h2>
+    </div>
+    <table border="border" cols="4" width="100%" bgcolor="#FFFF00">
+      <tr>
+        <td><b>Test</b></td>
+        <td><b>UTF-8</b></td>
+        <td><b>Big5</b></td>
+        <td><b>GB2312</b></td>
+      </tr>
+      <tr>
+        <td>Charles Muller's <a href= 
+        "http://www.human.toyogakuen-u.ac.jp/~acmuller/dicts/xmlbdict/data/index.html">
+        Dictionary of East Asian Buddhist Terms</a> is a multilingual
+        resource. Excellent for demonstrating.</td>
+        <td><a href= 
+        "http://www.human.toyogakuen-u.ac.jp/~acmuller/dicts/xmlbdict/data/index.html">
+        XML instances, DTD, XSL stylesheet.</a></td>
+        <td>.</td>
+        <td>.</td>
+      </tr>
+      <tr>
+        <td>FujiXerox Japanese document</td>
+        <td><a href= 
+        "http://www.fxis.co.jp/DMS/sgml/xml/charset/utf-8/weekly.xml">
+        xml</a></td>
+        <td>.</td>
+        <td>.</td>
+      </tr>
+      <tr>
+        <td>A test of the html:lang and xml:lang attributes. Chinese
+        and English.</td>
+        <td><a href="language.html">HTML-in-XML</a></td>
+        <td>.</td>
+        <td>.</td>
+      </tr>
+      <tr>
+        <td>A test of the xml:lang attributes. Chinese and
+        English.</td>
+        <td><a href="language2.xml">WF XML</a></td>
+        <td>.</td>
+        <td>.</td>
+      </tr>
+      <tr>
+        <td>Chinese and English, with xml:lang attribute.</td>
+        <td><a href="http://www.ascc.net/xml/en/utf-8/gloss.html">
+        English - Chinese XML Glossary</a> (en, zh))</td>
+        <td><a href="http://www.ascc.net/xml/zh/big5/gloss.html">
+        English - Chinese XML Glossary</a> (zh, en )</td>
+        <td><a href="http://www.ascc.net/xml/zh/gb/gloss.html">
+        English - Chinese XML Glossary</a> (zh, en)</td>
+      </tr>
+    </table>
+    <p>There are some HTML test files of various languages and
+    encodings, including MIME header labelling of the "charset", at
+    the Vancouver Webpages' <a href= 
+    "http://vancouver-webpages.com/multilingual/">Using Multiple
+    Languages in HTML</a>.</p>
+    <br />
+    <hr />
+    <a name="tar" id="tar" /> 
+    <h3>TAR Distribution</h3>
+    <p>The test directories and files are also all available in the
+    following file: <tt><a href= 
+    "http://www.ascc.net/xml/zh-xml-test.tar.gz">
+    http://www.ascc.net/xml/zh-xml-test.tar.gz</a>.</tt> (file size =
+    70K). The file is UNIX tar and GNU gzip format, but many PC-based
+    archivers (e.g. WinZIP) should accept the format: note that some
+    archivers will rename the file <tt>zh-xml-test_tar.gz</tt>; you
+    may have rename it back to <tt>.tar</tt> by hand to get untar
+    it.</p>
+    <p>If you use the tar distribution, please note that the images
+    and out-going links will be incorrect. These test files may be
+    corrected and updated occassionally, so please link to this site
+    rather instead of putting up your own duplicateon the Internet,
+    where this is appropriate.</p>
+    <br />
+    <hr />
+    <p>Finally...here is an HTTP header echo service: you can see
+    what information your browser is sending. The service is the <a
+    href="http://echo.znet.de:8888/">Pascal's Header Echo</a>.</p>
+    <table border="border" cols="4" width="100%">
+      <tr>
+        <td bgcolor="#00CC00">
+          <div class="c2">
+            <img src="in-eng.gif" alt="[in English]" border=
+            "0" /><br />
+            <a href="../en/utf-8/index.html">English</a><br />
+            <a href="../en/utf-8/index.html">(UTF-8)</a>
+          </div>
+        </td>
+        <td bgcolor="#FFCC00">
+          <div class="c2">
+            <img src="in-chi.gif" alt="[in Chinese]" border=
+            "0" /><br />
+            <a href="../zh/utf-8/index.html">Chinese</a><br />
+            <a href="../zh/utf-8/index.html">(UTF-8)</a>
+          </div>
+        </td>
+        <td bgcolor="#FF9900">
+          <div class="c2">
+            <img src="in-chi.gif" alt="[in Chinese]" border=
+            "0" /><br />
+            <a href="../zh/big5/index.html">Traditional</a><br />
+            <a href="../zh/big5/index.html">Chinese</a><br />
+            <a href="../zh/big5/index.html">(Big5)</a>
+          </div>
+        </td>
+        <td bgcolor="#FF0000">
+          <div class="c2">
+            <img src="in-chi.gif" alt="[in Chinese]" border=
+            "0" /><br />
+            <a href="../zh/gb/index.html">Simplified</a><br />
+            <a href="../zh/gb/index.html">Chinese</a><br />
+            <a href="../zh/gb/index.html">(GB 2312)</a>
+          </div>
+        </td>
+      </tr>
+    </table>
+    <div class="c2">
+      <h3>Academia Sinica</h3>
+    </div>
+    <div class="c2">
+      <a href="http://www.sinica.edu.tw/index.shtml"><img src= 
+      "in-eng.gif" alt="[in English]" border="0" /></a><a href= 
+      "http://www.sinica.edu.tw/index_c.shtml"><img src="in-chi.gif"
+      alt="[in Chinese]" border="0" /></a>
+    </div>
+    <div class="c2">
+      <p><a href="http://www.ascc.net/xml/en/utf-8/legal.html">[Legal
+      Notices]</a></p>
+    </div>
+  </body>
+</html>
+

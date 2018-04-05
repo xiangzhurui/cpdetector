@@ -1,0 +1,19 @@
+User-agent: *
+Disallow: /webscripts/
+Disallow: /Public/1.1-Update/	# obsolete data
+Disallow: /Public/2.1-Update2/	# obsolete data
+Disallow: /Public/3.0-Update/	# obsolete data
+Disallow: /Public/2.0-Update/	# obsolete data
+Disallow: /Public/2.1-Update3/	# obsolete data
+Disallow: /Public/2.1-Update/	# obsolete data
+Disallow: /Public/2.1-Update4/	# obsolete data
+Disallow: /Public/3.0-Update1/ # obsolete data
+Disallow: /Public/3.1-Update/  # obsolete data
+Disallow: /Public/3.1-Update1/ # obsolete data
+Disallow: /Public/3.2-Update/ # obsolete data
+Disallow: /Public/4.0-Update/ # obsolete data
+Disallow: /Public/MAPPINGS/OBSOLETE/ # obsolete data
+Disallow: /unicode/members/
+Disallow: /members/
+Disallow: /mail-arch/
+Disallow: /cgi-bin/

@@ -1,0 +1,1 @@
+wget --verbose --user-agent=Mozilla --force-directories --tries=6 --timestamping --timeout=30 --wait=4 --waitretry=20  --random-wait --dns-timeout=10 --recursive --level=2  --accept html,htm --reject _email*,_print* --include-directories=udhr/lang/  --force-directories http://www.unhchr.ch/udhr/navigate/alpha.htm

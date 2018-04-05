@@ -1,0 +1,10 @@
+// $ANTLR 2.7.4: charsetParser.g -> EncodingParserTokenTypes.txt$
+EncodingParser    // output token vocab name
+META_CONTENT_TYPE=4
+XML_ENCODING_DECL=5
+IDENTIFIER=6
+SPACING=7
+NEWLINE=8
+SPACE=9
+DIGIT=10
+LETTER=11

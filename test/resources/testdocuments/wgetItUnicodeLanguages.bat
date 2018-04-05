@@ -1,0 +1,1 @@
+wget --verbose  --user-agent=Mozilla --force-directories --tries=6 --timestamping --timeout=30 --wait=4 --waitretry=20 --random-wait --dns-timeout=10 --recursive --level=2 --force-directories  --accept=html,htm --include-directories=*/iuc10 http://www.unicode.org/iuc/iuc10/languages.html

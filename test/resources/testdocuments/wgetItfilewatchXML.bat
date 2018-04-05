@@ -1,0 +1,4 @@
+echo "A search at http://www.filewatcher.com/ for '*.xml' with limit to 10MB of documents only accepting xml files."
+echo "Please ensure that your .wgetrc contains the line 'robots=on'."
+echo "On windows, set the environment variable 'wgetrc' and point to your configuration file (.wgetrc)."
+wget --verbose --user-agent=Mozilla --force-directories --tries=6 --timestamping --timeout=30 --wait=4 --waitretry=20 --random-wait --dns-timeout=10 --recursive --level=4  --accept=.xml --exclude-domains=www.filewatcher.com --force-directories --quota=10m --directory-prefix=filewatcher.com_search --follow-ftp --span-hosts "http://www.filewatcher.com/?q=*.xml&min=&max=&pf=&df=&t=a&o=rd&mh=20&af=1"
