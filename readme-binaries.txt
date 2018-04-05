@@ -30,8 +30,15 @@ cpdetector - 1.1.0 - <month>, <day>, <year>
   works as well: 
   myCodepageDetectorProxy.setCharsetCandidates(myReducedSet). 
   This may help with files that have problems to be detected properly. 
+! Added logging support by using SLF4J (logging facade). This allows to use this library with your desired logging implementation
+  (https://www.slf4j.org/manual.html). 
 * Fixed issue #15: Wrong detection result (UnknownCharset) in heavily multithreaded environment possible. All singleton 
   retrieval methods synchronized now. 
+o Moved java sources to /test/java. 
+o Moved java sources to /test/java. 
+o Changed build to apache ivy. Eclipse users may want to use ecliplse ivy plugin: http://ant.apache.org/ivy/ivyde/download.cgi 
+
+
 
   
 cpdetector - 1.0.10 - December, 4th, 2011

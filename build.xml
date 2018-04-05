@@ -5,6 +5,9 @@
   and extendable encoding detection
   of textual documents.
  </description>
+
+
+	
 	<!-- General Properties -->
 	<property name="project.name" value="cpdetector" />
 	<property name="libdir" value="ext" />
@@ -15,12 +18,19 @@
 	<property name="project.version" value="1.1.0" />
 	<!-- for ant fit testing integration -->
 	<property name="fit.results.dir" value="${basedir}/test/fit/out/" />
+	
+	
+	<!-- Ivy classpath -->
+	<property environment="env"/>
+	<property name="ivy.home" value="${env.IVY_HOME}"/>
 
+	
 	<!-- General paths & filesets. -->
 	<path description="Classpath of project" id="classpath">
 		<pathelement path="${builddir}" />
 		<fileset refid="externalJars" />
 		<fileset refid="testingJars" />
+		<fileset refid="ivy.jars" />
 	</path>
 
 	<fileset description="Source files of project" dir="${basedir}" id="sourcefiles">
@@ -52,12 +62,14 @@
 		</fileset>
 	</path>
 	
-	<path id="dependent.jars" description="External library jar files that are needed for the build.">
+	<path id="build.jars" description="External library jar files that are needed for the build.">
 		<fileset dir="${basedir}">
 			<include name="lib/*.jar" />
 		</fileset>
+        <fileset dir="${ivy.home}">
+            <include name="*.jar"/>
+        </fileset>
 	</path>
-
 	
 	<fileset dir="${basedir}" id="testingJars" description="External library jar files for testing. Will not be shipped in binary jar release.">
 		<include name="${libdir}/test/**/*.jar" />
@@ -68,14 +80,14 @@
 		<exclude name="**/*bat" />
 		<exclude name="**/*zip" />
 	</fileset>
-	<!-- optional taskdefs -->
+	
 	<!-- Taskdefs -->
 	<!--
           Shrinking for jarfiles
      -->
 	<!-- taskdef name="proguard" classname="proguard.ant.ProGuardTask" classpathref="build.jars" / -->
+	<echo message="ivy.home: ${ivy.home}"/>
 	<taskdef resource="org/apache/ivy/ant/antlib.xml" uri="antlib:org.apache.ivy.ant" classpathref="build.jars"/>
-
 
 	<!-- conditions -->
 	<condition property="is.testdocuments">
