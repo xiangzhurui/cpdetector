@@ -25,12 +25,8 @@
  */
 package info.monitorenter.cpdetector.test;
 
-import info.monitorenter.cpdetector.io.UnknownCharset;
-import info.monitorenter.cpdetector.io.UnsupportedCharset;
-import info.monitorenter.util.FileUtil;
 
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.Charset;
 import java.nio.charset.UnsupportedCharsetException;
@@ -40,6 +36,10 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
 import java.util.TreeSet;
+
+import info.monitorenter.cpdetector.io.UnknownCharset;
+import info.monitorenter.cpdetector.io.UnsupportedCharset;
+import info.monitorenter.cpdetector.util.FileUtil;
 
 
 /**

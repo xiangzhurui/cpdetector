@@ -23,17 +23,6 @@
  */
 package info.monitorenter.cpdetector.test;
 
-import info.monitorenter.cpdetector.io.ASCIIDetector;
-import info.monitorenter.cpdetector.io.CodepageDetectorProxy;
-import info.monitorenter.cpdetector.io.FileFilterExtensions;
-import info.monitorenter.cpdetector.io.ICodepageDetector;
-import info.monitorenter.cpdetector.io.JChardetFacade;
-import info.monitorenter.cpdetector.io.ParsingDetector;
-import info.monitorenter.cpdetector.io.UnknownCharset;
-import info.monitorenter.cpdetector.io.UnsupportedCharset;
-import info.monitorenter.cpdetector.reflect.SingletonLoader;
-import info.monitorenter.util.FileUtil;
-
 import java.io.File;
 import java.io.FileFilter;
 import java.io.IOException;
@@ -47,6 +36,16 @@ import java.util.MissingResourceException;
 import java.util.SortedMap;
 import java.util.StringTokenizer;
 
+import info.monitorenter.cpdetector.io.ASCIIDetector;
+import info.monitorenter.cpdetector.io.CodepageDetectorProxy;
+import info.monitorenter.cpdetector.io.FileFilterExtensions;
+import info.monitorenter.cpdetector.io.ICodepageDetector;
+import info.monitorenter.cpdetector.io.JChardetFacade;
+import info.monitorenter.cpdetector.io.ParsingDetector;
+import info.monitorenter.cpdetector.io.UnknownCharset;
+import info.monitorenter.cpdetector.io.UnsupportedCharset;
+import info.monitorenter.cpdetector.reflect.SingletonLoader;
+import info.monitorenter.cpdetector.util.FileUtil;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;

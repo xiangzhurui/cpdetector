@@ -10,8 +10,8 @@
 	<property name="libdir" value="ext" />
 	<property name="libdir.build" value="${libdir}/build" />
 	<property name="builddir" value="bin/" />
-	<property name="sourcedir" value="src/" />
-	<property name="testsourcedir" value="test/" />
+	<property name="sourcedir" value="src/java" />
+	<property name="testsourcedir" value="test/java" />
 	<property name="project.version" value="1.1.0" />
 	<!-- for ant fit testing integration -->
 	<property name="fit.results.dir" value="${basedir}/test/fit/out/" />

@@ -48,10 +48,11 @@
  */
 package info.monitorenter.cpdetector;
 
-import info.monitorenter.util.ExceptionUtil;
-import junit.framework.Assert;
 
 import org.junit.Test;
+
+import info.monitorenter.cpdetector.util.ExceptionUtil;
+import junit.framework.Assert;
 
 public class CodepageProcessorTest {
 

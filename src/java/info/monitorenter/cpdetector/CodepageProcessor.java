@@ -97,7 +97,7 @@ import info.monitorenter.cpdetector.io.JChardetFacade;
 import info.monitorenter.cpdetector.io.ParsingDetector;
 import info.monitorenter.cpdetector.io.UnknownCharset;
 import info.monitorenter.cpdetector.reflect.SingletonLoader;
-import info.monitorenter.util.FileUtil;
+import info.monitorenter.cpdetector.util.FileUtil;
 import jargs.gnu.CmdLineParser;
 
 /**

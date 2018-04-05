@@ -42,9 +42,6 @@
  */ 
  package info.monitorenter.cpdetector.io;
 
-import info.monitorenter.util.Entry;
-import info.monitorenter.util.FileUtil;
-import info.monitorenter.util.StringUtil;
 
 import java.io.File;
 import java.io.FileFilter;
@@ -57,6 +54,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
+
+import info.monitorenter.cpdetector.util.Entry;
+import info.monitorenter.cpdetector.util.FileUtil;
+import info.monitorenter.cpdetector.util.StringUtil;
 
 
 /**

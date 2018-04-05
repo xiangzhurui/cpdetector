@@ -1,32 +1,45 @@
 /*
- * ByteOrderMarkDetector.java, <enter purpose here>. Copyright (C) 2005 Achim Westermann, Achim.Westermann@gmx.de
+ * ByteOrderMarkDetector.java, <enter purpose here>. Copyright (C) 2005 Achim
+ * Westermann, Achim.Westermann@gmx.de
  * 
  * ***** BEGIN LICENSE BLOCK ***** Version: MPL 1.1/GPL 2.0/LGPL 2.1
  * 
- * The contents of this collection are subject to the Mozilla Public License Version 1.1 (the "License"); you may not use this file except
- * in compliance with the License. You may obtain a copy of the License at http://www.mozilla.org/MPL/
+ * The contents of this collection are subject to the Mozilla Public License
+ * Version 1.1 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
  * 
- * Software distributed under the License is distributed on an "AS IS" basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See
- * the License for the specific language governing rights and limitations under the License.
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License for
+ * the specific language governing rights and limitations under the License.
  * 
- * The Original Code is the cpDetector code in [sub] packages info.monitorenter and cpdetector.
+ * The Original Code is the cpDetector code in [sub] packages info.monitorenter
+ * and cpdetector.
  * 
- * The Initial Developer of the Original Code is Achim Westermann <achim.westermann@gmx.de>.
+ * The Initial Developer of the Original Code is Achim Westermann
+ * <achim.westermann@gmx.de>.
  * 
- * Portions created by the Initial Developer are Copyright (c) 2007 the Initial Developer. All Rights Reserved.
+ * Portions created by the Initial Developer are Copyright (c) 2007 the Initial
+ * Developer. All Rights Reserved.
  * 
  * Contributor(s):
  * 
- * Alternatively, the contents of this file may be used under the terms of either the GNU General Public License Version 2 or later (the
- * "GPL"), or the GNU Lesser General Public License Version 2.1 or later (the "LGPL"), in which case the provisions of the GPL or the LGPL
- * are applicable instead of those above. If you wish to allow use of your version of this file only under the terms of either the GPL or
- * the LGPL, and not to allow others to use your version of this file under the terms of the MPL, indicate your decision by deleting the
- * provisions above and replace them with the notice and other provisions required by the GPL or the LGPL. If you do not delete the
- * provisions above, a recipient may use your version of this file under the terms of any one of the MPL, the GPL or the LGPL.
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or the
+ * GNU Lesser General Public License Version 2.1 or later (the "LGPL"), in which
+ * case the provisions of the GPL or the LGPL are applicable instead of those
+ * above. If you wish to allow use of your version of this file only under the
+ * terms of either the GPL or the LGPL, and not to allow others to use your
+ * version of this file under the terms of the MPL, indicate your decision by
+ * deleting the provisions above and replace them with the notice and other
+ * provisions required by the GPL or the LGPL. If you do not delete the
+ * provisions above, a recipient may use your version of this file under the
+ * terms of any one of the MPL, the GPL or the LGPL.
  * 
  * ***** END LICENSE BLOCK ***** *
  * 
- * If you modify or optimize the code in a useful way please let me know. Achim.Westermann@gmx.de
+ * If you modify or optimize the code in a useful way please let me know.
+ * Achim.Westermann@gmx.de
  */
 package info.monitorenter.cpdetector.io;
 
@@ -86,10 +99,10 @@ import java.util.Set;
  * <p>
  * This implementation is based on: <br>
  * <a target="_blank" title=
- * "http://www.w3.org/TR/2004/REC-xml-20040204/#sec-guessing-no-ext-info"
- * href="http://www.w3.org/TR/2004/REC-xml-20040204/#sec-guessing-no-ext-info"
- * >W3C XML Specification 1.0 3rd Edition, F.1 Detection Without External
- * Encoding Information </a>.
+ * "http://www.w3.org/TR/2004/REC-xml-20040204/#sec-guessing-no-ext-info" href=
+ * "http://www.w3.org/TR/2004/REC-xml-20040204/#sec-guessing-no-ext-info" >W3C
+ * XML Specification 1.0 3rd Edition, F.1 Detection Without External Encoding
+ * Information </a>.
  * </p>
  * This implementation does the same as <code>{@link UnicodeDetector}</code> but
  * with a different read strategy (read each byte separately) and a switch case
@@ -306,27 +319,27 @@ public class ByteOrderMarkDetector extends AbstractCodepageDetector implements I
       try {
         excludes.add(Charset.forName("UCS-4"));
       } catch (UnsupportedCharsetException usce) {
-//        usce.printStackTrace(System.err);
+        // usce.printStackTrace(System.err);
       }
       try {
         excludes.add(Charset.forName("UTF-16BE"));
       } catch (UnsupportedCharsetException usce) {
-//        usce.printStackTrace(System.err);
+        // usce.printStackTrace(System.err);
       }
       try {
         excludes.add(Charset.forName("UCS-4LE"));
       } catch (UnsupportedCharsetException usce) {
-//        usce.printStackTrace(System.err);
+        // usce.printStackTrace(System.err);
       }
       try {
         excludes.add(Charset.forName("UTF-16LE"));
       } catch (UnsupportedCharsetException usce) {
-//        usce.printStackTrace(System.err);
+        // usce.printStackTrace(System.err);
       }
       try {
         excludes.add(Charset.forName("utf-8"));
       } catch (UnsupportedCharsetException usce) {
-//        usce.printStackTrace(System.err);
+        // usce.printStackTrace(System.err);
       }
     }
     return result;

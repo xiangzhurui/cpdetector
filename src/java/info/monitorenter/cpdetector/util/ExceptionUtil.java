@@ -20,9 +20,9 @@
  *  Achim.Westermann@gmx.de
  *
  */
-package info.monitorenter.util;
+package info.monitorenter.cpdetector.util;
 
-import info.monitorenter.io.MultiplexingOutputStream;
+import info.monitorenter.cpdetector.io.MultiplexingOutputStream;
 
 import java.io.BufferedReader;
 import java.io.IOException;

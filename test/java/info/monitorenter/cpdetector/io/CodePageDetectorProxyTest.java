@@ -42,7 +42,7 @@
  */
 package info.monitorenter.cpdetector.io;
 
-import info.monitorenter.util.FileUtil;
+
 
 import java.io.BufferedInputStream;
 import java.io.File;
@@ -58,6 +58,13 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+
+import info.monitorenter.cpdetector.io.ASCIIDetector;
+import info.monitorenter.cpdetector.io.CodepageDetectorProxy;
+import info.monitorenter.cpdetector.io.ICodepageDetector;
+import info.monitorenter.cpdetector.io.JChardetFacade;
+import info.monitorenter.cpdetector.io.ParsingDetector;
+import info.monitorenter.cpdetector.util.FileUtil;
 
 /**
  * Test case for

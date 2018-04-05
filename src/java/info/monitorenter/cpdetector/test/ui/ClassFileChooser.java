@@ -47,10 +47,6 @@
 
 package info.monitorenter.cpdetector.test.ui;
 
-import info.monitorenter.cpdetector.io.IClassFileFilter;
-import info.monitorenter.cpdetector.io.JarArchive;
-import info.monitorenter.util.FileUtil;
-
 import java.awt.Component;
 import java.awt.Container;
 import java.awt.event.MouseEvent;
@@ -70,6 +66,10 @@ import javax.swing.JFileChooser;
 import javax.swing.JList;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileSystemView;
+
+import info.monitorenter.cpdetector.io.IClassFileFilter;
+import info.monitorenter.cpdetector.io.JarArchive;
+import info.monitorenter.cpdetector.util.FileUtil;
 
 /**
  * @author <a href="mailto:Achim.Westermann@gmx.de">Achim Westermann </a>
