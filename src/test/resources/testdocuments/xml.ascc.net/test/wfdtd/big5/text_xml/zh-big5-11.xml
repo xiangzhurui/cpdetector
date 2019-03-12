@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="Big5"?>
+<!DOCTYPE test SYSTEM 'http://www.ascc.net/xml/test/test.dtd'><!-- Copyright 1998 Academia Sinica Computing Center -->
+<!-- Permission to use and distribute granted under MPL -->
+<!-- Email corrections to ricko@gate.sinica.net.tw -->
+<test type="io11">
+	<name>Chinese Test #11: Big5</name>
+	<data>This file has 1 Chinese character, encoded directly.
+	This tests Native Language Markup (NLM).
+	</data>
+	<data>The XML header of this file is
+	&lt;?xml encoding="Big5"?&gt;.
+	</data>
+	<data>The character is here:  <中 />.	</data>
+</test>

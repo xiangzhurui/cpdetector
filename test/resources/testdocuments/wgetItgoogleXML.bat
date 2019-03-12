@@ -1,4 +1,0 @@
-echo "A search at http://directory.google.com Computers.Data.Formats.Markup.Languages.XML for '*.xml' with limit to 10MB of documents only accepting xml files."
-echo "Please ensure that your .wgetrc contains the line 'robots=on'."
-echo "On windows, set the environment variable 'wgetrc' and point to your configuration file (.wgetrc)."
-wget --verbose --user-agent=Mozilla --force-directories --tries=6 --timestamping --timeout=30 --wait=4 --waitretry=20 --random-wait --dns-timeout=10 --recursive --level=6 --accept=.xml --exclude-domains=www.google.com --follow-ftp --span-hosts --force-directories --quota=10m --directory-prefix=google "http://www.google.com/search?q=.xml&sa=Google+Search&cat=gwd%2FTop%2FComputers%2FData_Formats%2FMarkup_Languages%2FXML%2FResources&hl=en"

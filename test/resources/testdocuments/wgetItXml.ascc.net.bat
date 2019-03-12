@@ -1,3 +1,0 @@
-echo "Please ensure that your .wgetrc contains the line 'robots=on'."
-echo "On windows, set the environment variable 'wgetrc' and point to your configuration file (.wgetrc)."
-wget --verbose -o wgetItXml.ascc.net.log --user-agent=Mozilla --force-directories --tries=6 --timestamping --timeout=30 --wait=4 --waitretry=20 --random-wait --dns-timeout=10 --recursive --level=6 --include-directories=*/text_xml --force-directories http://xml.ascc.net/test/
