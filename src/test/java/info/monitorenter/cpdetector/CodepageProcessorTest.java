@@ -52,7 +52,7 @@ package info.monitorenter.cpdetector;
 import org.junit.Test;
 
 import info.monitorenter.cpdetector.util.ExceptionUtil;
-import junit.framework.Assert;
+import org.junit.Assert;
 
 public class CodepageProcessorTest {
 
