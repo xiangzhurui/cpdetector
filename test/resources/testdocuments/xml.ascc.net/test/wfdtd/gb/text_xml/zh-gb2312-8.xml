@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="gb2312"?>
+<!DOCTYPE test SYSTEM 'http://www.ascc.net/xml/test/test.dtd'><!-- Copyright 1998 Academia Sinica Computing Center -->
+<!-- Permission to use and distribute granted under MPL -->
+<!-- Email corrections to ricko@gate.sinica.net.tw -->
+<test type="io8">
+	<name>Chinese Test #8: gb2312</name>
+	<data>This file has 1 Chinese character, directly entered.
+	</data>
+	<data>The XML header of this file is
+	&lt;?xml encoding="gb2312"?&gt;.
+	</data>
+	<data>The character is here: [中].
+	It is the Chinese character for middle.
+	It should look like a box with a vertical
+	line through its middle. 
+	</data>
+</test>

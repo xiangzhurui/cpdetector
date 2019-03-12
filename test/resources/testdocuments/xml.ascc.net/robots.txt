@@ -1,0 +1,8 @@
+# robots.txt for http://xml.ascc.net/
+
+User-agent: *
+Disallow: /test/wfall/ 
+Disallow: /test/wfns/
+Disallow: /test/wfdtd/
+Disallow: /test/wfss/
+

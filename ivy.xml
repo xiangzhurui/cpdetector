@@ -1,0 +1,22 @@
+<ivy-module version="2.0">
+	<info organisation="info.monitorenter" module="cpdetector" />
+	<dependencies>
+		<!-- <
+		dependency org="commons-lang" name="commons-lang" rev="2.0" /> 
+		<dependency org="commons-cli" name="commons-cli" rev="1.0" /> 
+		-->
+		<dependency org="org.antlr" name="antlr4" rev="4.7.1" />
+		<!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
+		<dependency org="org.slf4j" name="slf4j-api" rev="1.7.25"/>
+		<!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-simple -->
+		<!-- slf4j binding just pipes to error stream. -->
+		<dependency org="org.slf4j" name="slf4j-simple" rev="1.7.25"/>
+		
+		<!--  outdated: no version that processes java 8 in repos at hand -->
+		<!-- 
+		<dependency org="net.sf.proguard" name="proguard" rev="6.0.1">
+			<exclude module="kenv"/>
+		</dependency>
+		-->
+	</dependencies>
+</ivy-module>

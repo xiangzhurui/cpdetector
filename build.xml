@@ -1,25 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="cpdetector" default="jar.binaries">
+<project xmlns:ivy="antlib:org.apache.ivy.ant" name="cpdetector" default="jar.binaries">
 	<description>
   A framework for configurable
   and extendable encoding detection
   of textual documents.
  </description>
+
+
+	
 	<!-- General Properties -->
 	<property name="project.name" value="cpdetector" />
-	<property name="libdir" value="ext/" />
+	<property name="libdir" value="ext" />
+	<property name="libdir.build" value="${libdir}/build" />
 	<property name="builddir" value="bin/" />
-	<property name="sourcedir" value="src/" />
-	<property name="testsourcedir" value="test/" />
-	<property name="project.version" value="1.0.10" />
+	<property name="sourcedir" value="src/java" />
+	<property name="testsourcedir" value="test/java" />
+	<property name="project.version" value="1.1.0" />
 	<!-- for ant fit testing integration -->
 	<property name="fit.results.dir" value="${basedir}/test/fit/out/" />
+	
+	
+	<!-- Ivy classpath -->
+	<property environment="env"/>
+	<property name="ivy.home" value="${env.IVY_HOME}"/>
 
+	
 	<!-- General paths & filesets. -->
 	<path description="Classpath of project" id="classpath">
 		<pathelement path="${builddir}" />
 		<fileset refid="externalJars" />
 		<fileset refid="testingJars" />
+		<fileset refid="ivy.jars" />
 	</path>
 
 	<fileset description="Source files of project" dir="${basedir}" id="sourcefiles">
@@ -45,10 +56,21 @@
 		<exclude name="${libdir}/test/**" />
 	</fileset>
 
-	<fileset dir="${basedir}" id="buildJars" description="External library jar files that are needed for the build.">
-		<include name="${libdir}/build/*.jar" />
-	</fileset>
-
+	<path id="build.jars" description="External library jar files that are needed for the build.">
+		<fileset dir="${basedir}">
+			<include name="${libdir.build}/*.jar" />
+		</fileset>
+	</path>
+	
+	<path id="build.jars" description="External library jar files that are needed for the build.">
+		<fileset dir="${basedir}">
+			<include name="lib/*.jar" />
+		</fileset>
+        <fileset dir="${ivy.home}">
+            <include name="*.jar"/>
+        </fileset>
+	</path>
+	
 	<fileset dir="${basedir}" id="testingJars" description="External library jar files for testing. Will not be shipped in binary jar release.">
 		<include name="${libdir}/test/**/*.jar" />
 	</fileset>
@@ -58,24 +80,22 @@
 		<exclude name="**/*bat" />
 		<exclude name="**/*zip" />
 	</fileset>
-	<!-- optional taskdefs -->
+	
 	<!-- Taskdefs -->
 	<!--
           Shrinking for jarfiles
      -->
-	<taskdef name="proguard" classname="proguard.ant.ProGuardTask">
-		<classpath>
-			<fileset refid="buildJars" />
-		</classpath>
-	</taskdef>
-	
+	<!-- taskdef name="proguard" classname="proguard.ant.ProGuardTask" classpathref="build.jars" / -->
+	<echo message="ivy.home: ${ivy.home}"/>
+	<taskdef resource="org/apache/ivy/ant/antlib.xml" uri="antlib:org.apache.ivy.ant" classpathref="build.jars"/>
+
 	<!-- conditions -->
 	<condition property="is.testdocuments">
 		<available file="testdocuments">
 		</available>
 	</condition>
 
-		<condition property="is.uptodate.externalJars">
+	<condition property="is.uptodate.externalJars">
 		<and>
 			<available file="${builddir}/antlr/" />
 			<available file="${builddir}/jargs/" />
@@ -101,21 +121,38 @@
 		</uptodate>
 	</condition>
 
-	
+
 	<!-- Report conditions -->
 	<target name="report.testdocuments" unless="is.testdocuments">
 		<echo message="Cannot find testdocuments." />
 		<echo message="Please download from http://sourceforge.net/project/showfiles.php?group_id=114421" />
 	</target>
 
+	<!-- Start of apache ivy dependency mangagement -->
+	<!-- ================================= 
+          target: resolve              
+         ================================= -->
+	<target name="resolve" description="--> retrieve dependencies with ivy">
+		<ivy:retrieve />
+	</target>
+
 	<!-- Start of targets -->
+
+ 	<target name="init" depends="clean,resolve">
+	</target>
+
+	<!-- clean the classfiles -->
+	<target name="clean">
+		<delete dir="${builddir}">
+			<include name="**/*"/>
+		</delete>
+	</target>
+
 	<!-- compile the java sources -->
-
-
-	<target name="build" depends="build.parser.charset">
+	<target name="build" depends="init,build.parser.charset">
 		<mkdir dir="${builddir}" />
-		<echo>Compiling 1.5 core code.</echo>
-		<javac fork="true" debug="true" target="1.5" source="1.5" verbose="false" destdir="${builddir}">
+		<echo>Compiling 1.7 core code.</echo>
+		<javac fork="true" debug="true" target="1.7" source="1.7" verbose="false" destdir="${builddir}">
 			<classpath refid="classpath" />
 			<src>
 				<pathelement location="${sourcedir}" />
@@ -146,14 +183,19 @@
 		<jar destfile="${project.name}_${project.version}.jar" update="false" manifest="manifest.mf">
 			<fileset dir="${builddir}">
 				<include name="**/*.class" />
-				<exclude name="cpdetector/test/ui/**/*" />
-				<exclude name="junit/**/*" />
+				<exclude name="info/monitorenter/cpdetector/test/**/*" />
+				<exclude name="**/*Test.class" />
 			</fileset>
 		</jar>
 		<!-- 
 	         Shrink the jar file.
-	        -->
-		<proguard obfuscate="false" shrink="true" overloadaggressively="false" warn="true" verbose="true" ignorewarnings="true" optimize="false" printmapping="true" allowaccessmodification="false">
+	    -->
+		<echo>java.home:${java.home}</echo>
+		
+		<taskdef name="proguard" classname="proguard.ant.ProGuardTask" classpathref="build.jars"/>
+
+		
+		<proguard obfuscate="false" shrink="true" overloadaggressively="false" warn="true" verbose="true" ignorewarnings="false" optimize="false" printmapping="true" allowaccessmodification="false">
 			<libraryjar>
 				<pathelement path="${java.home}/lib/rt.jar" />
 				<fileset dir="${basedir}/ext/">
@@ -170,42 +212,55 @@
 			<keep name="info.monitorenter.cpdetector.*">
 				<method name="*" />
 			</keep>
+<!--
 			<keep name="info.monitorenter.cpdetector.io.**">
 				<method name="*" />
-
 			</keep>
 			<keep name="util*">
 				<method name="*" />
 			</keep>
+-->			
 			<!-- keep all Exceptions they are moved outside -->
+<!--
 			<keep name="antlr.**Exception*">
 			</keep>
+-->
 			<!-- keep all Tokens they are moved outside -->
+<!--
 			<keep name="antlr.**Token*" extends="antlr.Token">
 				<method name="**" />
 			</keep>
+-->
 			<!-- 
 				 If several jar files contain obfuscated antlr runtime 
 				 libraries, NoSuchMethodError may occur. 
-	    		-->
+    		-->
+<!--
 			<keepnames name="antlr.**">
 				<method name="**" />
 				<field name="**" />
+			</keepnames>
+-->
+			<!-- debug NPE -->
+			<keepnames name="**/*" >
+					<field name="*"/>
 			</keepnames>
 			<!-- 
 				 Don't shrink Charscanner methods away, 
 				 another grammar might need them. 
 				-->
+<!--
 			<keep name="antlr.CharScanner">
 				<method name="**" />
 				<field name="**" />
 			</keep>
+-->			
 		</proguard>
 		<!-- Rename the shrinked version to the original name. -->
-
+<!--
 		<delete file="${basedir}/${project.name}_${project.version}.jar" />
 		<move file="${basedir}/${project.name}_${project.version}_min.jar" tofile="${basedir}/${project.name}_${project.version}.jar" />
-
+-->
 	</target>
 
 	<!-- Dependency only for ensuring validity -->
